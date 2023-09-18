@@ -9,14 +9,12 @@
 }
 .YOUR_PREFIX-slider > div, .YOUR_PREFIX-slider > ul {
   display: inline-flex;
-  width: -webkit-max-content;
   width: -moz-max-content;
   width: max-content;
   margin: 0 auto;
 }
 @media only screen and (min-width: 480px) {
   .YOUR_PREFIX-slider > div, .YOUR_PREFIX-slider > ul {
-    width: -webkit-max-content;
     width: -moz-max-content;
     width: max-content;
   }
@@ -24,7 +22,6 @@
 @media only screen and (min-width: 768px) {
   .YOUR_PREFIX-slider > div, .YOUR_PREFIX-slider > ul {
     display: flex;
-    width: -webkit-fit-content;
     width: -moz-fit-content;
     width: fit-content;
   }
