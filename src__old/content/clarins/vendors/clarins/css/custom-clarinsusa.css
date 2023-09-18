@@ -1,0 +1,4107 @@
+/**
+
+This file is provided for example purposes only.
+
+Customer is expected to customise as they see fit.
+
+Before deployment, this file should be minimised!
+
+**/
+
+
+
+/************************************************************************
+
+Utility classes
+
+************************************************************************/
+
+
+
+/*margin issues for french version */
+
+
+
+.megamenu-header .level0Nav.megamenu-header-right-links .component, .megamenu-header .megamenu-header-left-links .component {
+	margin-right: 0px;
+}
+/*
+
+Classes for delayed image loading
+
+See See https://wiki.ecommera.com/display/CLR/Content+creation+guide#Contentcreationguide-Delayingimageloading for details */
+
+
+
+.img-delayed-container {
+	/* Position relative so we can absolutely position child imgs */
+
+	position: relative;
+	height: 0;
+	/* Add the placeholder spinner centred */
+
+	background: white url(../images/placeholder.gif) center center no-repeat;
+}
+.img-delayed-container > img {
+	/* Make the image take up the entire available parent */
+
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	/* Make sure 1x1 PNG doesn't take up any height or obscure the background */
+
+	display: none;
+}
+.img-delayed-container > .js-loaded {
+	/* When image is loaded, make sure its shown */
+
+	display: block;
+}
+
+/* Checkout breadcrumb long french text fix */
+.fr_FR .checkout-progress-indicator-rework .step-2 {
+	min-width: 230px;
+}
+
+/************************************************************************
+
+Menu
+
+************************************************************************/
+
+/* Aspect ratio for 4-tile menu pane images */
+
+.aspect-ratio-263x332 {
+	/* Class to retain aspect ratio of image we're loading */
+
+	padding-bottom: 126.23574144%;/* 332 / 263 */
+}
+/* Aspect ratio for wide menu pane images */
+
+.aspect-ratio-1170x440 {
+	/* Class to retain aspect ratio of image we're loading */
+
+	padding-bottom: 37.60683760%; /* 440 / 1170 */
+}
+.promotionOverlay {
+	position: absolute;/* To position on top of image */
+	height: 100%;
+	padding-left: 50px;
+	padding-right: 50px;
+	margin-top: 10px;
+	z-index: 1;
+	text-align: center;
+	color: white;
+	font-size: 14px;
+}
+.promotionOverlay p {
+	margin-bottom: 0;
+	margin-top: 6px;
+	word-break: normal;
+}
+.promotionHeader, .promotionLink, .promotionOverlayTitle {
+	text-transform: uppercase;
+}
+span.promotionDescription {
+	width: 100%;
+	max-width: 206px;
+}
+span.promotionHeader, span.promotionLink, .promotionOverlayTitle {
+	width: 100%;
+}
+/* This shouldn't be such a qualified selector - necessary because there is
+
+a site selector that needs to be over-ridden */
+
+.verticalAssetContainer .promotionLink {
+	border: none;
+	border-bottom: 1px solid #bfbfbf;
+	font-family: 'Gotham SSm medium A', 'Gotham SSm medium B', Helvetica, Arial, sans-serif;
+}
+.verticalAssetContainer span.promotionLink {
+	display: inline-block;
+	width: auto;
+}
+.verticalAssetContainer a {
+	border-bottom: 0px solid !important;
+}
+.verticalAssetContainer .promotionHeader {
+	font-family: "Gotham SSm book A", "Gotham SSm book B", Helvetica, Arial, sans-serif;
+}
+.verticalAssetContainer span.promotionDescription {
+	text-transform: none!important;
+	font-family: "Gotham SSm book A", "Gotham SSm book B", Helvetica, Arial, sans-serif;
+}
+.verticalAssetContainer a:hover .promotionLink {
+	border-bottom: 1px solid #be0f34;
+}
+
+/* Fix to make the desktop menu bar take up full width.
+
+See https://jira.ecommera.com/browse/CLRG-1757 */
+
+@media only screen and (min-width:762px) {
+.topbanner-wrapper {
+	max-width: none;
+}
+.verticalAssetContainer img {
+	max-width: none;
+}
+}
+
+@media only screen and (min-width:1024px) {
+
+.verticalAssetContainer img {
+	max-width: 206px;
+}
+}
+/*Fix for logo signature */
+
+
+/*Bspot  */
+
+
+
+
+
+.Bspot-banner a:active {
+	outline: none;
+}
+.Bspot-banner {
+	text-align: center;
+}
+.Bspot-banner .col {
+	display: inline-block;
+	vertical-align: top;
+	float: none;
+	padding-bottom: 60px;
+}
+.Bspot-banner a {
+	color: #000;
+}
+.Bspot-banner a:hover {
+	color: #000;
+}
+.Bspot-banner h2 {
+	font-size: 40px;
+	font-family: ClarinsRegular;
+	margin: 0;
+	padding: 0;
+	font-weight: normal;
+	text-align: center;
+	color: #000000;
+	line-height: 1em;
+	padding-top: 0.5em;
+}
+
+@media screen and (max-width: 761px) {
+.Bspot-banner h2 {
+	font-size: 30px;
+}
+}
+.Bspot-banner p {
+	font-size: 16px;
+	line-height: 25px;
+	margin: 0;
+	padding: 0;
+	font-weight: normal;
+	text-align: center;
+	color: #000000;
+	padding-top: 10px;
+	padding-left: 20px;
+	padding-right: 20px;
+}
+.Bspot-banner p.small-content {
+	font-size: 14px;
+	line-height: 20px;
+}
+.Bspot-banner .btn-link {
+	border: 2px solid #e5e5e5;
+	padding: 18px;
+	padding-top: 16px;
+	padding-bottom: 16px;
+	margin-top: 20px;
+	display: inline-block;
+	min-width: 60px;
+	font-weight: normal;
+	text-align: center;
+	text-transform: uppercase;
+	font-family: "Gotham SSm medium A", "Gotham SSm medium B", Helvetica, Arial, sans-serif;
+	font-size: 11px;
+	color: #000000;
+	line-height: 14px;
+}
+.Bspot-banner .btn-link:hover {
+	border: 2px solid #000;
+	color: #000000;
+}
+.Bspot-banner .btn-link-black {
+	padding: 15px;
+	margin-top: 20px;
+	display: inline-block;
+	min-width: 160px;
+	font-weight: normal;
+	text-align: center;
+	text-transform: uppercase;
+	font-family: "Gotham SSm medium A", "Gotham SSm medium B", Helvetica, Arial, sans-serif;
+	font-size: 11px;
+	color: #FFFFFF;
+	line-height: 1em;
+	background-color: #000;
+}
+.Bspot-banner img {
+	width: 100%;
+	max-width: 452px;
+}
+.Bspot-banner .special-mention {
+	color: #be0f34;
+	display: block;
+	font-family: "Gotham SSm medium A", "Gotham SSm medium B", Helvetica, Arial, sans-serif;
+	font-size: 14px;
+	line-height: 30px;
+	margin-top: -30px;
+}
+/*tips & video  */
+
+
+
+.editorial-slides-section {
+	margin-left: auto!important;
+	margin-right: auto!important;
+	max-width: 1024px;
+}
+.editorial-slides-section p {
+	margin: 0!important;
+}
+.editorial-slides-section .text-link {
+	margin: 0;
+	padding-top: 15px!important;
+	color: #000!important;
+	line-height: 1em!important;
+	text-transform: uppercase;
+	display: inline-block;
+	font-size: 11px!important;
+	text-decoration: none!important;
+	border-bottom: #d4d4d4 1px solid!important;
+}
+.editorial-slides-section .text-link:hover {
+	border-bottom: #be0f34 1px solid!important;
+	color: #be0f34!important;
+}
+.editorial-slides-section h3 {
+	padding-top: 0.2em!important;
+}
+.editorial-slides-section .jcarousel-pagination {
+	display: none;
+}
+.editorial-slides-section .jcarousel li {
+	vertical-align: top;
+}
+
+@media screen and (max-width: 761px) {
+.editorial-slides-section .jcarousel-pagination {
+	display: block;
+	bottom: 40px;
+}
+.editorial-slides-section .jcarousel {
+	padding-bottom: 80px!important;
+}
+.editorial-slides-section .jcarousel li {
+	display: inline-block!important;
+	float: none!important;
+}
+}
+.editorial-slides-section h3 .special-mention {
+	color: #be0f34;
+	display: block;
+	font-family: "Gotham SSm medium A", "Gotham SSm medium B", Helvetica, Arial, sans-serif;
+	font-size: 12px;
+	letter-spacing: normal;
+}
+/*---------------------------------------------------*/
+
+/*            Special Offers V1                      */
+
+/*---------------------------------------------------*/
+
+
+
+/* Special Offers V1 - Aspot  */
+
+
+
+#SpecialOffers-V1-Aspot {
+	margin: 0px;
+	padding: 0px;
+	text-align: center;
+	position: relative;
+	display: block;
+	width: 100%;
+	overflow: hidden;
+	max-width: 1024px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 60px;
+}
+#SpecialOffers-V1-Aspot .jcarouselControlarrows {
+	display: none;
+}
+#SpecialOffers-V1-carousel {
+	overflow: hidden;
+	position: relative;
+	width: 100%;
+}
+#SpecialOffers-V1-Aspot ul {
+	margin: 0px;
+	padding: 0px;
+	text-align: center;
+	display: block;
+	position: relative;
+	width: 20000em;
+}
+#SpecialOffers-V1-Aspot li {
+	width: 286px;
+	margin: 0px;
+	display: block;
+	padding: 0;
+	float: left;
+	vertical-align: top;
+	font-size: 0;
+	text-align: center;
+}
+#SpecialOffers-V1-Aspot li a {
+	color: #000;
+	font-size: 13px;
+	text-transform: none;
+	max-width: 300px;
+	display: inline-block;
+	margin-left: 20px;
+	margin-right: 20px;
+}
+#SpecialOffers-V1-Aspot li a:hover {
+	color: #000;
+}
+#SpecialOffers-V1-Aspot li .Visual {
+	max-width: 286px;
+	width: 100%;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+#SpecialOffers-V1-Aspot li .Picto {
+	max-width: 286px;
+	width: 20%;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+#SpecialOffers-V1-Aspot li h3 {
+	margin: 0;
+	padding: 0px;
+	position: relative;
+	display: block;
+	text-align: center;
+	font-family: ClarinsRegular;
+	font-weight: normal;
+	color: #000;
+	font-size: 40px;
+	padding-bottom: 10px;
+	line-height: 1em;
+}
+
+@media screen and (max-width: 1023px) {
+#SpecialOffers-V1-Aspot li h3 {
+	font-size: 35px;
+}
+}
+#SpecialOffers-V1-Aspot .btn-link {
+	border: 2px solid #e5e5e5;
+	padding: 16px;
+	margin-top: 0px;
+	min-width: 176px;
+	font-family: "Gotham SSm medium A", "Gotham SSm medium B", Helvetica, Arial, sans-serif;
+	font-size: 11px;
+	color: #000000;
+	line-height: 14px;
+	text-transform: uppercase;
+	display: inline-block;
+	position: relative;
+	text-decoration: none;
+	margin-bottom: 30px;
+	margin-top: 30px;
+}
+#SpecialOffers-V1-Aspot .btn-link:hover {
+	border: 2px solid #000;
+	color: #000000;
+}
+#SpecialOffers-V1-Aspot .btn-link:hover a {
+	color: #000000;
+}
+.SpecialOffers-V1-slides-section {
+	margin-left: auto!important;
+	margin-right: auto!important;
+	max-width: 1024px;
+}
+#SpecialOffers-V1-Aspot .jcarousel-pagination {
+	display: none;
+}
+#SpecialOffers-V1-Aspot .jcarousel li {
+	vertical-align: top;
+}
+#SpecialOffers-V1-Aspot .jcarouselControlarrows {
+	display: none;
+}
+
+@media screen and (max-width: 761px) {
+#SpecialOffers-V1-Aspot .jcarousel-pagination {
+	display: block;
+	bottom: 20px;
+}
+#SpecialOffers-V1-Aspot .jcarousel {
+	padding-bottom: 40px!important;
+}
+#SpecialOffers-V1-Aspot .jcarousel li {
+	display: inline-block!important;
+	float: none!important;
+}
+#SpecialOffers-V1-Aspot li:first-child {
+	margin-right: 20px;
+	margin-left: 20px;
+}
+}
+/* Special Offers V1 - Cart banner */
+
+
+
+#SpecialOffers-V1-Cartbanner {
+	padding: 30px;
+	position: relative;
+	display: block;
+	border: #efefef 10px solid;
+}
+#SpecialOffers-V1-Cartbanner ul {
+	margin: 0px;
+	padding: 0px;
+	text-align: center;
+	position: relative;
+	display: block;
+	list-style: none;
+	min-height: 165px;
+	line-height: 165px;
+	width: 100%;
+}
+#SpecialOffers-V1-Cartbanner li:first-child {
+	margin-left: 0px;
+}
+#SpecialOffers-V1-Cartbanner li {
+	min-width: 100px;
+	margin: 0px;
+	display: inline-block;
+	margin-left: 5%;
+	padding: 0;
+	float: none;
+	vertical-align: middle;
+	font-size: 0;
+	width: 29%;
+	line-height: 11px;
+	min-height: 120px;
+}
+#SpecialOffers-V1-Cartbanner li a {
+	color: #000;
+	font-size: 11px;
+	text-transform: none;
+	line-height: 1em;
+}
+#SpecialOffers-V1-Cartbanner li a:hover {
+	color: #000;
+}
+#SpecialOffers-V1-Cartbanner li img {
+	width: 50px!important;
+}
+#SpecialOffers-V1-Cartbanner li h3 {
+	margin: 0;
+	padding: 0px;
+	position: relative;
+	display: block;
+	text-align: center;
+	font-family: ClarinsRegular;
+	font-weight: normal;
+	color: #000;
+	font-size: 26px;
+	padding-bottom: 8px;
+	line-height: 1em;
+}
+
+@media only screen and (max-width:1023px) {
+#SpecialOffers-V1-Cartbanner li h3 {
+	font-size: 20px;
+}
+#SpecialOffers-V1-Cartbanner li {
+	margin-left: 0%;
+	width: 32%;
+}
+#SpecialOffers-V1-Cartbanner {
+	padding: 10px;
+}
+#SpecialOffers-V1-Cartbanner li a {
+	font-size: 10px;
+}
+}
+/* Special Offers V1 - MegaMenu  */
+
+
+
+#SpecialOffers-V1-MegaMenu {
+	margin: 0px;
+	padding: 0px;
+	text-align: center;
+	position: relative;
+	display: block;
+	width: 100%;
+}
+#SpecialOffers-V1-MegaMenu li:first-child {
+	margin-left: 0px;
+}
+#SpecialOffers-V1-MegaMenu li {
+	width: 286px;
+	margin: 0px;
+	display: inline-block;
+	margin-left: 40px;
+	padding: 0;
+	float: none;
+	vertical-align: top;
+	font-size: 0;
+}
+#SpecialOffers-V1-MegaMenu li a {
+	color: #000;
+	font-size: 13px;
+	text-transform: none;
+	font-family: "Gotham SSm book A", "Gotham SSm book B", Helvetica, Arial, sans-serif;
+}
+#SpecialOffers-V1-MegaMenu li a:hover {
+	color: #000;
+}
+#SpecialOffers-V1-MegaMenu li img {
+	max-width: none;
+}
+#SpecialOffers-V1-MegaMenu li h3 {
+	margin: 0;
+	padding: 0px;
+	position: relative;
+	display: block;
+	text-align: center;
+	font-family: ClarinsRegular;
+	font-weight: normal;
+	color: #000;
+	font-size: 37px;
+	padding-bottom: 10px;
+	line-height: 1em;
+}
+.SpecialOffers-V1-WidePromo-bottom {
+	line-height: 50px;
+	width: 100%;
+	position: relative;
+	padding: 15px;
+}
+.SpecialOffers-V1-WidePromo-bottom .leftSectionWidePromo {
+	font-size: 16px;
+	line-height: 16px;
+	letter-spacing: 0.02em;
+	color: #be0f34;
+	display: inline-block;
+	height: 16px;
+	vertical-align: middle;
+}
+.SpecialOffers-V1-WidePromo-bottom .rightSectionWidePromo {
+	color: #000;
+	font-size: 10px;
+	letter-spacing: 0.1em;
+	text-align: center;
+	margin-left: 15px;
+	display: inline-block;
+	vertical-align: middle;
+}
+.SpecialOffers-V1-WidePromo-bottom .rightSectionWidePromo a {
+	color: #000;
+	border: 2px solid #e5e5e5;
+	display: inline-block;
+	padding: 18px;
+	font-size: 11px;
+	min-height: 11px;
+	line-height: 11px;
+}
+.SpecialOffers-V1-WidePromo-bottom .rightSectionWidePromo a:hover {
+	color: #000;
+	border: 2px solid #000;
+}
+/* Special Offers V1 - Minicart  */
+
+
+
+#SpecialOffers-V1-Minicart {
+	margin: 0px;
+	padding: 0px;
+	text-align: center;
+	position: relative;
+	display: block;
+	width: 100%;
+	padding-bottom: 10px;
+}
+#SpecialOffers-V1-Minicart ul {
+	margin: 0px;
+	padding: 0px;
+	text-align: left;
+	position: relative;
+	display: block;
+	width: 100%;
+}
+#SpecialOffers-V1-Minicart .Picto {
+	display: inline-block;
+	width: 18%;
+	margin-right: 5%;
+	vertical-align: middle;
+}
+#SpecialOffers-V1-Minicart span {
+	display: inline-block;
+	letter-spacing: -0.1em;
+	line-height: 11px;
+	text-align: left;
+	vertical-align: middle;
+	width: 74%;
+	font-size: 11px;
+}
+#SpecialOffers-V1-Minicart li {
+	display: block;
+	font-size: 0;
+	height: 50px;
+	line-height: 50px;
+	margin: 0;
+	padding: 0;
+	position: relative;
+	vertical-align: top;
+	width: 100%;
+}
+#SpecialOffers-V1-Minicart li a {
+	color: #000;
+	font-size: 0px;
+	text-transform: none;
+	border-bottom: 0px solid;
+	width: 100%;
+	position: relative;
+}
+#SpecialOffers-V1-Minicart li a:hover {
+	color: #000;
+}
+#SpecialOffers-V1-Minicart li img {
+	max-width: none;
+}
+#SpecialOffers-V1-Minicart li strong {
+	margin: 0;
+	padding: 0px;
+	position: relative;
+	display: block;
+	text-align: left;
+	font-weight: normal;
+	color: #000;
+	font-size: 14px;
+	line-height: 14px;
+	font-family: 'Gotham SSm medium A', 'Gotham SSm medium B', Helvetica, Arial, sans-serif;
+	text-transform: uppercase;
+	padding-bottom: 2px;
+}
+/* Special Offers V1 - ProductBanner  */
+
+
+
+
+
+#SpecialOffers-V1-ProductBanner {
+	margin: 0px;
+	padding: 0px;
+	text-align: center;
+	position: relative;
+	display: block;
+	width: 100%;
+}
+#SpecialOffers-V1-ProductBanner ul {
+	margin: 0px;
+	padding: 0px;
+	text-align: center;
+	position: relative;
+	display: block;
+	width: 100%;
+}
+#SpecialOffers-V1-ProductBanner .Visual {
+	float: left;
+}
+#SpecialOffers-V1-ProductBanner .Picto {
+	padding-top: 30px;
+	display: inline-block;
+	width: 50px;
+	margin-left: -10px;
+	height: 50px;
+}
+#SpecialOffers-V1-ProductBanner li:first-child .Picto {
+	margin-left: 0px;
+}
+#SpecialOffers-V1-ProductBanner span {
+	display: block;
+	line-height: 12px;
+	margin-left: 160px;
+	max-width: 250px;
+	text-align: left;
+}
+#SpecialOffers-V1-ProductBanner li:first-child {
+	margin-left: 0px;
+}
+#SpecialOffers-V1-ProductBanner li {
+	margin: 0px;
+	display: inline-block;
+	margin-left: 40px;
+	padding: 0;
+	float: none;
+	vertical-align: top;
+	font-size: 0;
+	text-align: left;
+}
+#SpecialOffers-V1-ProductBanner li a {
+	color: #000;
+	font-size: 11px;
+	text-transform: none;
+}
+#SpecialOffers-V1-ProductBanner li a:hover {
+	color: #000;
+}
+#SpecialOffers-V1-ProductBanner li img {
+	max-width: none;
+}
+#SpecialOffers-V1-ProductBanner li strong {
+	margin: 0;
+	padding: 0px;
+	position: relative;
+	display: block;
+	text-align: left;
+	font-weight: normal;
+	color: #000;
+	font-size: 16px;
+	line-height: 16px;
+	font-family: 'Gotham SSm medium A', 'Gotham SSm medium B', Helvetica, Arial, sans-serif;
+	text-transform: uppercase;
+	margin-bottom: 4px;
+}
+
+@media only screen and (max-width:1023px) {
+#SpecialOffers-V1-ProductBanner .Visual {
+	display: none;
+}
+#SpecialOffers-V1-ProductBanner .Picto {
+	display: inline-block;
+	vertical-align: middle;
+	width: 70px;
+	height: 70px;
+	padding-top: 0px;
+}
+#SpecialOffers-V1-ProductBanner li {
+	display: inline-block;
+	margin-left: auto !important;
+	margin-right: auto !important;
+	text-align: left;
+	vertical-align: middle;
+	width: 270px;
+}
+#SpecialOffers-V1-ProductBanner span {
+	display: inline-block;
+	text-align: left;
+	vertical-align: middle;
+	width: 170px;
+	margin-left: 10px;
+}
+}
+/* Special Offers V1 - SearchBanner  */
+
+
+
+#SpecialOffers-V1-SearchBanner {
+	padding: 30px;
+	position: relative;
+	display: block;
+}
+#SpecialOffers-V1-SearchBanner ul {
+	margin: 0px;
+	padding: 0px;
+	text-align: center;
+	position: relative;
+	display: block;
+	list-style: none;
+}
+#SpecialOffers-V1-SearchBanner li:first-child {
+	margin-left: 0px;
+}
+#SpecialOffers-V1-SearchBanner li {
+	min-width: 160px;
+	width: 30%;
+	margin: 0px;
+	display: inline-block;
+	margin-left: 20px;
+	padding: 0;
+	float: none;
+	vertical-align: top;
+	font-size: 0;
+}
+#SpecialOffers-V1-SearchBanner li a {
+	color: #000;
+	font-size: 11px;
+	text-transform: none;
+	display: block;
+	width: 100%;
+	max-width: 250px;
+	margin-left: auto;
+	margin-right: auto;
+}
+#SpecialOffers-V1-SearchBanner li a:hover {
+	color: #000;
+}
+#SpecialOffers-V1-SearchBanner li img {
+	width: 60px!important;
+	margin-right: 5px;
+}
+#SpecialOffers-V1-SearchBanner li h3 {
+	margin: 0;
+	padding: 0px;
+	position: relative;
+	display: block;
+	text-align: center;
+	font-family: ClarinsRegular;
+	font-weight: normal;
+	color: #000;
+	font-size: 36px;
+	padding-bottom: 0px;
+	line-height: 1em;
+}
+#SpecialOffers-V1-SearchBanner li span {
+	display: inline-block;
+	vertical-align: top;
+	padding-top: 10px;
+}
+
+@media only screen and (max-width:1023px) {
+#SpecialOffers-V1-SearchBanner {
+	padding: 15px;
+	position: relative;
+	display: block;
+}
+#SpecialOffers-V1-SearchBanner li h3 {
+	font-size: 30px;
+}
+}
+
+@media only screen and (max-width:761px) {
+#SpecialOffers-V1-SearchBanner {
+	padding: 0px;
+}
+#SpecialOffers-V1-SearchBanner li img {
+	width: 50px!important;
+}
+#SpecialOffers-V1-SearchBanner .Picto {
+	float: left;
+}
+#SpecialOffers-V1-SearchBanner li h3 {
+	text-align: left;
+	font-size: 25px;
+	margin-left: 60px;
+	display: block;
+	padding-top: 10px;
+}
+#SpecialOffers-V1-SearchBanner li a {
+	color: #000;
+	font-size: 11px;
+	text-transform: none;
+	width: 100%;
+}
+#SpecialOffers-V1-SearchBanner li {
+	text-align: left;
+	display: block;
+	width: 100%;
+	margin: 0px;
+	min-height: 70px;
+}
+#SpecialOffers-V1-SearchBanner span {
+	margin-left: 60px;
+	display: block!important;
+	padding-bottom: 10px;
+	padding-top: 5px!important;
+}
+}
+#SpecialOffers-V1-SearchBanner-Help {
+	position: relative;
+	display: block;
+	font-size: 14px;
+	line-height: 21px!important;
+}
+#SpecialOffers-V1-SearchBanner-Help strong {
+	display: block;
+}
+/*---------------------------------------------------*/
+
+/*            Special Offers V2                      */
+
+/*---------------------------------------------------*/
+
+
+
+/* Special Offers V2 - Aspot  */
+
+
+
+
+
+#SpecialOffers-V2-Aspot {
+	text-align: center;
+	padding-bottom: 30px;
+}
+#SpecialOffers-V2-Aspot .Aspot-Cat1 {
+	position: relative;
+	overflow: hidden;
+}
+#SpecialOffers-V2-Aspot .Aspot-Cat1 img {
+	width: 100%;
+	max-width: 1250px;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	position: relative;
+}
+#SpecialOffers-V2-Aspot .Aspot-Cat1 .visual {
+	display: block;
+	overflow-y: hidden;
+	position: absolute;
+	width: 2000px;
+	text-align: center;
+	height: 100%;
+	top: 0;
+	left: 50%;
+	margin-left: -1000px;
+}
+#SpecialOffers-V2-Aspot .Aspot-Cat1 .visual img {
+	height: 100%;
+	vertical-align: middle;
+	display: inline-block;
+	width: auto!important;
+}
+#SpecialOffers-V2-Aspot .gutter {
+	text-align: center;
+}
+#SpecialOffers-V2-Aspot h1 {
+	margin: 0;
+	padding: 0;
+	font-size: 60px;
+	line-height: 1em;
+	font-family: ClarinsRegular;
+	font-weight: normal;
+	text-align: center;
+	display: block;
+	position: relative;
+	margin-top: -0.5em;
+}
+#SpecialOffers-V2-Aspot p {
+	margin: 0;
+	text-align: center;
+	font-size: 16px;
+	line-height: 26px;
+	position: relative;
+	padding-bottom: 20px;
+}
+
+@media screen and (max-width: 761px) {
+#SpecialOffers-V2-Aspot h1 {
+	font-size: 40px;
+	margin-top: 0.5em;
+}
+}
+/* Special Offers V2 - Cart banner */
+
+
+
+#SpecialOffers-V2-Cartbanner {
+	padding: 30px;
+	position: relative;
+	display: block;
+	border: #efefef 10px solid;
+	overflow: hidden;
+}
+#SpecialOffers-V2-Cartbanner .content {
+	width: 50%;
+	position: absolute;
+	line-height: 200px;
+	height: 200px;
+	top: 50%;
+	margin-top: -100px;
+	right: 0px;
+}
+#SpecialOffers-V2-Cartbanner .wrapper {
+	display: inline-block;
+	vertical-align: middle;
+	position: relative;
+	text-align: center;
+	width: 100%;
+}
+#SpecialOffers-V2-Cartbanner ul {
+	margin: 0px;
+	padding: 0px;
+	text-align: center;
+	position: relative;
+	display: block;
+	list-style: none;
+	width: 50%;
+}
+#SpecialOffers-V2-Cartbanner li {
+	width: 45%;
+	margin: 0px;
+	display: inline-block;
+	padding: 0;
+	float: none;
+	vertical-align: top;
+	font-size: 0;
+	padding-bottom: 10px;
+	font-family: 'Gotham SSm medium A', 'Gotham SSm medium B', Helvetica, Arial, sans-serif;
+}
+#SpecialOffers-V2-Cartbanner li a {
+	color: #000;
+	font-size: 11px;
+	text-transform: none;
+}
+#SpecialOffers-V2-Cartbanner li a:hover {
+	color: #000;
+}
+#SpecialOffers-V2-Cartbanner li img {
+	width: 100%!important;
+	max-width: 140px;
+}
+#SpecialOffers-V2-Cartbanner h3 {
+	margin: 0;
+	padding: 0px;
+	position: relative;
+	display: block;
+	text-align: center;
+	font-family: ClarinsRegular;
+	font-weight: normal;
+	color: #000;
+	font-size: 30px;
+	padding-bottom: 0px;
+	line-height: 1em;
+}
+#SpecialOffers-V2-Cartbanner p {
+	font-size: 11px;
+	line-height: 17px;
+}
+
+@media screen and (max-width: 1023px) {
+#SpecialOffers-V2-Cartbanner .content {
+	width: 100%;
+	position: relative;
+	line-height: 1em;
+	height: auto;
+	margin-top: 20px;
+}
+#SpecialOffers-V2-Cartbanner ul {
+	width: 100%;
+	max-width: 280px;
+	padding-top: 20px;
+	margin-left: auto;
+	margin-right: auto;
+}
+}
+/* Special Offers V2 - MegaMenu  */
+
+
+
+#SpecialOffers-V2-MegaMenu {
+	margin: 0px;
+	padding: 0px;
+	text-align: center;
+	position: relative;
+	display: block;
+	width: 100%;
+}
+#SpecialOffers-V2-MegaMenu ul {
+	width: 920px;
+	margin: 0px;
+	display: block;
+	padding: 0;
+	text-align: center;
+	position: relative;
+	margin-left: auto;
+	margin-right: auto;
+}
+#SpecialOffers-V2-MegaMenu li {
+	width: 226px;
+	margin: 0px;
+	display: inline-block;
+	padding: 0;
+	float: none;
+	vertical-align: top;
+	font-size: 0;
+}
+#SpecialOffers-V2-MegaMenu .content {
+	width: 1024px;
+	margin: 0px;
+	display: block;
+	padding: 0;
+	text-align: center;
+	position: relative;
+	margin-left: auto;
+	margin-right: auto;
+	height: 200px;
+	line-height: 200px;
+	margin-bottom: 40px;
+}
+#SpecialOffers-V2-MegaMenu .content img {
+	width: 368px;
+	display: inline-block;
+	max-width: 368px;
+	vertical-align: middle;
+}
+#SpecialOffers-V2-MegaMenu .content h3 {
+	margin: 0;
+	padding: 0px;
+	position: relative;
+	display: block;
+	text-align: center;
+	font-family: ClarinsRegular;
+	font-weight: normal;
+	color: #000;
+	font-size: 50px;
+	padding-bottom: 0px;
+	line-height: 1em;
+}
+#SpecialOffers-V2-MegaMenu .wrapper {
+	display: inline-block;
+	vertical-align: middle;
+	width: 480px;
+	position: relative;
+	margin-left: 40px;
+	line-height: 0;
+}
+#SpecialOffers-V2-MegaMenu .wrapper p {
+	margin: 0;
+	padding: 0;
+	line-height: 25px!important;
+	font-size: 16px!important;
+	word-break: normal!important;
+	text-align: center!important;
+	width: 340px;
+	display: inline-block;
+	padding-top: 10px;
+}
+#SpecialOffers-V2-MegaMenu .wrapper p.small-text {
+	line-height: 25px!important;
+	font-size: 14px!important;
+	padding-top: 0px;
+}
+/* Special Offers V2 - Minicart  */
+
+
+
+#SpecialOffers-V2-Minicart p {
+	font-size: 11px;
+}
+#SpecialOffers-V2-Minicart p.title {
+	font-size: 14px;
+	font-family: 'Gotham SSm medium A', 'Gotham SSm medium B', Helvetica, Arial, sans-serif;
+}
+/* Special Offers V2 - SearchBanner */
+
+
+
+#SpecialOffers-V2-SearchBanner {
+	position: relative;
+	display: block;
+	overflow: hidden;
+}
+#SpecialOffers-V2-SearchBanner .content {
+	width: 100%;
+	position: relative;
+	display: block;
+}
+#SpecialOffers-V2-SearchBanner ul {
+	margin: 0px;
+	padding: 0px;
+	text-align: center;
+	position: relative;
+	display: block;
+	list-style: none;
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+}
+#SpecialOffers-V2-SearchBanner li {
+	width: 24%;
+	margin: 0px;
+	display: inline-block;
+	padding: 0;
+	float: none;
+	vertical-align: top;
+	font-size: 0;
+	padding-bottom: 10px;
+	font-family: 'Gotham SSm medium A', 'Gotham SSm medium B', Helvetica, Arial, sans-serif;
+}
+#SpecialOffers-V2-SearchBanner li a {
+	color: #000;
+	font-size: 11px;
+	text-transform: none;
+}
+#SpecialOffers-V2-SearchBanner li a:hover {
+	color: #000;
+}
+#SpecialOffers-V2-SearchBanner li img {
+	width: 100%!important;
+	max-width: 226px;
+}
+#SpecialOffers-V2-SearchBanner h3 {
+	margin: 0;
+	padding: 0px;
+	position: relative;
+	display: block;
+	text-align: center;
+	font-family: ClarinsRegular;
+	font-weight: normal;
+	color: #000;
+	font-size: 38px;
+	padding-bottom: 0px;
+	line-height: 1em;
+}
+#SpecialOffers-V2-SearchBanner p {
+	font-size: 14px;
+	line-height: 25px;
+	margin: 0;
+	padding: 0px;
+	padding-bottom: 20px;
+}
+#SpecialOffers-V2-SearchBanner .btn-link {
+	border: 2px solid #e5e5e5;
+	padding: 15px;
+	margin-top: 0px;
+	display: inline-block;
+	min-width: 140px;
+	font-weight: normal;
+	text-align: center;
+	text-transform: uppercase;
+	font-family: "Gotham SSm medium A", "Gotham SSm medium B", Helvetica, Arial, sans-serif;
+	font-size: 14px;
+	color: #000000;
+	line-height: 1em;
+	position: absolute;
+	right: 0px;
+	top: 0px;
+}
+#SpecialOffers-V2-SearchBanner .btn-link:hover {
+	border: 2px solid #000;
+	color: #000000;
+}
+#SpecialOffers-V2-SearchBanner .btn-link:hover a {
+	color: #000000;
+}
+
+@media screen and (max-width: 761px) {
+#SpecialOffers-V2-SearchBanner ul {
+	max-width: 515px;
+}
+#SpecialOffers-V2-SearchBanner h3 {
+	font-size: 30px;
+}
+#SpecialOffers-V2-SearchBanner li {
+	width: 45%;
+}
+#SpecialOffers-V2-SearchBanner .btn-link {
+	display: inline-block;
+	position: relative;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 20px;
+}
+}
+/* Special Offers V2 - ProductBanner  */
+
+#SpecialOffers-TimetoChoose-ProductBanner {
+	text-align: center;
+	width: 100%;
+	position: relative;
+	display: inline-block;
+}
+#SpecialOffers-TimetoChoose-ProductBanner .content {
+	display: inline-block;
+	position: relative;
+	width: 320px;
+	text-align: center;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+#SpecialOffers-TimetoChoose-ProductBanner a:hover {
+	color: inherit!important;
+}
+#SpecialOffers-TimetoChoose-ProductBanner p {
+	margin: 0;
+	font-size: 14px;
+	padding-bottom: 10px;
+}
+#SpecialOffers-TimetoChoose-ProductBanner p.code-promo {
+	margin: 0;
+	font-size: 12px;
+	color: #be0f34;
+	text-decoration: underline;
+	padding-bottom: 10px;
+	font-family: 'Gotham SSm medium A', 'Gotham SSm medium B', Helvetica, Arial, sans-serif;
+}
+#SpecialOffers-TimetoChoose-ProductBanner img {
+	display: inline-block;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+#SpecialOffers-TimetoChoose-ProductBanner p.title {
+	margin: 0;
+	font-size: 28px;
+	font-family: ClarinsRegular;
+	padding: 0px;
+	margin-top: -10px;
+}
+#SpecialOffers-V2-Mentions {
+	margin-left: auto;
+	margin-right: auto;
+	position: relative;
+	max-width: 1024px;
+	width: 100%;
+	font-size: 11px;
+	display: block;
+	color: #8b8b8b;
+	padding-top: 40px;
+	padding-bottom: 40px;
+}
+.product-quickshop .quickview {
+	padding: 11px 9px;
+	line-height: 14px;
+}
+/*---------------------------------------------------*/
+
+/*            Special Offers V3                      */
+
+/*---------------------------------------------------*/
+
+
+
+/* Special Offers TimetoChoose - Aspot  */
+
+
+
+
+
+#SpecialOffers-TimetoChoose-Aspot {
+	text-align: center;
+	border: 12px #efefef solid;
+	margin-bottom: 60px;
+	background-color: #FFF;
+	font-size: 0px;
+	display: block;
+	position: relative;
+}
+#SpecialOffers-TimetoChoose-Aspot .col {
+	display: inline-block;
+	float: none;
+	vertical-align: middle;
+}
+#SpecialOffers-TimetoChoose-Aspot .Visual {
+	width: 100%;
+	display: block;
+	position: relative;
+}
+#SpecialOffers-TimetoChoose-Aspot .wrapper {
+	padding: 30px;
+	background-color: #FFF;
+}
+#SpecialOffers-TimetoChoose-Aspot h2 {
+	margin: 0;
+	padding: 0;
+	font-size: 50px;
+	line-height: 50px;
+	font-family: ClarinsRegular;
+	font-weight: normal;
+	text-align: center;
+	display: block;
+	position: relative;
+	padding-bottom: 5px;
+}
+#SpecialOffers-TimetoChoose-Aspot p.title-content {
+	margin: 0;
+	text-align: center;
+	font-size: 14px;
+	line-height: 14px;
+	position: relative;
+	padding-bottom: 11px;
+	padding-top: 10px;
+	color: #be0f34;
+	text-transform: uppercase;
+	font-family: "Gotham SSm medium A", "Gotham SSm medium B", Helvetica, Arial, sans-serif;
+}
+#SpecialOffers-TimetoChoose-Aspot p.text-content {
+	margin: 0;
+	text-align: center;
+	font-size: 16px;
+	line-height: 26px;
+	position: relative;
+	padding-bottom: 36px;
+	padding-top: 20px;
+}
+
+@media screen and (max-width: 761px) {
+#SpecialOffers-TimetoChoose-Aspot h2 {
+	font-size: 40px;
+	margin-top: 0.5em;
+}
+}
+#SpecialOffers-TimetoChoose-Aspot .btn-link {
+	margin: 0;
+	border: 2px solid #e5e5e5;
+	padding: 15px;
+	margin-top: 0px;
+	display: inline-block;
+	min-width: 120px;
+	font-weight: normal;
+	text-align: center;
+	text-transform: uppercase;
+	font-family: "Gotham SSm medium A", "Gotham SSm medium B", Helvetica, Arial, sans-serif;
+	font-size: 11px;
+	color: #000000;
+	line-height: 1em;
+}
+#SpecialOffers-TimetoChoose-Aspot .btn-link:hover {
+	border: 2px solid #000;
+	color: #000000;
+}
+#SpecialOffers-TimetoChoose-Aspot .btn-link:hover a {
+	color: #000000;
+}
+/*-----------------------*/
+
+.SpecialOffers-TimetoChoose-Bspot .col {
+	position: relative;
+}
+.SpecialOffers-TimetoChoose-Bspot p.price-value {
+	color: #be0f34;
+	font-size: 11px;
+	border-right: 2px solid #be0f34;
+	padding: 0px;
+	padding-right: 10px;
+	position: absolute;
+	top: -20px;
+	left: 0px;
+	z-index: 10;
+	text-transform: uppercase;
+	line-height: 1.5em;
+	text-align: right;
+}
+.SpecialOffers-TimetoChoose-Bspot p.price-value strong {
+	color: #be0f34;
+	font-size: 16px;
+	font-weight: normal;
+	display: block;
+}
+.SpecialOffers-TimetoChoose-Bspot .small-title {
+	font-family: ClarinsRegular;
+	font-size: 20px;
+}
+.SpecialOffers-TimetoChoose-Bspot .code-promo {
+	font-size: 14px;
+	text-transform: uppercase;
+	font-family: "Gotham SSm medium A", "Gotham SSm medium B", Helvetica, Arial, sans-serif;
+}
+.SpecialOffers-TimetoChoose-Bspot .code-promo strong {
+	color: #be0f34;
+	font-weight: normal;
+}
+.SpecialOffers-TimetoChoose-Bspot p.small-content-1 {
+	font-size: 14px;
+	text-align: center;
+	border-top: #eaeaea 2px solid;
+	display: block;
+	width: 80%;
+	margin-top: 30px;
+	padding-top: 30px;
+	margin-left: auto;
+	margin-right: auto;
+}
+.SpecialOffers-TimetoChoose-Bspot p.small-content-2 {
+	font-size: 14px;
+	text-align: left;
+}
+/* Special Offers V2 - Minicart  */
+
+
+
+#SpecialOffers-TimetoChoose-Minicart p {
+	font-size: 11px;
+}
+#SpecialOffers-TimetoChoose-Minicart p.title {
+	font-size: 14px;
+	font-family: 'Gotham SSm medium A', 'Gotham SSm medium B', Helvetica, Arial, sans-serif;
+	vertical-align: middle;
+}
+#SpecialOffers-TimetoChoose-Minicart p.title .Picto {
+	display: inline-block;
+	vertical-align: bottom;
+	margin-left: -10px;
+}
+#SpecialOffers-TimetoChoose-Minicart p.title span {
+	display: inline-block;
+	padding-bottom: 5px;
+	vertical-align: bottom;
+}
+#SpecialOffers-TimetoChoose-Minicart .btn-link-black a {
+	border: 2px solid #e5e5e5;
+	padding: 15px;
+	margin-top: 0px;
+	display: block;
+	min-width: 140px;
+	font-weight: normal;
+	text-align: center;
+	text-transform: uppercase;
+	font-family: "Gotham SSm medium A", "Gotham SSm medium B", Helvetica, Arial, sans-serif;
+	font-size: 12px;
+	color: #FFFFFF;
+	line-height: 1em;
+	background-color: #000;
+	position: relative;
+	margin-left: auto;
+	margin-right: auto;
+	text-decoration: none;
+}
+/* Special Offers V2 - MegaMenu  */
+
+
+
+#SpecialOffers-TimetoChoose-MegaMenu {
+	margin: 0px;
+	padding: 0px;
+	text-align: center;
+	position: relative;
+	display: block;
+	width: 100%;
+}
+#SpecialOffers-TimetoChoose-MegaMenu ul {
+	width: 920px;
+	margin: 0px;
+	display: block;
+	padding: 0;
+	text-align: center;
+	position: relative;
+	margin-left: auto;
+	margin-right: auto;
+}
+#SpecialOffers-TimetoChoose-MegaMenu li {
+	width: 226px;
+	margin: 0px;
+	display: inline-block;
+	padding: 0;
+	float: none;
+	vertical-align: top;
+	font-size: 0;
+}
+#SpecialOffers-TimetoChoose-MegaMenu .content {
+	width: 1024px;
+	margin: 0px;
+	display: block;
+	padding: 0;
+	text-align: center;
+	position: relative;
+	margin-left: auto;
+	margin-right: auto;
+	height: 200px;
+	line-height: 200px;
+	margin-bottom: 40px;
+}
+#SpecialOffers-TimetoChoose-MegaMenu .content img {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+#SpecialOffers-TimetoChoose-MegaMenu .content h3 {
+	margin: 0;
+	padding: 0px;
+	position: relative;
+	display: block;
+	text-align: center;
+	font-family: ClarinsRegular;
+	font-weight: normal;
+	color: #000;
+	font-size: 50px;
+	padding-bottom: 0px;
+	line-height: 1em;
+}
+#SpecialOffers-TimetoChoose-MegaMenu .wrapper {
+	display: inline-block;
+	width: 680px;
+	position: relative;
+	line-height: 0;
+}
+#SpecialOffers-TimetoChoose-MegaMenu .wrapper p {
+	margin: 0;
+	padding: 0;
+	line-height: 25px!important;
+	font-size: 16px!important;
+	word-break: normal!important;
+	text-align: center!important;
+	width: 390px;
+	display: inline-block;
+	padding-top: 10px;
+}
+#SpecialOffers-TimetoChoose-MegaMenu .wrapper p.small-text {
+	line-height: 25px!important;
+	font-size: 14px!important;
+	padding-top: 0px;
+}
+#SpecialOffers-TimetoChoose-MegaMenu .wrapper p a {
+	color: #be0f34;
+	text-decoration: underline;
+	font-size: 12px;
+	font-family: "Gotham SSm medium A", "Gotham SSm medium B", Helvetica, Arial, sans-serif;
+	text-transform: uppercase;
+}
+#SpecialOffers-TimetoChoose-MegaMenu ul li span {
+	font-family: "Gotham SSm book A", "Gotham SSm book B", Helvetica, Arial, sans-serif;
+	display: block;
+	padding: 0;
+	margin: 0;
+	text-align: center;
+	font-size: 14px;
+	width: 100%;
+	text-transform: none;
+}
+/* Special Offers TimetoChoose - Cart banner */
+
+
+
+#SpecialOffers-TimetoChoose-Cartbanner {
+	padding: 30px;
+	position: relative;
+	display: block;
+	border: #efefef 10px solid;
+	overflow: hidden;
+}
+#SpecialOffers-TimetoChoose-Cartbanner .content {
+	width: 50%;
+	position: absolute;
+	line-height: 200px;
+	height: 200px;
+	top: 50%;
+	margin-top: -100px;
+	right: 0px;
+}
+#SpecialOffers-TimetoChoose-Cartbanner .wrapper {
+	display: inline-block;
+	vertical-align: middle;
+	position: relative;
+	text-align: center;
+	width: 100%;
+	line-height: 1em;
+}
+#SpecialOffers-TimetoChoose-Cartbanner ul {
+	margin: 0px;
+	padding: 0px;
+	text-align: center;
+	position: relative;
+	display: block;
+	list-style: none;
+	width: 50%;
+}
+#SpecialOffers-TimetoChoose-Cartbanner li {
+	width: 45%;
+	margin: 0px;
+	display: inline-block;
+	padding: 0;
+	float: none;
+	vertical-align: top;
+	font-size: 0;
+	padding-bottom: 7px;
+	padding-top: 7px;
+	font-family: 'Gotham SSm medium A', 'Gotham SSm medium B', Helvetica, Arial, sans-serif;
+}
+#SpecialOffers-TimetoChoose-Cartbanner li a {
+	color: #000;
+	font-size: 11px;
+	text-transform: none;
+}
+#SpecialOffers-TimetoChoose-Cartbanner li a:hover {
+	color: #000;
+}
+#SpecialOffers-TimetoChoose-Cartbanner li img {
+	width: 100%!important;
+	max-width: 140px;
+}
+#SpecialOffers-TimetoChoose-Cartbanner h3 {
+	margin: 0;
+	padding: 0px;
+	position: relative;
+	display: block;
+	text-align: center;
+	font-family: ClarinsRegular;
+	font-weight: normal;
+	color: #000;
+	font-size: 30px;
+	padding-bottom: 0px;
+	line-height: 1em;
+}
+#SpecialOffers-TimetoChoose-Cartbanner p {
+	font-size: 11px;
+	line-height: 17px;
+}
+#SpecialOffers-TimetoChoose-Cartbanner ul li span strong {
+	font-weight: normal;
+	color: #be0f34;
+}
+/*------------------push newsletter ----------------------------*/
+
+
+
+.PushNewsletter {
+	background-color: #f8fafa;
+	width: 100%;
+	max-width: 1250px;
+	text-align: right;
+	position: relative;
+	display: block;
+	overflow: hidden;
+}
+.PushNewsletter .visual {
+	height: 100%;
+	z-index: 1;
+	text-align: left;
+	position: absolute;
+	width: 10px;
+}
+.PushNewsletter .visual img {
+	height: 100%;
+}
+.PushNewsletter .white-box {
+	background-color: #FFF;
+	width: 500px;
+	text-align: center;
+	margin: 60px;
+	z-index: 2;
+	position: relative;
+	display: inline-block;
+}
+.PushNewsletter .white-box .wrapper {
+	padding: 40px;
+	padding-top: 60px;
+}
+.PushNewsletter .white-box h3 {
+	font-family: ClarinsRegular;
+	font-weight: normal;
+	/*font-size:50px;*/
+
+	font-size: 38px;
+	margin: 0;
+	padding: 0;
+	letter-spacing: -0.02em;
+	margin-bottom: 20px;
+	margin-top: 10px;
+	line-height: 1em;/*text-transform:uppercase;*/
+
+}
+.PushNewsletter .white-box p.text-content {
+	font-size: 16px;
+	margin: 0;
+	padding: 0;
+	margin-bottom: 20px;
+	line-height: 25px;
+}
+.PushNewsletter .emailfeild {
+	margin-bottom: 10px;
+	margin-right: 12px;
+	display: inline-block;
+	vertical-align: top;
+}
+.PushNewsletter .form-row {
+	display: inline-block;
+	vertical-align: top;
+}
+.PushNewsletter input.input-text {
+	width: auto;
+}
+.PushNewsletter .subscribe {
+	display: inline-block;
+	margin: 0 0 10px;
+}
+.PushNewsletter form {
+	min-height: 90px;
+}
+
+@media screen and (max-width: 1024px) {
+.PushNewsletter .visual {
+	height: 490px;
+}
+.PushNewsletter .white-box {
+	margin: 30px;
+	width: 380px;
+}
+.PushNewsletter .white-box h3 {
+	font-size: 30px;
+	margin-bottom: 10px;
+}
+.PushNewsletter .white-box p {
+	font-size: 14px;
+}
+.PushNewsletter .white-box p.text-content {
+	font-size: 14px;
+	margin-bottom: 10px;
+}
+.PushNewsletter .white-box .wrapper {
+	padding: 30px;
+}
+.PushNewsletter .emailfeild {
+	margin-right: 10px;
+}
+}
+
+@media screen and (max-width: 761px) {
+.PushNewsletter .visual {
+	height: auto;
+	z-index: 1;
+	text-align: left;
+	position: relative;
+	width: 100%;
+	overflow: hidden;
+}
+.PushNewsletter .visual img {
+	width: 180%;
+}
+.PushNewsletter .white-box {
+	background-color: #FFF;
+	text-align: center;
+	margin: 0px;
+	z-index: 2;
+	position: relative;
+	display: block;
+	width: auto;
+}
+.PushNewsletter .white-box h3 {
+	font-size: 35px;
+}
+.PushNewsletter .white-box p {
+	font-size: 14px;
+}
+.PushNewsletter .emailfeild {
+	margin-bottom: 10px;
+	margin-right: 0px;
+	width: 100%;
+	overflow: hidden;
+}
+.PushNewsletter .form-row {
+	width: 100%;
+	margin-left: 0;
+}
+.PushNewsletter button, .PushNewsletter input {
+	width: 90%!important;
+	margin-left: 0;
+}
+}
+.ruler .hr-divider {
+	color: transparent;
+	background-color: #e5e5e5;
+}
+.anchor-item {
+	padding-top: 60px;
+}
+/* Hide google remarketing tag */
+
+iframe[name='google_conversion_frame'] {
+	position: absolute !important;
+	top: -20px;
+}
+/*megamenu explore */
+
+#WideMenuExplore {
+	padding-left: 0px;
+	position: absolute;
+	width: 100%;
+	height: 690px;
+	background-color: #FFF;
+	left: 0px;
+	top: 0px;
+	text-align: center;
+}
+#WideMenuExplore h2 {
+	width: 100%;
+	text-transform: none;
+	margin: 0;
+	padding: 0;
+	font-size: 60px;
+	line-height: 1em;
+	font-family: ClarinsRegular;
+	margin-top: -0.46em;
+	font-weight: normal;
+	text-align: center;
+	display: block;
+	position: relative;
+}
+
+@media screen and (max-width: 1023px) {
+#WideMenuExplore h2 {
+	font-size: 60px;
+}
+}
+#WideMenuExplore p.text {
+	width: 100%;
+	text-transform: none;
+	font-family: "Gotham SSm book A", "Gotham SSm book B", Helvetica, Arial, sans-serif;
+	margin: 0;
+	padding: 0;
+	font-size: 16px;
+	line-height: 1.5em;
+	display: block;
+	text-align: center;
+	padding-top: 15px;
+}
+#WideMenuExplore a:hover {
+	color: #000;
+}
+#WideMenuExplore a {
+	text-decoration: none;
+}
+#WideMenuExplore a:hover {
+	text-decoration: none;
+	color: #000;
+}
+#WideMenuExplore .btn-link {
+	border: 2px solid #e5e5e5;
+	padding: 18px;
+	padding-top: 16px;
+	padding-bottom: 16px;
+	margin-top: 30px;
+	min-width: 176px;
+	font-family: "Gotham SSm medium A", "Gotham SSm medium B", Helvetica, Arial, sans-serif;
+	font-size: 11px;
+	color: #000000;
+	line-height: 14px;
+	text-transform: uppercase;
+	display: inline-block;
+	position: relative;
+	text-decoration: none;
+}
+#WideMenuExplore .btn-link:hover {
+	border: 2px solid #000;
+	color: #000000;
+}
+/* Special Offers FreeShipping - Aspot  */
+
+
+
+
+
+#SpecialOffers-FreeShipping-Aspot {
+	text-align: center;
+	border: 12px #efefef solid;
+	margin-bottom: 60px;
+	background-color: #FFF;
+	font-size: 0px;
+	display: block;
+	position: relative;
+}
+#SpecialOffers-FreeShipping-Aspot .col {
+	display: inline-block;
+	float: none;
+	vertical-align: middle;
+}
+#SpecialOffers-FreeShipping-Aspot .Visual {
+	width: 100%;
+	display: block;
+	position: relative;
+}
+#SpecialOffers-FreeShipping-Aspot .wrapper {
+	padding: 30px;
+	background-color: #FFF;
+}
+#SpecialOffers-FreeShipping-Aspot h2 {
+	margin: 0;
+	padding: 0;
+	font-size: 50px;
+	line-height: 50px;
+	font-family: ClarinsRegular;
+	font-weight: normal;
+	text-align: center;
+	display: block;
+	position: relative;
+	padding-bottom: 5px;
+}
+#SpecialOffers-FreeShipping-Aspot p.title-content {
+	margin: 0;
+	text-align: center;
+	font-size: 14px;
+	line-height: 14px;
+	position: relative;
+	padding-bottom: 26px;
+	padding-top: 10px;
+	color: #be0f34;
+	text-transform: uppercase;
+	font-family: "Gotham SSm medium A", "Gotham SSm medium B", Helvetica, Arial, sans-serif;
+}
+#SpecialOffers-FreeShipping-Aspot p.text-content {
+	margin: 0;
+	text-align: center;
+	font-size: 16px;
+	line-height: 26px;
+	position: relative;
+	padding-bottom: 36px;
+	padding-top: 5px;
+}
+
+@media screen and (max-width: 761px) {
+#SpecialOffers-FreeShipping-Aspot h2 {
+	font-size: 40px;
+	margin-top: 0.5em;
+}
+}
+#SpecialOffers-FreeShipping-Aspot .btn-link {
+	margin: 0;
+	border: 2px solid #e5e5e5;
+	padding: 15px;
+	margin-top: 0px;
+	display: inline-block;
+	min-width: 120px;
+	font-weight: normal;
+	text-align: center;
+	text-transform: uppercase;
+	font-family: "Gotham SSm medium A", "Gotham SSm medium B", Helvetica, Arial, sans-serif;
+	font-size: 11px;
+	color: #000000;
+	line-height: 1em;
+}
+#SpecialOffers-FreeShipping-Aspot .btn-link:hover {
+	border: 2px solid #000;
+	color: #000000;
+}
+#SpecialOffers-FreeShipping-Aspot .btn-link:hover a {
+	color: #000000;
+}
+/*-----------------------------------*/
+
+#SpecialOffers-FreeShipping-Cspot {
+	position: relative;
+	display: block;
+	max-width: 452px;
+	margin-left: auto;
+	margin-right: auto;
+	width: 100%;
+}
+#SpecialOffers-FreeShipping-Cspot .Visual {
+	position: relative;
+	display: block;
+	width: 100%;
+}
+#SpecialOffers-FreeShipping-Cspot .LeftBlock {
+	display: block;
+	width: 100%;
+	top: 0px;
+	right: 0px;
+	position: relative;
+	box-shadow: 0 0 0 10px rgba(239, 239, 239, 1) inset;
+	display: block;
+	font-size: 0;
+	margin: 0;
+	overflow: hidden;
+	height: 210px;
+}
+#SpecialOffers-FreeShipping-Cspot .content {
+	display: block;
+	height: 100%;
+	line-height: 200px;
+	margin-top: -100px;
+	position: absolute;
+	right: 0;
+	top: 50%;
+	width: 100%;
+}
+#SpecialOffers-FreeShipping-Cspot .red {
+	color: #be0f34;
+}
+#SpecialOffers-FreeShipping-Cspot a:hover p.red {
+	color: #be0f34;
+}
+#SpecialOffers-FreeShipping-Cspot .wrapper {
+	display: inline-block;
+	line-height: 1em;
+	position: relative;
+	text-align: center;
+	vertical-align: middle;
+	width: 100%;
+}
+#SpecialOffers-FreeShipping-Cspot h3 {
+	margin: 0;
+	padding: 0px;
+	position: relative;
+	display: block;
+	text-align: center;
+	font-family: ClarinsRegular;
+	font-weight: normal;
+	color: #000;
+	font-size: 40px;
+	padding-top: 0px;
+	line-height: 1em;
+	padding-bottom: 10px;
+}
+#SpecialOffers-FreeShipping-Cspot p {
+	line-height: 26px;
+	margin: 0;
+	padding: 0;
+	font-family: "Gotham SSm medium A", "Gotham SSm medium B", Helvetica, Arial, sans-serif;
+	font-size: 12px;
+}
+#SpecialOffers-FreeShipping-Cspot p.text-content {
+	font-family: "Gotham SSm book A", "Gotham SSm book B", Helvetica, Arial, sans-serif;
+	font-size: 16px;
+	padding-bottom: 20px;
+}
+#SpecialOffers-FreeShipping-Cspot a:hover p {
+	color: #000;
+}
+/*-----------------------------------*/
+
+#SpecialOffers-FreeShipping-Cartbanner {
+	position: relative;
+	display: block;
+}
+#SpecialOffers-FreeShipping-Cartbanner .Visual {
+	position: relative;
+	display: block;
+	width: 100%;
+}
+#SpecialOffers-FreeShipping-Cartbanner .LeftBlock {
+	display: inline-block;
+	height: 100%;
+	top: 0px;
+	right: 0px;
+	position: absolute;
+	box-shadow: 0 0 0 10px rgba(239, 239, 239, 1) inset;
+	display: block;
+	font-size: 0;
+	margin: 0;
+	overflow: hidden;
+}
+#SpecialOffers-FreeShipping-Cartbanner .content {
+	display: block;
+	height: 100%;
+	line-height: 200px;
+	margin-top: -100px;
+	position: absolute;
+	right: 0;
+	top: 50%;
+	width: 100%;
+}
+#SpecialOffers-FreeShipping-Cartbanner .red {
+	color: #be0f34;
+}
+#SpecialOffers-FreeShipping-Cartbanner a:hover p.red {
+	color: #be0f34;
+}
+#SpecialOffers-FreeShipping-Cartbanner .wrapper {
+	display: inline-block;
+	line-height: 1em;
+	position: relative;
+	text-align: center;
+	vertical-align: middle;
+	width: 100%;
+}
+#SpecialOffers-FreeShipping-Cartbanner h3 {
+	margin: 0;
+	padding: 0px;
+	position: relative;
+	display: block;
+	text-align: center;
+	font-family: ClarinsRegular;
+	font-weight: normal;
+	color: #000;
+	font-size: 30px;
+	padding-top: 0px;
+	line-height: 1em;
+	padding-bottom: 10px;
+}
+#SpecialOffers-FreeShipping-Cartbanner p {
+	font-size: 14px;
+	line-height: 17px;
+	margin: 0;
+	padding: 0;
+	padding-bottom: 20px;
+	font-family: "Gotham SSm medium A", "Gotham SSm medium B", Helvetica, Arial, sans-serif;
+}
+#SpecialOffers-FreeShipping-Cartbanner p.text-content {
+	font-family: "Gotham SSm book A", "Gotham SSm book B", Helvetica, Arial, sans-serif;
+}
+#SpecialOffers-FreeShipping-Cartbanner a:hover p {
+	color: #000;
+}
+/*-----------------------------------*/
+
+#SpecialOffers-FreeShipping-MegaMenu {
+	position: relative;
+	display: block;
+	width: 100%;
+	padding: 0;
+	margin-left: auto;
+	margin-right: auto;
+}
+#SpecialOffers-FreeShipping-MegaMenu a {
+	position: relative;
+	display: block;
+	padding: 0;
+	margin: 0;
+}
+#SpecialOffers-FreeShipping-MegaMenu .Visual {
+	position: relative;
+	display: block;
+	width: 100%;
+	max-width: 956px;
+}
+#SpecialOffers-FreeShipping-MegaMenu .LeftBlock {
+	display: block;
+	margin: 0;
+	padding: 0;
+	position: relative;
+}
+#SpecialOffers-FreeShipping-MegaMenu .RightBlock {
+	display: inline-block;
+	height: 100%;
+	top: 0px;
+	right: 0px;
+	position: absolute;
+	box-shadow: 0 0 0 10px rgba(239, 239, 239, 1) inset;
+	display: block;
+	font-size: 0;
+	margin: 0;
+	overflow: hidden;
+}
+#SpecialOffers-FreeShipping-MegaMenu .content {
+	display: block;
+	height: 100%;
+	line-height: 500px;
+	margin-top: -250px;
+	position: absolute;
+	right: 0;
+	top: 50%;
+	width: 100%;
+}
+#SpecialOffers-FreeShipping-MegaMenu .wrapper {
+	display: inline-block;
+	line-height: 1em;
+	position: relative;
+	text-align: center;
+	vertical-align: middle;
+	width: 100%;
+}
+#SpecialOffers-FreeShipping-MegaMenu h3 {
+	margin: 0;
+	padding: 0px;
+	position: relative;
+	display: block;
+	text-align: center;
+	font-family: ClarinsRegular;
+	font-weight: normal;
+	color: #000;
+	font-size: 50px;
+	padding-bottom: 0px;
+	line-height: 1em;
+	text-transform: none;
+	padding-top: 20px;
+	padding-bottom: 10px;
+}
+#SpecialOffers-FreeShipping-MegaMenu p {
+	font-size: 16px;
+	line-height: 26px;
+	text-transform: none;
+	margin: 0;
+	padding: 0px;
+	font-family: "Gotham SSm book A", "Gotham SSm book B", Helvetica, Arial, sans-serif;
+	letter-spacing: normal;
+}
+#SpecialOffers-FreeShipping-MegaMenu p.text-content {
+	padding-bottom: 30px;
+}
+#SpecialOffers-FreeShipping-MegaMenu a:hover p {
+	color: #000;
+}
+#SpecialOffers-FreeShipping-MegaMenu .red {
+	color: #be0f34;
+	display: inline;
+	margin: 0;
+	font-size: 14px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	font-family: "Gotham SSm medium A", "Gotham SSm medium B", Helvetica, Arial, sans-serif;
+	letter-spacing: normal;
+}
+#SpecialOffers-FreeShipping-MegaMenu a:hover p.red {
+	color: #be0f34;
+}
+/*-----------------------------------*/
+
+#SpecialOffers-FreeShipping-ProductBanner {
+	position: relative;
+	display: block;
+	width: 100%;
+	padding: 0;
+	max-width: 1250px;
+	margin-left: auto;
+	margin-right: auto;
+	border: 2px solid #efefef;
+	margin-bottom: 60px;
+	clear: both;
+}
+#SpecialOffers-FreeShipping-ProductBanner a {
+	position: relative;
+	display: block;
+	padding: 0;
+	margin: 0;
+}
+#SpecialOffers-FreeShipping-ProductBanner .Visual {
+	position: relative;
+	display: block;
+	width: 100%;
+	border-right: 2px solid #efefef;
+}
+#SpecialOffers-FreeShipping-ProductBanner .LeftBlock {
+	display: block;
+	margin: 0;
+	padding: 0;
+	position: relative;
+}
+#SpecialOffers-FreeShipping-ProductBanner .RightBlock {
+	display: inline-block;
+	height: 100%;
+	top: 0px;
+	right: 0px;
+	position: absolute;
+	display: block;
+	font-size: 0;
+	margin: 0;
+	overflow: hidden;
+}
+#SpecialOffers-FreeShipping-ProductBanner .content {
+	display: block;
+	height: 100%;
+	line-height: 500px;
+	margin-top: -250px;
+	position: absolute;
+	right: 0;
+	top: 50%;
+	width: 100%;
+}
+#SpecialOffers-FreeShipping-ProductBanner .wrapper {
+	display: inline-block;
+	line-height: 1em;
+	position: relative;
+	text-align: center;
+	vertical-align: middle;
+	width: 100%;
+}
+#SpecialOffers-FreeShipping-ProductBanner h3 {
+	margin: 0;
+	padding: 0px;
+	position: relative;
+	display: block;
+	text-align: center;
+	font-family: ClarinsRegular;
+	font-weight: normal;
+	color: #000;
+	font-size: 28px;
+	padding-bottom: 0px;
+	line-height: 1em;
+	text-transform: none;
+	padding-top: 0px;
+	padding-bottom: 3px;
+}
+#SpecialOffers-FreeShipping-ProductBanner p {
+	font-size: 12px;
+	line-height: 17px;
+	text-transform: none;
+	margin: 0;
+	padding: 0px;
+}
+#SpecialOffers-FreeShipping-ProductBanner p.text-content {
+	padding-bottom: 30px;
+}
+#SpecialOffers-FreeShipping-ProductBanner a:hover p {
+	color: #000;
+}
+#SpecialOffers-FreeShipping-ProductBanner .red {
+	color: #be0f34;
+	display: inline;
+	margin: 0;
+	font-size: 10px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+#SpecialOffers-FreeShipping-ProductBanner a:hover p.red {
+	color: #be0f34;
+}
+/*-----------------------------------*/
+
+
+
+#SpecialOffers-FreeShipping-Minicart {
+	display: block;
+	height: 323px;
+	margin-left: -20px;
+	position: relative;
+	width: 300px;
+}
+#SpecialOffers-FreeShipping-Minicart .Visual {
+	position: absolute;
+	z-index: 1;
+	top: 0;
+	left: 0;
+}
+#SpecialOffers-FreeShipping-Minicart .title {
+	background-color: #fff;
+	border: 6px solid #e5e5e5;
+	font-family: "Gotham SSm medium A", "Gotham SSm medium B", Helvetica, Arial, sans-serif;
+	font-size: 14px;
+	height: 40px;
+	left: 50%;
+	line-height: 40px;
+	margin-left: -126px;
+	margin-top: -90px;
+	padding: 10px;
+	position: absolute;
+	top: 50%;
+	vertical-align: middle;
+	width: 190px;
+	z-index: 2;
+}
+#SpecialOffers-FreeShipping-Minicart .title img {
+	vertical-align: top;
+}
+#SpecialOffers-FreeShipping-Minicart p.btn-link-black {
+	bottom: 20px;
+	left: 50%;
+	margin-left: -106px;
+	position: absolute;
+	width: 170px;
+	z-index: 5;
+}
+#SpecialOffers-FreeShipping-Minicart .btn-link-black a {
+	background-color: #000;
+	border: 2px solid #e5e5e5;
+	color: #ffffff;
+	display: block;
+	font-family: "Gotham SSm medium A", "Gotham SSm medium B", Helvetica, Arial, sans-serif;
+	font-size: 12px;
+	font-weight: normal;
+	line-height: 1em;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 0;
+	min-width: 140px;
+	padding: 15px;
+	text-align: center;
+	text-decoration: none;
+	text-transform: uppercase;
+}
+#SpecialOffers-FreeShipping-Minicart .text-mentions {
+	bottom: -10px;
+	left: 50%;
+	margin-left: -126px;
+	position: absolute;
+	width: 220px;
+	z-index: 4;
+}
+#editorial-carousel h3 .special-mention {
+	color: #be0f34;
+	display: block;
+	font-family: "Gotham SSm medium A", "Gotham SSm medium B", Helvetica, Arial, sans-serif;
+	font-size: 12px;
+	letter-spacing: normal;
+}
+/**---------------------------------**/
+
+.custom-jcarousel-wrapper .jcarousel-pagination {
+	display: none;
+}
+.custom-jcarousel-wrapper .jcarousel li {
+	vertical-align: top;
+}
+
+@media screen and (max-width: 761px) {
+.custom-jcarousel-wrapper .jcarousel-pagination {
+	display: block;
+	bottom: 40px;
+}
+.custom-jcarousel-wrapper .jcarousel {
+	padding-bottom: 80px!important;
+}
+.custom-jcarousel-wrapper .jcarousel li {
+	display: inline-block!important;
+	float: none!important;
+}
+}
+.custom-jcarousel-wrapper .jcarouselControlprev {
+	left: -25px;
+}
+.custom-jcarousel-wrapper .jcarouselControlnext {
+	right: -25px;
+}
+/*-- Aspot Ingredients  ---*/
+
+
+
+#Ingredient-ASpot {
+	text-align: center;
+	margin-bottom: 60px;
+	display: block;
+	position: relative;
+}
+#Ingredient-ASpot .Aspot-banner-visual {
+	width: 2000px;
+	background-repeat: no-repeat;
+	background-position: center top;
+	background-size: auto 100%;
+	margin-left: -375px;
+	position: relative;
+}
+#Ingredient-ASpot .visual {
+	display: block;
+	position: absolute;
+	height: 100%;
+	width: 2000px;
+	left: 50%;
+	margin-left: -1000px;
+	top: 0px;
+	min-height: 1px;
+	text-align: center;
+}
+#Ingredient-ASpot .Aspot-banner-visual img {
+	width: 100%;
+	display: block;
+	position: relative;
+	max-height: 425px;
+}
+#Ingredient-ASpot .Aspot-banner-visual .visual img {
+	height: 100%;
+	width: auto;
+	display: inline-block;
+	max-height: 425px;
+}
+#Ingredient-ASpot .row {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	width: 1000px;
+	height: 400px;
+	margin-top: -200px;
+	margin-left: -500px;
+	line-height: 400px;
+	font-size: 0;
+	text-align: center;
+}
+#Ingredient-ASpot .row .wrapper {
+	display: inline-block;
+	padding: 30px;
+	background-color: rgba(255,255,255,0.85);
+	vertical-align: middle;
+}
+#Ingredient-ASpot h2 {
+	margin: 0;
+	padding: 0;
+	font-size: 50px;
+	line-height: 1em;
+	font-family: ClarinsRegular;
+	font-weight: normal;
+	text-align: center;
+	display: block;
+	position: relative;
+}
+#Ingredient-ASpot p.text {
+	margin: 0;
+	padding: 0;
+	font-size: 16px;
+	line-height: 1.5em;
+	display: block;
+	text-align: center;
+	padding-top: 15px;
+}
+
+@media screen and (max-width: 1249px) {
+#Ingredient-ASpot {
+	overflow-x: hidden;
+}
+#Ingredient-ASpot .Aspot-banner-visual {
+	width: 100%;
+	margin-left: 0px;
+	overflow: hidden;
+	height: 100%!important;
+}
+}
+
+@media screen and (max-width: 761px) {
+#Ingredient-ASpot h2 {
+	font-size: 35px;
+}
+#Ingredient-ASpot p {
+	font-size: 16px;
+}
+#Ingredient-ASpot .row {
+	position: relative;
+	left: auto;
+	top: auto;
+	width: auto;
+	height: auto;
+	margin-top: 0;
+	margin-left: 0;
+	line-height: 0;
+	font-size: 0;
+	text-align: center;
+}
+#Ingredient-ASpot .row .wrapper {
+	padding: 20px;
+	padding-bottom: 0px;
+}
+}
+/*BEAUTY CONSULT BANNER */
+
+
+
+#Aspot-BeautyConsult {
+	max-width: 1250px;
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+	position: relative;
+	height: 467px;
+	margin-bottom: 60px;
+}
+#Aspot-BeautyConsult .white-block {
+	display: block;
+	font-size: 0;
+	height: 467px;
+	left: 80px;
+	line-height: 467px;
+	position: absolute;
+	top: 0;
+	width: 420px;
+	z-index: 2;
+}
+#Aspot-BeautyConsult .white-block .wrapper {
+	display: inline-block;
+	vertical-align: middle;
+	padding: 40px;
+	background-color: #FFFFFF;
+}
+#Aspot-BeautyConsult .white-block h2 {
+	font-family: ClarinsRegular;
+	color: #000;
+	font-size: 40px;
+	font-weight: normal;
+	line-height: 1em;
+	padding: 0;
+	margin: 0;
+}
+#Aspot-BeautyConsult .white-block h2 .line-break {
+	display: inline-block;
+}
+#Aspot-BeautyConsult .white-block p.text {
+	padding: 0;
+	margin: 0;
+	color: #000;
+	font-size: 14px;
+	font-weight: normal;
+	line-height: 1.42em;
+	padding-top: 30px;
+	display: block;
+}
+#Aspot-BeautyConsult .visual {
+	position: absolute;
+	display: block;
+	left: 50%;
+	margin-left: -625px;
+	top: 0px;
+	z-index: 1;
+}
+#Aspot-BeautyConsult .visual img {
+	width: 1250px!important;
+}
+
+@media screen and (max-width: 1023px) {
+#Aspot-BeautyConsult .white-block {
+	left: 30px;
+}
+}
+
+@media screen and (max-width: 761px) {
+#Aspot-BeautyConsult {
+	height: auto;
+}
+#Aspot-BeautyConsult .white-block h2 {
+	text-align: center;
+}
+#Aspot-BeautyConsult .white-block h2 .line-break {
+	display: block;
+}
+#Aspot-BeautyConsult .white-block {
+	top: auto;
+	left: auto;
+	height: auto;
+	line-height: 1em;
+	position: relative;
+	width: 100%;
+}
+#Aspot-BeautyConsult .visual, #Aspot-BeautyConsult .visual {
+	top: auto;
+	left: auto;
+	height: auto;
+	line-height: 1em;
+	position: relative;
+	width: 100%;
+	margin: 0;
+}
+#Aspot-BeautyConsult .visual img {
+	margin-left: -50%;
+	width: 150% !important;
+}
+}
+/*-- Aspot DynamicWomen  ---*/
+
+
+
+#DynamicWomen-ASpot {
+	text-align: center;
+	margin-bottom: 60px;
+	display: block;
+	position: relative;
+}
+#DynamicWomen-ASpot .Aspot-banner-visual {
+	width: 2000px;
+	background-repeat: no-repeat;
+	background-position: center top;
+	background-size: auto 100%;
+	margin-left: -375px;
+	position: relative;
+}
+#DynamicWomen-ASpot .visual {
+	display: block;
+	position: absolute;
+	height: 100%;
+	width: 2000px;
+	left: 50%;
+	margin-left: -1000px;
+	top: 0px;
+	min-height: 1px;
+	text-align: center;
+}
+#DynamicWomen-ASpot .Aspot-banner-visual img {
+	width: 100%;
+	display: block;
+	position: relative;
+	max-height: 345px;
+}
+#DynamicWomen-ASpot .Aspot-banner-visual .visual img {
+	height: 100%;
+	width: auto;
+	display: inline-block;
+	max-height: 345px;
+}
+#DynamicWomen-ASpot .row {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	width: 1000px;
+	height: 400px;
+	margin-top: -200px;
+	margin-left: -500px;
+	line-height: 400px;
+	font-size: 0;
+	text-align: left;
+	color: #be0f34;
+}
+#DynamicWomen-ASpot .row .wrapper {
+	display: inline-block;
+	padding: 30px;
+	background-color: rgba(255,255,255,0.85);
+	vertical-align: middle;
+}
+#DynamicWomen-ASpot h2 {
+	margin: 0;
+	padding: 0;
+	font-size: 45px;
+	line-height: 1em;
+	font-family: ClarinsRegular;
+	font-weight: normal;
+	text-align: center;
+	display: block;
+	position: relative;
+}
+#DynamicWomen-ASpot p.text {
+	margin: 0;
+	padding: 0;
+	font-size: 16px;
+	line-height: 1.5em;
+	display: block;
+	text-align: center;
+	padding-top: 15px;
+}
+
+@media screen and (max-width: 1249px) {
+#DynamicWomen-ASpot {
+	overflow-x: hidden;
+}
+#DynamicWomen-ASpot .Aspot-banner-visual {
+	width: 100%;
+	margin-left: 0px;
+	overflow: hidden;
+	height: 100%!important;
+}
+}
+
+@media screen and (max-width: 1053px) {
+#DynamicWomen-ASpot .row {
+	width: 100%;
+	left: 0px;
+	margin-left: 0px;
+}
+#DynamicWomen-ASpot h2 {
+	font-size: 40px;
+}
+#DynamicWomen-ASpot .row .wrapper {
+	margin-left: 30px;
+}
+}
+
+@media screen and (max-width: 761px) {
+#DynamicWomen-ASpot h2 {
+	font-size: 35px;
+}
+#DynamicWomen-ASpot p {
+	font-size: 16px;
+}
+#DynamicWomen-ASpot .row {
+	position: relative;
+	left: auto;
+	top: auto;
+	width: auto;
+	height: auto;
+	margin-top: 0;
+	margin-left: 0;
+	line-height: 0;
+	font-size: 0;
+	text-align: center;
+}
+#DynamicWomen-ASpot .row .wrapper {
+	padding: 20px;
+	padding-bottom: 0px;
+	margin-left: 0px;
+}
+}
+/*footer*/
+
+.footer-advantages ul {
+	padding: 0;
+	list-style: none;
+}
+
+.footer-advantages .slick-item {
+	height: auto;
+}
+ 
+@media only screen and (min-width : 768px) {       
+	.footer-advantages .slick-item {
+		/* depends on the height of the highest list element */
+		height: 150px;
+	}
+}
+ 
+@media screen and (max-width: 1023px) {
+	.footer-advantages a:hover,
+	.footer-advantages a:hover strong {
+		color: #000!important;
+	}
+}
+
+.footer-main h2 {
+	border-top: 0px solid!important;
+}
+.footer-advantages h3 {
+	padding: 0;
+	margin: 0;
+	border-top: 0px solid!important;
+	text-align: center;
+	display: inline-block;
+	background-color: #e5e5e5;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-bottom: 10px!important;
+	font-size: 22px;
+	font-weight: normal;
+	font-family: "Gotham SSm book A", "Gotham SSm book B", Helvetica, Arial, sans-serif;
+	text-transform: uppercase;
+}
+
+.footer-advantages-hr {
+	border-top:2px solid #cbcbcb;
+	line-height: 0;
+}
+#footer-jcarousel .slick-dots {
+    height: 12px;
+}
+.footer-advantages {
+	margin-top: -15px!important;
+	margin-bottom: 25px!important;
+	text-align: center;
+}
+
+
+@media screen and (max-width: 1023px) {
+.footer-advantages {
+	margin-bottom: 50px!important;
+}
+}
+
+
+#footer-jcarousel strong {
+	color: #000;
+	font-size: 24px;
+	line-height: 1em;
+	display: block;
+	font-family: ClarinsRegular;
+	text-decoration: none;
+	margin: 0;
+	padding: 0;
+	font-weight: normal;
+	padding-bottom: 6px;
+}
+#footer-jcarousel a:hover strong {
+	color: #be0f34;
+}
+#footer-jcarousel li a .picto {
+	padding: 0;
+	margin: 0;
+	display: block;
+	background-image: url('../images/footer.png?$staticlink$');
+	background-repeat: no-repeat;
+	height: 50px;
+	display: inline-block;
+	width: 100px;
+}
+
+.footer-wrapper .footer-logos {
+	border-bottom: 2px solid #cbcbcb;
+	border-top: 2px solid #cbcbcb;
+	padding: 13px;
+	background-color: #e5e5e5;
+	text-align: center;
+	font-size: 0;
+	margin-bottom: 38px;
+}
+.footer-wrapper .footer-logos ul {
+	display: inline-block;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	font-size: 0;
+	text-align: center;
+	background-color: #e5e5e5;
+}
+.footer-wrapper .footer-logos ul li {
+	padding: 0;
+	margin: 6px;
+	margin-left: 14px;
+	margin-right: 14px;
+	background-image: url('../images/footer.png?$staticlink$');
+	background-position: top center;
+	background-repeat: no-repeat;
+	height: 28px;
+	display: inline-block;
+	width: 100px;
+}
+.footer-wrapper .footer-logos ul li span {
+	display: none;
+}
+
+@media (min-width: 1024px) {
+	.footer-wrapper .col-2-desktop {
+	  width: calc((100% / 12) * 2 - 0.1px);
+}
+}
+
+.footer-avantage-1 {
+	background-position: center -450px;
+}
+.footer-avantage-2 {
+	background-position: center -500px;
+}
+.footer-avantage-3 {
+	background-position: center -550px;
+}
+.footer-avantage-4 {
+	background-position: center -600px;
+}
+.footer-avantage-5 {
+	background-position: center -650px;
+}
+.footer-avantage-6 {
+	background-position: center -700px;
+}
+.footer-logo-1 {
+	width: 75px;
+	background-position: center 0px;
+}
+
+.footer-advantages .slick-item {
+	height: auto;
+}
+
+@media only screen and (min-width : 768px) {		
+	.footer-advantages .slick-item {
+		/* depends on the height of the highest list element */
+		height: 150px;
+	}
+}
+
+@media screen and (max-width: 1023px) {
+.footer-advantages a:hover,
+.footer-advantages a:hover strong {
+	color: #000!important;
+}
+}
+
+#footer-logo-2 {
+	width: 58px;
+	background-position: center -28px;
+}
+#footer-logo-3 {
+	width: 48px;
+	background-position: center -56px;
+}
+#footer-logo-4 {
+	width: 30px;
+	background-position: center -84px;
+}
+#footer-logo-5 {
+	width: 48px;
+	background-position: center -112px;
+}
+#footer-logo-6 {
+	width: 50px;
+	background-position: center -140px;
+}
+#footer-logo-7 {
+	width: 50px;
+	background-position: center -168px;
+}
+#footer-logo-8 {
+	width: 50px;
+	background-position: center -196px;
+}
+#footer-logo-9 {
+	width: 50px;
+	background-position: center -224px;
+}
+.customer-logincontent #picto-2 {
+	margin-left: -19px;
+}
+.customer-logincontent {
+	padding: 0px;
+	margin: 0px;
+	color: #000;
+	font-family: "Gotham SSm book A", "Gotham SSm book B", Helvetica, Arial, sans-serif;
+	letter-spacing: 0.02em;
+	font-size: 0;
+	list-style: none;
+	padding-bottom: 25px;
+}
+.customer-logincontent li {
+	padding: 0px;
+	margin: 0px;
+	position: relative;
+	margin-bottom: 5px;
+	display: block;
+	min-height: 50px;
+}
+.customer-logincontent span {
+	display: inline;
+	vertical-align: middle;
+	font-size: 11px;
+}
+.customer-logincontent strong {
+	display: block;
+	font-weight: normal;
+	font-size: 14px;
+	padding-top: 8px;
+}
+.picto-logincontent {
+	display: inline-block!important;
+	margin-right: 20px;
+	float: left;
+}
+/* Special Offers GWP   */
+
+
+
+
+
+#SpecialOffers-GWP-Aspot {
+	text-align: center;
+	border: 12px #efefef solid;
+	margin-bottom: 60px;
+	background-color: #FFF;
+	font-size: 0px;
+	display: block;
+	position: relative;
+}
+#SpecialOffers-GWP-Aspot .col {
+	display: inline-block;
+	float: none;
+	vertical-align: middle;
+}
+#SpecialOffers-GWP-Aspot .Visual {
+	width: 100%;
+	display: block;
+	position: relative;
+}
+#SpecialOffers-GWP-Aspot .wrapper {
+	padding: 25px;
+	background-color: #FFF;
+}
+#SpecialOffers-GWP-Aspot h2 {
+	margin: 0;
+	padding: 0;
+	font-size: 50px;
+	line-height: 1em;
+	font-family: ClarinsRegular;
+	font-weight: normal;
+	text-align: center;
+	display: block;
+	position: relative;
+	padding-bottom: 5px;
+}
+#SpecialOffers-GWP-Aspot p.title-content {
+	margin: 0;
+	text-align: center;
+	font-size: 14px;
+	line-height: 14px;
+	position: relative;
+	padding-top: 10px;
+	padding-bottom: 20px;
+	color: #be0f34;
+	text-transform: uppercase;
+	font-family: "Gotham SSm medium A", "Gotham SSm medium B", Helvetica, Arial, sans-serif;
+}
+#SpecialOffers-GWP-Aspot p.text-content {
+	margin: 0;
+	text-align: center;
+	font-size: 16px;
+	line-height: 26px;
+	position: relative;
+	padding-top: 0px;
+	padding-bottom: 20px;
+}
+
+@media screen and (max-width: 761px) {
+#SpecialOffers-GWP-Aspot h2 {
+	font-size: 40px;
+	margin-top: 0.5em;
+}
+}
+#SpecialOffers-GWP-Aspot .btn-link {
+	margin: 0;
+	border: 2px solid #e5e5e5;
+	padding: 15px;
+	margin-top: 0px;
+	display: inline-block;
+	min-width: 120px;
+	font-weight: normal;
+	text-align: center;
+	text-transform: uppercase;
+	font-family: "Gotham SSm medium A", "Gotham SSm medium B", Helvetica, Arial, sans-serif;
+	font-size: 11px;
+	color: #000000;
+	line-height: 1em;
+}
+#SpecialOffers-GWP-Aspot .btn-link:hover {
+	border: 2px solid #000;
+	color: #000000;
+}
+#SpecialOffers-GWP-Aspot .btn-link:hover a {
+	color: #000000;
+}
+.SpecialOffers-GWP-Bspot .col {
+	position: relative;
+}
+.SpecialOffers-GWP-Bspot p.price-value {
+	color: #be0f34;
+	font-size: 11px;
+	border-right: 2px solid #be0f34;
+	padding: 0px;
+	padding-right: 10px;
+	position: absolute;
+	top: -20px;
+	left: 0px;
+	z-index: 10;
+	text-transform: uppercase;
+	line-height: 1.5em;
+	text-align: right;
+}
+.SpecialOffers-GWP-Bspot p.price-value strong {
+	color: #be0f34;
+	font-size: 16px;
+	font-weight: normal;
+	display: block;
+}
+.SpecialOffers-GWP-Bspot .small-title {
+	font-family: ClarinsRegular;
+	font-size: 20px;
+}
+.SpecialOffers-GWP-Bspot .code-promo {
+	font-size: 14px;
+	text-transform: uppercase;
+	font-family: "Gotham SSm medium A", "Gotham SSm medium B", Helvetica, Arial, sans-serif;
+}
+.SpecialOffers-GWP-Bspot .code-promo strong {
+	color: #be0f34;
+	font-weight: normal;
+}
+.SpecialOffers-GWP-Bspot p.small-content-1 {
+	font-size: 14px;
+	text-align: center;
+	border-top: #eaeaea 2px solid;
+	display: block;
+	width: 80%;
+	margin-top: 30px;
+	padding-top: 30px;
+	margin-left: auto;
+	margin-right: auto;
+}
+.SpecialOffers-GWP-Bspot p.small-content-2 {
+	font-size: 14px;
+	text-align: left;
+	display: inline-block;
+	max-width: 316px;
+}
+/* Special Offers Template Aspot Type-A   */
+
+
+#SpecialOffers-Template-Aspot-Type-A {
+	text-align: center;
+	padding: 12px;
+	background-color: #FFF;
+	font-size: 0px;
+	display: block;
+	position: relative;
+	padding-top: 0;
+	padding-bottom: 0;
+	max-width: 1000px;
+	margin-left: auto;
+	margin-right: auto;
+}
+#SpecialOffers-Template-Aspot-Type-A .ProductOfferRow .col {
+	height: 390px;
+}
+
+
+#SpecialOffers-Template-Aspot-Type-A .row {
+	margin: 0;
+	padding: 0;
+	background-color: #FFFFFF;
+	display: block;
+	position: relative;
+}
+#SpecialOffers-Template-Aspot-Type-A .ProductOfferRow {
+	padding-bottom: 60px;
+}
+#SpecialOffers-Template-Aspot-Type-A .col {
+	display: inline-block;
+	float: none;
+	vertical-align: top;
+	text-align: center;
+	position: relative;
+}
+#SpecialOffers-Template-Aspot-Type-A .duration-offer {
+	margin: 0;
+	display: block;
+	position: relative;
+	color: #be0f34;
+	padding: 6px;
+	text-align: center;
+	font-size: 15px;
+	line-height: 30px;
+	font-family: "Gotham SSm book A", "Gotham SSm book B", Helvetica, Arial, sans-serif;
+}
+#SpecialOffers-Template-Aspot-Type-A .duration-offer img {
+	display: inline-block;
+	vertical-align: bottom;
+}
+#SpecialOffers-Template-Aspot-Type-A .Visual {
+	display: block;
+	position: absolute;
+	right: 50px;
+	bottom: 0px;
+}
+
+@media screen and (max-width: 1023px) {
+#SpecialOffers-Template-Aspot-Type-A .Visual {
+	display: block;
+	position: relative;
+	right: auto;
+	width: 80%;
+	margin-left: auto;
+	margin-right: auto;
+	bottom: auto;
+}
+}
+#SpecialOffers-Template-Aspot-Type-A .wrapper {
+	padding: 0px 50px 50px;
+	background-color: #FFF;
+}
+
+@media screen and (max-width: 1023px) {
+#SpecialOffers-Template-Aspot-Type-A .wrapper {
+	padding: 30px;
+	background-color: #FFF;
+	padding-top: 0;
+}
+}
+#SpecialOffers-Template-Aspot-Type-A h2 {
+	margin: 0;
+	padding: 0;
+	font-size: 50px;
+	line-height: 1em;
+	font-family: ClarinsRegular;
+	font-weight: normal;
+	text-align: center;
+	display: block;
+	position: relative;
+	padding-bottom: 5px;
+	padding-top: 40px;
+}
+#SpecialOffers-Template-Aspot-Type-A h3 {
+	margin: 0;
+	font-size: 35px;
+	line-height: 1em;
+	font-family: ClarinsRegular;
+	font-weight: normal;
+	text-align: center;
+	position: relative;
+	text-align: left;
+	padding: 0 0 5px;
+}
+#SpecialOffers-Template-Aspot-Type-A h3 span {
+	font-family: "Gotham SSm book A", "Gotham SSm book B", Helvetica, Arial, sans-serif;
+	display: block;
+	font-size: 22px;
+}
+#SpecialOffers-Template-Aspot-Type-A p.title-content {
+	margin: 0;
+	text-align: center;
+	font-size: 14px;
+	line-height: 14px;
+	position: relative;
+	padding-top: 10px;
+	padding-bottom: 20px;
+	color: #be0f34;
+	text-transform: uppercase;
+	font-family: "Gotham SSm medium A", "Gotham SSm medium B", Helvetica, Arial, sans-serif;
+}
+#SpecialOffers-Template-Aspot-Type-A p.text-content {
+	font-size: 16px;
+	line-height: 26px;
+	margin: 0;
+	padding: 10px 40px 60px;
+	position: relative;
+	text-align: center;
+}
+#SpecialOffers-Template-Aspot-Type-A p.text-content-2 {
+	font-size: 16px;
+	line-height: 26px;
+	margin: 0;
+	padding: 10px 0 20px;
+	position: relative;
+	text-align: left;
+	height: 148px;
+}
+#SpecialOffers-Template-Aspot-Type-A p.text-picto {
+	margin: 0;
+	padding: 0px;
+	position: relative;
+	text-align: center;
+}
+
+@media screen and (max-width: 761px) {
+#SpecialOffers-Template-Aspot-Type-A h2 {
+	font-size: 40px;
+	margin-top: 0.5em;
+}
+}
+#SpecialOffers-Template-Aspot-Type-A .btn-link {
+	margin: 0;
+	border: 2px solid #e5e5e5;
+	padding: 15px;
+	margin-top: 0px;
+	display: inline-block;
+	min-width: 120px;
+	font-weight: normal;
+	text-align: center;
+	text-transform: uppercase;
+	font-family: "Gotham SSm medium A", "Gotham SSm medium B", Helvetica, Arial, sans-serif;
+	font-size: 11px;
+	color: #000000;
+	line-height: 1em;
+}
+#SpecialOffers-Template-Aspot-Type-A .btn-link:hover {
+	border: 2px solid #000;
+	color: #000000;
+}
+#SpecialOffers-Template-Aspot-Type-A .btn-link:hover a {
+	color: #000000;
+}
+#SpecialOffers-Template-Aspot-Type-A p.price-value {
+	color: #be0f34;
+	font-size: 11px;
+	border-left: 2px solid #be0f34;
+	padding: 0px;
+	padding-left: 10px;
+	position: absolute;
+	top: 58px;
+	right: 50px;
+	z-index: 10;
+	text-transform: uppercase;
+	line-height: 1.5em;
+	text-align: left;
+}
+
+@media screen and (max-width: 1023px) {
+#SpecialOffers-Template-Aspot-Type-A p.price-value {
+	color: #be0f34;
+	font-size: 11px;
+	border-left: 2px solid #be0f34;
+	padding: 0px;
+	padding-left: 10px;
+	margin-left: 10px;
+	position: relative;
+	top: auto;
+	right: auto;
+	z-index: 10;
+	text-transform: uppercase;
+	line-height: 1.5em;
+	text-align: left;
+}
+}
+#SpecialOffers-Template-Aspot-Type-A p.price-value strong {
+	color: #be0f34;
+	font-size: 16px;
+	font-weight: normal;
+	display: block;
+}
+/* Special Offers Template Aspot Type-B   */
+
+
+#SpecialOffers-Template-Aspot-Type-B {
+	text-align: center;
+	padding: 12px;
+	margin-bottom: 60px;
+	background-color: #FFF;
+	font-size: 0px;
+	display: block;
+	position: relative;
+	padding-top: 0;
+	max-width: 1000px;
+	margin-left: auto;
+	margin-right: auto;
+}
+#SpecialOffers-Template-Aspot-Type-B .row {
+	margin: 0;
+	padding: 0;
+	background-color: #FFFFFF;
+	display: block;
+	position: relative;
+}
+#SpecialOffers-Template-Aspot-Type-B .col {
+	display: inline-block;
+	float: none;
+	vertical-align: middle;
+	text-align: center;
+}
+#SpecialOffers-Template-Aspot-Type-B .Visual {
+	width: 100%;
+	display: block;
+	position: relative;
+	max-width: 1000px;
+	margin-left: auto;
+	margin-right: auto;
+}
+#SpecialOffers-Template-Aspot-Type-B h2 {
+	margin: 0;
+	padding: 0;
+	font-size: 50px;
+	line-height: 1em;
+	font-family: ClarinsRegular;
+	font-weight: normal;
+	text-align: center;
+	display: block;
+	position: relative;
+	padding-bottom: 5px;
+	padding-top: 40px;
+}
+
+@media screen and (max-width: 761px) {
+#SpecialOffers-Template-Aspot-Type-B h2 {
+	font-size: 40px;
+	margin-top: 0.5em;
+}
+}
+#SpecialOffers-Template-Aspot-Type-B p.text-content {
+	font-size: 16px;
+	line-height: 26px;
+	margin: 0;
+	padding: 10px 40px 20px;
+	position: relative;
+	text-align: center;
+	padding-bottom: 60px;
+}
+/*------------------------------*/
+
+#SpecialOffers-Template-Aspot-Type-C {
+	text-align: center;
+	padding: 12px;
+	margin-bottom: 60px;
+	background-color: #FFF;
+	font-size: 0px;
+	display: block;
+	position: relative;
+	max-width: 1000px;
+	margin-left: auto;
+	margin-right: auto;
+	padding-top: 0px;
+}
+#SpecialOffers-Template-Aspot-Type-C .row {
+	margin: 0;
+	padding: 0;
+	background-color: #FFFFFF;
+	display: block;
+	position: relative;
+}
+#SpecialOffers-Template-Aspot-Type-C .col {
+	display: inline-block;
+	float: none;
+	vertical-align: middle;
+}
+#SpecialOffers-Template-Aspot-Type-C .Visual {
+	width: 100%;
+	display: block;
+	position: relative;
+}
+#SpecialOffers-Template-Aspot-Type-C .wrapper {
+	padding: 25px;
+	background-color: #FFF;
+}
+#SpecialOffers-Template-Aspot-Type-C h2 {
+	margin: 0;
+	padding: 0;
+	font-size: 50px;
+	line-height: 1em;
+	font-family: ClarinsRegular;
+	font-weight: normal;
+	text-align: left;
+	display: block;
+	position: relative;
+	padding-bottom: 5px;
+}
+#SpecialOffers-Template-Aspot-Type-C p.text-content {
+	margin: 0;
+	text-align: left;
+	font-size: 16px;
+	line-height: 26px;
+	position: relative;
+	padding-top: 0px;
+	padding-bottom: 20px;
+}
+
+@media screen and (max-width: 761px) {
+#SpecialOffers-Template-Aspot-Type-C h2 {
+	font-size: 40px;
+	margin-top: 0.5em;
+}
+}
+/*---------------------------------------------*/
+
+
+#SpecialOffers-Template-Aspot-Type-D {
+	text-align: center;
+	padding: 12px;
+	font-size: 0px;
+	display: block;
+	position: relative;
+	max-width: 1000px;
+	margin-left: auto;
+	margin-right: auto;
+	padding-bottom: 0;
+}
+#SpecialOffers-Template-Aspot-Type-D .row {
+	margin: 0;
+	padding: 0;
+	background-color: #FFFFFF;
+	display: block;
+	position: relative;
+}
+#SpecialOffers-Template-Aspot-Type-D .col {
+	display: inline-block;
+	float: none;
+	vertical-align: middle;
+	background-color: #FFF;
+}
+#SpecialOffers-Template-Aspot-Type-D .Visual {
+	width: 100%;
+	display: block;
+	position: relative;
+}
+#SpecialOffers-Template-Aspot-Type-D .wrapper {
+	padding: 25px;
+	background-color: #FFF;
+}
+#SpecialOffers-Template-Aspot-Type-D h2 {
+	margin: 0;
+	padding: 0;
+	font-size: 50px;
+	line-height: 1em;
+	font-family: ClarinsRegular;
+	font-weight: normal;
+	text-align: center;
+	display: block;
+	position: relative;
+	padding-bottom: 5px;
+}
+#SpecialOffers-Template-Aspot-Type-D p.title-content {
+	margin: 0;
+	text-align: center;
+	font-size: 14px;
+	line-height: 14px;
+	position: relative;
+	padding-top: 10px;
+	padding-bottom: 20px;
+	color: #be0f34;
+	text-transform: uppercase;
+	font-family: "Gotham SSm medium A", "Gotham SSm medium B", Helvetica, Arial, sans-serif;
+}
+#SpecialOffers-Template-Aspot-Type-D p.text-content {
+	margin: 0;
+	text-align: center;
+	font-size: 16px;
+	line-height: 26px;
+	position: relative;
+	padding-top: 0px;
+	padding-bottom: 20px;
+}
+
+@media screen and (max-width: 761px) {
+#SpecialOffers-Template-Aspot-Type-D h2 {
+	font-size: 40px;
+	margin-top: 0.5em;
+}
+}
+#SpecialOffers-Template-Aspot-Type-D .btn-link {
+	margin: 0;
+	border: 2px solid #e5e5e5;
+	padding: 15px;
+	margin-top: 0px;
+	display: inline-block;
+	min-width: 120px;
+	font-weight: normal;
+	text-align: center;
+	text-transform: uppercase;
+	font-family: "Gotham SSm medium A", "Gotham SSm medium B", Helvetica, Arial, sans-serif;
+	font-size: 11px;
+	color: #000000;
+	line-height: 1em;
+}
+#SpecialOffers-Template-Aspot-Type-D .btn-link:hover {
+	border: 2px solid #000;
+	color: #000000;
+}
+#SpecialOffers-Template-Aspot-Type-D .btn-link:hover a {
+	color: #000000;
+}
+
+/*--------------UPDATE SPECIAL OFFERS PRODUCT BANNER ---------------*/
+#SpecialOffers-V3-ProductBanner{
+	width:100%;
+	position:relative;
+	display:block;
+	text-align:left;
+	margin-top:20px;
+}
+@media screen and (max-width: 761px) {
+	#SpecialOffers-V3-ProductBanner{
+	text-align:center;
+	}
+}
+#SpecialOffers-V3-ProductBanner a{
+
+	position:relative;
+	display:inline-block;
+	font-size:0;
+}
+#SpecialOffers-V3-ProductBanner .visual{
+	display:inline-block;
+	max-width:245px;
+	vertical-align:middle;
+}
+
+#SpecialOffers-V3-ProductBanner .content{
+	display:inline-block;
+	position:relative;
+	vertical-align:middle;
+	text-align:left;
+	margin-left:10px;
+	margin-right:10px;
+}
+#SpecialOffers-V3-ProductBanner  a:hover{
+	color:inherit!important;
+}
+#SpecialOffers-V3-ProductBanner  p{
+	margin:0;
+	font-size:14px;
+	padding-bottom:10px;
+}
+#SpecialOffers-V3-ProductBanner  p.Terms{
+	margin:0;
+	font-size:10px;
+	color:#CCC;
+}
+
+#SpecialOffers-V3-ProductBanner img.Picto {
+    display: block;
+    float: left;
+    height: 40px;
+    margin-left: -10px;
+    margin-top: -12px;
+    vertical-align: middle;
+    width: 40px;
+}
+#SpecialOffers-V3-ProductBanner  p.title{
+	margin:0;
+	font-size:28px;
+	line-height:1em;
+	font-family:ClarinsRegular;
+	padding:0px;
+	margin-bottom:10px;
+	color:#be0f34;
+
+}
+/*Clarins mag video image not stretched on ClarinsMag*/
+.clarinsmag-wrap .video-wrap .image-holder img.YTVideoPreview {
+	width: auto;
+	object-fit: cover;
+}
+.pdp-main .pdp-prdimage-thumbnails img {
+	cursor: pointer;
+}
+#howToApply .YTVideoPreview {
+	transform: scaleY(1.33);
+	webkit-transform: scaleY(1.33);
+	-ms-transform: scaleY(1.33);
+}
+#howToApply .YTthumbnail {
+	overflow: hidden;
+}
+/*Men Megamenu Category Blue*/
+.mega-menu-wrapper .menu-category.level-1 .level1-category .custom-design-class:before {
+	background: transparent;
+}
+.mega-menu-wrapper .menu-category.level-1 .level1-category .custom-design-class {
+	color: black;
+}
+.mega-menu-wrapper .menu-category.level-1 .level1-category .custom-design-class:hover {
+	color: #20558a;
+}
+.mega-menu-wrapper .menu-category.level-1 .level1-category .custom-design-class:hover {
+	color: #20558a;
+	border-bottom:2px solid #20558a
+}
+.mega-menu-wrapper .menu-category.level-1 .level1-category. custom-design-class: hover {
+	outline:0;
+}
+.level1-category .category700:before {
+	background: url('../images/Holiday2017_Gift&Sets_Picto.svg?$staticlink$') no-repeat center!important;
+}
+.header-wrapper .mega-menu-wrapper-extended .level-2 li.always-active>a.special-blue {
+	color: #20558a;
+}
+.mega-menu-wrapper .menu-category.level-1 .level1-category:hover a.custom-design-class {
+        color: #20558a;
+        border-bottom: 2px solid #20558a;
+}
+
+
+/* Men Megamenu Category Blue */
+/*.mega-menu-wrapper .menu-category.level-1 .level1-category .custom-design-class:before {
+background: transparent;
+}
+.mega-menu-wrapper .menu-category.level-1 .level1-category .custom-design-class {
+color: black;
+}
+.mega-menu-wrapper .menu-category.level-1 .level1-category .custom-design-class:hover {
+color: #20558a;
+}
+.mega-menu-wrapper .menu-category.level-1 .level1-category .custom-design-class:hover {
+color: #20558a;
+border-bottom:2px solid #20558a
+}
+.mega-menu-wrapper .menu-category.level-1 .level1-category. custom-design-class: hover {
+outline:0;
+}
+.mega-menu-wrapper-extended .level-2 li.always-active>a.special-blue {
+color: #20558a;
+} */
+/* end Men Megamenu Category Blue */
+
+/* Add padding for megamenu - TO DELETE if you have less 9 items */
+@media only screen and (min-width: 1024px){
+
+.level-1>li {
+ padding: 0 10px;
+}
+}
+@media only screen and (min-width: 1100px){
+
+.level-1>li {
+ padding: 0 12px;
+}
+}
+@media only screen and (min-width: 1200px){
+
+.level-1>li {
+ padding: 0 18px;
+}
+}
+
+/*@media only screen and (min-width: 1300px){
+
+.level-1>li {
+ padding: 0 22px;
+}
+}*/
+
+
+/* end padding */
+/* Reassurance Block */
+.search-reassurance-block-container .title {
+ word-break: break-word;
+}
+.search-reassurance-block-container .reassurance-block {
+ padding: 15px 13px;
+}
+
+
+/* SPECIAL OFFER BANNER 2017 */
+
+.PDP-SpecialOfferBanner {
+    width: calc(100% - 20px);
+    max-width: 544px;
+    font-size: 0;
+    border: 10px solid #f3f4f6;
+    background-color: #BB9B9B;
+    position: relative;
+    display: block;
+    overflow: hidden;
+    text-align: center;
+}
+.PDP-SpecialOfferBanner div img {
+    display: block;
+}
+.PDP-SpecialOfferBanner div {
+    vertical-align: middle;
+    display: inline-block;
+    position: relative;
+}
+.PDP-SpecialOfferBanner div p {
+    margin: 0;
+    padding: 0;
+    font-family: "Gotham SSm book A", "Gotham SSm book B", Gotham, Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.4em;
+    color: #000;
+    margin-bottom: 10px;
+}
+.PDP-SpecialOfferBanner div p.picto {
+    margin-bottom: 0px;
+}
+.PDP-SpecialOfferBanner div p.picto img {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+.PDP-SpecialOfferBanner div p.title {
+    padding: 0;
+    font-family: ClarinsRegular, Clarins;
+    color: #be0f34;
+    font-size: 25px;
+    line-height: 1em;
+}
+.PDP-SpecialOfferBanner div p.terms {
+    font-size: 10px;
+    opacity: 0.5;
+}
+.PDP-SpecialOfferBanner div:first-child {
+    width: 272px;
+    text-align: left;
+    z-index: 1;
+}
+.PDP-SpecialOfferBanner div:first-child::after {
+    background-color: #FFF;
+    content: " ";
+    height: calc(100% - 20px);
+    left: 282px;
+    position: absolute;
+    top: 10px;
+    width: 252px;
+    z-index: 2;
+}
+.PDP-SpecialOfferBanner div:last-child {
+    width: 212px;
+    text-align: center;
+    margin: 10px;
+    padding: 20px;
+    background-color: #FFF;
+    font-size: 14px;
+    z-index: 2;
+}
+@media only screen and (max-width: 563px) {
+    .PDP-SpecialOfferBanner {
+        width: 272px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+@media only screen and (max-width: 761px)
+style.css:3
+.multiple-select-dropdown-holder {
+    position: relative;
+    left: -10px;
+    bottom: -30px;
+    margin-bottom: 25px;
+    margin-left: auto;
+}
+.samples-page-wrapper .title {
+    font-family: ClarinsRegular,"Times New Roman",Times,serif;
+    font-size: 30px;
+    line-height: 15px;
+    margin-bottom: 20px;
+}
+
+
+/*
+* Creano
+* Extra-Firming teaser page
+*/
+@charset "UTF-8";.xtrateaser .clearfix{display:block}.xtrateaser .clearfix:after{content:".";display:block;clear:both;visibility:hidden;line-height:0;height:0}html[xmlns] .xtrateaser .clearfix{display:block}* html .xtrateaser .clearfix{height:1%}.xtrateaser,.xtrateaser *{box-sizing:border-box}.xtrateaser{width:100%;margin:auto}.xtrateaser .xtrateaser--bg{overflow:hidden;background:#5e3b2d}.xtrateaser--inner{position:relative;width:100%;max-width:1250px;margin:auto}.xtrateaser--left,.xtrateaser--right{float:left;width:50%}@media (max-width:1024px){.xtrateaser--left,.xtrateaser--right{float:none;width:100%}}.xtrateaser--right{position:relative;padding:20px 0;z-index:2}@media (max-width:1024px){.xtrateaser--right{padding:20px 30px}.xtrateaser--right .xtrateaser--desc{margin-top:520px;padding:10px 0 20px}}@media (max-width:762px){.xtrateaser--right{padding:0 30px 20px}}.iframe--wrapper{position:fixed;width:50%;max-width:625px;background:#fff;z-index:2;border:1px solid #eee}@media (max-width:1024px){.iframe--wrapper{position:relative;width:80%;margin:auto}}@media (max-width:762px){.iframe--wrapper{width:100%}}.iframe--title{position:relative;font-family:ClarinsRegular,clarins,Georgia,"Times New Roman",Times,serif;font-size:22px;line-height:28px;text-align:center;padding:20px}.iframe--title em{display:block;font-style:normal}@media (max-width:762px){.iframe--title em{display:inline}}@media (max-width:762px){.iframe--title{padding:30px 10px 0}}.xtrateaser--content{width:50%;padding:40px 60px}@media (max-width:1024px){.xtrateaser--content{padding:40px 20px;width:100%}}.xtrateaser--title{position:relative;font-family:ClarinsRegular,clarins,Georgia,"Times New Roman",Times,serif;font-size:50px;color:#fffefe;line-height:1;text-align:center;z-index:1}@media (max-width:762px){.xtrateaser--title{font-size:36px;line-height:1.1}}.xtrateaser--title em{display:block;font-style:normal}@media (max-width:1220px){.xtrateaser--title em{display:inline}}@media (max-width:1024px){.xtrateaser--title em{display:block}}@media (max-width:762px){.xtrateaser--title em{display:inline}}.xtrateaser--img{padding:260px 0}@media (max-width:1024px){.xtrateaser--img{padding:0}}.xtrateaser--img img{display:block;position:absolute;bottom:-40px;left:-384px;z-index:0}@media (max-width:1220px){.xtrateaser--img img{left:-400px}}@media (max-width:1124px){.xtrateaser--img img{left:-420px}}@media (max-width:1088px){.xtrateaser--img img{left:-440px}}@media (max-width:1024px){.xtrateaser--img img{bottom:-60px;left:50%;-webkit-transform:translateX(-50%);transform:translateX(-50%)}}@media (max-width:400px){.xtrateaser--img img{bottom:-10px}}.xtrateaser--desc{position:relative;z-index:1;font-family:"Gotham SSm book A","Gotham SSm book B",Helvetica,Arial,sans-serif;font-size:16px;color:#fffefe;line-height:22px;text-align:center}.xtrateaser--desc b{font-family:"Gotham SSm medium A","Gotham SSm medium B",Helvetica,Arial,sans-serif}@media (max-width:762px){.xtrateaser--desc br{display:none}}.xtrateaser-ing{width:100%;max-width:1250px;margin:auto;background:#fff}.xtrateaser-ing--inner{position:relative;width:50%;padding:0 0 0 20px}@media (max-width:1024px){.xtrateaser-ing--inner{width:70%;margin:auto;padding:0 30px}}@media (max-width:762px){.xtrateaser-ing--inner{width:100%}}.xtrateaser-ing--content{float:left;width:50%;max-width:320px;position:relative;padding-top:200px;text-align:right;z-index:1}@media (max-width:762px){.xtrateaser-ing--content{float:none;width:100%;max-width:none;margin:auto;padding-top:34px;text-align:center}}.xtrateaser-ing--ing{position:relative;left:-30px;float:left;width:40%;max-width:252px;z-index:0}.xtrateaser-ing--ing img{display:block;margin:auto}@media (max-width:762px){.xtrateaser-ing--ing{float:none;left:initial;margin:auto;width:100%;max-width:300px;max-height:410px;overflow:hidden}}.xtrateaser-ing--legend{position:absolute;bottom:30px;left:20px;font-size:10px;font-style:italic}@media (max-width:762px){.xtrateaser-ing--legend{bottom:60%;right:0;left:initial;max-width:60px}}.xtrateaser-ing--title{font-family:ClarinsRegular,clarins,Georgia,"Times New Roman",Times,serif;font-size:35px;color:#b16d57;line-height:1}.xtrateaser-ing--title em{display:block;font-style:normal}@media (max-width:762px){.xtrateaser-ing--title em{display:inline}}.xtrateaser-ing--text{margin-top:20px;font-size:14px;line-height:20px}.xtrateaser-res{background:#f6f1ee;background:linear-gradient(to bottom,#f6f1ee 0,#fff 23%,#fff 73%,#dec8bf 100%);filter:progid:DXImageTransform.Microsoft.gradient( startColorstr='#f6f1ee', endColorstr='#dec8bf', GradientType=0 )}.xtrateaser-res--content{padding:60px 0 40px}@media (max-width:762px){.xtrateaser-res--content{padding:40px 10px}}.xtrateaser-res--title{font-family:ClarinsRegular,clarins,Georgia,"Times New Roman",Times,serif;font-size:35px;color:#b16d57;line-height:1;text-align:center}.xtrateaser-res--title em{display:block;font-style:normal}.xtrateaser-res--text{font-size:10px;text-align:center}.xtrateaser-res--img{position:relative;margin:20px auto;padding:100px 0 114px}@media (max-width:530px){.xtrateaser-res--img{padding-top:110px}}@media (max-width:450px){.xtrateaser-res--img{padding-top:120px}}.xtrateaser-res--img img{display:block;position:relative;width:100%;max-width:585px;margin:auto;z-index:1}.xtrateaser-res--img .chart{z-index:0}.xtrateaser-res--img .chart--1,.xtrateaser-res--img .chart--2,.xtrateaser-res--img .chart--3,.xtrateaser-res--img .chart--4{position:absolute;left:50%}.xtrateaser-res--img .chart--1{top:0;-webkit-transform:translateX(-100%);transform:translateX(-100%)}.xtrateaser-res--img .chart--2{top:0;-webkit-transform:translateX(0);transform:translateX(0)}.xtrateaser-res--img .chart--3{bottom:0;-webkit-transform:translateX(-100%);transform:translateX(-100%)}.xtrateaser-res--img .chart--4{bottom:0;-webkit-transform:translateX(0);transform:translateX(0)}.circular-chart{display:block;position:relative;width:100%;max-width:160px}.circular-chart .circle--text{fill:#b16d57;font-size:7px;text-anchor:middle;text-align:center}.circular-chart .circle--text tspan{font-size:3px}.circle-bg{fill:none;stroke:#cdcdcd;stroke-width:.4}.circle{fill:none;stroke-width:.4;-webkit-animation:progress 1s ease-out forwards;animation:progress 1s ease-out forwards}.brown .circle{stroke:#b16d57}@-webkit-keyframes progress{0%{stroke-dasharray:0 100}}@keyframes progress{0%{stroke-dasharray:0 100}}
+
+/*Fixes the spacing of the links before the Clarins logo in the header */
+.megamenu-header .megamenu-header-left-links .component
+{ padding-right: 0; }
+
+@media only screen and (min-width: 1024px) {
+.megamenu-header .megamenu-header-left-links .component .component-link
+{ font-size: 9px; }
+
+}
+@media only screen and (max-width: 761px){
+	.samples-page-wrapper .title {
+    font-size: 30px;
+    line-height: 15px;
+    margin-bottom: 20px;
+}
+}
+
+
+.fr_FR .pt_account .lip-landing-page-section .section-content{
+	flex: 1 0 auto;
+}
+
+/* DTW modification */
+/*.level1-category:nth-child(6):before {
+    background: url(../images/2019_HOLIDAYS_icone-Gift-guide.png?$staticlink$) no-repeat center !important;
+    background-size: 100% 100% !important;;
+    width: 25px !important;;
+    height: 50px !important;;
+    position: absolute !important;;
+    top: 0px !important;
+    left: 38%!important;
+    content: "";
+    margin-left: 4px !important;;
+}
+
+@media screen and (max-width: 1024px) {
+.level1-category:nth-child(6):before {
+    background: url(../images/2019_HOLIDAYS_icone-Gift-guide.png?$staticlink$) no-repeat center !important;
+    width: 25px !important;
+    height: 50px !important;
+    position: absolute !important;
+    content: "";
+    display: block;
+    margin-left: 87px !important;
+}
+}
+
+
+
+
+  @media screen and (max-width: 991.98px) {
+	.level1-category:nth-child(6) a {
+		padding-left: 33px!important;
+	}
+
+	.level1-category:nth-child(6):before {
+		background: url(../images/2019_HOLIDAYS_icone-Gift-guide.png?$staticlink$) no-repeat center !important;
+		background-size: 100% 100%!important;;
+		width: 25px!important;;
+		height: 50px!important;;
+		position: absolute!important;;
+		top: unset!important;;
+		left: unset!important;;
+		content: "";
+		margin-left: 4px!important;;
+		display: block!important;
+	}
+
+	.level1-category:nth-child(6):before{
+		display: none;
+		}*/
+
+	/* END OF DATAWORDS MODIFICATIONS */
+
+/*2020 xmas icon*/
+/*.level1-category:nth-child(6):before {
+    background: url(../images/2020_HOLIDAYS_icone-Gift-guide.png?$staticlink$) no-repeat center!important;
+    background-size: 100% 100%;
+    width: 25px;
+    height: 30px;
+    position: absolute;
+    top: 12px;
+    left: 515px;
+    content: "";
+    margin-left: 4px;
+}
+  @media screen and (max-width: 991.98px) {
+	 .level1-category:nth-child(6) a {
+		 padding-left: 33px!important;
+	 }
+	 .level1-category:nth-child(6):before {
+		 background: url(../images/2020_HOLIDAYS_icone-Gift-guide.png?$staticlink$) no-repeat center !important;
+		 background-size: 100% 100%;
+		 width: 25px;
+		 height: 50px;
+		 position: absolute;
+		 top: unset;
+		 left: unset;
+		 content: "";
+		 margin-left: 4px;
+	 }
+ }*/
+
+ i-navigation-menu-item[category-id="services-and-spa"] .navigation-flyout__subcategories-wrapper .navigation-flyout__subcategory:nth-child(2) .navigation-flyout__third-level .navigation-flyout__highlights{
+	padding-top: 4px;
+}

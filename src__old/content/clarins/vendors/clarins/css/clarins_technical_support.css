@@ -1,0 +1,1241 @@
+/*  -----------------------------------------------
+    -----------------------------------------------
+        CLRv3 Clarins Technical Support Team
+        Version 1
+        Last Update : 16/12/2019
+    -----------------------------------------------
+    ----------------------------------------------- */
+
+/* Remove ID newsletter_mega-menu */
+
+/* =========================
+[ Global CSS ]
+========================= */
+.text-uppercase{
+  text-transform: uppercase;
+}
+.redTxt{
+  color:#be0f34;
+}
+.txtJustify{
+  text-align: justify;
+}
+.txtCenter{
+  text-align: center;
+}
+/* =========================
+[CFC-3212]
+[Content Asset : homepage-reassurance-block]
+[23/07/2019]
+[ALL Clarins - homepage-reassurance]
+========================= */
+.homepage-reassurance_bis h2{
+width: 100%;
+}
+.homepage-reassurance_bis>div{
+  margin-bottom: 20px;
+}
+@media only screen and (min-width: 768px){
+.homepage-reassurance_bis>div {
+    margin-bottom: 0px;
+}
+}
+
+/* =========================
+[CFC-2916]
+[Content Asset : top-bumper-1]
+[23/07/2019]
+[ALL Clarins - offer-bumper-message]
+========================= */
+.offer-bumper-message p{
+  font-family:Gotham SSm medium A,Gotham SSm medium B,Helvetica,Arial,sans-serif;
+  margin: 0px;
+  font-weight: lighter;
+}
+.offer-bumper-message strong{
+  font-weight: bold;
+}
+
+/* =========================
+[CFC-2913]
+[Content Asset : footer-terms-rights]
+[23/07/2019]
+[ALL Clarins - Navigation Terms & Conditions]
+========================= */
+.nav_footer-terms ul{
+  padding: 0;
+}
+.nav_footer-terms ul li{
+  list-style-type: none;
+  display: inline-block;
+  vertical-align: middle;
+}
+.nav_footer-terms .margLeft10 {/* Stay in a custom */
+  margin-left: 10px;
+}
+.nav_footer-terms .margRight10 {/* Stay in a custom */
+  margin-right: 10px;
+}
+
+/* =========================
+[CFC-2921]
+[// Article RelatedContent // Aspot-Block]
+[23/07/2019]
+[ALL Clarins]
+========================= */
+.RelatedContent-Block article .BoxContent h3.Title{
+  line-height: 1;
+  margin: 0;
+  margin-bottom: 0.25em;
+  font-size: 30px;
+  font-weight: lighter;
+}
+.RelatedContent-Block article .BoxContent div.TextLink a {
+  font-family: "Gotham SSm medium A", "Gotham SSm medium B", Gotham, Helvetica, Arial, sans-serif;
+  font-size: 11px;
+  text-transform: uppercase;
+  color: #000;
+  text-decoration: none;
+  position: relative;
+  display: inline-block;
+  line-height: 14px;
+  -webkit-transition: all ease-in-out 0.2s;
+  transition: all ease-in-out 0.2s;
+  border-bottom: 1px solid #d4d4d4;
+}
+.RelatedContent-Block article .BoxContent div.TextLink {
+  margin-top: 20px;
+}
+.Aspot-Block .Wrapper article .BoxContent div.BtnLink a {
+  font-family: "Gotham SSm medium A", "Gotham SSm medium B", Gotham, Helvetica, Arial, sans-serif;
+  font-size: 11px;
+  text-transform: uppercase;
+  color: #FFF;
+  text-decoration: none;
+  position: relative;
+  background-color: #000;
+  padding: 16px 26px;
+  display: inline-block;
+  line-height: 14px;
+  -webkit-transition: all ease-in-out 0.2s;
+  transition: all ease-in-out 0.2s;
+  border: 2px solid #000;
+}
+.A-Spot-Main .BoxContent h3.Title{
+  font-size: 50px;
+  font-weight: lighter;
+  margin: 0 0 0.25em;
+}
+.A-Spot-Secondary .BoxContent h3.Title{
+  font-size: 24px;
+  margin-top: 25px;
+  font-weight: lighter;
+  margin-bottom: 0.25em;
+}
+.Aspot-Block .Wrapper article .BoxContent div.BtnLink {
+  margin-top: 20px;
+}
+.Aspot-Block .Wrapper .A-Spot-Secondary .BoxContent div.BtnLink {
+  margin-bottom: 25px;
+}
+.Aspot-Block .Wrapper article .BoxContent div.BtnLink a:hover{
+  background-color:transparent;color:#000;border:2px solid #8b8b8b
+}
+/* =========================
+[CFC-2903]
+[Content Asset : footer-sign-up-newsletter]
+[24/07/2019]
+[ALL Clarins > GDPR below sign up for clarins emails]
+========================= */
+.txt-footer-item-newsletter{
+  clear: both;
+}
+
+/* =========================
+[CFC-2920]
+[// verticalAssetContainer]
+[25/07/2019]
+[ALL Clarins > Mega menu category verticalAssetContainer]
+========================= */
+div.menu-category.verticalAssetContainer{
+  margin-top: 15px;
+}
+div.menu-category.verticalAssetContainer a{
+  padding: 13px 0 17px;
+}
+.verticalAssetContainer p{
+  margin: 10px 0;
+  word-break: normal;
+  font-family: "Gotham SSm book A", "Gotham SSm book B", Helvetica, Arial, sans-serif;
+}
+span.promotionLink{
+  font-size: 11px;
+  text-transform: uppercase;
+}
+
+/* =========================
+[CFC-3011]
+[Content asset : footer-need-help]
+[25/07/2019]
+[MX Clarins]
+========================= */
+.es_MX .footer-help ul li {
+  padding: 0px !important;
+}
+
+/* =========================
+[CFC-4001]
+[Content asset : homepage-beauty-consultation]
+[29/07/2019]
+[US Clarins]
+========================= */
+  .BeautySection-Block_bis {
+      margin-top: 40px !important;
+      background: url(/on/demandware.static/-/Library-Sites-clarins-v3/en_US/v1564206013418/content/Homepage-2018/banner-bottom.jpg) no-repeat;
+      background-position: top center;
+      max-width: 1170px;
+      margin: 0 auto;
+      text-align: right;
+  }
+  .BeautySection-Block_bis a{
+      display: block;
+      text-align: right;
+  }
+  .bg_product-perfect-skin {
+      background: url(/on/demandware.static/-/Library-Sites-clarins-v3/en_US/v1564206013418/content/Homepage-2018/banner-bottom-products.png) no-repeat;
+      height: 80px;
+      background-position: center;
+      margin-bottom: 10px;
+  }
+  .BeautySection-Block_bis .Title {
+      font-size: 40px;
+      font-weight: normal;
+      margin: 0;
+      color: #000;
+      font-family: ClarinsRegular,Clarins;
+  }
+  .BeautySection-Block_bis a {
+      display: block;
+      text-align: right;
+      padding: 50px 0px;
+  }
+  .content-BeautySection {
+      max-width: 443px;
+      display: inline-block;
+      margin-right: 60px;
+      text-align: center;
+  }
+  .BeautySection-Block_bis p.TextLink {
+      font-family: gotham ssm medium a,gotham ssm medium b,Gotham,Helvetica,Arial,sans-serif;
+      color: #000;
+      text-transform: uppercase;
+      border-bottom: 1px solid rgba(0,0,0,.5);
+      letter-spacing: .1em;
+      display: inline-block;
+      margin-top: 15px;
+  }
+  @media only screen and (max-width:1023px){
+      .BeautySection-Block_bis {
+          background: url(/on/demandware.static/-/Library-Sites-clarins-v3/en_US/v1564206013418/content/Homepage-2018/banner-bottom-mobile.jpg) no-repeat;
+          background-position: center left;
+          background-size: 100vw auto;
+      }
+      .bg_product-perfect-skin{
+          background-size: 25%;
+          height: 60px;
+      }
+      .BeautySection-Block_bis .Title{
+          font-size: 4vw;
+      }
+      .BeautySection-Block_bis a{
+          padding: 47px 0px;
+      }
+      .content-BeautySection{
+          margin-right: 30px;
+          max-width: 47.8vw;
+      }
+  }
+  @media only screen and (max-width:761px){
+      .BeautySection-Block_bis .Title{
+          font-size: 6vw;
+      }
+      .bg_product-perfect-skin{
+          display: none;
+      }
+      .BeautySection-Block_bis p.TextLink {
+          margin-top: 8px;
+          max-width: 50vw;
+          text-decoration: underline solid rgba(0,0,0,.5);
+          border: none;
+      }
+      .content-BeautySection{
+          text-align: left;
+          width: 40vw;
+      }
+  }
+
+/* =========================
+[CFC-3026]
+[Content asset : mega-menu-vertical-asset-wide-promo-maternite
+ID : mega-menu-vertical-asset-wide-promo-my-clarins]
+[30/07/2019]
+[FR Clarins]
+========================= */
+.full-width-megamenu {
+  margin-top: -10px;
+  margin-bottom: -10px;
+}
+/* =========================
+[CFC-4077]
+[Content asset : //]
+[05/08/2019]
+[BNL + ES Clarins > The serenity price has a bad display on mobile]
+========================= */
+@media screen and (max-width: 769px){
+  .es_ES .product-tile .product-pricing.left-aligned,.fr .product-tile .product-pricing.left-aligned, .nl .product-tile .product-pricing.left-aligned{
+      left: 0px;
+  }
+  .es_ES .product-tile .serenity-price .product-price-block__serenity-price,
+  .es_ES .product-price-block .serenity-price .product-price-block__serenity-price,
+  .es_ES .product-tile .product-pricing.left-aligned .product-sales-price,
+  .fr .product-tile .product-pricing.left-aligned .product-sales-price,
+  .nl .product-tile .product-pricing.left-aligned .product-sales-price,
+  .fr .product-price-block .serenity-price .product-price-block__serenity-price,
+  .fr .product-tile .serenity-price .product-price-block__serenity-price,
+  .nl .product-price-block .serenity-price .product-price-block__serenity-price,
+  .nl .product-tile .serenity-price .product-price-block__serenity-price{
+      font-size: 12px;
+  }
+  .es_ES .product-tile .price-per-unit,.fr .product-tile .price-per-unit, .nl .product-tile .price-per-unit{
+      font-size: 10px;
+  }
+}
+/* =========================
+[CFC-1622]
+[Content asset : //]
+[19/08/2019]
+[ALL Clarins > In IE the logo is not centered verticaly]
+========================= */
+@media screen and (min-width: 768px){
+  .ie6 header .primary-logo img, .ie7 header .primary-logo img, .ie8 header .primary-logo img {
+      padding-top: 9px;
+  } 
+}
+/* =========================
+[CFC-1501]
+[Content asset : //]
+[13/08/2019]
+[ALL Clarins > PDP > Wrong display on the carousel "Result"]
+========================= */
+.proven-results-tab p:first-child{
+  max-width: 564px;
+}
+/* =========================
+[CFC-4546]
+[Content asset : 2019-aroma-aspotmajor-plant-gold]
+[26/08/2019]
+[Clarins US > Aspot Major full clickable]
+========================= */
+a.link-A-Spot {
+  display:block
+}
+a.link-A-Spot:hover {
+  color:inherit;
+}
+.BtnLink-bis {
+  font-family: "Gotham SSm medium A", "Gotham SSm medium B", Gotham, Helvetica, Arial, sans-serif;
+  font-size: 11px;
+  text-transform: uppercase;
+  color: #FFF;
+  background-color: #000;
+  padding: 16px 26px;
+  display: inline-block;
+  line-height: 14px;
+  -webkit-transition: all ease-in-out 0.2s;
+  transition: all ease-in-out 0.2s;
+  border: 2px solid #000;
+  margin-bottom: 25px;
+}
+.BtnLink-bis:hover {
+  background-color: transparent;
+  border-color: grey;
+  color: #000;
+}
+@media screen and (max-width: 769px){
+  .BtnLink-bis{
+      margin-top: 20px;
+  }
+}
+/* =========================
+[CFC-5138 + CFC-5482]
+[Content asset //]
+[20/09/2019]
+[Clarins RU > Homepage > Row-homepage-assurance, block aren't display well on mobile]
+========================= */
+@media screen and (max-width: 768px){
+  .ru_RU .homepage-reassurance_bis>div {
+      height: 120px;
+  }
+}
+/* =========================
+[CFC-4835]
+[Slot ID : mega-menu-vertical-asset-wide-promo-specail_17_09]
+[23/09/2019]
+[ALL Clarins > re-work of the offer block SpecialOffers-FreeShipping-MegaMenu ]
+========================= */
+#SpecialOffers-FreeShipping-MegaMenu-2{
+  background-color: #ffffff;
+  font-family: "Gotham SSm book A","Gotham SSm book B",Helvetica,Arial,sans-serif;    
+}
+.LeftBlock-SpecialOffers-FreeShipping-MegaMenu, .RightBlock-SpecialOffers-FreeShipping-MegaMenu {
+  display: inline-block;
+  width: 49%;
+  vertical-align: middle;
+  text-align: center;
+}
+.LeftBlock-SpecialOffers-FreeShipping-MegaMenu img {
+  max-width: 100%;
+}
+.RightBlock-SpecialOffers-FreeShipping-MegaMenu {
+  padding: 1% 1% 2%;
+  background-color: #ffffff;
+  -moz-box-sizing: border-box;
+  border: 10px solid rgba(239,239,239,1);
+}
+.RightBlock-SpecialOffers-FreeShipping-MegaMenu p.subTxt{
+  color: #be0f34;
+  margin: 10px;
+  font-size: 14px;
+  font-weight: bolder;
+}
+.RightBlock-SpecialOffers-FreeShipping-MegaMenu h3{
+  margin: 20px 0 10px;
+  font-family: ClarinsRegular;
+  font-weight: 400;
+  color: #000;
+  font-size: 47px;
+}
+.RightBlock-SpecialOffers-FreeShipping-MegaMenu p{
+  font-size: 16px;
+  line-height: 26px;
+  text-transform: none;
+  margin: 0;
+}
+.margin-strongTxt{
+  margin-top: 25px;
+}
+.btn-offer-block-mega-menu{
+  margin-top:20px; 
+}
+.btn-offer-block-mega-menu a{
+  color: #be0f34;
+  font-size: 14px;
+  font-weight: bold;
+  text-decoration: underline;
+}
+/* =========================
+[CFC-5340]
+[Asset ID : menu-100-highlights]
+[24/09/2019]
+[FR Clarins > Remove the padding from the item sub-menu in mobile  ]
+========================= */
+.navigation-flyout__highlights .navigation-nopadding a {
+  padding: 0 !important;
+}
+
+/* =========================
+[CFC-5260]
+[Asset ID : menu-500-highlights]
+[25/09/2019]
+[FR Clarins > Colored in blue the item menu "Nos sÃ©lection" nested in the menu "Homme"]
+========================= */
+.level1-category .navigation-flyout__highlights-title.blue-color-item{
+  color: #20558a;
+}
+
+/* =========================
+[CFC-5233]
+[Asset ID : ////]
+[30/09/2019]
+[FR Clarins > Expand the main mega menu's items]
+========================= */
+@media screen and (min-width: 1023px){
+  .fr_FR .header-wrapper li.level1-category.col-gutter.col-1-desktop {
+      width: auto;
+      padding: 0px 16px;
+  }
+}
+
+/* =========================
+[CFC-5235 + CFC-6092]
+[Asset ID : ////]
+[01/10/2019]
+[ALL Clarins > PDP + CLP > left aligned the title "View recently"]
+========================= */
+.pt_categorylanding .most-recently-viewed .oneline-title {
+  font-size: 22px;
+  letter-spacing: 0;
+  font-weight: 400;
+  margin: 50px 0 65px;
+}
+.pt_categorylanding .most-recently-viewed .oneline-title .oneline-title-wrapper {
+  padding: 0px;
+}
+@media screen and (max-width: 768px){
+.pt_categorylanding .most-recently-viewed .oneline-title {
+    line-height: 35px;
+    margin: 35px 0 20px 8px;
+    font-size: 20px;
+}
+}
+/* =========================
+[CFC-5621]
+[Asset ID : ////]
+[04/10/2019]
+[ALL Clarins > PDP whithin Beauty routine > Beauty routine hidden by a white layer]
+========================= */
+p.t004-title {
+  float: left;
+  width: 100%;
+  text-align: center;
+}
+
+/* =========================
+[CFC-5640]
+[Asset ID : footer-advantages]
+[04/10/2019]
+[ALL Clarins > Review of the template - Logos paiement embed in the footer]
+-> When it will be done for all the countries, remove the CSS style .footer-logos from custom-clarinsusa.css
+========================= */
+.footer-logos2 ul{
+  padding: 0px;
+}
+.footer-logos2 ul li {
+  display: inline-block;
+  vertical-align: middle;
+}
+.footer-wrapper .footer-logos2 {
+  border-bottom: 2px solid #cbcbcb;
+  border-top: 2px solid #cbcbcb;
+  padding: 13px 0px;
+  text-align: center;
+  font-size: 0;
+  margin-bottom: 38px;
+}
+@media screen and (max-width: 768px){
+  .footer-logos2 ul li{
+      margin: 5px 0px;
+  }
+}
+@media screen and (min-width: 325px) and (max-width: 768px){
+  .en_US .footer-logos2 ul li{
+      width: 59px;
+  }
+  .en_US .footer-logos2 ul li img{
+      width: 100%;
+  }
+  .ja_JP .footer-logos2 ul li {
+      width: 19%;
+  }
+}
+@media screen and (min-width: 400px) and (max-width: 768px){
+  .footer-logos2 ul li {
+      padding: 10px 0px;
+  }
+}
+
+/* =========================
+[CFC-5571]
+[Asset ID : footer-advantages]
+[03/10/2019]
+[RU Clarins > Embed a sprite in the footer]
+========================= */
+
+.footer-advantages #footer-jcarousel li .ru-picto {
+  background-image: url(../images/ru-footer-new.png?$staticlink$);
+}
+.footer-avantage-7{
+  background-position: center -250px;
+}
+.footer-avantage-8{
+  background-position: center -300px;
+}
+.footer-avantage-10{
+  background-position: center -403px;
+}
+.footer-avantage-11{
+  background-position: center -452px;
+  padding: 0;
+  margin: 0;
+  background-repeat: no-repeat;
+  height: 50px;
+  display: inline-block;
+  width: 100px;
+}
+
+/* =========================
+[CFC-5969]
+[Asset ID : ////]
+[17/10/2019]
+[DE Clarins > Space on ingredient tab on IE]
+========================= */
+.pdp-bottom-container .ingredients-tab .ingredient-container{
+  display:block;
+}
+/* =========================
+[CFC-6122]
+[Asset ID : FT]
+[23/10/2019]
+[ALL Clarins > Cart page > Add an icon on the checkout CTA]
+========================= */
+.cart-action-checkout .button-continue-checkout{
+  width: 100%;
+}
+.button-continue-checkout .btn-checkout{
+  font-size:14px;
+}
+.button-continue-checkout .btn-checkout .checkout{
+  margin-left: 3.5px;
+}
+.button-continue-checkout .txt-btn-checkout{
+  font-size:10px;
+  margin-top: 3.5px;
+}
+/* =========================
+[CFC-2921]
+[Asset ID : homepage-a-spot-main]
+[29/10/2019]
+[ALL Clarins > Re-work of the main A-spot]
+========================= */
+.Aspot-Block .Wrapper .A-Spot-Main .BoxContent{
+  align-items: normal !important;    
+}
+.Aspot-Block .Wrapper .A-Spot-Main .BoxContent .Title{
+  font-size: 50px;
+  font-weight: lighter;
+  line-height: 1em;
+  font-family: ClarinsRegular, Clarins;
+  margin: 0;
+  margin-bottom: 0.25em;
+}
+.A-Spot-Secondary .BoxContent .Title{
+  font-size: 24px;
+  margin-top: 25px;
+  font-weight: lighter;
+  margin-bottom: 0.25em;
+}
+.ko_KR .A-Spot-Secondary .BoxContent .Title{
+  font-family: ClarinsRegular, Clarins;
+}
+@media screen and (max-width: 1023px){
+  .Aspot-Block .Wrapper .A-Spot-Secondary .BoxContent .Title {
+      margin-top: 15px;
+      margin-bottom: 5px;
+      font-size: 18px;
+  }
+  .Aspot-Block .Wrapper .A-Spot-Secondary .BoxContent .BtnLink a {
+      padding: 11px 30px;
+      box-sizing: border-box;
+  }
+  .Aspot-Block .Wrapper .A-Spot-Secondary .BoxContent div.BtnLink{
+      margin: 0 0 10px;
+  }
+}
+
+
+
+/* =========================
+[CFC-3212]
+[Asset ID : homepage-reassurance-block]
+[05/11/2019]
+[ALL Clarins > Re-work of homepage-reassurance-block]
+========================= */
+.homepage-reassurance {
+  text-align: center;
+}
+.reassurance-title {
+  font-family: "Gotham SSm medium A", "Gotham SSm medium B", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+}
+.reassurance-subtitle {
+  font-family: "Gotham SSm book A", "Gotham SSm book B", Helvetica, Arial, sans-serif;
+  font-size: 11px;
+}
+.homepage-reassurance h2 {
+padding: 0;
+margin: 0 0 20px 0;
+text-align: center;
+display: inline-block;
+font-size: 20px;
+font-weight: normal;
+font-family: "Gotham SSm book A","Gotham SSm book B",Helvetica,Arial,sans-serif;
+text-transform: uppercase;
+}
+
+.homepage-reassurance li:nth-child(1), .homepage-reassurance li:nth-child(2) {
+  margin-bottom:20px
+}
+@media only screen and (min-width: 768px) {
+  .homepage-reassurance.homepage-reassurance_bis h2, .homepage-reassurance.homepage-reassurance_bis hr{
+      display: none;
+  }
+  .homepage-reassurance li:nth-child(1), .homepage-reassurance li:nth-child(2) {
+      margin-bottom: 0;
+  }
+}
+
+.homepage-reassurance hr {
+  margin-bottom: 38px;
+}
+
+.homepage-reassurance ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.homepage-reassurance li {    
+  color: #000;
+  text-align: center;
+  text-decoration: none;
+}
+.homepage-reassurance li a {
+  display: inline-block;
+}
+.homepage-reassurance .picto {
+  padding: 0;
+  margin: 0;
+  background-repeat: no-repeat;
+  height: 50px;    
+  width: 100%;
+  display: inline-block;
+  background-position: center;
+}
+#homepage-reassurance-1-hover {
+  background-image: url(../images/homepage/reassurance_1_hover.png?$staticlink$);;
+}
+#homepage-reassurance-2-hover {
+  background-image: url(../images/homepage/reassurance_2_hover.png?$staticlink$);
+}
+#homepage-reassurance-3-hover {
+  background-image: url(../images/homepage/reassurance_3_hover.png?$staticlink$);
+}
+#homepage-reassurance-4-hover {
+  background-image: url(../images/homepage/reassurance_4_hover.png?$staticlink$);
+}
+#homepage-reassurance-1 .picto {
+  background-image: url(../images/homepage/reassurance_1.png?$staticlink$);
+}
+
+#homepage-reassurance-1:hover .picto{
+  background-image: url(../images/homepage/reassurance_1_hover.png?$staticlink$);
+}
+
+#homepage-reassurance-2 .picto{
+  background-image: url(../images/homepage/reassurance_2.png?$staticlink$);
+}
+
+#homepage-reassurance-2:hover .picto{
+  background-image: url(../images/homepage/reassurance_2_hover.png?$staticlink$);
+}
+
+#homepage-reassurance-3 .picto{
+  background-image: url(../images/homepage/reassurance_3.png?$staticlink$);
+}
+
+#homepage-reassurance-3:hover .picto{
+  background-image: url(../images/homepage/reassurance_3_hover.png?$staticlink$);
+}
+
+#homepage-reassurance-4 .picto{
+ background-image: url(../images/homepage/reassurance_4.png?$staticlink$);
+}
+
+#homepage-reassurance-4:hover .picto{
+  background-image: url(../images/homepage/reassurance_4_hover.png?$staticlink$);
+}
+
+/* =========================
+[CFC-6588]
+[Asset ID : Donation-ARTHRITIS]
+[06/11/2019]
+[FR Clarins > Checkout page > Donation-ARTHRITIS block]
+========================= */
+.donation-section-header.clearfix {
+  font-size: 0;
+  margin-bottom: 15px;
+}
+.donation-asset {
+  cursor: pointer;
+  display: inline-block;
+  vertical-align: middle;
+  top: -2px;
+  zoom: 0.9;
+}
+.donation-section-title h4, .donation-popup h2 {
+  font-family: "Gotham SSm book A","Gotham SSm book B",Helvetica,Arial,sans-serif;
+  font-size: 22px;
+  font-weight: 400;
+  margin: 0;
+}
+.donation-section-wrapper {
+  border: 2px solid #e5e5e5;
+  border-top: none;
+  padding: 15px 20px;
+}  
+.donation-section-header {
+  width: 100%;
+}  
+.donation-section-info {
+  width: 70%;
+  float: left;
+}
+.donation-section-info-additional-text {
+  color:#767676;
+}
+.donation-section-actions-item {
+  margin-left: auto;
+  margin-right: 0;
+  width: 100%;
+  margin-bottom: 5px;
+}
+.donation-section-actions {
+  width: 30%;
+  float: left;
+  text-align: right;
+}
+.donation-section-title {
+  font-family: "Gotham SSm book A", "Gotham SSm book B", Helvetica, Arial, sans-serif;
+  font-size: 22px;
+  font-weight: normal;
+  display: inline-block;
+  vertical-align: middle;
+  width: 50%;
+}
+.donation-section-image {
+  display: inline-block;
+  vertical-align: middle;
+  text-align: right;
+  width: 50%;
+}
+.txt-donation-section-info {
+  margin: 0;
+  display: inline-block;
+  text-align: justify;
+}
+p.donation-section-padding {
+  margin: 0 0 4px;
+}
+@media only screen and (max-width: 764px) {
+  .donation-section-wrapper {
+      border-top: 2px solid #e5e5e5;
+  }
+}
+@media only screen and (max-width: 1023px) {
+  .donation-section-info {
+      width: 100%
+  }
+   
+  .donation-section-actions {
+      width: 100%;
+      text-align: left;
+      margin-top: 8px;
+  }
+   
+  .donation-section-actions-item {
+      display: inline-block;
+  }
+}
+/* =========================
+[CFC-6588]
+[Asset ID : Donation-ARTHRITIS-popup]
+[06/11/2019]
+[FR Clarins > Checkout page > Donation-ARTHRITIS block]
+========================= */
+.donation-basic {
+  border: 2px solid #e5e5e5;
+  border-top: 4px solid #be0f34;
+  overflow-y: auto;
+  overflow-x: hidden;
+  transform: translate(-50%, -50%);
+  z-index: 9996;
+  max-width: 80%;
+  max-height: 80vh;
+  position: fixed;
+}
+.donation-popup{
+  margin: 35px;
+  font-size: 13px;
+  letter-spacing: 0.2px;
+  line-height: 1.5;
+}
+.donation-popup-close {
+  cursor: pointer;
+  float: right;
+  height: 24px;
+  width: 24px;
+  position: absolute;
+  top: 12px;
+  right: 5px;
+  z-index: 102;
+}
+.donation-image {
+  text-align: center;
+}
+.donation-title {
+  font-size: 22px;
+  font-family: "Gotham SSm book A","Gotham SSm book B",Helvetica,Arial,sans-serif;
+}
+/* =========================
+[CFC-6649]
+[Asset ID : salesforce-loyalty-member-subscribe-description]
+[07/11/2019]
+[FR Clarins > Club Clarins > Loyalty programe]
+========================= */
+.text-salesforce-loyalty{
+  font-size: 1.1em;
+}
+label.salesforce-loyalty-subscription-radio-label {
+  padding: 0;
+}
+.text-salesforce-loyalty {
+  font-size: 1.1em;
+  margin: 0;
+}
+@media only screen and (min-width: 762px){
+  .salesforce-loyalty-section {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  }
+}
+/* =========================
+[CFC-6649]
+[Asset ID : salesforce-loyalty-confirmation]
+[07/11/2019]
+[FR Clarins > Club Clarins > Loyalty programe]
+========================= */
+.txt-salesforce-loyalty-confirmation{
+  font-size:15px;
+  padding:15px;
+}
+.logo-salesforce-loyalty-confirmation{
+  vertical-align:middle;
+  margin:0px 7px;
+  width:80px;
+}
+/* =========================
+[CFC-3034]
+[Asset ID : newsletter-aboveFooter]
+[13/11/2019]
+[ALL Clarins > HP > block subscribe newsletter]
+========================= */
+.newsletter-body .newsletter-heading h2:before {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  border: none;
+  margin: 0 auto;
+  top: 13px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  z-index: -1;
+}
+@media (min-width: 768px){
+  .newsletter-body .newsletter-heading h2:before {
+      border-top: 2px solid #e5e5e5;
+  }
+}
+.newsletter-heading .heading-text{
+  font-family: 'Gotham SSm book A','Gotham SSm book B',Helvetica,Arial,sans-serif;
+}
+.newsletter-body .newsletter-heading h2{
+  font-size: 20px;
+  position: relative;
+  margin: 13px 0;
+  z-index: 1;
+}
+/* =========================
+[CFC-7037]
+[Asset ID : //]
+[21/11/2019]
+[ALL Clarins > Sample overlay > remove the border of the "skip this step" button on mobile]
+========================= */
+@media (max-width: 769px) {
+  .samples-overlay-close-wrapper .button-link.samples-overlay-ignore{
+      outline: none !important;
+  }
+}
+.samples-overlay-buttons button:not(.not-tabbable):active{
+  outline: none !important;
+}
+.sample-tile-wrapper .button-link.sample-tile-bottom:active{
+  outline: none !important;
+}
+/* =========================
+[Censhare]
+[Custom attribute : V3 Custom Product Attributes Proven Results]
+[27/11/2019]
+[ALL Clarins > PDP carousel > Proven results tab]
+========================= */
+.wrapper-Content-Result{
+  width: 564px;
+  margin: 0 auto;
+}
+.row-Result{
+  text-align: center;
+  border: 2px solid #e5e5e5;
+  padding: 20px;
+}
+.InlineBlock{
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0% 2%;
+  width: 42%;
+}
+.txt-Right-Content-Result {
+  text-align: left;
+  font-size: 14px;
+}
+.txt-Left-Content-Result{
+  text-align: right;
+}
+.numResult{
+  color: #be0f34;
+  font-size: 75px;
+  font-weight: 400;
+  margin: 0px;
+  letter-spacing: -.05em;
+  font-family: gotham ssm book a,gotham ssm book b,Helvetica,Arial,sans-serif;
+  position: relative;
+}
+.numResult sup{
+  color: #000;
+  font-size: 14px;
+  font-weight: 400;
+  vertical-align: top;
+  margin-top: 10px;
+  display: inline-block;
+  position: absolute;
+  top: 0px;
+}
+.row-Legend-Infos{
+  font-size: 11px;
+  color: #808080;
+  margin-left: 24px;
+  margin-top: 5px;
+}
+.list-Extras-Infos{
+  margin-bottom: 0px;
+}
+/* =========================
+[CFC-7255]
+[Content Slot : pdp-global-slot-override]
+[29/11/2019]
+[UK Clarins - Re-work the block]
+========================= */
+@media screen and (min-width: 769px){
+  .center-col-flex-mobile{
+      display: flex !important;
+      align-items: center;
+  }
+}
+@media screen and (max-width: 769px){
+  #SpecialOffers-V3-ProductBanner .text-ProductBanner{
+      margin-top: 15px;
+  }
+}
+/* =========================
+[CFC-7413]
+[Asset ID : //]
+[12/12/2019]
+[ALL Clarins - CLP > Arrows from the carousel ain't display no more]
+========================= */
+.jcarouselControlnext .svg-right-arrow-white, .jcarouselControlprev .svg-left-arrow-white{
+  display: block;
+  height: 43px;
+  width: 30px;
+  margin: 15px auto 0px;
+}
+/* =========================
+[CFC-7097]
+[Content Asset : newsletter-aboveFooter]
+[06/01/2020]
+[TH Clarins]
+========================= */
+.th .newsletter-form-wrapper{
+  margin-top: 80px;
+}
+/* =========================
+[CFC-6579]
+[Content Asset : megamenu-header-links-first]
+[07/01/2020]
+[FR / RU / CH / NZ]
+========================= */
+@media screen and (min-width:1024px) and (max-width:1275px) {
+  .level1-category-width25{
+      width: 27%;
+  }
+}
+/* =========================
+[CFC-8123]
+[Content Asset : //]
+[14/02/2020]
+[CLRMY - Clarins mag - Display the all product block ]
+========================= */
+.en_MY .mag-product-rollover-carousel .product-tile .product-tile-block .product-description{
+  max-height: initial;    
+}
+.en_MY .mag-product-rollover-carousel .mag-rollover-section{
+  overflow: initial;
+  max-height: initial;
+}
+/* =========================
+[18/03/2020]
+[ALL Clarins - mega-menu > menu vertical asset > tag]
+========================= */
+.Tag {
+  font-size: 11px;
+  line-height: 1em;
+  font-family: "Gotham SSm medium A", "Gotham SSm medium B", Gotham, Helvetica, Arial, sans-serif;
+  color: #be0f34;
+  text-transform: uppercase;
+}
+/* =========================
+[18/03/2020]
+[US Clarins - mega-menu > menu vertical asset > remove the extra white space]
+========================= */
+.en_US div.menu-category.verticalAssetContainer, .zh_US div.menu-category.verticalAssetContainer {
+  margin: 0;
+}
+.en_US div.menu-category.verticalAssetContainer a, .zh_US div.menu-category.verticalAssetContainer a {
+  padding: 0px;
+}
+.level1-category .navigation-flyout__highlights-title, .level1-category .navigation-flyout__main-category-see-all-name{
+  font-family: Gotham SSm medium A,Gotham SSm medium B,Helvetica,Arial,sans-serif;
+}
+/* =========================
+[CFC-9576]
+[03/04/2020]
+[ALL Clarins - Try on - Reduce font-size of the CTA]
+========================= */
+.try-it-on__block-title {
+  font-size: 12px;
+}
+/* =========================
+[CFC-9571]
+[08/04/2020]
+[FR Clarins - Display issue with some banners on the PLP]
+[Slot ID : New Slot Configuration - 2020-03-18 16:09:30]
+========================= */
+.full-width-image{
+  width: 100%;
+}
+/* =========================
+[CFC-9383]
+[09/04/2020]
+[CRLUS - Microsoft Edge - Product titles are cropped on PLP]
+========================= */
+.plp-container.plp-grid-view .name-link, .suggestions .name-link{
+  word-break:normal;
+}
+/* =========================
+[CFC-10009]
+[22/04/2020]
+[CRLALL - New mega menu - Remove the blue underlining on mobile]
+[Quick fix - Need to clean custom-clarinsusa.css]
+========================= */
+@media only screen and (max-width: 1023px){
+  #navigation .mega-menu-wrapper .menu-category.level-1 .level1-category:hover a.category500, #navigation .mega-menu-wrapper .menu-category.level-1 .level1-category .category500:hover {
+      border-bottom: 0px;
+      color: #000;
+  }
+}
+/* =========================
+[CFC-7288]
+[23/04/2020]
+[CRLALL - Account creation page - Color in black the lega newsletter subscription text]
+========================= */
+.pt_PT .UserRegistrationForm .required-label, .en_AE .UserRegistrationForm .required-label, .ru_RU .UserRegistrationForm .required-label, .pl_PL .UserRegistrationForm .required-label{
+  color: #000000;
+}
+/* =========================
+[CFC-8378]
+[24/04/2020]
+[CRLALL - Homepage - Product names are cut off on MS Edge]
+========================= */
+.product-tile.carousel-tile .product-name, .product-tile.carousel-tile .product-name {
+  word-break: normal;
+}
+
+/* =========================
+[CLRG-29696]
+[05/05/2020]
+[CRLJP - PDP - Third-Party Cosme - Display issue on mobile/tablet devices]
+========================= */
+#product-cosme-content iframe {
+  width: 100%;
+}
+/* =========================
+[CFC-10409]
+[28/05/2020]
+[CRLALL - Remove the extra blank space located in the mega-menu]
+========================= */
+div.menu-category.verticalAssetContainer.no-margin-megaMenu {
+  margin-top: 0px;
+}
+div.menu-category.verticalAssetContainer.no-margin-megaMenu a{
+  padding:0px;
+}
+/* =========================
+[CFC-11416]
+[07/07/2020]
+[CRLALL - Fix images with from the mega menu]
+========================= */
+.verticalAssetContainer img{
+  width: 100%;
+}
+/* =========================
+[CFC-11579]
+[17/07/2020]
+[CRLALL - OOS Fix the pop up]
+========================= */
+.ui-dialog.notify-me-back-in-stock{
+  height: 300px !important;
+  width: 500px !important;
+}
+@media screen and (max-width: 769px){
+  .ui-dialog.notify-me-back-in-stock{
+      height: auto !important;
+      width: 100% !important;
+  }
+}
+
+.notifyMeEmailModalContainer {
+  margin: 0 auto;
+}
+/* =========================
+[CFC-12066 + CFC-10895]
+[10/08/2020]
+[CRLALL - PLP - Reduce the filters font-size]
+========================= */
+.product-listing-page .refinement__title {
+  font-size: 11px;
+  height: 36px;
+}
+/* =========================
+[CFC-15372]
+[15/01/2021]
+[CRLALL - Header menu - separator]
+========================= */
+i-navigation .cba-navigation-menu__divider{
+  top: 10px !important;
+}
+.sticky-add-to-bag {
+  z-index: 94;
+}
