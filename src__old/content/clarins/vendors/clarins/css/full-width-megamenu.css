@@ -1,0 +1,185 @@
+#full-width-megamenu {
+	margin-top: -10px;
+	margin-bottom: -10px;
+}
+
+#full-width-megamenu a {
+	padding: 0;
+	padding-right: 10px;
+}
+
+#full-width-megamenu a:last-child {
+	padding-right: 0px;
+}
+
+#full-width-megamenu .fw-megamenu-heading {
+	color: #000;
+	font-family: "ClarinsRegular",serif;
+	font-size: 50px;
+	text-align: center;
+	font-weight: normal;
+	margin-top: -30px;
+	margin-bottom: 16px;
+}
+
+#full-width-megamenu .fw-megamenu-subheading {
+	color: #000;
+	font-family: "ClarinsRegular",serif;
+	font-size: 30px;
+	text-align: center;
+	font-weight: normal;
+	margin: 15px 0px;
+	text-transform: none;
+	line-height: 0.9em;
+}
+
+#full-width-megamenu .fw-megamenu-row {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: flex-start;
+	max-width: 1170px;
+	margin: 0 auto;
+}
+
+#full-width-megamenu .fw-megamenu-nav-item {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	max-width: 566px;
+}
+
+#full-width-megamenu .border {
+	border: 2px solid #d3d3d3;
+}
+
+#full-width-megamenu .fw-megamenu-visual {
+	width: 100%;
+	max-width: none;
+}
+
+#full-width-megamenu .fw-megamenu-intro {
+	font-family: Gotham SSm book A,Gotham SSm book B,Helvetica,Arial,sans-serif;
+  color: #000;
+  font-size: 14px;
+  line-height: 20px;
+  margin: 0;
+  text-transform: none;
+  text-align: center;
+  letter-spacing: normal;
+  padding: 0px 20px 15px 20px;
+  word-break: normal;
+}
+
+#full-width-megamenu .fw-megamenu-CTA {
+	font-family: "Gotham SSm medium A","Gotham SSm medium B",Helvetica,Arial,sans-serif;
+	color: #000;
+	text-transform: uppercase;
+	font-size: 11px;
+	border-bottom: #d4d4d4 1px solid;
+	display: inline-block;
+	margin: 0;
+	margin-bottom: 15px;
+}
+
+#full-width-megamenu .fw-megamenu-CTA:hover {
+	color: #be0f34;
+	border-bottom: #be0f34 1px solid;
+}
+/* =========================
+[CFC-3412]
+[Content Slot > ID : full-width-megamenu-maternity-content
+Content Slot > ID : my-clarins-megamenu-content]
+[Summary : Change the ID for class]
+[08/07/2019]
+========================= */
+.full-width-megamenu {
+	margin-top: -10px;
+	margin-bottom: -10px;
+}
+
+.full-width-megamenu a {
+	padding: 0;
+	padding-right: 10px;
+}
+
+.full-width-megamenu a:last-child {
+	padding-right: 0px;
+}
+
+.full-width-megamenu .fw-megamenu-heading {
+	color: #000;
+	font-family: "ClarinsRegular",serif;
+	font-size: 50px;
+	text-align: center;
+	font-weight: normal;
+	margin-top: -30px;
+	margin-bottom: 16px;
+}
+
+.full-width-megamenu .fw-megamenu-subheading {
+	color: #000;
+	font-family: "ClarinsRegular",serif;
+	font-size: 30px;
+	text-align: center;
+	font-weight: normal;
+	margin: 15px 0px;
+	text-transform: none;
+	line-height: 0.9em;
+}
+
+.full-width-megamenu .fw-megamenu-row {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: flex-start;
+	max-width: 1170px;
+	margin: 0 auto;
+}
+
+.full-width-megamenu .fw-megamenu-nav-item {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	max-width: 566px;
+}
+
+.full-width-megamenu .border {
+	border: 2px solid #d3d3d3;
+}
+
+.full-width-megamenu .fw-megamenu-visual {
+	width: 100%;
+	max-width: none;
+}
+
+.full-width-megamenu .fw-megamenu-intro {
+	font-family: Gotham SSm book A,Gotham SSm book B,Helvetica,Arial,sans-serif;
+  color: #000;
+  font-size: 14px;
+  line-height: 20px;
+  margin: 0;
+  text-transform: none;
+  text-align: center;
+  letter-spacing: normal;
+  padding: 0px 20px 15px 20px;
+  word-break: normal;
+}
+
+.full-width-megamenu .fw-megamenu-CTA {
+	font-family: "Gotham SSm medium A","Gotham SSm medium B",Helvetica,Arial,sans-serif;
+	color: #000;
+	text-transform: uppercase;
+	font-size: 11px;
+	border-bottom: #d4d4d4 1px solid;
+	display: inline-block;
+	margin: 0;
+	margin-bottom: 15px;
+}
+
+.full-width-megamenu .fw-megamenu-CTA:hover {
+	color: #be0f34;
+	border-bottom: #be0f34 1px solid;
+}

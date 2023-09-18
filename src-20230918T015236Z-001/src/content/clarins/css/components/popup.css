@@ -19,10 +19,8 @@
 }
 .YOUR_PREFIX-popup--wrapper {
   width: 90%;
-  height: -webkit-min-content;
   height: -moz-min-content;
   height: min-content;
-  max-height: -webkit-max-content;
   max-height: -moz-max-content;
   max-height: max-content;
   border-style: solid;
@@ -34,7 +32,6 @@
   overflow-x: hidden;
   overflow-y: scroll;
   width: 100%;
-  height: -webkit-min-content;
   height: -moz-min-content;
   height: min-content;
   max-height: 80vh;
@@ -44,7 +41,6 @@
 }
 .YOUR_PREFIX-popup--open {
   font-weight: 700;
-  width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
   padding: em-calc(10);
@@ -55,7 +51,6 @@
   position: relative;
   display: block;
   width: 100%;
-  height: -webkit-min-content;
   height: -moz-min-content;
   height: min-content;
 }

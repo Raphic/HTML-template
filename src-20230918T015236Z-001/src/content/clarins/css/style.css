@@ -1,4 +1,5 @@
-/* Global Mixins Stylesheet */ /* |_ Global Reset Style */
+/* Global Mixins Stylesheet */
+/* |_ Global Reset Style */
 .YOUR_PREFIX-main div, .YOUR_PREFIX-main span, .YOUR_PREFIX-main applet, .YOUR_PREFIX-main object, .YOUR_PREFIX-main iframe, .YOUR_PREFIX-main h1, .YOUR_PREFIX-main h2, .YOUR_PREFIX-main h3, .YOUR_PREFIX-main h4, .YOUR_PREFIX-main h5, .YOUR_PREFIX-main h6, .YOUR_PREFIX-main p, .YOUR_PREFIX-main blockquote, .YOUR_PREFIX-main pre, .YOUR_PREFIX-main a, .YOUR_PREFIX-main abbr, .YOUR_PREFIX-main acronym, .YOUR_PREFIX-main address, .YOUR_PREFIX-main big, .YOUR_PREFIX-main cite, .YOUR_PREFIX-main code, .YOUR_PREFIX-main del, .YOUR_PREFIX-main dfn, .YOUR_PREFIX-main em, .YOUR_PREFIX-main img, .YOUR_PREFIX-main ins, .YOUR_PREFIX-main kbd, .YOUR_PREFIX-main q, .YOUR_PREFIX-main s, .YOUR_PREFIX-main samp, .YOUR_PREFIX-main small, .YOUR_PREFIX-main strike, .YOUR_PREFIX-main strong, .YOUR_PREFIX-main sub, .YOUR_PREFIX-main sup, .YOUR_PREFIX-main tt, .YOUR_PREFIX-main var, .YOUR_PREFIX-main b, .YOUR_PREFIX-main u, .YOUR_PREFIX-main i, .YOUR_PREFIX-main center, .YOUR_PREFIX-main dl, .YOUR_PREFIX-main dt, .YOUR_PREFIX-main dd, .YOUR_PREFIX-main ol, .YOUR_PREFIX-main ul, .YOUR_PREFIX-main li, .YOUR_PREFIX-main fieldset, .YOUR_PREFIX-main form, .YOUR_PREFIX-main label, .YOUR_PREFIX-main legend, .YOUR_PREFIX-main table, .YOUR_PREFIX-main caption, .YOUR_PREFIX-main tbody, .YOUR_PREFIX-main tfoot, .YOUR_PREFIX-main thead, .YOUR_PREFIX-main tr, .YOUR_PREFIX-main th, .YOUR_PREFIX-main td, .YOUR_PREFIX-main article, .YOUR_PREFIX-main aside, .YOUR_PREFIX-main canvas, .YOUR_PREFIX-main details, .YOUR_PREFIX-main embed, .YOUR_PREFIX-main figure, .YOUR_PREFIX-main figcaption, .YOUR_PREFIX-main footer, .YOUR_PREFIX-main header, .YOUR_PREFIX-main hgroup, .YOUR_PREFIX-main menu, .YOUR_PREFIX-main nav, .YOUR_PREFIX-main output, .YOUR_PREFIX-main ruby, .YOUR_PREFIX-main section, .YOUR_PREFIX-main summary, .YOUR_PREFIX-main time, .YOUR_PREFIX-main mark, .YOUR_PREFIX-main audio, .YOUR_PREFIX-main video {
   margin: 0 auto;
   padding: 0;
@@ -611,16 +612,7 @@
   height: 3px;
   width: 80%;
   background-color: #b40024;
-  -webkit-animation: buffer 1500ms ease-in-out infinite;
-          animation: buffer 1500ms ease-in-out infinite;
-}
-@-webkit-keyframes buffer {
-  0% {
-    transform: translateX(-100%);
-  }
-  100% {
-    transform: translateX(200%);
-  }
+  animation: buffer 1500ms ease-in-out infinite;
 }
 @keyframes buffer {
   0% {
@@ -915,10 +907,8 @@
 }
 #YOUR_PREFIX.YOUR_PREFIX-main a.YOUR_PREFIX-button {
   font-weight: bold;
-  width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
-  height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
   max-width: 100%;
@@ -1650,7 +1640,6 @@
   position: absolute;
   padding: 1.6666666667em 0.8333333333em;
   height: 0;
-  width: -webkit-max-content;
   width: -moz-max-content;
   width: max-content;
   max-width: 16.6666666667em;
@@ -1746,10 +1735,8 @@
 }
 #YOUR_PREFIX.YOUR_PREFIX-main .YOUR_PREFIX-popup--wrapper {
   width: 90%;
-  height: -webkit-min-content;
   height: -moz-min-content;
   height: min-content;
-  max-height: -webkit-max-content;
   max-height: -moz-max-content;
   max-height: max-content;
   border-style: solid;
@@ -1761,7 +1748,6 @@
   overflow-x: hidden;
   overflow-y: scroll;
   width: 100%;
-  height: -webkit-min-content;
   height: -moz-min-content;
   height: min-content;
   max-height: 80vh;
@@ -1771,7 +1757,6 @@
 }
 #YOUR_PREFIX.YOUR_PREFIX-main .YOUR_PREFIX-popup--open {
   font-weight: 700;
-  width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
   padding: 0.8333333333em;
@@ -1782,7 +1767,6 @@
   position: relative;
   display: block;
   width: 100%;
-  height: -webkit-min-content;
   height: -moz-min-content;
   height: min-content;
 }
@@ -1824,14 +1808,12 @@
 }
 #YOUR_PREFIX.YOUR_PREFIX-main .YOUR_PREFIX-slider > div, #YOUR_PREFIX.YOUR_PREFIX-main .YOUR_PREFIX-slider > ul {
   display: inline-flex;
-  width: -webkit-max-content;
   width: -moz-max-content;
   width: max-content;
   margin: 0 auto;
 }
 @media only screen and (min-width: 480px) {
   #YOUR_PREFIX.YOUR_PREFIX-main .YOUR_PREFIX-slider > div, #YOUR_PREFIX.YOUR_PREFIX-main .YOUR_PREFIX-slider > ul {
-    width: -webkit-max-content;
     width: -moz-max-content;
     width: max-content;
   }
@@ -1839,7 +1821,6 @@
 @media only screen and (min-width: 768px) {
   #YOUR_PREFIX.YOUR_PREFIX-main .YOUR_PREFIX-slider > div, #YOUR_PREFIX.YOUR_PREFIX-main .YOUR_PREFIX-slider > ul {
     display: flex;
-    width: -webkit-fit-content;
     width: -moz-fit-content;
     width: fit-content;
   }
