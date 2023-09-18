@@ -1,0 +1,171 @@
+@import "../variables";
+@import "../mixins";
+
+.#{$prefix} {
+    // ## PLUS ICON
+    &-plus {
+        z-index: 1;
+        position: relative;
+        width: 100%;
+        min-height: 20vw;
+        display: flex;
+        flex-direction: row;
+        padding: 20% 0;
+
+        & input,
+        & input[type="radio"],
+        & input[type="checkbox"] {
+            display: none;
+
+            & ~ .#{$prefix} {
+                &-plus {
+                    &-group {
+                        & label {
+                            &[data-name^="0"] {
+                                display: block;
+                            }
+
+                            &[data-name^="C"] {
+                                display: none;
+                            }
+                        }
+                    }
+                }
+            }
+
+            @include createPlusIcon(4);
+
+        }
+
+        &-group {
+            position: relative;
+            top: 0;
+            left: 0;
+            width: em-calc(40);
+            height: em-calc(40);
+            background-color: rgba($white, 1);
+            border-radius: 100%;
+            box-shadow: 0 em-calc(1) em-calc(2) rgba($black, 0.35);
+            cursor: pointer;
+
+            &:before {
+                content: "+";
+                position: relative;
+                font-size: em-calc(40);
+                color: rgba($black, 0.35);
+                width: 100%;
+                height: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                pointer-events: none;
+                z-index: 0;
+                transition: all 150ms ease-in-out;
+            }
+
+            & label {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: em-calc(40);
+                height: em-calc(40);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 100%;
+                overflow: hidden;
+                cursor: pointer;
+                z-index: 1;
+            }
+        }
+
+        &-content {
+            position: absolute;
+            padding: em-calc(20) em-calc(10);
+            height: 0;
+            width: max-content;
+            max-width: em-calc(200);
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba($white, 1);
+            visibility: hidden;
+            opacity: 0;
+            transition: opacity 450ms ease-in-out;
+            z-index: 2;
+
+            &[data-position="CENTER-TOP"] {
+                top: initial;
+                bottom: 100%;
+                left: 50%;
+                transform: translateX(-50%) translateY(-15px);
+                border-bottom: em-calc(3) solid rgba($black, 0.75);
+                box-shadow: 0 em-calc(2.5) em-calc(4) rgba($black, 0.25);
+            }
+
+            &[data-position="CENTER-BOTTOM"] {
+                top: 100%;
+                left: 50%;
+                transform: translateX(-50%) translateY(15px);
+                border-top: em-calc(3) solid rgba($black, 0.75);
+                box-shadow: 0 em-calc(-2.5) em-calc(4) rgba($black, 0.25);
+            }
+
+            &[data-position="CENTER-LEFT"] {
+                top: 50%;
+                right: 100%;
+                left: initial;
+                transform: translateY(-50%) translateX(-15px);
+                border-right: em-calc(3) solid rgba($black, 0.75);
+                box-shadow: em-calc(2.5) 0 em-calc(4) rgba($black, 0.25);
+            }
+
+            &[data-position="CENTER-RIGHT"] {
+                top: 50%;
+                left: 100%;
+                transform: translateY(-50%) translateX(15px);
+                border-left: em-calc(3) solid rgba($black, 0.75);
+                box-shadow: em-calc(-2.5) 0 em-calc(4) rgba($black, 0.25);
+            }
+
+            &[data-position="TOP-LEFT"] {
+                top: initial;
+                bottom: 100%;
+                left: 0;
+                transform: translateY(-10px);
+                border-bottom: em-calc(3) solid rgba($black, 0.75);
+                box-shadow: 0 em-calc(2.5) em-calc(4) rgba($black, 0.25);
+            }
+
+            &[data-position="TOP-RIGHT"] {
+                top: initial;
+                bottom: 100%;
+                left: initial;
+                right: 0;
+                transform: translateY(-10px);
+                border-bottom: em-calc(3) solid rgba($black, 0.75);
+                box-shadow: 0 em-calc(2.5) em-calc(4) rgba($black, 0.25);
+            }
+
+            &[data-position="BOTTOM-LEFT"] {
+                top: 100%;
+                left: 0;
+                transform: translateY(10px);
+                border-top: em-calc(3) solid rgba($black, 0.75);
+                box-shadow: 0 em-calc(-2.5) em-calc(4) rgba($black, 0.25);
+            }
+
+            &[data-position="BOTTOM-RIGHT"] {
+                top: 100%;
+                left: initial;
+                right: 0;
+                transform: translateY(10px);
+                border-top: em-calc(3) solid rgba($black, 0.75);
+                box-shadow: 0 em-calc(-2.5) em-calc(4) rgba($black, 0.25);
+            }
+
+        }
+    };
+
+    // ## PLUS ICON - ENDED
+}

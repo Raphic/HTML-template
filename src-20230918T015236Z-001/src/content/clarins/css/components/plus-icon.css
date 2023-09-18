@@ -1,0 +1,213 @@
+/* Global Mixins Stylesheet */
+.YOUR_PREFIX-plus {
+  z-index: 1;
+  position: relative;
+  width: 100%;
+  min-height: 20vw;
+  display: flex;
+  flex-direction: row;
+  padding: 20% 0;
+}
+.YOUR_PREFIX-plus input, .YOUR_PREFIX-plus input[type=radio], .YOUR_PREFIX-plus input[type=checkbox] {
+  display: none;
+}
+.YOUR_PREFIX-plus input ~ .YOUR_PREFIX-plus-group label[data-name^="0"], .YOUR_PREFIX-plus input[type=radio] ~ .YOUR_PREFIX-plus-group label[data-name^="0"], .YOUR_PREFIX-plus input[type=checkbox] ~ .YOUR_PREFIX-plus-group label[data-name^="0"] {
+  display: block;
+}
+.YOUR_PREFIX-plus input ~ .YOUR_PREFIX-plus-group label[data-name^=C], .YOUR_PREFIX-plus input[type=radio] ~ .YOUR_PREFIX-plus-group label[data-name^=C], .YOUR_PREFIX-plus input[type=checkbox] ~ .YOUR_PREFIX-plus-group label[data-name^=C] {
+  display: none;
+}
+.YOUR_PREFIX-plus input[data-id=O1]:checked ~ .YOUR_PREFIX-plus-group[data-id="1"], .YOUR_PREFIX-plus input[type=radio][data-id=O1]:checked ~ .YOUR_PREFIX-plus-group[data-id="1"], .YOUR_PREFIX-plus input[type=checkbox][data-id=O1]:checked ~ .YOUR_PREFIX-plus-group[data-id="1"] {
+  box-shadow: 0 0.0833333333em 0.1666666667em black;
+}
+.YOUR_PREFIX-plus input[data-id=O1]:checked ~ .YOUR_PREFIX-plus-group[data-id="1"]:before, .YOUR_PREFIX-plus input[type=radio][data-id=O1]:checked ~ .YOUR_PREFIX-plus-group[data-id="1"]:before, .YOUR_PREFIX-plus input[type=checkbox][data-id=O1]:checked ~ .YOUR_PREFIX-plus-group[data-id="1"]:before {
+  transform-origin: center;
+  transform: rotate(135deg);
+  color: black;
+}
+.YOUR_PREFIX-plus input[data-id=O1]:checked ~ .YOUR_PREFIX-plus-group[data-id="1"] .YOUR_PREFIX-plus-content, .YOUR_PREFIX-plus input[type=radio][data-id=O1]:checked ~ .YOUR_PREFIX-plus-group[data-id="1"] .YOUR_PREFIX-plus-content, .YOUR_PREFIX-plus input[type=checkbox][data-id=O1]:checked ~ .YOUR_PREFIX-plus-group[data-id="1"] .YOUR_PREFIX-plus-content {
+  height: auto;
+  visibility: visible;
+  opacity: 1;
+}
+.YOUR_PREFIX-plus input[data-id=O1]:checked ~ .YOUR_PREFIX-plus-group[data-id="1"] label[data-name=O1], .YOUR_PREFIX-plus input[type=radio][data-id=O1]:checked ~ .YOUR_PREFIX-plus-group[data-id="1"] label[data-name=O1], .YOUR_PREFIX-plus input[type=checkbox][data-id=O1]:checked ~ .YOUR_PREFIX-plus-group[data-id="1"] label[data-name=O1] {
+  display: none;
+}
+.YOUR_PREFIX-plus input[data-id=O1]:checked ~ .YOUR_PREFIX-plus-group[data-id="1"] label[data-name=C1], .YOUR_PREFIX-plus input[type=radio][data-id=O1]:checked ~ .YOUR_PREFIX-plus-group[data-id="1"] label[data-name=C1], .YOUR_PREFIX-plus input[type=checkbox][data-id=O1]:checked ~ .YOUR_PREFIX-plus-group[data-id="1"] label[data-name=C1] {
+  display: flex;
+}
+.YOUR_PREFIX-plus input[data-id=O2]:checked ~ .YOUR_PREFIX-plus-group[data-id="2"], .YOUR_PREFIX-plus input[type=radio][data-id=O2]:checked ~ .YOUR_PREFIX-plus-group[data-id="2"], .YOUR_PREFIX-plus input[type=checkbox][data-id=O2]:checked ~ .YOUR_PREFIX-plus-group[data-id="2"] {
+  box-shadow: 0 0.0833333333em 0.1666666667em black;
+}
+.YOUR_PREFIX-plus input[data-id=O2]:checked ~ .YOUR_PREFIX-plus-group[data-id="2"]:before, .YOUR_PREFIX-plus input[type=radio][data-id=O2]:checked ~ .YOUR_PREFIX-plus-group[data-id="2"]:before, .YOUR_PREFIX-plus input[type=checkbox][data-id=O2]:checked ~ .YOUR_PREFIX-plus-group[data-id="2"]:before {
+  transform-origin: center;
+  transform: rotate(135deg);
+  color: black;
+}
+.YOUR_PREFIX-plus input[data-id=O2]:checked ~ .YOUR_PREFIX-plus-group[data-id="2"] .YOUR_PREFIX-plus-content, .YOUR_PREFIX-plus input[type=radio][data-id=O2]:checked ~ .YOUR_PREFIX-plus-group[data-id="2"] .YOUR_PREFIX-plus-content, .YOUR_PREFIX-plus input[type=checkbox][data-id=O2]:checked ~ .YOUR_PREFIX-plus-group[data-id="2"] .YOUR_PREFIX-plus-content {
+  height: auto;
+  visibility: visible;
+  opacity: 1;
+}
+.YOUR_PREFIX-plus input[data-id=O2]:checked ~ .YOUR_PREFIX-plus-group[data-id="2"] label[data-name=O2], .YOUR_PREFIX-plus input[type=radio][data-id=O2]:checked ~ .YOUR_PREFIX-plus-group[data-id="2"] label[data-name=O2], .YOUR_PREFIX-plus input[type=checkbox][data-id=O2]:checked ~ .YOUR_PREFIX-plus-group[data-id="2"] label[data-name=O2] {
+  display: none;
+}
+.YOUR_PREFIX-plus input[data-id=O2]:checked ~ .YOUR_PREFIX-plus-group[data-id="2"] label[data-name=C2], .YOUR_PREFIX-plus input[type=radio][data-id=O2]:checked ~ .YOUR_PREFIX-plus-group[data-id="2"] label[data-name=C2], .YOUR_PREFIX-plus input[type=checkbox][data-id=O2]:checked ~ .YOUR_PREFIX-plus-group[data-id="2"] label[data-name=C2] {
+  display: flex;
+}
+.YOUR_PREFIX-plus input[data-id=O3]:checked ~ .YOUR_PREFIX-plus-group[data-id="3"], .YOUR_PREFIX-plus input[type=radio][data-id=O3]:checked ~ .YOUR_PREFIX-plus-group[data-id="3"], .YOUR_PREFIX-plus input[type=checkbox][data-id=O3]:checked ~ .YOUR_PREFIX-plus-group[data-id="3"] {
+  box-shadow: 0 0.0833333333em 0.1666666667em black;
+}
+.YOUR_PREFIX-plus input[data-id=O3]:checked ~ .YOUR_PREFIX-plus-group[data-id="3"]:before, .YOUR_PREFIX-plus input[type=radio][data-id=O3]:checked ~ .YOUR_PREFIX-plus-group[data-id="3"]:before, .YOUR_PREFIX-plus input[type=checkbox][data-id=O3]:checked ~ .YOUR_PREFIX-plus-group[data-id="3"]:before {
+  transform-origin: center;
+  transform: rotate(135deg);
+  color: black;
+}
+.YOUR_PREFIX-plus input[data-id=O3]:checked ~ .YOUR_PREFIX-plus-group[data-id="3"] .YOUR_PREFIX-plus-content, .YOUR_PREFIX-plus input[type=radio][data-id=O3]:checked ~ .YOUR_PREFIX-plus-group[data-id="3"] .YOUR_PREFIX-plus-content, .YOUR_PREFIX-plus input[type=checkbox][data-id=O3]:checked ~ .YOUR_PREFIX-plus-group[data-id="3"] .YOUR_PREFIX-plus-content {
+  height: auto;
+  visibility: visible;
+  opacity: 1;
+}
+.YOUR_PREFIX-plus input[data-id=O3]:checked ~ .YOUR_PREFIX-plus-group[data-id="3"] label[data-name=O3], .YOUR_PREFIX-plus input[type=radio][data-id=O3]:checked ~ .YOUR_PREFIX-plus-group[data-id="3"] label[data-name=O3], .YOUR_PREFIX-plus input[type=checkbox][data-id=O3]:checked ~ .YOUR_PREFIX-plus-group[data-id="3"] label[data-name=O3] {
+  display: none;
+}
+.YOUR_PREFIX-plus input[data-id=O3]:checked ~ .YOUR_PREFIX-plus-group[data-id="3"] label[data-name=C3], .YOUR_PREFIX-plus input[type=radio][data-id=O3]:checked ~ .YOUR_PREFIX-plus-group[data-id="3"] label[data-name=C3], .YOUR_PREFIX-plus input[type=checkbox][data-id=O3]:checked ~ .YOUR_PREFIX-plus-group[data-id="3"] label[data-name=C3] {
+  display: flex;
+}
+.YOUR_PREFIX-plus input[data-id=O4]:checked ~ .YOUR_PREFIX-plus-group[data-id="4"], .YOUR_PREFIX-plus input[type=radio][data-id=O4]:checked ~ .YOUR_PREFIX-plus-group[data-id="4"], .YOUR_PREFIX-plus input[type=checkbox][data-id=O4]:checked ~ .YOUR_PREFIX-plus-group[data-id="4"] {
+  box-shadow: 0 0.0833333333em 0.1666666667em black;
+}
+.YOUR_PREFIX-plus input[data-id=O4]:checked ~ .YOUR_PREFIX-plus-group[data-id="4"]:before, .YOUR_PREFIX-plus input[type=radio][data-id=O4]:checked ~ .YOUR_PREFIX-plus-group[data-id="4"]:before, .YOUR_PREFIX-plus input[type=checkbox][data-id=O4]:checked ~ .YOUR_PREFIX-plus-group[data-id="4"]:before {
+  transform-origin: center;
+  transform: rotate(135deg);
+  color: black;
+}
+.YOUR_PREFIX-plus input[data-id=O4]:checked ~ .YOUR_PREFIX-plus-group[data-id="4"] .YOUR_PREFIX-plus-content, .YOUR_PREFIX-plus input[type=radio][data-id=O4]:checked ~ .YOUR_PREFIX-plus-group[data-id="4"] .YOUR_PREFIX-plus-content, .YOUR_PREFIX-plus input[type=checkbox][data-id=O4]:checked ~ .YOUR_PREFIX-plus-group[data-id="4"] .YOUR_PREFIX-plus-content {
+  height: auto;
+  visibility: visible;
+  opacity: 1;
+}
+.YOUR_PREFIX-plus input[data-id=O4]:checked ~ .YOUR_PREFIX-plus-group[data-id="4"] label[data-name=O4], .YOUR_PREFIX-plus input[type=radio][data-id=O4]:checked ~ .YOUR_PREFIX-plus-group[data-id="4"] label[data-name=O4], .YOUR_PREFIX-plus input[type=checkbox][data-id=O4]:checked ~ .YOUR_PREFIX-plus-group[data-id="4"] label[data-name=O4] {
+  display: none;
+}
+.YOUR_PREFIX-plus input[data-id=O4]:checked ~ .YOUR_PREFIX-plus-group[data-id="4"] label[data-name=C4], .YOUR_PREFIX-plus input[type=radio][data-id=O4]:checked ~ .YOUR_PREFIX-plus-group[data-id="4"] label[data-name=C4], .YOUR_PREFIX-plus input[type=checkbox][data-id=O4]:checked ~ .YOUR_PREFIX-plus-group[data-id="4"] label[data-name=C4] {
+  display: flex;
+}
+.YOUR_PREFIX-plus-group {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 3.3333333333em;
+  height: 3.3333333333em;
+  background-color: white;
+  border-radius: 100%;
+  box-shadow: 0 0.0833333333em 0.1666666667em rgba(0, 0, 0, 0.35);
+  cursor: pointer;
+}
+.YOUR_PREFIX-plus-group:before {
+  content: "+";
+  position: relative;
+  font-size: 3.3333333333em;
+  color: rgba(0, 0, 0, 0.35);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  z-index: 0;
+  transition: all 150ms ease-in-out;
+}
+.YOUR_PREFIX-plus-group label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 3.3333333333em;
+  height: 3.3333333333em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 100%;
+  overflow: hidden;
+  cursor: pointer;
+  z-index: 1;
+}
+.YOUR_PREFIX-plus-content {
+  position: absolute;
+  padding: 1.6666666667em 0.8333333333em;
+  height: 0;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  max-width: 16.6666666667em;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: white;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 450ms ease-in-out;
+  z-index: 2;
+}
+.YOUR_PREFIX-plus-content[data-position=CENTER-TOP] {
+  top: initial;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-15px);
+  border-bottom: 0.25em solid rgba(0, 0, 0, 0.75);
+  box-shadow: 0 0.2083333333em 0.3333333333em rgba(0, 0, 0, 0.25);
+}
+.YOUR_PREFIX-plus-content[data-position=CENTER-BOTTOM] {
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(15px);
+  border-top: 0.25em solid rgba(0, 0, 0, 0.75);
+  box-shadow: 0 -0.2083333333em 0.3333333333em rgba(0, 0, 0, 0.25);
+}
+.YOUR_PREFIX-plus-content[data-position=CENTER-LEFT] {
+  top: 50%;
+  right: 100%;
+  left: initial;
+  transform: translateY(-50%) translateX(-15px);
+  border-right: 0.25em solid rgba(0, 0, 0, 0.75);
+  box-shadow: 0.2083333333em 0 0.3333333333em rgba(0, 0, 0, 0.25);
+}
+.YOUR_PREFIX-plus-content[data-position=CENTER-RIGHT] {
+  top: 50%;
+  left: 100%;
+  transform: translateY(-50%) translateX(15px);
+  border-left: 0.25em solid rgba(0, 0, 0, 0.75);
+  box-shadow: -0.2083333333em 0 0.3333333333em rgba(0, 0, 0, 0.25);
+}
+.YOUR_PREFIX-plus-content[data-position=TOP-LEFT] {
+  top: initial;
+  bottom: 100%;
+  left: 0;
+  transform: translateY(-10px);
+  border-bottom: 0.25em solid rgba(0, 0, 0, 0.75);
+  box-shadow: 0 0.2083333333em 0.3333333333em rgba(0, 0, 0, 0.25);
+}
+.YOUR_PREFIX-plus-content[data-position=TOP-RIGHT] {
+  top: initial;
+  bottom: 100%;
+  left: initial;
+  right: 0;
+  transform: translateY(-10px);
+  border-bottom: 0.25em solid rgba(0, 0, 0, 0.75);
+  box-shadow: 0 0.2083333333em 0.3333333333em rgba(0, 0, 0, 0.25);
+}
+.YOUR_PREFIX-plus-content[data-position=BOTTOM-LEFT] {
+  top: 100%;
+  left: 0;
+  transform: translateY(10px);
+  border-top: 0.25em solid rgba(0, 0, 0, 0.75);
+  box-shadow: 0 -0.2083333333em 0.3333333333em rgba(0, 0, 0, 0.25);
+}
+.YOUR_PREFIX-plus-content[data-position=BOTTOM-RIGHT] {
+  top: 100%;
+  left: initial;
+  right: 0;
+  transform: translateY(10px);
+  border-top: 0.25em solid rgba(0, 0, 0, 0.75);
+  box-shadow: 0 -0.2083333333em 0.3333333333em rgba(0, 0, 0, 0.25);
+}/*# sourceMappingURL=plus-icon.css.map */

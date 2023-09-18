@@ -1,0 +1,216 @@
+@import "../variables";
+@import "../mixins";
+
+.#{$prefix} {
+    // ## TABS
+    &-tabs {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        width: calc(100% - 5%);
+        height: 100%;
+        margin: 0 auto;
+        @media only screen and (min-width: $tablet) {
+            width: Min(50%, $tablet-medium);
+        }
+
+        & input[type="checkbox"] {
+            display: none;
+            // UN-CHECKED
+            & ~ {
+                & label {
+                    display: inline-block;
+                    overflow: hidden;
+                    width: em-calc(56);
+                    height: em-calc(34);
+                    margin: 0 auto;
+                    color: rgba($black, 0.5);
+
+                    &:before,
+                    &:after {
+                        position: absolute;
+                        top: 55%;
+                        display: block;
+                        width: initial;
+                        transform: translateY(-50%);
+                    }
+
+                    & span {
+                        position: relative;
+                        display: block;
+                        overflow: hidden;
+                        width: 100%;
+                        height: 100%;
+                        margin: 0 auto;
+                        cursor: pointer;
+                        transition: all 250ms linear;
+                        border-radius: em-calc(26);
+                        background-color: rgba($black, 0.1);
+
+                        &::before {
+                            position: absolute;
+                            top: 50%;
+                            left: em-calc(2);
+                            width: em-calc(26);
+                            height: em-calc(26);
+                            margin-top: em-calc(-13);
+                            content: "";
+                            transition: all 250ms linear;
+                            transform: translateX(0);
+                            border-radius: 50%;
+                            background-color: rgba($black, 0.5);
+                        }
+                    }
+                }
+
+                .#{$prefix} {
+                    &-panels {
+                        position: relative;
+                        width: 100%;
+                        height: 100%;
+                        margin-top: 3%;
+
+                        & > div {
+                            position: relative;
+                            display: none;
+                            min-height: em-calc(200);
+
+                            &::before {
+                                font-size: em-calc(50, $em-base);
+                                line-height: 1px;
+                                position: absolute;
+                                top: 50%;
+                                left: 50%;
+                                content: attr(data-id);
+                                transform: translate(-50%, -50%);
+                                color: rgba(green, 0.25);
+                            }
+
+                            &[data-id]:first-child {
+                                display: block
+                            }
+
+                            &[data-id]:last-child {
+                                display: none
+                            }
+                        }
+                    }
+                }
+            }
+
+            // CHECKED
+            &:checked {
+                & ~ {
+                    & label {
+                        color: rgba($black, 1);
+
+                        & span {
+                            &::before {
+                                transform: translateX(100%);
+                                background-color: rgba($black, 1);
+                            }
+                        }
+                    }
+
+                    .#{$prefix} {
+                        &-panels {
+                            & > div {
+                                &[data-id]:first-child {
+                                    display: none
+                                }
+
+                                &[data-id]:last-child {
+                                    display: block
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        & input[type="radio"] {
+            display: none;
+            // UN-CHECKED
+            & ~ {
+                .#{$prefix} {
+                    &-labels {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        max-width: em-calc(100);
+                        margin: 0 auto;
+
+                        & label {
+                            position: relative;
+                            display: inline-block;
+                            overflow: hidden;
+                            width: em-calc(20);
+                            height: em-calc(20);
+                            margin: 0 auto;
+                            color: rgba($black, 0.5);
+
+                            & span {
+                                position: relative;
+                                display: block;
+                                overflow: hidden;
+                                width: 100%;
+                                height: 100%;
+                                margin: 0 auto;
+                                cursor: pointer;
+                                transition: all 250ms linear;
+                                border: 1px solid transparent;
+                                border-radius: 50%;
+
+                                &::before {
+                                    position: absolute;
+                                    top: 50%;
+                                    left: 50%;
+                                    width: em-calc(10);
+                                    height: em-calc(10);
+                                    margin-top: em-calc(-5);
+                                    margin-left: em-calc(-5);
+                                    content: "";
+                                    transition: all 250ms linear;
+                                    border-radius: 50%;
+                                    background-color: rgba($black, 0.5);
+                                }
+                            }
+                        }
+                    }
+
+                    &-panels {
+                        position: relative;
+                        width: 100%;
+                        height: 100%;
+                        margin-top: 3%;
+
+                        & > div {
+                            position: relative;
+                            display: none;
+                            min-height: em-calc(200);
+
+                            &::before {
+                                font-size: em-calc(50, $em-base);
+                                line-height: 1px;
+                                position: absolute;
+                                top: 50%;
+                                left: 50%;
+                                content: attr(data-id);
+                                transform: translate(-50%, -50%);
+                                color: rgba(red, 0.25);
+                            }
+                        }
+                    }
+                }
+            }
+
+            // CHECKED & Create The Tabs
+            // @param 1: Name of Tab
+            // @param 2: The Project name prefix
+            // @param 3: The number of tabs render
+            @include createTab("T1", #{$prefix}, 3);
+        }
+    };
+    // ## TABS - ENDED
+}

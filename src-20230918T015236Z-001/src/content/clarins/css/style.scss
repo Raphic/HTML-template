@@ -1,0 +1,517 @@
+@import "variables";
+@import "mixins";
+@import "reset";
+@import "flexboxgrid";
+
+@if $hasGoogle {
+  @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500&family=Montserrat:wght@500;600;700;900&display=swap');
+}
+
+@if $isLocal {
+  // FONTS
+  @if $hasClarins {
+    @include font-face('ClarinsRegular', 'ClarinsRegular');
+  }
+  @if $hasMyriadPro {
+    @include font-face('MyriadPro Light', 'MyriadPro-Light');
+  }
+  @if $hasGotham {
+    @include font-face('Gotham SSm book A', 'Gotham-Book-webfont');
+    @include font-face('Gotham SSm medium A', 'Gotham-Medium-webfont');
+    @include font-face('Gotham SSm light A', 'Gotham-Light-webfont');
+  }
+  @if $hasSofia {
+    @include font-face('Sofia Pro Regular', 'Sofia-Pro-Regular-webfont');
+    @include font-face('Sofia Pro Light', 'Sofia-Pro-Light-webfont');
+    @include font-face('Sofia Pro Medium', 'Sofia-Pro-Medium-webfont');
+    @include font-face('Sofia Pro Bold', 'Sofia-Pro-Bold-webfont');
+    @include font-face('Sofia Pro Italic', 'Sofia-Pro-Italic-webfont');
+    @include font-face('Sofia Pro Semi Bold', 'Sofia-Pro-SemiBold-webfont');
+  }
+}
+
+// ONLY ONCE USING AN UNIT ID FOR BASE DOM PARENT
+// ----------------------------
+// #id {
+//   .Class {}
+// }
+// ----------------------------
+
+.#{$prefix} {
+  &-bar {
+    position: fixed;
+    height: 3px;
+    width: 100vw;
+    margin: 0 auto;
+    overflow: hidden;
+    background-color: rgba($redclarins, 0.15);
+
+    &-loader {
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 3px;
+      width: 80%;
+      background-color: rgba($redclarins, 1);
+      animation: buffer 1500ms ease-in-out infinite;
+    }
+  }
+
+  @keyframes buffer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(200%); }
+  }
+}
+
+##{$prefix} {
+  & .#{$prefix} {
+    // FONTS (Be don't using, remove please)
+    &-F-Arial {
+      font-family: $F-Arial;
+    }
+
+    &-F-Times {
+      font-family: $F-Times;
+    }
+
+    &-F-MyriadPro {
+      font-family: $F-MyriadPro;
+    }
+
+    &-F-Montserrat {
+      font-family: $F-Montserrat;
+    }
+
+    &-F-Barlow {
+      font-family: $F-Barlow;
+    }
+
+    &-F-ClarinsRegular {
+      font-family: $F-ClarinsRegular;
+    }
+
+    &-F-GothamSSmMedium {
+      font-family: $F-GothamSSmMedium;
+    }
+
+    &-F-GothamSSmBook {
+      font-family: $F-GothamSSmBook;
+    }
+
+    &-F-GothamLight {
+      font-family: $F-GothamLight;
+    }
+
+    &-F-GothamSSmLight {
+      font-family: $F-GothamSSmLight;
+    }
+
+    &-F-SofiaProRegular {
+      font-family: $F-SofiaProRegular;
+    }
+
+    &-F-SofiaProBold {
+      font-family: $F-SofiaProBold;
+    }
+
+    &-F-SofiaProLight {
+      font-family: $F-SofiaProLight;
+    }
+
+    &-F-SofiaProMedium {
+      font-family: $F-SofiaProMedium;
+    }
+
+    &-F-SofiaProItalic {
+      font-family: $F-SofiaProItalic;
+    }
+
+    &-F-SofiaProSemiBold {
+      font-family: $F-SofiaProSemiBold;
+    }
+
+    // GENERAL
+    &-flex {
+      display: flex;
+    }
+
+    &-relative {
+      position: relative;
+    }
+
+    // Classes Hidden
+    // * Hidden all (-hidden)
+    // * Hidden Mobile  (-hidden--mobile)
+    // * Hidden Tablet  (-hidden--tablet)
+    // * Hidden Desktop (-hidden--desktop)
+    &-hidden {
+      display: none;
+
+      &--mobile {
+        display: none;
+        @media only screen and (min-width: $tablet) {
+          display: block;
+        }
+      }
+
+      &--tablet {
+        display: block;
+        @media only screen and (min-width: $tablet) {
+          display: none;
+        }
+        @media only screen and (min-width: $tablet-medium) {
+          display: block;
+        }
+      }
+
+      &--tablet-medium {
+        display: block;
+        @media only screen and (min-width: $tablet-medium) {
+          display: none;
+        }
+        @media only screen and (min-width: $desktop) {
+          display: block;
+        }
+      }
+
+      &--desktop {
+        display: block;
+        @media only screen and (min-width: $desktop) {
+          display: none;
+        }
+        @media only screen and (min-width: $desktop-medium) {
+          display: block;
+        }
+      }
+
+      &--desktop-medium {
+        display: block;
+        @media only screen and (min-width: $desktop-medium) {
+          display: none;
+        }
+      }
+    }
+
+    // Classes Block
+    // * Block all (-block)
+    // * Block Mobile  (-block--mobile)
+    // * Block Tablet  (-block--tablet)
+    // * Block Desktop (-block--desktop)
+    &-block {
+      display: block;
+
+      &--mobile {
+        display: block;
+        @media only screen and (min-width: $tablet) {
+          display: none;
+        }
+      }
+
+      &--tablet {
+        display: none;
+        @media only screen and (min-width: $tablet) {
+          display: block;
+        }
+        @media only screen and (min-width: $tablet-medium) {
+          display: none;
+        }
+      }
+
+      &--tablet-medium {
+        display: none;
+        @media only screen and (min-width: $tablet-medium) {
+          display: block;
+        }
+        @media only screen and (min-width: $desktop) {
+          display: none;
+        }
+      }
+
+      &--desktop {
+        display: none;
+        @media only screen and (min-width: $desktop) {
+          display: block;
+        }
+        @media only screen and (min-width: $desktop-medium) {
+          display: none;
+        }
+      }
+
+      &--desktop-medium {
+        display: none;
+        @media only screen and (min-width: $desktop-medium) {
+          display: none;
+        }
+      }
+    }
+
+    // WRAPPER
+    &-wrapper {
+      font: inherit;
+      position: relative;
+      width: 100%;
+      min-width: em-calc($mobile);
+      max-width: $DEFAULT;
+      height: 100%;
+      margin: 0 auto;
+      padding-right: em-calc(15);
+      padding-left: em-calc(15);
+      @media only screen and (min-width: $tablet) {
+        padding-right: 0;
+        padding-left: 0;
+      }
+    }
+  }
+
+  &.#{$prefix} {
+    // MAIN
+    &-main {
+      font: #{$em-base}px/18px $F-Arial;
+      position: relative;
+      visibility: hidden;
+      overflow: hidden;
+      width: 100%;
+      height: 100%;
+      margin: 0 auto;
+      color: rgba($black, 1);
+      background-color: rgba($black, 0.05);
+      z-index: 1;
+
+      @media only screen and (min-width: $mobile-medium) {}
+      @media only screen and (min-width: $tablet) {
+        font-size: #{$em-base-tablet}px;
+      }
+      @media only screen and (min-width: $tablet-medium) {}
+      @media only screen and (min-width: $desktop) {
+        font-size: #{$em-base-desktop}px;
+      }
+      @media only screen and (min-width: $desktop-medium) {
+        font-size: #{$em-base-desktop-medium}px;
+      }
+
+      * {
+        box-sizing: border-box;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      img {
+        display: inherit;
+        width: 100%;
+        margin: 0 auto;
+      }
+
+      small {
+        font-size: 80%;
+      }
+
+      sub, sup {
+        font-size: 60%;
+      }
+
+      h1, h2, h3, h4, h5, h6, strong {
+        font-weight: bold;
+      }
+
+      h1 {
+        font-size: em-calc(40, $em-base);
+        line-height: 1;
+      }
+
+      h2 {
+        font-size: em-calc(35, $em-base);
+        line-height: 1;
+      }
+
+      h3 {
+        font-size: em-calc(30, $em-base);
+        line-height: 1;
+      }
+
+      h4 {
+        font-size: em-calc(25, $em-base);
+        line-height: 1;
+      }
+
+      h5 {
+        font-size: em-calc(20, $em-base);
+        line-height: 1;
+      }
+
+      h6 {
+        font-size: em-calc(16, $em-base);
+        line-height: 1;
+      }
+
+      a {
+        font-size: 3vw;
+        line-height: normal;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        text-transform: uppercase;
+        color: $charcoal;
+
+        @media only screen and (min-width: $tablet) {
+          font-size: em-calc(14, $em-base-tablet);
+        }
+
+        @media only screen and (min-width: $desktop) {
+          font-size: em-calc(16, $em-base-desktop);
+        }
+
+        &.#{$prefix} {
+          &-button {
+            font-weight: bold;
+            width: fit-content;
+            height: fit-content;
+            max-width: 100%;
+            min-height: em-calc(32);
+            max-height: em-calc(32);
+            margin: 0 auto;
+            padding: em-calc(10) em-calc(20);
+            transition: border 100ms linear;
+            border: 1px solid rgba($hotgrey, 1);
+            border-radius: em-calc(5);
+            background-color: rgba($white, 1);
+
+            @media only screen and (min-width: $tablet) {
+              min-height: em-calc(44, $em-base-desktop-medium);
+              max-height: em-calc(44, $em-base-desktop-medium);
+            }
+
+            &:hover,
+            &:focus,
+            &:active,
+            &:target {
+              color: $charcoal;
+              border: 1px solid rgba($darkgrey, 1);
+            }
+
+            &--primary {
+              &[data-brand="clarins"] {
+                color: $white;
+                border: 2px solid transparent;
+                background-color: rgba($redclarins, 1);
+
+                &:hover {
+                  color: $white;
+                  background-color: rgba($darkred, 1);
+                }
+
+                &:focus {
+                  color: $white;
+                  border: 2px solid rgba($rosewood, 1);
+                  background-color: rgba($redclarins, 1);
+                }
+
+                &:active {
+                  color: $white;
+                  border: 2px solid rgba($rosewood, 1);
+                  background-color: rgba($redclarins, 1);
+                }
+              }
+            }
+
+            &--secondary {
+              &[data-brand="clarins"] {
+                color: $charcoal;
+                border: 1px solid rgba($hotgrey, 1);
+                background-color: rgba($white, 1);
+
+                &:hover {
+                  color: rgba($darkred, 1);
+                  border: 1px solid rgba($darkgrey, 1);
+                }
+
+                &:focus {
+                  color: $charcoal;
+                  border: 2px solid rgba($rosewood, 1);
+                  border-radius: em-calc(7);
+                }
+
+                &:active {
+                  color: $charcoal;
+                  border: 2px solid rgba($rosewood, 1);
+                }
+              }
+            }
+          }
+        }
+      }
+
+      p {
+        font-size: 3vw;
+        line-height: 1.5;
+        padding: 1.5%;
+
+        @media only screen and (min-width: $tablet) {
+          font-size: em-calc(14, $em-base-tablet);
+        }
+
+        @media only screen and (min-width: $desktop) {
+          font-size: em-calc(16, $em-base-desktop);
+        }
+      }
+
+      & div[data-name] {
+        position: relative;
+
+        @media only screen and (min-width: $mobile-medium) {}
+        @media only screen and (min-width: $tablet) {}
+        @media only screen and (min-width: $tablet-medium) {}
+        @media only screen and (min-width: $desktop) {}
+        @media only screen and (min-width: $desktop-medium) {}
+      }
+
+      // COMPONENTS - START
+
+      @import "./components/accordions";
+      @import "./components/carousel";
+      @import "./components/languages";
+      @import "./components/tabs";
+      @import "./components/plus-icon";
+      @import "./components/popup";
+      @import "./components/sliders";
+      @import "./components/svg";
+      @import "./components/tabs";
+
+      // COMPONENTS - ENDED 
+
+
+      // CSS BLOCK SCOPE - START
+      // AVOID & SHOULD NOT DEFINE OUTSIDE MAIN SCOPE.
+
+      @import "./blocks/block-sample";
+      
+      // CSS BLOCK SCOPE - ENDED
+    }
+  }
+}
+
+
+
+@if $hasClarins {
+  .breadcrumb,
+  .offerbumper-loader {
+    display: none;
+  }
+  footer.footer-main {
+    margin-top: 0 !important;
+  }
+  .primary-content {
+    padding-bottom: 0;
+  }
+  #main:not(.main-homepage) {
+    padding-top: 0;
+  }
+  #wrapper {
+    max-width: 100%;
+  }
+  #wrapper.pt_category-wide .breadcrumb-container,
+  #wrapper.pt_category-wide .site-width-slot {
+    max-width: 100%;
+    margin: 0 auto;
+  }
+}

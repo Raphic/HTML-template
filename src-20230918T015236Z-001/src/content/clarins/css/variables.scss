@@ -1,0 +1,87 @@
+// GLOBAL
+// PREFIX IS MANDATORY AND NOT EMPTY
+$prefix: 'YOUR_PREFIX';
+
+// REM: Ensure font-size at html tag is a fixed number.
+$rem-base: 1;
+$rem-base-tablet: $rem-base + 2;
+$rem-base-desktop: $rem-base-tablet + 2;
+$rem-base-desktop-medium: $rem-base-desktop + 2;
+
+$em-base: 12;
+$em-base-tablet: $em-base + 2;
+$em-base-desktop: $em-base-tablet + 2;
+$em-base-desktop-medium: $em-base-desktop + 2;
+
+// MAKE SURE YOUR ENVIRONMENT AFTER FINISH.
+$isLocal: true;
+
+$hasGoogle: false; // Montserrat & Barlow for Bizline
+$hasClarins: true;
+$hasMyriadPro: true;
+$hasGotham: true;
+$hasSofia: true;
+
+// FONTS
+$F-Arial: Arial, Helvetica, sans-serif;
+$F-Times: Times, 'Times New Roman', serif;
+$F-MyriadPro: "Myriad Pro", $F-Arial;
+$F-Montserrat: 'Montserrat', $F-Arial;
+$F-Barlow: 'Barlow Condensed', $F-Arial;
+
+// AVOID CHANGE NAME OF FONT IN CSS. (Because it's default value of Client)
+// FONT: CLARINS
+$F-ClarinsRegular: 'ClarinsRegular', 'Clarins', $F-Times;
+// END | FONT: CLARINS
+
+// FONT : GOTHAM
+$F-GothamSSmMedium: "Gotham SSm medium A", "Gotham SSm medium B", $F-Arial;
+$F-GothamSSmBook: "Gotham SSm book A", "Gotham SSm book B", $F-Arial;
+$F-GothamLight: "Gotham Light", "Gotham SSm light A", "Gotham SSm light B", "Gotham SSm book A", "Gotham SSm book B", $F-Arial;
+$F-GothamSSmLight: "Gotham SSm light A", "Gotham SSm light B", "Gotham SSm book A", "Gotham SSm book B", $F-Arial;
+// END | FONT : GOTHAM
+
+// FONT : SOFIA PRO (marionnaud.fr)
+$F-SofiaProRegular: "Sofia Pro Regular", $F-Arial;
+$F-SofiaProBold: "Sofia Pro Bold", $F-Arial;
+$F-SofiaProLight: "Sofia Pro Light", $F-Arial;
+$F-SofiaProMedium: "Sofia Pro Medium", $F-Arial;
+$F-SofiaProItalic: "Sofia Pro Italic", $F-Arial;
+$F-SofiaProSemiBold: "Sofia Pro Semi Bold", $F-Arial;
+// END | FONT : SOFIA PRO (marionnaud.fr)
+
+// FONT : Montserrat & Barlow by Google (Bizline)
+$F-Montserrat: 'Montserrat', $F-Arial;
+$F-Barlow: 'Barlow Condensed', $F-Arial;
+// END | FONT : Montserrat & Barlow by Google (Bizline)
+
+// COLORS
+$white: #ffffff;
+$black: #000000;
+$hotgrey: #cfcac9;
+$charcoal: #333333;
+$darkgrey: #787474;
+$redclarins: #b40024;
+$rosewood: #63021a;
+$darkred: #8c0b26;
+
+// BREAKPOINTS - MOBILE (First) / TABLET / DESKTOP
+// AVOID DEFINE NEW BREAKPOINTS.
+$mobile: 320px;
+$mobile-medium: 480px;
+$tablet: 768px;
+$tablet-medium: 992px;
+$desktop: 1280px;
+$desktop-medium: 1440px;
+$display: 1960px;
+$display-medium: 2560px;
+
+// 3PARTIES MAX-WIDTH
+$DEFAULT: 100vw;
+$ORIGINES: 1440px;
+$NOCIBE: 1280px;
+$BEAUTY_SUCCESS: 1200px;
+$MARIONNAUD: 1024px;
+$KALISTA: 945px;
+$COSMA: 900px;
+$PARFUMDO: 765px;

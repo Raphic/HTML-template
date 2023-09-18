@@ -1,0 +1,198 @@
+/* Global Mixins Stylesheet */
+.YOUR_PREFIX-tabs {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 95%;
+  height: 100%;
+  margin: 0 auto;
+}
+@media only screen and (min-width: 768px) {
+  .YOUR_PREFIX-tabs {
+    width: min(50%, 992px);
+  }
+}
+.YOUR_PREFIX-tabs input[type=checkbox] {
+  display: none;
+}
+.YOUR_PREFIX-tabs input[type=checkbox] ~ label {
+  display: inline-block;
+  overflow: hidden;
+  width: 4.6666666667em;
+  height: 2.8333333333em;
+  margin: 0 auto;
+  color: rgba(0, 0, 0, 0.5);
+}
+.YOUR_PREFIX-tabs input[type=checkbox] ~ label:before, .YOUR_PREFIX-tabs input[type=checkbox] ~ label:after {
+  position: absolute;
+  top: 55%;
+  display: block;
+  width: initial;
+  transform: translateY(-50%);
+}
+.YOUR_PREFIX-tabs input[type=checkbox] ~ label span {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  cursor: pointer;
+  transition: all 250ms linear;
+  border-radius: 2.1666666667em;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+.YOUR_PREFIX-tabs input[type=checkbox] ~ label span::before {
+  position: absolute;
+  top: 50%;
+  left: 0.1666666667em;
+  width: 2.1666666667em;
+  height: 2.1666666667em;
+  margin-top: -1.0833333333em;
+  content: "";
+  transition: all 250ms linear;
+  transform: translateX(0);
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.YOUR_PREFIX-tabs input[type=checkbox] ~ .YOUR_PREFIX-panels {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  margin-top: 3%;
+}
+.YOUR_PREFIX-tabs input[type=checkbox] ~ .YOUR_PREFIX-panels > div {
+  position: relative;
+  display: none;
+  min-height: 16.6666666667em;
+}
+.YOUR_PREFIX-tabs input[type=checkbox] ~ .YOUR_PREFIX-panels > div::before {
+  font-size: 4.1666666667em;
+  line-height: 1px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  content: attr(data-id);
+  transform: translate(-50%, -50%);
+  color: rgba(0, 128, 0, 0.25);
+}
+.YOUR_PREFIX-tabs input[type=checkbox] ~ .YOUR_PREFIX-panels > div[data-id]:first-child {
+  display: block;
+}
+.YOUR_PREFIX-tabs input[type=checkbox] ~ .YOUR_PREFIX-panels > div[data-id]:last-child {
+  display: none;
+}
+.YOUR_PREFIX-tabs input[type=checkbox]:checked ~ label {
+  color: black;
+}
+.YOUR_PREFIX-tabs input[type=checkbox]:checked ~ label span::before {
+  transform: translateX(100%);
+  background-color: black;
+}
+.YOUR_PREFIX-tabs input[type=checkbox]:checked ~ .YOUR_PREFIX-panels > div[data-id]:first-child {
+  display: none;
+}
+.YOUR_PREFIX-tabs input[type=checkbox]:checked ~ .YOUR_PREFIX-panels > div[data-id]:last-child {
+  display: block;
+}
+.YOUR_PREFIX-tabs input[type=radio] {
+  display: none;
+}
+.YOUR_PREFIX-tabs input[type=radio] ~ .YOUR_PREFIX-labels {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 8.3333333333em;
+  margin: 0 auto;
+}
+.YOUR_PREFIX-tabs input[type=radio] ~ .YOUR_PREFIX-labels label {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  width: 1.6666666667em;
+  height: 1.6666666667em;
+  margin: 0 auto;
+  color: rgba(0, 0, 0, 0.5);
+}
+.YOUR_PREFIX-tabs input[type=radio] ~ .YOUR_PREFIX-labels label span {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  cursor: pointer;
+  transition: all 250ms linear;
+  border: 1px solid transparent;
+  border-radius: 50%;
+}
+.YOUR_PREFIX-tabs input[type=radio] ~ .YOUR_PREFIX-labels label span::before {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0.8333333333em;
+  height: 0.8333333333em;
+  margin-top: -0.4166666667em;
+  margin-left: -0.4166666667em;
+  content: "";
+  transition: all 250ms linear;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.YOUR_PREFIX-tabs input[type=radio] ~ .YOUR_PREFIX-panels {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  margin-top: 3%;
+}
+.YOUR_PREFIX-tabs input[type=radio] ~ .YOUR_PREFIX-panels > div {
+  position: relative;
+  display: none;
+  min-height: 16.6666666667em;
+}
+.YOUR_PREFIX-tabs input[type=radio] ~ .YOUR_PREFIX-panels > div::before {
+  font-size: 4.1666666667em;
+  line-height: 1px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  content: attr(data-id);
+  transform: translate(-50%, -50%);
+  color: rgba(255, 0, 0, 0.25);
+}
+.YOUR_PREFIX-tabs input[type=radio][id=YOUR_PREFIX-T1-tab1]:checked ~ .YOUR_PREFIX-labels label[for=YOUR_PREFIX-T1-tab1] {
+  color: black;
+}
+.YOUR_PREFIX-tabs input[type=radio][id=YOUR_PREFIX-T1-tab1]:checked ~ .YOUR_PREFIX-labels label[for=YOUR_PREFIX-T1-tab1] span {
+  border: 1px solid rgba(0, 0, 0, 0.25);
+}
+.YOUR_PREFIX-tabs input[type=radio][id=YOUR_PREFIX-T1-tab1]:checked ~ .YOUR_PREFIX-labels label[for=YOUR_PREFIX-T1-tab1] span::before {
+  background-color: rgba(255, 0, 0, 0.5);
+}
+.YOUR_PREFIX-tabs input[type=radio][id=YOUR_PREFIX-T1-tab1]:checked ~ .YOUR_PREFIX-panels > div[data-id="1"] {
+  display: block;
+}
+.YOUR_PREFIX-tabs input[type=radio][id=YOUR_PREFIX-T1-tab2]:checked ~ .YOUR_PREFIX-labels label[for=YOUR_PREFIX-T1-tab2] {
+  color: black;
+}
+.YOUR_PREFIX-tabs input[type=radio][id=YOUR_PREFIX-T1-tab2]:checked ~ .YOUR_PREFIX-labels label[for=YOUR_PREFIX-T1-tab2] span {
+  border: 1px solid rgba(0, 0, 0, 0.25);
+}
+.YOUR_PREFIX-tabs input[type=radio][id=YOUR_PREFIX-T1-tab2]:checked ~ .YOUR_PREFIX-labels label[for=YOUR_PREFIX-T1-tab2] span::before {
+  background-color: rgba(255, 0, 0, 0.5);
+}
+.YOUR_PREFIX-tabs input[type=radio][id=YOUR_PREFIX-T1-tab2]:checked ~ .YOUR_PREFIX-panels > div[data-id="2"] {
+  display: block;
+}
+.YOUR_PREFIX-tabs input[type=radio][id=YOUR_PREFIX-T1-tab3]:checked ~ .YOUR_PREFIX-labels label[for=YOUR_PREFIX-T1-tab3] {
+  color: black;
+}
+.YOUR_PREFIX-tabs input[type=radio][id=YOUR_PREFIX-T1-tab3]:checked ~ .YOUR_PREFIX-labels label[for=YOUR_PREFIX-T1-tab3] span {
+  border: 1px solid rgba(0, 0, 0, 0.25);
+}
+.YOUR_PREFIX-tabs input[type=radio][id=YOUR_PREFIX-T1-tab3]:checked ~ .YOUR_PREFIX-labels label[for=YOUR_PREFIX-T1-tab3] span::before {
+  background-color: rgba(255, 0, 0, 0.5);
+}
+.YOUR_PREFIX-tabs input[type=radio][id=YOUR_PREFIX-T1-tab3]:checked ~ .YOUR_PREFIX-panels > div[data-id="3"] {
+  display: block;
+}/*# sourceMappingURL=tabs.css.map */

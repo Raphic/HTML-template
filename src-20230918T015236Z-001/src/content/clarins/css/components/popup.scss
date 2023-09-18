@@ -1,0 +1,96 @@
+@import "../variables";
+
+.#{$prefix} {
+    // ## POPUP
+    &-popup {
+        visibility: hidden;
+        height: 0;
+        transition: opacity 350ms ease-in-out;
+        opacity: 0;
+
+        &:target {
+            position: fixed;
+            z-index: 10;
+            top: 0;
+            left: 0;
+            display: flex;
+            visibility: visible;
+            align-items: center;
+            justify-content: center;
+            width: 100vw;
+            height: 100vh;
+            opacity: 1;
+        }
+
+        &--wrapper {
+            width: 90%;
+            height: min-content;
+            max-height: max-content;
+            border-style: solid;
+            border-color: $black;
+            border-bottom-width: em-calc(5);
+        }
+
+        &--content {
+            position: relative;
+            overflow-x: hidden;
+            overflow-y: scroll;
+            width: 100%;
+            height: min-content;
+            max-height: 80vh;
+            padding: em-calc(20);
+            background-color: rgba(255, 255, 255, 0.75);
+            box-shadow: rgba(9, 30, 66, 0.25) 0 4px 8px -2px, rgba(9, 30, 66, 0.08) 0 0 0 1px;
+        }
+
+        &--open {
+            font-weight: 700;
+            width: fit-content;
+            padding: em-calc(10);
+            border: 1px solid $black;
+            border-radius: em-calc(5);
+        }
+
+        &--close {
+            position: relative;
+            display: block;
+            width: 100%;
+            height: min-content;
+
+            &:before,
+            &:after {
+                content: ""
+            }
+
+            &:before {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                cursor: default;
+                background-color: rgba(0, 0, 0, 0.75);
+            }
+
+            &:after {
+                font-size: em-calc(10);
+                position: absolute;
+                z-index: 1;
+                top: em-calc(-4);
+                right: em-calc(-1);
+                padding: em-calc(3) em-calc(5);
+                content: "CLOSE";
+                color: $white;
+                border: 1px solid $black;
+                background-color: $black;
+            }
+        }
+
+        &--overlay {
+            position: fixed;
+            top: 0;
+        }
+    };
+
+    // ## POPUP - ENDED
+}

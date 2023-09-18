@@ -1,0 +1,89 @@
+.YOUR_PREFIX-popup {
+  visibility: hidden;
+  height: 0;
+  transition: opacity 350ms ease-in-out;
+  opacity: 0;
+}
+.YOUR_PREFIX-popup:target {
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  display: flex;
+  visibility: visible;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  opacity: 1;
+}
+.YOUR_PREFIX-popup--wrapper {
+  width: 90%;
+  height: -webkit-min-content;
+  height: -moz-min-content;
+  height: min-content;
+  max-height: -webkit-max-content;
+  max-height: -moz-max-content;
+  max-height: max-content;
+  border-style: solid;
+  border-color: #000000;
+  border-bottom-width: em-calc(5);
+}
+.YOUR_PREFIX-popup--content {
+  position: relative;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  width: 100%;
+  height: -webkit-min-content;
+  height: -moz-min-content;
+  height: min-content;
+  max-height: 80vh;
+  padding: em-calc(20);
+  background-color: rgba(255, 255, 255, 0.75);
+  box-shadow: rgba(9, 30, 66, 0.25) 0 4px 8px -2px, rgba(9, 30, 66, 0.08) 0 0 0 1px;
+}
+.YOUR_PREFIX-popup--open {
+  font-weight: 700;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: em-calc(10);
+  border: 1px solid #000000;
+  border-radius: em-calc(5);
+}
+.YOUR_PREFIX-popup--close {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: -webkit-min-content;
+  height: -moz-min-content;
+  height: min-content;
+}
+.YOUR_PREFIX-popup--close:before, .YOUR_PREFIX-popup--close:after {
+  content: "";
+}
+.YOUR_PREFIX-popup--close:before {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  cursor: default;
+  background-color: rgba(0, 0, 0, 0.75);
+}
+.YOUR_PREFIX-popup--close:after {
+  font-size: em-calc(10);
+  position: absolute;
+  z-index: 1;
+  top: em-calc(-4);
+  right: em-calc(-1);
+  padding: em-calc(3) em-calc(5);
+  content: "CLOSE";
+  color: #ffffff;
+  border: 1px solid #000000;
+  background-color: #000000;
+}
+.YOUR_PREFIX-popup--overlay {
+  position: fixed;
+  top: 0;
+}/*# sourceMappingURL=popup.css.map */

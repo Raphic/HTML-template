@@ -1,0 +1,86 @@
+@import "../variables";
+@import "../mixins";
+
+.#{$prefix} {
+    // ## SLIDER SCROLL
+    $SLIDER_ITEMS: 4;
+
+    &-slider {
+        overflow-x: scroll;
+        @media only screen and (min-width: $tablet) {
+            overflow-x: initial;
+        }
+
+        & > div,
+        & > ul {
+            display: inline-flex;
+            width: max-content;
+            margin: 0 auto;
+
+            @media only screen and (min-width: $mobile-medium) {
+                width: max-content;
+            }
+
+            @media only screen and (min-width: $tablet) {
+                display: flex;
+                width: fit-content;
+            }
+
+            & > div,
+            & > li {
+                display: inline-block;
+                flex-direction: column;
+                justify-content: space-between;
+                min-width: calc(100vw - 2.5%);
+                max-width: 100%;
+                margin-right: em-calc(20);
+                margin-bottom: em-calc(20);
+                padding: em-calc(20);
+                transition: all 350ms linear;
+                border: 5px solid rgba($black, 0.1);
+
+                @media only screen and (min-width: $mobile-medium) {
+                    width: calc((100% / 3));
+                }
+                @media only screen and (min-width: $desktop) {
+                    width: calc((100% / (#{$SLIDER_ITEMS})));
+                    min-width: initial;
+                    max-width: initial;
+                    margin-right: em-calc(20);
+                    margin-bottom: 0;
+                }
+
+                &:last-child {
+                    margin-right: 0
+                }
+
+                &:hover {
+                    border-color: rgba($black, 0.5);
+                    background-color: rgba($black, 0.075);
+                }
+
+                h5 {
+                    text-transform: uppercase;
+                }
+
+                .#{$prefix} {
+                    &-thumbnaill {
+                        @include aspect-ratio(16, 9);
+                        overflow: hidden;
+                        margin-bottom: em-calc(20);
+                        background-color: rgba($black, 0.1);
+
+                        & img {
+                            position: relative;
+                            width: auto;
+                            height: 100%;
+                            @include center('x', 50%)
+                        }
+                    }
+                }
+            }
+        }
+    };
+
+    // ## SLIDER SCROLL - ENDED
+}

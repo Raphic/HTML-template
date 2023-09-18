@@ -1,0 +1,27 @@
+.YOUR_PREFIX-svg {
+  position: relative;
+}
+.YOUR_PREFIX-svg img {
+  width: 100%;
+  height: auto;
+}
+.YOUR_PREFIX-svg svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.YOUR_PREFIX-svg svg text {
+  font-size: 50%;
+  position: relative;
+  color: #ffffff;
+  text-shadow: 1px 2px 2px rgba(0, 0, 0, 0.5);
+  fill: #ffffff;
+}
+@media only screen and (min-width: 768px) {
+  .YOUR_PREFIX-svg svg text {
+    font-size: 50%;
+  }
+}/*# sourceMappingURL=svg.css.map */

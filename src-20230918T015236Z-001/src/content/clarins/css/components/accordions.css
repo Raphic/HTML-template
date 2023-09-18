@@ -1,0 +1,71 @@
+.YOUR_PREFIX-accordions {
+  max-width: 90%;
+}
+@media only screen and (min-width: 768px) {
+  .YOUR_PREFIX-accordions {
+    max-width: 50%;
+  }
+}
+.YOUR_PREFIX-accordion {
+  font-family: inherit;
+  transform: translateZ(0);
+}
+.YOUR_PREFIX-accordion > input {
+  position: absolute;
+  display: none;
+  height: 0;
+  transition: all 250ms linear;
+  opacity: 0;
+}
+.YOUR_PREFIX-accordion > input:checked ~ label:after {
+  content: "-";
+}
+.YOUR_PREFIX-accordion > input:checked ~ section {
+  height: initial;
+  min-height: auto;
+  transform: translateY(0);
+  opacity: 1;
+}
+.YOUR_PREFIX-accordion > label {
+  font-size: 4vw;
+  font-weight: bold;
+  line-height: 1.5;
+  position: relative;
+  display: flex;
+  float: none;
+  align-items: center;
+  height: 10vw;
+  cursor: pointer;
+  text-align: left;
+  color: inherit;
+  border-bottom: 1px dashed rgba(0, 0, 0, 0.15);
+}
+@media only screen and (min-width: 768px) {
+  .YOUR_PREFIX-accordion > label {
+    font-size: em-calc(14, 14);
+    height: em-calc(44);
+  }
+}
+.YOUR_PREFIX-accordion > label:before {
+  display: none;
+}
+.YOUR_PREFIX-accordion > label:after {
+  font-size: em-calc(20);
+  position: absolute;
+  top: 50%;
+  right: 0;
+  width: 30px;
+  height: 30px;
+  content: "+";
+  transform: translateY(-50%);
+  text-align: center;
+}
+.YOUR_PREFIX-accordion > section {
+  overflow: hidden;
+  height: 0;
+  padding: 0 em-calc(10);
+  transition: all 250ms ease-in-out;
+  transform: translateY(20px);
+  text-align: left;
+  opacity: 0;
+}/*# sourceMappingURL=accordions.css.map */

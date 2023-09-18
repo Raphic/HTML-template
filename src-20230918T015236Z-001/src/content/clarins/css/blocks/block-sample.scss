@@ -1,0 +1,13 @@
+@import "../variables";
+
+*[data-name="BLOCK-SAMPLE"] {
+    @media only screen and (min-width: $mobile-medium) {}
+    @media only screen and (min-width: $tablet) {}
+    @media only screen and (min-width: $tablet-medium) {}
+    @media only screen and (min-width: $desktop) {}
+    @media only screen and (min-width: $desktop-medium) {}
+
+    & .#{$prefix} {
+        position: relative;
+    }
+}
