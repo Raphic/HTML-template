@@ -375,15 +375,12 @@
         });
     });
     //Dev no commit
-    //Main no commit no commitno commitno commitno commitno commitno commitno commitno commitno commitno commitno commitno commitno commitno commitno commitno commit
     $('select.input').on('select2:select', function (e) {
         $(this).blur();
         const currentId = e.target.id;
         const currentInput = document.getElementById(currentId);
         const nextInput = findNextInput(currentInput);
-        if (nextInput) {
-            nextInput.focus();
-        }
+        
     });
 
     $('select.input').select2({
