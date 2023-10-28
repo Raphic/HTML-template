@@ -379,6 +379,16 @@
         const nextInput = findNextInput($(this).attr('id'));
         if (nextInput) {
             nextInput.focus();
+        //test github desktop
+        const currentId = $(this).attr('id');
+        const currentIndex = inputFocus.indexOf(currentId);
+        const nextIndex = currentIndex + 1;
+        if (nextIndex < inputFocus.length) {
+            const nextId = inputFocus[nextIndex];
+            const nextInput = $(`#${nextId}`);
+            if (nextInput.length > 0) {
+                nextInput.focus();
+            }
         }
     });
     // $('select.input').on('select2:select', function (e) {
