@@ -1,0 +1,78 @@
+// GLOBAL
+$prefix: 'YOUR_PREFIX';
+$rem-base: 1;
+$rem-base-tablet: 1;
+$rem-base-desktop: 1;
+$em-base: 12;
+$em-base-tablet: 14;
+$em-base-desktop: 16;
+
+$hasGoogle: false; // Montserrat & Barlow for Bizline
+$hasClarins: true;
+$hasMyriadPro: true;
+$hasGotham: true;
+$hasSofia: true;
+// MAKE SURE YOUR ENVIRONMENT AFTER FINISH.
+$isLocal: true;
+
+// FONTS
+$F-Arial: Arial, Helvetica, sans-serif;
+$F-Times: Times, 'Times New Roman', serif;
+$F-MyriadPro: "Myriad Pro", Arial, Helvetica, sans-serif;
+$F-Montserrat: 'Montserrat' , Arial, Helvetica, sans-serif;
+$F-Barlow: 'Barlow Condensed' , Arial, Helvetica, sans-serif;
+
+// FONT: CLARINS
+$F-ClarinsRegular: 'ClarinsRegular', 'Clarins', 'Times New Roman', Times, Helvetica, serif;
+// END | FONT: CLARINS
+
+// FONT : GOTHAM
+$F-GothamSSmMedium: "Gotham SSm medium A", "Gotham SSm medium B", Helvetica, Arial, sans-serif;
+$F-GothamSSmBook: "Gotham SSm book A", "Gotham SSm book B", Helvetica, Arial, sans-serif;
+$F-GothamLight: "Gotham Light", "Gotham SSm light A", "Gotham SSm light B", "Gotham SSm book A", "Gotham SSm book B", Helvetica, Arial, sans-serif;
+$F-GothamSSmLight: "Gotham SSm light A", "Gotham SSm light B", "Gotham SSm book A", "Gotham SSm book B", Helvetica, Arial, sans-serif;
+// END | FONT : GOTHAM
+
+// FONT : SOFIA PRO (marionnaud.fr)
+$F-SofiaProRegular: "Sofia Pro Regular", Arial, Helvetica, sans-serif;
+$F-SofiaProBold: "Sofia Pro Bold", Arial, Helvetica, sans-serif;
+$F-SofiaProLight: "Sofia Pro Light", Arial, Helvetica, sans-serif;
+$F-SofiaProMedium: "Sofia Pro Medium", Arial, Helvetica, sans-serif;
+$F-SofiaProItalic: "Sofia Pro Italic", Arial, Helvetica, sans-serif;
+$F-SofiaProSemiBold: "Sofia Pro Semi Bold", Arial, Helvetica, sans-serif;
+// END | FONT : SOFIA PRO (marionnaud.fr)
+
+// FONT : Montserrat & Barlow by Google (Bizline)
+$F-Montserrat: 'Montserrat' , Arial, Helvetica, sans-serif;
+$F-Barlow: 'Barlow Condensed' , Arial, Helvetica, sans-serif;
+// END | FONT : Montserrat & Barlow by Google (Bizline)
+
+
+// COLORS
+$white: rgba(255, 255, 255, 1);
+$black: rgba(0, 0, 0, 1);
+$gray: rgba(0, 0, 0, 0.5);
+$hotgrey: #CFCAC9;
+$charcoal: #333333;
+$darkgrey: #787474;
+$redclarins: #B40024;
+$rosewood:#63021A;
+$darkred: #8C0B26;
+
+// BREAKPOINTS - MOBILE (First) / TABLET / DESKTOP
+$mobile : 320px;
+$mobile-medium : 480px;
+$tablet : 768px;
+$tablet-medium : 1024px;
+$desktop : 1280px;
+$desktop-medium : 1440px;
+
+// 3PARTIES MAX-WIDTH
+$DEFAULT : 100vw;
+$ORIGINES: 1440px;
+$NOCIBE: 1280px;
+$BEAUTY_SUCCESS: 1200px;
+$MARIONNAUD: 1024px;
+$KALISTA: 945px;
+$COSMA: 900px;
+$PARFUMDO: 765px;

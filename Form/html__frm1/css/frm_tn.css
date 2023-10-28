@@ -1,0 +1,121 @@
+@import url(global.css);
+
+.frm_receive .btn{
+    max-width: 140px;
+}
+.frm_receive{
+    max-width: var(--width-desktop);
+    /* max-width: 1366px; */
+    margin: auto;
+    /* border: 1px solid #040408; */
+    font-size: var(--fz-primary);
+    padding: 0 10px;
+    background: var(--clr-bg-secondary);
+    border-radius: 5px;
+}
+.frm_receive .tab-panels{
+    min-height: 140px;
+}
+.frm_receive label{
+    text-align: right;
+}
+.frm_receive .tbl-fix-header .frm-table tr th:nth-child(4), .frm_receive .tbl-fix-header .frm-table tr td:nth-child(4){
+    min-width: 20px;
+}
+.frm_receive div.tbl-fix-header{
+    height: auto;
+}
+#frm_receive__reception--type{
+    max-width: 160px;
+}
+.frm_receive div.tbl-fix-header{
+    max-height: 88px;
+}
+/* textarea[name="medical-note"] {
+    min-height: 50px;
+} */
+.drag-box{
+    /* overflow: hidden; */
+}
+.drag-box--child {
+    transition: transform 0.2s ease-out;
+}
+.drag-box--child[draggable="true"]{
+    opacity: 0.6;
+    cursor: move;
+    position: relative;
+    z-index: 1;
+    transition: all 0.2s;
+}
+.drag-box--child[draggable="true"]::after{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: 2;
+}
+.drag-box--child.over {
+    opacity: 1;
+    border: 2px dashed #000;
+    -webkit-animation: pulsate-fwd 0.5s ease-in-out infinite both;
+    animation: pulsate-fwd 0.5s ease-in-out infinite both;
+}
+@-webkit-keyframes pulsate-fwd {
+    0% {
+        -webkit-transform: scale(1);
+                transform: scale(1);
+    }
+    50% {
+        -webkit-transform: scale(1.05);
+                transform: scale(1.05);
+    }
+    100% {
+        -webkit-transform: scale(1);
+                transform: scale(1);
+    }
+}
+@keyframes pulsate-fwd {
+    0% {
+        -webkit-transform: scale(1);
+                transform: scale(1);
+    }
+    50% {
+        -webkit-transform: scale(1.05);
+                transform: scale(1.05);
+    }
+    100% {
+        -webkit-transform: scale(1);
+                transform: scale(1);
+    }
+}
+.frm_receive div.frm-dsnv-benhnhan{
+    max-height: 540px;
+}
+.frm_receive div.frm-tktt-benhnhan{
+    max-height: 80vh;
+}
+.tow-field,
+.tow-field + .select2-container--default{
+    width: calc(100% - 200px) !important;
+}
+.three-field,
+.three-field + .select2-container--default{
+    width: calc((100% - 105px) / 3) !important;
+}
+.frm_receive div.tbl-noptien{
+    max-height: 100px;
+}
+.frm_receive .relationship-expand{
+    width: calc(100% - 260px);
+}
+.dataTables_wrapper{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+}
+div.dataTables_wrapper div.dataTables_paginate{
+    margin-left: auto;
+}

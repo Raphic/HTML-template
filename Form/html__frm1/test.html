@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Auto-Scroll Drag and Drop</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <style>
+            body{
+                display: flex;
+                flex-wrap: wrap;
+                gap: 1rem;
+            }
+            .drag-box--child {
+                background-color: #ccc;
+                border-radius: 10px;
+                border: 2px solid #666666;
+                box-shadow: inset 0 0 3px #000;
+                float: left;
+                height: 150px;
+                margin-bottom: 30px;
+                margin-right: 5px;
+                text-align: center;
+                width: 150px;
+                position: relative; /* Thêm dòng này để quản lý vị trí tuyệt đối */
+            }
+            .drag-box--child header {
+                background: linear-gradient(to right, rgb(0,0,0), rgb(79,79,79), rgb(21,21,21));
+                border-bottom: 1px solid #ddd;
+                border-top-left-radius: 10px;
+                border-top-right-radius: 10px;
+                box-shadow: 5px;
+                color: #fff;
+                padding: 5px;
+                text-shadow: #000 0 1px;
+            }
+            .drag-box--child[draggable="true"]{
+                opacity: 0.6;
+                cursor: move;
+            }
+            .drag-box--child {
+                transition: transform 0.2s ease-out;
+            }
+            .drag-box--child.over {
+                border: 2px dashed #000;
+                -webkit-animation: pulsate-fwd 0.5s ease-in-out infinite both;
+                animation: pulsate-fwd 0.5s ease-in-out infinite both;
+            }
+            .drag-box--child.moving {
+                opacity: 0.25;
+                transform: scale(0.8);
+            }
+            @-webkit-keyframes pulsate-fwd {
+                0% {
+                    -webkit-transform: scale(1);
+                            transform: scale(1);
+                }
+                50% {
+                    -webkit-transform: scale(1.1);
+                            transform: scale(1.1);
+                }
+                100% {
+                    -webkit-transform: scale(1);
+                            transform: scale(1);
+                }
+            }
+            @keyframes pulsate-fwd {
+                0% {
+                    -webkit-transform: scale(1);
+                            transform: scale(1);
+                }
+                50% {
+                    -webkit-transform: scale(1.1);
+                            transform: scale(1.1);
+                }
+                100% {
+                    -webkit-transform: scale(1);
+                            transform: scale(1);
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <br />
+        <br />
+        <div class="container">
+            <h1 class="page-header">Native HTML5 Drag and Drop <small>Full Demo</small></h1>
+            <div class="drag-box clearfix">
+                <div id="div1" class="drag-box--child" data-order="1"><header>A</header>1</div>
+                <div id="div2" class="drag-box--child" data-order="2"><header>B</header>12</div>
+                <div id="div3" class="drag-box--child" data-order="3"><header>D</header>14</div>
+                <div id="div4" class="drag-box--child" data-order="4"><header>C</header>13</div>
+            </div>
+        </div>
+        <div>
+            <button class="btn btn-secondary" id="editButton">Chỉnh sửa</button>
+            <button class="btn btn-primary" id="saveButton">Lưu</button>
+        </div>
+
+        <script>
+        const dragSetting = {
+            dragBoxChildClass: 'drag-box--child',
+            orderAttribute: 'data-order',
+            editButtonId: 'editButton',
+            saveButtonId: 'saveButton',
+            overClass: 'over',
+            editModeClass: 'edit-mode',
+        };
+        let draggedItem = null;
+        let isEditMode = false;
+        const toggleDraggable = () => {
+            const draggables = document.querySelectorAll(`.${dragSetting.dragBoxChildClass}`);
+            draggables.forEach(item => (item.draggable = isEditMode));
+        };
+        // Hàm để lưu dữ liệu vào Local Storage
+        const saveToLocalStorage = () => {
+            const orderData = Array.from(document.querySelectorAll(`.${dragSetting.dragBoxChildClass}`)).map(item =>
+                item.getAttribute(dragSetting.orderAttribute)
+            );
+            localStorage.setItem('orderData', JSON.stringify(orderData));
+        };
+        const loadFromLocalStorage = () => {
+            const orderData = JSON.parse(localStorage.getItem('orderData')) || [];
+            const container = document.querySelector('.drag-box');
+            const draggables = Array.from(container.querySelectorAll(`.${dragSetting.dragBoxChildClass}`));
+            const orderDataMap = {};
+            orderData.forEach((order, index) => {
+                orderDataMap[order] = index;
+            });
+            draggables.sort((a, b) => {
+                const orderA = a.getAttribute(dragSetting.orderAttribute);
+                const orderB = b.getAttribute(dragSetting.orderAttribute);
+
+                return orderDataMap[orderA] - orderDataMap[orderB];
+            });
+            container.innerHTML = '';
+            draggables.forEach(item => container.appendChild(item));
+        };
+        isEditMode = false;
+        toggleDraggable();
+        document.getElementById(dragSetting.editButtonId).addEventListener('click', () => {
+            isEditMode = true;
+            toggleDraggable();
+            document.body.classList.add(dragSetting.editModeClass);
+        });
+        document.getElementById(dragSetting.saveButtonId).addEventListener('click', () => {
+            saveToLocalStorage();
+            isEditMode = false;
+            toggleDraggable();
+            document.body.classList.remove(dragSetting.editModeClass);
+        });
+        loadFromLocalStorage();
+        document.addEventListener("dragstart", (event) => {
+            draggedItem = event.target;
+        });
+        document.addEventListener("dragend", (event) => {
+            event.preventDefault();
+        });
+        document.addEventListener("dragenter", (event) => {
+            event.preventDefault();
+            if (event.target.classList.contains(dragSetting.dragBoxChildClass)) {
+                event.target.classList.add(dragSetting.overClass);
+            }
+        });
+        document.addEventListener("dragleave", (event) => {
+            if (event.target.classList.contains(dragSetting.dragBoxChildClass)) {
+                event.target.classList.remove(dragSetting.overClass);
+            }
+        });
+        document.addEventListener("dragover", (event) => {
+            event.preventDefault();
+        });
+        document.addEventListener("drop", (event) => {
+            event.preventDefault();
+            if (event.target.classList.contains(dragSetting.dragBoxChildClass)) {
+                event.target.classList.remove(dragSetting.overClass);
+                const target = event.target;
+                const parent = target.parentNode;
+                const items = Array.from(parent.children);
+                const sourceIndex = items.indexOf(draggedItem);
+                const targetIndex = items.indexOf(target);
+
+                if (sourceIndex !== -1 && targetIndex !== -1) {
+                    parent.insertBefore(draggedItem, targetIndex > sourceIndex ? target.nextSibling : target);
+                    saveToLocalStorage();
+                }
+            }
+            draggedItem = null;
+        });
+    </script>
+
+    <button class="btn btn-secondary" id="fullscreen-btn" class="btn">Chuyển đổi toàn màn hình</button>
+<!-- <script>
+    const fullscreenBtn = document.getElementById('fullscreen-btn');
+    fullscreenBtn.addEventListener('click', function() {
+        if (document.documentElement.requestFullscreen) {
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen();
+            } else {
+                document.exitFullscreen();
+            }
+        } else if (document.documentElement.mozRequestFullScreen) {
+            if (!document.mozFullScreenElement) {
+                document.documentElement.mozRequestFullScreen();
+            } else {
+                document.mozCancelFullScreen();
+            }
+        } else if (document.documentElement.webkitRequestFullscreen) {
+            if (!document.webkitFullscreenElement) {
+                document.documentElement.webkitRequestFullscreen();
+            } else {
+                document.webkitExitFullscreen();
+            }
+        } else if (document.documentElement.msRequestFullscreen) {
+            if (!document.msFullscreenElement) {
+                document.documentElement.msRequestFullscreen();
+            } else {
+                document.msExitFullscreen();
+            }
+        }
+    });
+    window.addEventListener("load", function() {
+        setTimeout(function() {
+            const button = document.querySelector(".btn");
+            button.click();
+        }, 1000);
+    });
+</script> -->
+
+
+
+
+    <!-- <script type="text/javascript">
+        window.onload = maxWindow;
+    
+        function maxWindow() {
+            window.moveTo(0, 0);
+    
+            if (document.all) {
+                top.window.resizeTo(screen.availWidth, screen.availHeight);
+            }
+    
+            else if (document.layers || document.getElementById) {
+                if (top.window.outerHeight < screen.availHeight || top.window.outerWidth < screen.availWidth) {
+                    top.window.outerHeight = screen.availHeight;
+                    top.window.outerWidth = screen.availWidth;
+                }
+            }
+        }
+    </script>  -->
+
+    <!-- <script language="JavaScript">
+        window.onload = function(){
+        document.getElementById('fullscreen-btn').click();
+        
+        var scriptTag = document.createElement("script");
+        scriptTag.src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js";
+        document.getElementsByTagName("head")[0].appendChild(scriptTag);
+        }
+        function toggleFullScreen(elem) {
+            // ## The below if statement seems to work better ## if ((document.fullScreenElement && document.fullScreenElement !== null) || (document.msfullscreenElement && document.msfullscreenElement !== null) || (!document.mozFullScreen && !document.webkitIsFullScreen)) {
+            if ((document.fullScreenElement !== undefined && document.fullScreenElement === null) || (document.msFullscreenElement !== undefined && document.msFullscreenElement === null) || (document.mozFullScreen !== undefined && !document.mozFullScreen) || (document.webkitIsFullScreen !== undefined && !document.webkitIsFullScreen)) {
+                if (elem.requestFullScreen) {
+                    elem.requestFullScreen();
+                } else if (elem.mozRequestFullScreen) {
+                    elem.mozRequestFullScreen();
+                } else if (elem.webkitRequestFullScreen) {
+                    elem.webkitRequestFullScreen(Element.ALLOW_KEYBOARD_INPUT);
+                } else if (elem.msRequestFullscreen) {
+                    elem.msRequestFullscreen();
+                }
+            } else {
+                if (document.cancelFullScreen) {
+                    document.cancelFullScreen();
+                } else if (document.mozCancelFullScreen) {
+                    document.mozCancelFullScreen();
+                } else if (document.webkitCancelFullScreen) {
+                    document.webkitCancelFullScreen();
+                } else if (document.msExitFullscreen) {
+                    document.msExitFullscreen();
+                }
+            }
+        }
+    </script> -->
+    <!-- <div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/office-365-ui-fabric/6.21.0/office-ui-fabric-react.min.js"></script>
+        <div id="myDocument"></div>
+        <script>
+            const myDocument = new Office365UiFabric.DocumentEmbed({
+                element: document.getElementById("myDocument"),
+                source: "https://example.com/my-document.docx",
+            });
+
+            myDocument.load();
+        </script>
+    </div> -->
+    <div>
+        <script>
+            // Ngăn chức năng mặc định của các phím F1 đến F12
+            // $(document).on('keydown', function(e) {
+            //     if (e && e.key) {
+            //         const key = e.key.toUpperCase();
+            //         if (key.startsWith('F') || key.startsWith('f')) {
+            //             const fKeyNumber = parseInt(key.substring(1));
+            //             if (!isNaN(fKeyNumber) && fKeyNumber >= 1 && fKeyNumber <= 10) {
+            //                 e.preventDefault();
+            //                 switch (key) {
+            //                     case 'F1':
+            //                         console.log('Đang nhấn phím', e.key)
+            //                     break;
+            //                     case 'F2':
+            //                         console.log('Đang nhấn phím', e.key)
+            //                     break;
+            //                     // Thêm các trường hợp cho các phím khác ở đây
+            //                 }
+            //             }
+            //         }
+            //     }
+            // });
+        </script>
+    </div>
+    <div>
+        <!-- Button trigger modal -->
+        <div>
+            <button id="printOut1" type="button" class="btn btn-primary">Print1</button>
+            <button onclick="printPage()" type="button" class="btn btn-primary">Print</button>
+        </div>
+        <br/>
+        <div class="form-group">
+            <input type="text" id="content" class="form-control" placeholder="Giá trị QR" value="">
+        </div>
+        <div class="print-wrapt">
+            <style>
+                /* .print-wrapt{
+                    background: chocolate;
+                    padding: 5px;
+                    display: none;
+                    opacity: 0;
+                    position: absolute;
+                    z-index: -99999;
+                }
+                .print-content{
+                    max-width: 415px;
+                    margin: auto;
+                    padding: 10px;
+                    background: #fff;
+                    border: 1px solid chocolate;
+                } */
+                @media print {
+                    @page{
+                        size: 110mm 100mm; 
+                        margin: 0mm;
+                        line-height: 1.2rem;
+                        font-size: 16px;
+                    }
+                    /* body *{
+                        display: none;
+                    }
+                    .print-wrapt,
+                    .print-wrapt *{
+                        display: block;
+                    } */
+                    .print-wrapt{
+                        display: block;
+                        opacity: 1;
+                        position: relative;
+                        z-index: 1;
+                    }
+                    .print-content{
+                        display: block;
+                    }
+                    .print-content div{
+                        max-width: 415px;
+                    }
+                    .print-content div:first-child{
+                        text-align: center;
+                    }
+                    .print-content div:first-child h3,
+                    .print-content div:first-child h4,
+                    .print-content div:first-child h5{
+                        margin: 0;
+                    }
+                    .print-content div:first-child h3{
+                        color: rgba(220,53,69,1);
+                    }
+                    .print-content div:last-child p{
+                        margin: 0;
+                        display: flex;
+                        align-items: start;
+                    }
+                    .print-content div:last-child p span,
+                    .print-content div:last-child p b{
+                        display: block;
+                    }
+                    .print-content div:last-child p span{
+                        white-space: nowrap;
+                    }
+                }
+            </style>
+            <div class="printer print-content">
+                <div class="printer text-center">
+                    <h4 class="printer m-0">Bệnh viện Đa Khoa Hồng Hưng</h4>
+                    <h4 class="printer m-0">19-10-2023 <span class="printer">06:44</span></h4>
+                    <h3 class="printer m-0 text-danger">STT : 04017</h3>
+                    <h4 class="printer">04 - Phòng Khám Nội Tiết (PK4)</h4>
+                    <img src="https://chart.googleapis.com/chart?cht=qr&chl=https%3A%2F%2Fhonghunghospital.com.vn%2F&chs=80x80&chld=L|0" id="qr-code" class="printer img-thumbnail">
+                </div>
+                <div class="printer text-left">
+                    <p class="printer m-0"><span class="printer">Tên : </span><b class="printer"> ĐÀO VĂN HỒNG</b></p>
+                    <p class="printer m-0"><span class="printer">Tuổi : </span><b class="printer"> 63</b></p>
+                    <p class="printer d-flex align-items-start m-0"><span class="printer d-block text-nowrap">Địa chỉ : </span><b class="printer d-block text-wrap"> Thanh AN, Xã An Bình, Huyện Châu Thành, Tỉnh Tây Ninh</b></p>
+                    <p class="printer m-0"><span class="printer">Số thẻ BHYT : </span><b class="printer"> BT2727271734859</b></p>
+                </div>
+            </div>
+        </div>
+        
+        <script>
+            //Get QR code to img by google API
+            // const generateQRCode = (inputId, outputId) => {
+            //     const content = document.getElementById(inputId).value;
+            //     console.log(content);
+            //     const qrCodeUrl = `https://chart.googleapis.com/chart?cht=qr&chl=${encodeURIComponent(content)}&chs=80x80&chld=L|0`;
+            //     document.getElementById(outputId).src = qrCodeUrl;
+            // };
+            // const settingsQC = [
+            //     { inputId: 'content', outputId: 'qr-code' },
+            //     // { inputId: 'input2', outputId: 'output2' },
+            //     // // Add more settings as needed
+            // ];
+            // const checkAndGenerateQRCode = () => {
+            //     for (let i = 0; i < settingsQC.length; i++) {
+            //         const { inputId, outputId } = settingsQC[i];
+            //         if (!document.getElementById(inputId) || !document.getElementById(outputId)) {
+            //             console.log(`input or output is missing in the DOM.`);
+            //             return;
+            //         } else{
+            //             settingsQC.forEach(setting => {
+            //             generateQRCode(setting.inputId, setting.outputId);
+            //             document.getElementById(setting.inputId).addEventListener('input', () => generateQRCode(setting.inputId, setting.outputId));
+            //         });
+            //         }
+            //     }
+            // };
+            // checkAndGenerateQRCode();
+            //End Get QR code to img by google API
+        </script>
+        <script type="text/javascript">
+            // function printPage() {
+            //     window.print();
+            // }
+            // function printContent(element) {
+            //     var w = window.open();
+            //     var printContent = $(element).clone();
+            //     w.document.write('<html><body>' + printContent.html() + '</body></html>');
+            //     w.document.close(); 
+            //     w.onload = function () {
+            //         w.print();
+            //         w.close();
+            //     };
+            //     return false;
+            // }
+            // $('#printOut1').click(function(e){
+            //     e.preventDefault();
+            //     printContent('.print-wrapt');
+            // });
+            // function printContent(element) {
+            //     var w = window.open();
+            //     var printContent = $(element).clone();
+            //     //Only work on Chrome
+            //     w.document.write('<html><body onafterprint="window.close()">' + printContent.html() + '</body></html>');
+            //     if (w.document.readyState === 'complete') {
+            //         console.log(w.document.readyState);
+            //         w.window.print();
+            //         w.document.close();
+            //         return false;
+            //     }
+            // }
+        </script>
+    </div>
+    <div>
+        <input type="text" id="enter" class="form-control" placeholder="Enter" value="">
+        <script>
+            
+            // function setValueAndSimulateEnter(inputSelector, value) {
+            //     var inputElement = $(inputSelector);
+            //     inputElement.val(value);
+            //     var enterEvent = new KeyboardEvent('keydown', {
+            //         key: 'Enter',
+            //         code: 'Enter',
+            //         keyCode: 13,
+            //         which: 13,
+            //         charCode: 13,
+            //     });
+            //     inputElement[0].dispatchEvent(enterEvent);
+            // }
+            // let value= 20;
+            // setValueAndSimulateEnter('#enter', value);
+        </script>
+    </div>
+    
+    </body>
+</html>

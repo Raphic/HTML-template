@@ -1,0 +1,831 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Form tiếp nhận</title>
+
+    <link rel="stylesheet" href="css/frm_tn.css">
+    
+</head>
+<body class="new_style">
+    <div class="frm_receive">        
+        <div class="flex flex-wrap gapy-10">
+            <div class="w100 flex flex-wrap gapy-5 pd-10 box-shadow-5">
+                <div class="flex grow-1 flex-align-center gapy-5">
+                    <select class="input1 grow-1" id="frm_receive__reception--type" autofocus required>
+                        <option value="1">Tiếp nhận Nội trú</option>
+                        <option value="2">Tiếp nhận Ngoại trú</option>
+                    </select>
+                </div>
+                <div class="flex flex-align-center flex-justify-space-between gapy-5">
+                    <button class="btn"><i class="fa-solid fa-id-card-clip fa-lg"></i> Kiểm tra thẻ</button>
+                    <button class="btn btn-eye-syringe"><i class="fa-solid fa-hands-holding fa-lg"></i> Tiếp nhận</button>
+                    <button class="btn btn-history"><i class="fa-solid fa-house-medical-circle-check fa-lg"></i> Lưu (F2)</button>
+                    <button class="btn" id="editButton"><i class="fa-solid fa-arrows-rotate fa-lg"></i> Sửa (F3)</button>
+                    <button class="btn btn-cancel" id="saveButton"><i class="fa-solid fa-house-medical-circle-exclamation fa-lg"></i> Hủy (F4)</button>
+                    <button class="btn">In phiếu (F6)</button>
+                    <button class="btn">In mã BN (F7)</button>
+                    <button class="btn">In mã BN 2 team (F8)</button>
+                    <button class="btn">Chỉ định CLS (F9)</button>
+                    <button class="btn btn-exit"><i class="fa-solid fa-house-medical-circle-xmark fa-lg"></i>Xóa</button>
+                </div>
+            </div>
+            <div class="tabs-css">
+                <!-- Tab 1 -->
+                <input type="radio" name="tabs-css-01" id="frm_list__info-tab1" aria-controls="frm_list__info-tiepnhan">
+                <label for="frm_list__info-tab1">Thông tin tiếp nhận</label>
+                <!-- Tab 2 -->
+                <input type="radio" name="tabs-css-01" id="frm_list__info-tab2" aria-controls="frm_list__info-dsnhapvien" checked="">
+                <label for="frm_list__info-tab2">Danh sách nhập viện</label>
+                <!-- Content Warp -->
+                <div class="tab-panels">
+                    <!-- Content 1 -->
+                    <section id="frm_list__info-tiepnhan" class="tab-panel">
+                        <div class="column-3 drag-box">
+                            <div class="w100 d-inline-block mrg-b-10 bg-secondary box-shadow-5 bdr-5 drag-box--child" data-order="1">
+                                <div class="w100 flex bg-third clr-white pdl-10 pdr-5 bdr-5">
+                                    <h2 class="frm__block--title"><i class="fa-solid fa-hospital-user fa-lg"></i> Thông tin bệnh nhân</h2>
+                                </div>
+                                <div class="w100 flex flex-wrap gapy-5  pd-10">
+                                    <div class="w100 flex flex-align-center gapy-5">
+                                        <label class="w90px" for="frm_receive__patient--scan-card">Quét thẻ</label>
+                                        <input class="input grow-1" type="text" id="frm_receive__patient--scan-card" value="">
+                                    </div>
+                                    <div class="w100 flex flex-align-center gapy-5">
+                                        <label class="w90px" for="frm_receive__patient--search-code">Tìm mã y tế</label>
+                                        <input class="input grow-1" type="text" id="frm_receive__patient--search-code" value="" disabled>
+                                        <button class="btn"><i class="fa-solid fa-magnifying-glass fa-lg"></i></button>
+                                    </div>
+                                    <div class="w100 flex flex-align-center gapy-5">
+                                        <label class="w90px" for="frm_receive__patient--name">Họ và tên <span class="clr-red">(*)</span></label>
+                                        <input class="input grow-1" type="text" id="frm_receive__patient--name" value="" required readonly>
+                                        <button class="btn"><i class="fa-solid fa-magnifying-glass fa-lg"></i></button>
+                                    </div>
+                                    <div class="w100 flex flex-align-center gapy-5">
+                                        <div class="flex grow-1 flex-align-center gapy-5">
+                                            <label class="w90px" for="frm_receive__patient--day-birth">Ngày sinh <span class="clr-red">(*)</span></label>
+                                            <input class="input grow-1" type="date" id="frm_receive__patient--day-birth" value="" required>
+                                        </div>
+                                        <div class="flex w80px flex-align-center gapy-5">
+                                            <label class="w30px" for="frm_receive__patient--day-birth-age">Tuổi</label>
+                                            <input class="input w40px" type="number" id="frm_receive__patient--day-birth-age" value="">
+                                        </div>
+                                        <div class="flex w90px flex-align-center gapy-5">
+                                            <label class="w50px" for="frm_receive__patient--day-birth-month">Tháng/N</label>
+                                            <input class="input w40px" type="number" id="frm_receive__patient--day-birth-month" value="">
+                                        </div>
+                                    </div>
+                                    <div class="w100 flex flex-align-center gapy-5">
+                                        <label class="w90px" for="frm_receive__patient--citizen-id">CCCC/Hộ chiếu</label>
+                                        <input class="input grow-1" type="number" id="frm_receive__patient--citizen-id" value="">
+                                        <button class="btn"><i class="fa-solid fa-magnifying-glass fa-lg"></i></button>
+                                    </div>
+                                    <div class="w100 flex flex-align-center gapy-5">
+                                        <div class="flex grow-1 flex-align-center gapy-5">
+                                            <label class="w90px" for="frm_receive__patient--gender">Giới tính <span class="clr-red">(*)</span></label>
+                                            <select class="input grow-1" id="frm_receive__patient--gender" required>
+                                                <option value="1" selected>Khác</option>
+                                                <option value="2">Nam</option>
+                                                <option value="3">Nữ</option>
+                                            </select>
+                                        </div>
+                                        <div class="flex grow-1 flex-align-center gapy-5">
+                                            <label class="w60px" for="frm_receive__patient--nation">Dân tộc <span class="clr-red">(*)</label>
+                                            <select class="input grow-1" id="frm_receive__patient--nation" required>
+                                                <option value="0" selected>Kinh</option>
+                                                <option value="1">Tày</option>
+                                                <option value="2">Nùng</option>
+                                                <option value="3">Mèo</option>
+                                                <option value="4">Mương</option>
+                                            </select>
+                                        </div>
+                                        <div class="flex flex-align-center gapy-5">
+                                            <input type="checkbox" id="frm_receive__patient--foreigners" name="check-all">
+                                            <label for="frm_receive__patient--foreigners">Ngoại kiều</label>
+                                        </div>
+                                    </div>
+                                    <div class="w100 flex flex-align-center gapy-5">
+                                        <label class="w90px" for="frm_receive__patient--job">Nghề nghiệp <span class="clr-red">(*)</label>
+                                        <select class="input w140px" id="frm_receive__patient--job" required>
+                                            <option value="0" selected>Lao động phổ thông</option>
+                                            <option value="1">Văn phòng</option>
+                                            <option value="2">Công nhân</option>
+                                            <option value="3">Xây dựng</option>
+                                            <option value="4">Nội trợ</option>
+                                        </select>
+                                        <input class="input grow-1" type="tel" id="frm_receive__patient--phone" size="10" maxlength="10" minlength="10" value="" required title="Vui lòng nhập số điện thoại 10 chữ số" placeholder="Số điện thoại">
+                                    </div>
+                                    <div class="w100 flex flex-align-center gapy-5">
+                                        <label class="w90px" for="frm_receive__patient--address">Địa chỉ <span class="clr-red">(*)</label>
+                                        <select class="input w140px" id="frm_receive__patient--address">
+                                            <option value="0" selected>Dương Minh Châu</option>
+                                            <option value="1">Lao động phổ thông</option>
+                                            <option value="2">Công nhân</option>
+                                            <option value="3">Xây dựng</option>
+                                            <option value="4">Nội trợ</option>
+                                        </select>
+                                        <input class="input grow-1" type="text" id="frm_receive__patient--house-number" value="" placeholder="Ấp/số nhà">
+                                    </div>
+                                    <div class="w100 flex flex-align-center gapy-5">
+                                        <label class="w90px" for="frm_receive__patient--relationship">Người liên hệ</label>
+                                        <select class="input w140px" id="frm_receive__patient--relationship">
+                                            <option value="0" selected>Ông/bà</option>
+                                            <option value="1">Lao động phổ thông</option>
+                                            <option value="2">Công nhân</option>
+                                            <option value="3">Xây dựng</option>
+                                            <option value="4">Nội trợ</option>
+                                        </select>
+                                        <input class="input grow-1" type="text" id="frm_receive__relationship-expand" value="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="w100 d-inline-block mrg-b-10 bg-secondary box-shadow-5 bdr-5 drag-box--child" data-order="2">
+                                <div class="w100 flex bg-third clr-white pdl-10 pdr-5 bdr-5">
+                                    <h2 class="frm__block--title"><i class="fa-solid fa-file-medical fa-lg"></i> Thông tin bảo hiểm</h2>
+                                </div>
+                                <div class="w100 flex flex-wrap flex-align-center gapy-5 pd-10">
+                                    <div class="w100 flex flex-wrap flex-align-center flex-justify-space-between gapy-10 mrg-b-5">
+                                        <div class="flex flex-align-center">
+                                            <input type="checkbox" id="frm_receive__card--temporary" name="check-all">
+                                            <label for="frm_receive__card--temporary">TT thẻ tạm</label>
+                                        </div>
+                                        <div class="flex flex-align-center">
+                                            <input type="checkbox" id="frm_receive__card--correct" name="check-all">
+                                            <label for="frm_receive__card--correct">Đúng tuyến</label>
+                                        </div>
+                                        <div class="flex flex-align-center">
+                                            <input type="checkbox" id="frm_receive__card--KSD" name="check-all">
+                                            <label for="frm_receive__card--KSD">KSD thẻ BHYT</label>
+                                        </div>
+                                        <div class="flex flex-align-center">
+                                            <input type="checkbox" id="frm_receive__card--CCT" name="check-all">
+                                            <label for="frm_receive__card--CCT">Miễn CCT</label>
+                                        </div>
+                                        <div class="flex flex-align-center">
+                                            <input type="checkbox" id="frm_receive__card--auto-check" name="check-all">
+                                            <label for="frm_receive__card--auto-check">Tự động kiểm tra thẻ BHYT</label>
+                                        </div>
+                                        <div class="flex flex-align-center gapy-5">
+                                            <label class="w80px" for="frm_receive__card--year-note">5 năm</label>
+                                            <select class="input w140px" id="frm_receive__card--year-note">
+                                                <option value="0" selected>5</option>
+                                                <option value="1">4</option>
+                                                <option value="2">3</option>
+                                                <option value="3">2</option>
+                                                <option value="4">1</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="w100 flex flex-align-center gapy-5">
+                                        <label class="w80px" for="frm_receive__card--code">Số BHYT</label>
+                                        <input class="input grow-1" type="text" id="frm_receive__card--code" value="">
+                                        <button class="btn"><i class="fa-solid fa-magnifying-glass fa-lg"></i></button>
+                                    </div>
+                                    <div class="w100 flex flex-align-center gapy-5">
+                                        <div class="flex grow-1 flex-align-center gapy-5">
+                                            <label class="w80px" for="frm_receive__card--target">Đối tượng</label>
+                                            <input class="input grow-1" type="text" id="frm_receive__card--target" value="">
+                                        </div>
+                                        <div class="flex w150px flex-align-center gapy-5">
+                                            <label class="w100px" for="frm_receive__card--ratio">TL miễn giảm(%)</label>
+                                            <input class="input w50px" type="text" id="frm_receive__card--ratio" value="">
+                                        </div>
+                                    </div>
+                                    <div class="w100 flex flex-align-center gapy-5">
+                                        <div class="flex grow-1 flex-align-center gapy-5">
+                                            <label class="w80px" for="frm_receive__card-frm-day">Từ ngày</label>
+                                            <input class="input grow-1" type="date" id="frm_receive__card-frm-day">
+                                        </div>
+                                        <div class="flex grow-1 flex-align-center gapy-5">
+                                            <label class="w60px" for="frm_receive__card-to-day">Đến ngày</label>
+                                            <input class="input grow-1" type="date" id="frm_receive__card-to-day">
+                                        </div>
+                                    </div>
+                                    <div class="w100 flex flex-align-center gapy-5">
+                                        <label class="w80px" for="frm_receive__card--register-place">Nơi đăng ký</label>
+                                        <input class="input grow-1" type="text" id="frm_receive__card--register-place" value="">
+                                    </div>
+                                    <div class="w100 flex flex-align-center gapy-10 mrg-t-5">
+                                        <button class="btn btn-eye-syringe grow-1"><i class="fa-solid fa-id-card fa-lg"></i> Cấp thẻ tạm</button>
+                                        <button class="btn grow-1"><i class="fa-regular fa-id-card fa-lg"></i> Cấp thẻ TE tạm</button>
+                                        <button class="btn btn-exit grow-1"><i class="fa-solid fa-address-card fa-lg"></i> Thẻ BHYT 2</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="w100 d-inline-block mrg-b-10 bg-secondary box-shadow-5 bdr-5 drag-box--child" data-order="3">
+                                <div class="w100 flex bg-third clr-white pdl-10 pdr-5 bdr-5">
+                                    <h2 class="frm__block--title"><i class="fa-solid fa-laptop-medical fa-lg"></i> Thông tin khám bệnh</h2>
+                                </div>
+                                <div class="w100 flex flex-wrap flex-align-center gapy-5 pd-10">
+                                    <div class="w100 flex flex-align-center gapy-5">
+                                        <div class="flex grow-1 flex-align-center gapy-5">
+                                            <label class="w70px" for="frm_receive__info--target">Đối tượng <span class="clr-red">(*)</span></label>
+                                            <select class="input w110px" id="frm_receive__info--target">
+                                                <option value="0" selected>Loại đối tượng 1</option>
+                                                <option value="1">4</option>
+                                                <option value="2">3</option>
+                                                <option value="3">2</option>
+                                                <option value="4">1</option>
+                                            </select>
+                                        </div>
+                                        <div class="flex flex-align-center gapy-5">
+                                            <label class="w100px" for="frm_receive__info--date">Ngày tiếp nhận <span class="clr-red">(*)</span></label>
+                                            <input class="input w120px" type="date" id="frm_receive__info--date" value="">
+                                        </div>
+                                    </div>
+                                    <div class="w100 flex flex-align-center gapy-5">
+                                        <div class="flex grow-1 flex-align-center gapy-5">
+                                            <label class="w70px" for="frm_receive__info--service">Dịch vụ <span class="clr-red">(*)</label>
+                                            <select class="input w110px" id="frm_receive__info--service">
+                                                <option value="0" selected>Dịch vụ loại 1</option>
+                                                <option value="1">4</option>
+                                                <option value="2">3</option>
+                                                <option value="3">2</option>
+                                                <option value="4">1</option>
+                                            </select>
+                                        </div>
+                                        <div class="flex flex-align-center gapy-5">
+                                            <label class="w100px" for="frm_receive__info--pk">Chọn PK <span class="clr-red">(*)</label>
+                                            <select class="input w120px" id="frm_receive__info--pk">
+                                                <option value="0" selected>Dịch vụ loại 1</option>
+                                                <option value="1">4</option>
+                                                <option value="2">3</option>
+                                                <option value="3">2</option>
+                                                <option value="4">1</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="w100 flex flex-align-center gapy-5">
+                                        <div class="flex grow-1 flex-align-center gapy-5">
+                                            <label class="w70px" for="frm_receive__info--ck">CK <span class="clr-red">(*)</label>
+                                            <select class="input w110px" id="frm_receive__info--ck">
+                                                <option value="0" selected>Dịch vụ loại 1</option>
+                                                <option value="1">4</option>
+                                                <option value="2">3</option>
+                                                <option value="3">2</option>
+                                                <option value="4">1</option>
+                                            </select>
+                                        </div>
+                                        <div class="flex flex-align-center gapy-5">
+                                            <label class="w100px" for="frm_receive__info--ksk">Số tờ KSK</label>
+                                            <input class="input w120px" type="text" id="frm_receive__info--ksk" value="">
+                                        </div>
+                                    </div>
+                                    <div class="w100 flex flex-align-center flex-justify-space-between gapy-5">
+                                        <div class="flex flex-align-center">
+                                            <input type="checkbox" id="frm_receive__info--emergency" name="check-all">
+                                            <label for="frm_receive__info--emergency">Cấp cứu</label>
+                                        </div>
+                                        <div class="flex flex-align-center">
+                                            <input type="checkbox" id="frm_receive__info--prioritize" name="check-all">
+                                            <label for="frm_receive__info--prioritize">Khám ưu tiên</label>
+                                        </div>
+                                        <div class="flex flex-align-center">
+                                            <input type="checkbox" id="frm_receive__info--pay-late" name="check-all">
+                                            <label for="frm_receive__info--pay-late">Trả sau</label>
+                                        </div>
+                                    </div>
+                                    <div class="w100 flex flex-align-center gapy-5">
+                                        <div class="flex flex-align-center gapy-5">
+                                            <label class="w20px" for="frm_receive__info--order">STT</label>
+                                            <input class="input w40px" type="text" id="frm_receive__info--order" value="">
+                                        </div>
+                                        <div class="flex flex-align-center gapy-5">
+                                            <label class="w50px" for="frm_receive__info--number">Số phiếu</label>
+                                            <input class="input w40px" type="text" id="frm_receive__info--number" value="">
+                                        </div>
+                                        <div class="flex grow-1 flex-align-center gapy-5">
+                                            <label class="w60px" for="frm_receive__info--code-save">Mã lưu trữ</label>
+                                            <input class="input grow-1" type="text" id="frm_receive__info--code-save" value="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="w100 d-inline-block mrg-b-10 bg-secondary box-shadow-5 bdr-5 drag-box--child" data-order="4">
+                                <div class="w100 flex bg-third clr-white pdl-10 pdr-5 bdr-5">
+                                    <h2 class="frm__block--title"><i class="fa-solid fa-magnifying-glass fa-lg"></i> Tìm kiếm bệnh nhân</h2>
+                                </div>
+                                <div class="w100 flex flex-wrap flex-align-center gapy-5 pd-10">
+                                    <div class="w100 flex flex-align-center gapy-5">
+                                        <div class="flex flex-align-center w110px">
+                                            <input type="checkbox" id="frm_receive__search--book" name="check-all">
+                                            <label for="frm_receive__search--book">Số vào viện</label>
+                                        </div>
+                                        <input class="input w80px" type="text" id="frm_receive__search--book-expand-01" value="">
+                                        <span>/</span>
+                                        <input class="input w80px" type="text" id="frm_receive__search--book-expand-02" value="">
+                                        <button class="btn btn-history grow-1"><i class="fa-solid fa-clock-rotate-left fa-lg"></i> Lịch sử khám</button>
+                                    </div>
+                                    <div class="w100 flex flex-align-center gapy-5">
+                                        <div class="flex flex-align-center gapy-5">
+                                            <label class="w110px" for="frm_receive__search--book-code">Mã điều trị</label>
+                                            <input class="input w80px" type="text" id="frm_receive__search--book-code" value="">
+                                        </div>
+                                        <button class="btn grow-1">Cập nhật TTBN</button>
+                                        <button class="btn grow-1">KT khám</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="w100 d-inline-block mrg-b-10 bg-secondary box-shadow-5 bdr-5 drag-box--child" data-order="5">
+                                <div class="w100 flex bg-third clr-white pdl-10 pdr-5 bdr-5">
+                                    <h2 class="frm__block--title"><i class="fa-solid fa-heart-pulse fa-lg"></i> Trạng thái bệnh nhân</h2>
+                                </div>
+                            </div>
+                            <div class="w100 d-inline-block mrg-b-10 bg-secondary box-shadow-5 bdr-5 drag-box--child" data-order="6">
+                                <div class="w100 flex bg-third clr-white pdl-10 pdr-5 bdr-5">
+                                    <h2 class="frm__block--title"><i class="fa-solid fa-receipt fa-lg"></i> Thông tin chuyển tiền</h2>
+                                </div>
+                                <div class="w100 flex flex-wrap flex-align-center gapy-5 pd-10">
+                                    <div class="w100 flex flex-align-center gapy-5">
+                                        <label class="w90px" for="frm_receive__payment-cv-code">Số CV</label>
+                                        <input class="input grow-1" type="text" id="frm_receive__payment-cv-code" value="">
+                                    </div>
+                                    <div class="w100 flex flex-align-center gapy-5">
+                                        <div class="flex grow-1 flex-align-center gapy-5">
+                                            <label class="w90px" for="frm_receive__payment-cv-number">Nơi CV</label>
+                                            <input class="input w140px" type="text" id="frm_receive__payment-cv-number" value="">
+                                            <input class="input grow-1" type="text" id="frm_receive__payment-cv-number-expand" value="">
+                                        </div>
+                                    </div>
+                                    <div class="w100 flex flex-align-center gapy-5">
+                                        <div class="flex grow-1 flex-align-center gapy-5">
+                                            <label class="w90px" for="frm_receive__payment-frm-day">Từ ngày</label>
+                                            <input class="input grow-1" type="date" id="frm_receive__payment-frm-day">
+                                        </div>
+                                        <div class="flex grow-1 flex-align-center gapy-5">
+                                            <label class="w60px" for="frm_receive__payment-to-day">Đến ngày</label>
+                                            <input class="input grow-1" type="date" id="frm_receive__payment-to-day">
+                                        </div>
+                                    </div>
+                                    <div class="w100 flex flex-align-center gapy-5">
+                                        <label class="w90px" for="frm_receive__payment-icd">Mã ICD CV <span class="clr-red">(*)</span></label>
+                                        <input class="input grow-1" type="text" id="frm_receive__payment-icd" value="">
+                                    </div>
+                                    <div class="w100 flex flex-align-center gapy-5">
+                                        <label class="w90px" for="frm_receive__payment-secondary">Bệnh phụ</label>
+                                        <input class="input grow-1" type="text" id="frm_receive__payment-secondary" value="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="w100 d-inline-block mrg-b-10 bg-secondary box-shadow-5 bdr-5 drag-box--child" data-order="7">
+                                <div class="w100 flex bg-third clr-white pdl-10 pdr-5 mrg-b-5 bdr-5">
+                                    <h2 class="frm__block--title"><i class="fa-solid fa-suitcase-medical fa-lg"></i> Thông tin các lần nhập viện</h2>
+                                </div>
+                                <div class="tbl-fix-header bdr-5">
+                                    <table class="frm-table">
+                                        <thead>
+                                            <tr>
+                                                <th class="w40px">STT</th>
+                                                <th class="w180px">NGÀY NHẬP VIỆN</th>
+                                                <th class="w180px">NGÀY RA VIỆN</th>
+                                                <th class="w60px">SỐ VV</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>1234</td>
+                                                <td>20/09/2023</td>
+                                                <td>24/09/2023</td>
+                                                <td>1234568</td>
+                                            </tr>
+                                            <tr>
+                                                <td>1234</td>
+                                                <td>20/09/2023</td>
+                                                <td>24/09/2023</td>
+                                                <td>1234568</td>
+                                            </tr>
+                                            <tr>
+                                                <td>1234</td>
+                                                <td>20/09/2023</td>
+                                                <td>24/09/2023</td>
+                                                <td>1234568</td>
+                                            </tr>
+                                            <tr>
+                                                <td>1234</td>
+                                                <td>20/09/2023</td>
+                                                <td>24/09/2023</td>
+                                                <td>1234568</td>
+                                            </tr>
+                                            <tr>
+                                                <td>1234</td>
+                                                <td>20/09/2023</td>
+                                                <td>24/09/2023</td>
+                                                <td>1234568</td>
+                                            </tr>
+                                            <tr>
+                                                <td>1234</td>
+                                                <td>20/09/2023</td>
+                                                <td>24/09/2023</td>
+                                                <td>1234568</td>
+                                            </tr>
+                                            <tr>
+                                                <td>1234</td>
+                                                <td>20/09/2023</td>
+                                                <td>24/09/2023</td>
+                                                <td>1234568</td>
+                                            </tr><tr>
+                                                <td>1234</td>
+                                                <td>20/09/2023</td>
+                                                <td>24/09/2023</td>
+                                                <td>1234568</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="w100 d-inline-block mrg-b-10 bg-2 box-shadow-5 bdr-5 drag-box--child" data-order="4">
+                                <div class="w100 flex bg-third clr-white pdl-10 pdr-5 bdr-5">
+                                    <h2 class="frm__block--title"><i class="fa-solid fa-kit-medical fa-lg"></i> Thông tin nhập viện</h2>
+                                </div>
+                                <div class="tabs-css pd-10">
+                                    <!-- Tab 1 -->
+                                    <input type="radio" name="tabs-css" id="frm_receive__info-tab1" aria-controls="frm_receive__info-ttnhapvien" checked="">
+                                    <label for="frm_receive__info-tab1">Thông tin nhập viện</label>
+                                    <!-- Tab 2 -->
+                                    <input type="radio" name="tabs-css" id="frm_receive__info-tab2" aria-controls="frm_receive__info-tnthuongtich">
+                                    <label for="frm_receive__info-tab2">Tai nạn thương tích</label>
+                                    <!-- Tab 3 -->
+                                    <input type="radio" name="tabs-css" id="frm_receive__info-tab3" aria-controls="frm_receive__info-ttkhac">
+                                    <label for="frm_receive__info-tab3">Thông tin khác</label>
+                                    <!-- Content Warp -->
+                                    <div class="tab-panels">
+                                        <!-- Content 1 -->
+                                        <section id="frm_receive__info-ttnhapvien" class="tab-panel">
+                                            <div class="flex flex-flow-column flex-wrap gapy-5">
+                                                    <div class="w100 flex flex-align-center gapy-5">
+                                                        <label class="w150px" for="frm_receive__enter--medical-day">Ngày nhập viện <span class="clr-red">(*)</span></label>
+                                                        <input class="input grow-1" type="datetime-local" id="frm_receive__enter--medical-day" value="" required>
+                                                    </div>
+                                                    <div class="w100 flex flex-align-center gapy-5">
+                                                        <label class="w150px" for="frm_receive__enter--medical-codeicd">Mã ICD nhập viện <span class="clr-red">(*)</span></label>
+                                                        <select class="input grow-1" id="frm_receive__enter--medical-codeicd" required="">
+                                                            <option value="0" selected="">1025844444</option>
+                                                            <option value="1">Văn phòng</option>
+                                                            <option value="2">Công nhân</option>
+                                                            <option value="3">Xây dựng</option>
+                                                            <option value="4">Nội trợ</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="w100 flex flex-align-center gapy-5">
+                                                        <label class="w150px" for="frm_receive__enter--medical-boarding">Khoa nội trú <span class="clr-red">(*)</span></label>
+                                                        <select class="input grow-1" id="frm_receive__enter--medical-boarding" required="">
+                                                            <option value="0" selected="">Khoa nội 1</option>
+                                                            <option value="1">Văn phòng</option>
+                                                            <option value="2">Công nhân</option>
+                                                            <option value="3">Xây dựng</option>
+                                                            <option value="4">Nội trợ</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="w100 flex flex-align-center gapy-5">
+                                                        <label class="w150px" for="frm_receive__enter--medical-formality">Hình thức nhập viện</label>
+                                                        <select class="input grow-1" id="frm_receive__enter--medical-formality">
+                                                            <option value="0" selected="">Tự thân</option>
+                                                            <option value="1">Văn phòng</option>
+                                                            <option value="2">Công nhân</option>
+                                                            <option value="3">Xây dựng</option>
+                                                            <option value="4">Nội trợ</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="w100 flex flex-align-center gapy-5">
+                                                        <label class="w150px" for="frm_receive__enter--medical-introduction">Hình thức giới thiệu</label>
+                                                        <select class="input grow-1" id="frm_receive__enter--medical-introduction">
+                                                            <option value="0" selected="">Tự thân</option>
+                                                            <option value="1">Văn phòng</option>
+                                                            <option value="2">Công nhân</option>
+                                                            <option value="3">Xây dựng</option>
+                                                            <option value="4">Nội trợ</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="w100 flex flex-align-center gapy-5">
+                                                        <label class="w150px" for="frm_receive__enter--medical-doctor">Bác sĩ tiếp nhận</label>
+                                                        <select class="input grow-1" id="frm_receive__enter--medical-doctor" >
+                                                            <option value="0" selected="">Trần Văn B</option>
+                                                            <option value="1">Văn phòng</option>
+                                                            <option value="2">Công nhân</option>
+                                                            <option value="3">Xây dựng</option>
+                                                            <option value="4">Nội trợ</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="w100 flex flex-align-center gapy-5">
+                                                        <label class="w150px" for="frm_receive__enter--medical-secondary">Bệnh phụ</label>
+                                                        <input class="input grow-1" type="text" id="frm_receive__enter--medical-secondary" value="">
+                                                    </div>
+                                                    <div class="w100 flex flex-align-center gapy-5">
+                                                        <label class="w150px" for="frm_receive__enter--medical-note">Ghi chú thêm</label>
+                                                        <textarea class="input grow-1" name="medical-note" id="frm_receive__enter--medical-note" value=""></textarea>
+                                                    </div>
+                                                </div>
+                                        </section>
+                                        <!-- End Content 1 -->
+                                        <!-- Content 2 -->
+                                        <section id="frm_receive__info-tnthuongtich" class="tab-panel">
+                                            <div class="flex flex-flow-column flex-wrap gapy-5">
+                                                <div class="w100 flex flex-align-center gapy-5">
+                                                    <label class="w150px" for="frm_receive__enter--accident-job">Nghề nghiệp <span class="clr-red">(*)</span></label>
+                                                    <select class="input grow-1" id="frm_receive__enter--accident-job" required="">
+                                                        <option value="0" selected="">Lao động phổ thông</option>
+                                                        <option value="1">Văn phòng</option>
+                                                        <option value="2">Công nhân</option>
+                                                        <option value="3">Xây dựng</option>
+                                                        <option value="4">Nội trợ</option>
+                                                    </select>
+                                                </div>
+                                                <div class="w100 flex flex-align-center gapy-5">
+                                                    <label class="w150px" for="frm_receive__enter--accident-local">Địa điểm xảy ra tai nạn <span class="clr-red">(*)</span></label>
+                                                    <input class="input grow-1" type="text" id="frm_receive__enter--accident-local" value="">
+                                                </div>
+                                                <div class="w100 flex flex-align-center gapy-5">
+                                                    <label class="w150px" for="frm_receive__enter--accident-part">Bộ phận bị thương <span class="clr-red">(*)</span></label>
+                                                    <input class="input grow-1" type="text" id="frm_receive__enter--accident-part" value="">
+                                                </div>
+                                                <div class="w100 flex flex-align-center gapy-5">
+                                                    <label class="w150px" for="frm_receive__enter--accident-cause">Nguyên nhân tai nạn <span class="clr-red">(*)</span></label>
+                                                    <input class="input grow-1" type="text" id="frm_receive__enter--accident-cause" value="">
+                                                </div>
+                                                <div class="w100 flex flex-align-center flex-wrap gapy-5">
+                                                    <div class="flex w150px flex-align-center">
+                                                        <input type="checkbox" id="frm_receive__accident--alcohol" name="check-all">
+                                                        <label for="frm_receive__accident--alcohol">Nồng độ cồn</label>
+                                                    </div>
+                                                    <div class="flex flex-align-center">
+                                                        <input type="checkbox" id="frm_receive__accident--drug" name="check-all">
+                                                        <label for="frm_receive__accident--drug">Dương tính ma túy</label>
+                                                    </div>
+                                                    <div class="flex flex-align-center">
+                                                        <input type="checkbox" id="frm_receive__accident--helmet" name="check-all">
+                                                        <label for="frm_receive__accident--helmet">Đội mũ bảo hiểm</label>
+                                                    </div>
+                                                    <div class="flex w150px flex-align-center">
+                                                        <input type="checkbox" id="frm_receive__accident--brain" name="check-all">
+                                                        <label for="frm_receive__accident--brain">Chấn thương sọ não</label>
+                                                    </div>
+                                                    <div class="flex flex-align-center">
+                                                        <input type="checkbox" id="frm_receive__accident--cervical" name="check-all">
+                                                        <label for="frm_receive__accident--cervical">Chấn thương cột sống cổ</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </section>
+                                        <!-- End Content 2 -->
+                                        <!-- Content 3 -->
+                                        <section id="frm_receive__info-ttkhac" class="tab-panel">
+                                            <div class="flex flex-flow-column flex-wrap gapy-5">
+                                                <div class="w100 flex flex-align-center gapy-5">
+                                                    <label class="w150px" for="frm_receive__enter--other-surgery">Giải phẩu bệnh</label>
+                                                    <select class="input grow-1" id="frm_receive__enter--other-surgery">
+                                                        <option value="0" selected="">Giải phẩu 1</option>
+                                                        <option value="1">Văn phòng</option>
+                                                        <option value="2">Công nhân</option>
+                                                        <option value="3">Xây dựng</option>
+                                                        <option value="4">Nội trợ</option>
+                                                    </select>
+                                                </div>
+                                                <div class="w100 flex flex-align-center gapy-5 pdb-5">
+                                                    <label class="w150px" for="frm_receive__enter--other-catastrophe">Tai biến điều trị nội khoa</label>
+                                                    <select class="input grow-1" id="frm_receive__enter--other-catastrophe">
+                                                        <option value="0" selected="">Giải phẩu 11</option>
+                                                        <option value="1">Văn phòng</option>
+                                                        <option value="2">Công nhân</option>
+                                                        <option value="3">Xây dựng</option>
+                                                        <option value="4">Nội trợ</option>
+                                                    </select>
+                                                </div>
+                                                <div class="w100 flex flex-align-center flex-justify-end gapy-5">
+                                                    <button class="btn"><i class="fa-solid fa-arrows-rotate fa-lg"></i> Cập nhật</button>
+                                                </div>
+                                            </div>
+                                        </section>
+                                        <!-- End Content 3 -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <!-- End Content 1 -->
+                    <!-- Content 2 -->
+                    <section id="frm_list__info-dsnhapvien" class="tab-panel">
+                        <div class="flex flex-flow-column flex-wrap gapy-10">
+                            <div class="flex flex-align-center gapy-10">
+                                <div class="flex flex-align-center gapy-5">
+                                    <label class="w50px txt-right" for="frm_receive__card-frm-day">Từ ngày</label>
+                                    <input class="input w120px" type="date" id="frm_receive__card-frm-day">
+                                </div>
+                                <div class="flex flex-align-center gapy-5">
+                                    <label class="w60px txt-right" for="frm_receive__card-to-day">Đến ngày</label>
+                                    <input class="input w120px" type="date" id="frm_receive__card-to-day">
+                                </div>
+                                <div class="flex flex-align-center gapy-5 mrg-r-auto">
+                                    <label class="w60px" for="frm__left-info--patient-status">Trạng thái</label>
+                                    <select class="input w120px select2-hidden-accessible" id="frm__left-info--patient-status" tabindex="-1" aria-hidden="true">
+                                        <option value="1">Vào viện</option>
+                                        <option value="2">Chuyển viện</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                    </select>
+                                </div>
+                                <button class="btn"><i class="fa-solid fa-magnifying-glass fa-lg"></i> Xem thông tin</button>
+                                <button class="btn btn-eye-syringe"><i class="fa-solid fa-file-invoice fa-lg"></i> In DS tiếp nhận</button>
+                                <input class="input w50px" type="number" value="305" disabled>
+                            </div>
+                            <div class="frm-dsnv-benhnhan tbl-fix-header">
+                                <table class="frm-table">
+                                    <thead>
+                                        <tr>
+                                            <th class="w70px">MÃ ĐT</th>
+                                            <th class="w100px">KHOA NỘI TRÚ</th>
+                                            <th class="w100px">MÃ BỆNH NHÂN</th>
+                                            <th class="w90px">SỐ VÀO VIỆN</th>
+                                            <th class="w150px">HỌ VÀ TÊN</th>
+                                            <th class="w70px">GIỚI TÍNH</th>
+                                            <th class="w120px">THẺ</th>
+                                            <th>ĐỊA CHỈ</th>
+                                            <th class="w80px">NGÀY SINH</th>
+                                            <th class="w110px">NGÀY NHẬP VIỆN</th>
+                                            <th class="w110px">NGÀY RA VIỆN</th>
+                                            <th class="w180px">ICD NHẬP VIỆN</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>012345</td>
+                                            <td>Khoa cấp cứu</td>
+                                            <td>234569874</td>
+                                            <td>1023654</td>
+                                            <td>Lê Trần Thanh B</td>
+                                            <td>Nam</td>
+                                            <td>GD0123698745SS</td>
+                                            <td>Tổ 1, Ấp 2, Phường 3, Tp.Tây Ninh, Tỉnh Tây Ninh</td>
+                                            <td>1990</td>
+                                            <td>10-12-2023</td>
+                                            <td>10-12-2023</td>
+                                            <td>K30 - Khó tiêu và tăng huyết áp</td>
+                                        </tr>
+                                        <tr>
+                                            <td>012345</td>
+                                            <td>Khoa cấp cứu</td>
+                                            <td>234569874</td>
+                                            <td>1023654</td>
+                                            <td>Lê Trần Thanh B</td>
+                                            <td>Nam</td>
+                                            <td>GD0123698745SS</td>
+                                            <td>Tổ 1, Ấp 2, Phường 3, Tp.Tây Ninh, Tỉnh Tây Ninh</td>
+                                            <td>1990</td>
+                                            <td>10-12-2023</td>
+                                            <td>10-12-2023</td>
+                                            <td>K30 - Khó tiêu và tăng huyết áp</td>
+                                        </tr>
+                                        <tr>
+                                            <td>012345</td>
+                                            <td>Khoa cấp cứu</td>
+                                            <td>234569874</td>
+                                            <td>1023654</td>
+                                            <td>Lê Trần Thanh B</td>
+                                            <td>Nam</td>
+                                            <td>GD0123698745SS</td>
+                                            <td>Tổ 1, Ấp 2, Phường 3, Tp.Tây Ninh, Tỉnh Tây Ninh</td>
+                                            <td>1990</td>
+                                            <td>10-12-2023</td>
+                                            <td>10-12-2023</td>
+                                            <td>K30 - Khó tiêu và tăng huyết áp</td>
+                                        </tr>
+                                        <tr>
+                                            <td>012345</td>
+                                            <td>Khoa cấp cứu</td>
+                                            <td>234569874</td>
+                                            <td>1023654</td>
+                                            <td>Lê Trần Thanh B</td>
+                                            <td>Nam</td>
+                                            <td>GD0123698745SS</td>
+                                            <td>Tổ 1, Ấp 2, Phường 3, Tp.Tây Ninh, Tỉnh Tây Ninh</td>
+                                            <td>1990</td>
+                                            <td>10-12-2023</td>
+                                            <td>10-12-2023</td>
+                                            <td>K30 - Khó tiêu và tăng huyết áp</td>
+                                        </tr>
+                                        <tr>
+                                            <td>012345</td>
+                                            <td>Khoa cấp cứu</td>
+                                            <td>234569874</td>
+                                            <td>1023654</td>
+                                            <td>Lê Trần Thanh B</td>
+                                            <td>Nam</td>
+                                            <td>GD0123698745SS</td>
+                                            <td>Tổ 1, Ấp 2, Phường 3, Tp.Tây Ninh, Tỉnh Tây Ninh</td>
+                                            <td>1990</td>
+                                            <td>10-12-2023</td>
+                                            <td>10-12-2023</td>
+                                            <td>K30 - Khó tiêu và tăng huyết áp</td>
+                                        </tr>
+                                        <tr>
+                                            <td>012345</td>
+                                            <td>Khoa cấp cứu</td>
+                                            <td>234569874</td>
+                                            <td>1023654</td>
+                                            <td>Lê Trần Thanh B</td>
+                                            <td>Nam</td>
+                                            <td>GD0123698745SS</td>
+                                            <td>Tổ 1, Ấp 2, Phường 3, Tp.Tây Ninh, Tỉnh Tây Ninh</td>
+                                            <td>1990</td>
+                                            <td>10-12-2023</td>
+                                            <td>10-12-2023</td>
+                                            <td>K30 - Khó tiêu và tăng huyết áp</td>
+                                        </tr>
+                                        <tr>
+                                            <td>012345</td>
+                                            <td>Khoa cấp cứu</td>
+                                            <td>234569874</td>
+                                            <td>1023654</td>
+                                            <td>Lê Trần Thanh B</td>
+                                            <td>Nam</td>
+                                            <td>GD0123698745SS</td>
+                                            <td>Tổ 1, Ấp 2, Phường 3, Tp.Tây Ninh, Tỉnh Tây Ninh</td>
+                                            <td>1990</td>
+                                            <td>10-12-2023</td>
+                                            <td>10-12-2023</td>
+                                            <td>K30 - Khó tiêu và tăng huyết áp</td>
+                                        </tr>
+                                        <tr>
+                                            <td>012345</td>
+                                            <td>Khoa cấp cứu</td>
+                                            <td>234569874</td>
+                                            <td>1023654</td>
+                                            <td>Lê Trần Thanh B</td>
+                                            <td>Nam</td>
+                                            <td>GD0123698745SS</td>
+                                            <td>Tổ 1, Ấp 2, Phường 3, Tp.Tây Ninh, Tỉnh Tây Ninh</td>
+                                            <td>1990</td>
+                                            <td>10-12-2023</td>
+                                            <td>10-12-2023</td>
+                                            <td>K30 - Khó tiêu và tăng huyết áp</td>
+                                        </tr>
+                                        <tr>
+                                            <td>012345</td>
+                                            <td>Khoa cấp cứu</td>
+                                            <td>234569874</td>
+                                            <td>1023654</td>
+                                            <td>Lê Trần Thanh B</td>
+                                            <td>Nam</td>
+                                            <td>GD0123698745SS</td>
+                                            <td>Tổ 1, Ấp 2, Phường 3, Tp.Tây Ninh, Tỉnh Tây Ninh</td>
+                                            <td>1990</td>
+                                            <td>10-12-2023</td>
+                                            <td>10-12-2023</td>
+                                            <td>K30 - Khó tiêu và tăng huyết áp</td>
+                                        </tr>
+                                        <tr>
+                                            <td>012345</td>
+                                            <td>Khoa cấp cứu</td>
+                                            <td>234569874</td>
+                                            <td>1023654</td>
+                                            <td>Lê Trần Thanh B</td>
+                                            <td>Nam</td>
+                                            <td>GD0123698745SS</td>
+                                            <td>Tổ 1, Ấp 2, Phường 3, Tp.Tây Ninh, Tỉnh Tây Ninh</td>
+                                            <td>1990</td>
+                                            <td>10-12-2023</td>
+                                            <td>10-12-2023</td>
+                                            <td>K30 - Khó tiêu và tăng huyết áp</td>
+                                        </tr>
+                                        <tr>
+                                            <td>012345</td>
+                                            <td>Khoa cấp cứu</td>
+                                            <td>234569874</td>
+                                            <td>1023654</td>
+                                            <td>Lê Trần Thanh B</td>
+                                            <td>Nam</td>
+                                            <td>GD0123698745SS</td>
+                                            <td>Tổ 1, Ấp 2, Phường 3, Tp.Tây Ninh, Tỉnh Tây Ninh</td>
+                                            <td>1990</td>
+                                            <td>10-12-2023</td>
+                                            <td>10-12-2023</td>
+                                            <td>K30 - Khó tiêu và tăng huyết áp</td>
+                                        </tr>
+                                        <tr>
+                                            <td>012345</td>
+                                            <td>Khoa cấp cứu</td>
+                                            <td>234569874</td>
+                                            <td>1023654</td>
+                                            <td>Lê Trần Thanh B</td>
+                                            <td>Nam</td>
+                                            <td>GD0123698745SS</td>
+                                            <td>Tổ 1, Ấp 2, Phường 3, Tp.Tây Ninh, Tỉnh Tây Ninh</td>
+                                            <td>1990</td>
+                                            <td>10-12-2023</td>
+                                            <td>10-12-2023</td>
+                                            <td>K30 - Khó tiêu và tăng huyết áp</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </section>
+                    <!-- End Content 2 -->
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    <script src="js/frm_tn.js"></script>
+</body>
+</html>

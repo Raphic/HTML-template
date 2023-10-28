@@ -1,0 +1,271 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form kiểm tra thông tin</title>
+
+    <link rel="stylesheet" href="css/frm_search.css">
+    
+</head>
+<body class="new_style">
+    <div class="frm_search">
+        <div class="flex flex-wrap gapy-10">
+            <div class="w60-gapy5 flex flex-wrap gapy-10">
+                <div class="w50-gapy5 bg-2 box-shadow-5 bdr-5 drag-box--child" data-order="1" draggable="false">
+                    <div class="w100 flex bg-third clr-white pdl-10 pdr-5 bdr-5">
+                        <h2 class="frm__block--title"><i class="fa-solid fa-hospital-user fa-lg"></i> Thông tin bệnh nhân</h2>
+                    </div>
+                    <div class="w100 flex flex-wrap gapy-5  pd-10">
+                        <div class="w100 flex flex-align-center gapy-5">
+                            <label class="w90px txt-right" for="frm__right-info-patient--code">Mã y tế</label>
+                            <input class="input grow-1" type="text" id="frm__right-info-patient--code" value="">
+                            <button class="btn w100px"><i class="fa-solid fa-magnifying-glass fa-lg"></i> Tìm kiếm</button>
+                        </div>
+                        <div class="w100 flex flex-align-center gapy-5">
+                            <label class="w90px txt-right" for="frm_receive__patient--name">Họ và tên</label>
+                            <input class="input grow-1" type="text" id="frm_receive__patient--name" value="" required="" readonly="">
+                            <button class="btn btn-cancel w100px"><i class="fa-solid fa-house-medical-circle-exclamation fa-lg"></i> Reset</button>
+                        </div>
+                        <div class="w100 flex flex-align-center gapy-5">
+                            <label class="w90px txt-right" for="frm__right-info-patient--number">Số thẻ BHYT</label>
+                            <input class="input grow-1" type="text" id="frm__right-info-patient--number" value="">
+                        </div>
+                        <div class="w100 flex flex-align-center gapy-5">
+                            <label class="w90px txt-right" for="frm_receive__patient--citizen-id">CCCC/Hộ chiếu</label>
+                            <input class="input grow-1" type="number" id="frm_receive__patient--citizen-id" value="">
+                        </div>
+                        <div class="w100 flex flex-align-center gapy-5">
+                            <label class="w90px txt-right" for="frm_receive__patient--address">Địa chỉ</span></label>
+                            <input class="input grow-1" type="text" id="frm_receive__patient--address" value="" placeholder="Ấp/số nhà" disabled>
+                        </div>
+                        <div class="w100 flex flex-align-center gapy-5">
+                            <label class="w90px txt-right" for="frm_receive__patient--nation">Dân tộc</span></label>
+                            <select class="input grow-1" id="frm_receive__patient--nation" required="" disabled>
+                                <option value="0" selected="">Kinh</option>
+                                <option value="1">Tày</option>
+                                <option value="2">Nùng</option>
+                                <option value="3">Mèo</option>
+                                <option value="4">Mương</option>
+                            </select>
+                        </div>
+                        <div class="w100 flex flex-align-center gapy-5">
+                            <label class="w90px txt-right" for="frm_receive__patient--job">Nghề nghiệp</span></label>
+                            <select class="input grow-1" id="frm_receive__patient--job" required="" disabled>
+                                <option value="0" selected="">Lao động phổ thông</option>
+                                <option value="1">Văn phòng</option>
+                                <option value="2">Công nhân</option>
+                                <option value="3">Xây dựng</option>
+                                <option value="4">Nội trợ</option>
+                            </select>
+                        </div>
+                        <div class="w100 flex gapy-5 flex-justify-end mrg-t-5">
+                            <button class="btn btn-eye-syringe w100px"><i class="fa-solid fa-table-list fa-lg"></i> Hiển thị</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="w50-gapy5 bg-2 box-shadow-5 bdr-5 drag-box--child" data-order="2" draggable="false">
+                    <div class="tbl-fix-header">
+                        <table class="frm-table">
+                            <thead>
+                                <tr>
+                                    <th>TÊN BỆNH NHÂN</th>
+                                    <th class="w130px">NGÀY SINH</th>
+                                    <th class="w100px">ENABLE_BHYT</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Trần Văn A</td>
+                                    <td>10-12-2023</td>
+                                    <td>o</td>
+                                </tr>
+                                <tr>
+                                    <td>Nguyễn Văn B</td>
+                                    <td>10-12-2023</td>
+                                    <td>o</td>
+                                </tr>
+                                <tr>
+                                    <td>Nguyễn Văn B</td>
+                                    <td>10-12-2023</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>Nguyễn Văn B</td>
+                                    <td>10-12-2023</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>Nguyễn Văn B</td>
+                                    <td>10-12-2023</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>Nguyễn Văn B</td>
+                                    <td>10-12-2023</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>Nguyễn Văn B</td>
+                                    <td>10-12-2023</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>Nguyễn Văn B</td>
+                                    <td>10-12-2023</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>Nguyễn Văn B</td>
+                                    <td>10-12-2023</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>Nguyễn Văn B</td>
+                                    <td>10-12-2023</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>Nguyễn Văn B</td>
+                                    <td>10-12-2023</td>
+                                    <td>o</td>
+                                </tr>
+                                <tr>
+                                    <td>Nguyễn Văn C</td>
+                                    <td>10-12-2023</td>
+                                    <td>o</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="w40-gapy5 d-inline-block bg-2 box-shadow-5 bdr-5 drag-box--child" data-order="1" draggable="false">
+                <div class="w100 flex bg-third clr-white pdl-10 pdr-5 bdr-5">
+                    <h2 class="frm__block--title"><i class="fa-solid fa-suitcase-medical fa-lg"></i> Lịch sử khám bệnh</h2>
+                </div>
+                <div class="grow-1 flex flex-wrap flex-align-center gapy-5 pd-10">
+                    <div class="grow-1 flex flex-align-center gapy-5">
+                        <div class="flex grow-1 flex-align-center gapy-5">
+                            <label class="w50px txt-right" for="frm_receive__card-frm-day">Từ ngày</label>
+                            <input class="input grow-1" type="date" id="frm_receive__card-frm-day">
+                        </div>
+                        <div class="flex grow-1 flex-align-center gapy-5">
+                            <label class="w60px txt-right" for="frm_receive__card-to-day">Đến ngày</label>
+                            <input class="input grow-1" type="date" id="frm_receive__card-to-day">
+                        </div>
+                        <div>
+                            <button class="btn"><i class="fa-solid fa-magnifying-glass fa-lg"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="tabs-css pd-10">
+                    <!-- Tab 1 -->
+                    <input type="radio" name="tabs-css" id="tab1" aria-controls="tab-ngoaitru" checked="">
+                    <label for="tab1">Ngoại trú</label>
+                    <!-- Tab 2 -->
+                    <input type="radio" name="tabs-css" id="tab2" aria-controls="tab-noitru">
+                    <label for="tab2">Nội trú</label>
+                    <!-- Content Warp -->
+                    <div class="tab-panels">
+                        <!-- Content 1 -->
+                        <section id="tab-ngoaitru" class="tab-panel">
+                            <div class="tbl-fix-header">
+                                <table class="frm-table">
+                                    <thead>
+                                        <tr>
+                                            <th class="w40px">STT</th>
+                                            <th class="w130px">NGÀY KHÁM</th>
+                                            <th>BÁC SĨ KHÁM</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>012</td>
+                                            <td>10-12-2023</td>
+                                            <td>Nguyễn Văn A</td>
+                                            
+                                        </tr>
+                                        <tr>
+                                            <td>012</td>
+                                            <td>10-12-2023</td>
+                                            <td>Nguyễn Văn b</td>
+                                            
+                                        </tr>
+                                        <tr>
+                                            <td>012</td>
+                                            <td>10-12-2023</td>
+                                            <td>Nguyễn Văn cv</td>
+                                            
+                                        </tr>
+                                        <tr>
+                                            <td>012</td>
+                                            <td>10-12-2023</td>
+                                            <td>Nguyễn Văn cv</td>
+                                            
+                                        </tr>
+                                        <tr>
+                                            <td>012</td>
+                                            <td>10-12-2023</td>
+                                            <td>Nguyễn Văn cv</td>
+                                            
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </section>
+                        <!-- End Content 1 -->
+                        <!-- Content 2 -->
+                        <section id="tab-noitru" class="tab-panel">
+                            <div class="tbl-fix-header">
+                                <table class="frm-table">
+                                    <thead>
+                                        <tr>
+                                            <th class="w40px">STT</th>
+                                            <th class="w130px">NGÀY KHÁM</th>
+                                            <th>BÁC SĨ KHÁM</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>012</td>
+                                            <td>10-12-2023</td>
+                                            <td>Nguyễn Văn AAA</td>
+                                            
+                                        </tr>
+                                        <tr>
+                                            <td>012</td>
+                                            <td>10-12-2023</td>
+                                            <td>Nguyễn Văn bB</td>
+                                            
+                                        </tr>
+                                        <tr>
+                                            <td>012</td>
+                                            <td>10-12-2023</td>
+                                            <td>Nguyễn Văn cv</td>
+                                            
+                                        </tr>
+                                        <tr>
+                                            <td>012</td>
+                                            <td>10-12-2023</td>
+                                            <td>Nguyễn Văn cv</td>
+                                            
+                                        </tr>
+                                        <tr>
+                                            <td>012</td>
+                                            <td>10-12-2023</td>
+                                            <td>Nguyễn Văn cv</td>
+                                            
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </section>
+                        <!-- End Content 2 -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/frm_04.js"></script>
+</body>
+</html>

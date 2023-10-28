@@ -1,0 +1,23 @@
+@import url(global.css);
+
+.new_style .frm_search{
+    font-size: 12px;
+    padding: 10px;
+}
+.new_style .frm_search div.tbl-fix-header{
+    height: 310px;
+    margin-bottom: 10px;
+}
+.new_style .frm_search .tbl-fix-header .frm-table thead tr th{
+    height: 32px;
+    font-weight: bold;
+    border-radius: 5px;
+    padding-bottom: 10px    ;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+.new_style .frm_search .tabs-css div.tbl-fix-header{
+    height: 150px;
+}

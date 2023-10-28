@@ -1,0 +1,871 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>From đánh giá chất lượng</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&family=Roboto+Slab&display=swap');
+        .frm_vote *{
+            box-sizing: border-box;
+        }
+        .mw-100{
+            max-width: 100%;
+        }
+        .w-100{
+            width: 100%;
+        }
+        .flex{
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .align-center{
+            align-items: center;
+        }
+        .justify-center{
+            justify-content: center;
+        }
+        .gapy-5{
+            gap: 5px;
+        }
+        .gapy-10{
+            gap: 10px;
+        }
+        .frm_vote,
+        .frm_vote__header--logo,
+        .frm_vote__header--title,
+        .frm-vote__header--info,
+        .frm_vote__content,
+        .frm_vote__footer{
+            padding: 10px;
+        }
+        .frm_vote{
+            font-family: 'Roboto Condensed', sans-serif;
+            font-size: 14px;
+            color: #4f4f4f;
+            background: #f4f4f4;
+            border: 1px solid #da9a40;
+            
+        }
+        .frm_vote input,
+        .frm_vote textarea{
+            border: 1px solid #feae3f;
+            border-radius: 5px;
+            padding: 0 10px;
+        }
+        .frm_vote__header--title h1{
+            margin: 0;
+            font-family: 'Roboto Slab', serif;
+            background: -webkit-linear-gradient(80deg, #feae3f, #ffec61);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .frm_vote__header--title span{
+            display: block;
+            text-align: center;
+            font-size: 130%;
+        }
+        .frm-vote__header--info{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 10px;
+        }
+        .frm-vote__header--info > div{
+            width: calc(50% - 5px);
+        }
+        .frm-vote__header--info label{
+            width: 300px;
+            text-align: right;
+            display: inline-block;
+        }
+        .frm-vote__header--info input{
+            min-width: 200px;
+            min-height: 32px;
+            flex-grow: 1;
+        }
+        .table__responsive--css{
+            /* background: linear-gradient(-45deg,#ffec61,#f321d7); */
+            background: linear-gradient(-45deg,#feae3f,#fe0847);
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+        }
+        .table__responsive--css table {
+            background: transparent;
+            border: 1px solid transparent;
+            border-collapse: collapse;
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            /* table-layout: fixed; */
+            color: #fff;
+            font-size: 14px;
+        }
+        .table__responsive--css table tr {
+            background: rgba(255, 236, 97, 0.3);
+            border: 1px solid transparent;
+            padding: .35em;
+        }
+        .table__responsive--css table tr th,
+        .table__responsive--css table tr td {
+            padding: .625em;
+            text-align: center;
+            position: relative;
+            font-size: 14px;
+        }
+        .table__responsive--css table tr th {
+            font-size: .85em;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+        }
+        .table__responsive--css table tr td:first-child{
+            min-width: 300px;
+            text-align: left;
+        }
+        .table__responsive--css table tr td:not(:first-child){
+            background: #fff;
+            width: 20em;
+        }
+        .table__responsive--css table tr td input{
+            position: absolute;
+            z-index: -9999999999;
+            left: 100000px;
+            opacity: 0;
+            width: 0;
+            height: 0;
+            visibility: hidden;
+            display: none;
+        }
+        .table__responsive--css table tr td label{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+            font-family: "Font Awesome 6 Free";
+            top: 0;
+            left: 0;
+            cursor: pointer;
+            position: absolute;
+        }
+        .table__responsive--css table tr td label::after{
+            content: "";
+            border: 1px solid transparent;
+            border-radius: 50%;
+            position: relative;
+            display: inline-block;
+            vertical-align: baseline;
+            color: #feae3f;
+            font-size: 2em;   
+            transition: all 0.3s;         
+        }
+        .table__responsive--css table tr td label:hover::after{
+            font-weight: 900;
+            transition: all 0.3s;  
+            animation: animationz 1s infinite;
+        }
+        @keyframes animationz{
+            0%, 90% {
+                -webkit-transform: scale(1);
+                transform: scale(1);
+                transform-origin: center center;
+            }
+            45% {
+                -webkit-transform: scale(1.25);
+                transform: scale(1.25);
+                transform-origin: center center;
+            }
+        }
+        .table__responsive--css table tr td .v-satisfied + label::after{
+            content: "\f585";
+        }
+        .table__responsive--css table tr td .satisfied + label::after{
+            content: "\f5b8";
+        }
+        .table__responsive--css table tr td .neutral + label::after{
+            content: "\f11a";
+        }
+        .table__responsive--css table tr td .dissatisfied + label::after{
+            content: "\f57a";
+        }
+        .table__responsive--css table tr td .v-dissatisfied + label::after{
+            content: "\f556";
+        }
+        .table__responsive--css table tr td input:checked + label::after{
+            color: #da9a40;
+        }
+        .table__responsive--css table tr td .v-satisfied:checked + label::after{
+            content: "\f59b";
+            font-weight: 900;
+            color: #95CD41;
+        }
+        .table__responsive--css table tr td .satisfied:checked + label::after{
+            content: "\f5b8";
+            font-weight: 900;
+            color: #F6D860;
+        }
+        .table__responsive--css table tr td .neutral:checked + label::after{
+            content: "\f11a";
+            font-weight: 900;
+            color: #da9a40;
+        }
+        .table__responsive--css table tr td .dissatisfied:checked + label::after{
+            content: "\f119";
+            font-weight: 900;
+            color: #FF7F3F;
+        }
+        .table__responsive--css table tr td .v-dissatisfied:checked + label::after{
+            content: "\f556";
+            font-weight: 900;
+            color: #EA5C2B;
+        }
+        .frm_vote__footer--title{
+            margin: 0;
+        }
+        .frm_vote__footer textarea{
+            width: 100%;
+            margin: 10px 0;
+            padding: 10px
+        }
+        .frm_vote__footer svg{
+            position: absolute;
+        }
+        * {
+        -webkit-tap-highlight-color:rgba(0,0,0,0);
+            outline:none;
+        }
+        .btn--send {
+            font-family: 'Roboto', sans-serif;
+            font-size:21px;
+            text-transform:uppercase;
+            letter-spacing:6px;
+            color:white;
+            padding:20px 0px;
+            overflow: visible;
+            transform: scale(0.5);
+            margin-bottom: 30px;
+            margin-top: -10px;
+        }
+        .submit, .loader, .loader-wrapper{
+            position:absolute;
+            left:0;
+            right:0;
+            margin:0 auto;
+        }
+        .submit {
+            z-index:2;
+            width:325px;
+            height:95px;
+            background: linear-gradient(to right, #ffb369 0%,#ff4272 100%); 
+            display:block;
+            border-radius:200px;
+            text-align:center;
+            color:rgba(255,255,255,1);
+            text-decoration:none;
+            line-height:440%;
+            cursor: pointer;
+            transition: all 0.7s ease, line-height 0s ease, color 0.4s ease, filter 0.2s ease;
+        }
+        .btn--send::selection, .submit::selection {
+            background: transparent;
+        }
+        .submit:before {
+            content:"";
+            z-index:-2;
+            width:100%;
+            height:100%;
+            background: linear-gradient(to right, #ffb369 0%,#ff4272 100%); 
+            display:block;
+            border-radius:200px;
+            position:absolute;
+            left:0;
+            top:0;
+            opacity:0.8;
+            transform:scale(0.9) translateY(15px);
+            filter:blur(20px);
+            transition:all 0.2s ease;
+        }
+        .submit:after {
+            content:"";
+            z-index:-4;
+            width:100%;
+            height:100%;
+            background: linear-gradient(to right, #ffb369 0%,#ff4272 100%); 
+            display:block;
+            border-radius:200px;
+            position:absolute;
+            left:0;
+            top:0;
+            opacity:0;
+            transform:scale(1);
+        }
+        .submit:hover:before {
+            transform:scale(0.9) translateY(5px);
+            filter:blur(15px);
+        }
+        .submit:active {
+            line-height:460%;
+            filter:brightness(0.95);
+            transition:all 0s;
+        }
+        .checked .submit:before {
+            top:0px;
+            opacity:0;
+        }
+        .checked .submit:after {
+            animation: submit-after-anim 0.5s 4.4s cubic-bezier(0.39, 0.575, 0.565, 1);
+        }
+        .checked {
+        -webkit-filter: url("#goo");
+            filter: url("#goo");
+        }
+        .yellow {
+            background-color: #ffb369;
+        }
+        .pink {
+            background-color: #ff4272;
+        }
+        .orange {
+            background-color: #ff7b6e;
+            transform:scale(0.2) rotate(30deg) translate(0px);
+        }
+        .checked .pink {
+            animation: loader-anim-pink 4s cubic-bezier(0.645, 0.045, 0.355, 1);
+        }
+        .checked .yellow  {
+            animation: loader-anim-yellow 4s 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+        }
+        .checked .orange {
+            animation: loader-anim-orange 4s 0.7s cubic-bezier(0.645, 0.045, 0.355, 1);
+        }
+        .loader {
+            width:95px;
+            height:95px;
+            border-radius:50%;
+            opacity:0;
+            z-index:1;
+        }
+        .checked .loader {
+         opacity:1;
+        }
+        .checked .loader-wrapper {
+            animation: wrapper-loader-anim 4.2s linear;
+            width:95px;
+            height:95px;
+            transform:scale(0)
+        }
+        .checked .submit {
+            width:95px;
+            color:rgba(255,255,255,0);
+            background: linear-gradient(to right, #ff7b6e 0%,#ff7b6e 100%);
+            animation: submit-anim 4s  cubic-bezier(0.39, 0.575, 0.565, 1);
+        }
+        .check-wrapper {
+            position:absolute;
+            left:0;
+            right:0;
+            margin:0 auto;
+            width:95px;
+            height:95px;
+            z-index:-1;
+            opacity:1;
+        }
+        .check-wrapper svg {
+            margin-top: 31px;
+            margin-left: 16px;
+        }
+        .check{fill:none;
+            stroke:#ffffff;
+            stroke-width:10;
+            stroke-linecap:round;
+            stroke-linejoin:round;
+            stroke-miterlimit:10;
+            stroke-dasharray: 1000;
+            stroke-dashoffset: 1000;
+            z-index:-1;
+        }
+        .checked .check-wrapper {
+            z-index:3;
+        }
+        .checked .check {
+            animation: check 4s 4.4s ease forwards;
+        }
+        @keyframes loader-anim-pink {
+            0% {
+                transform: scale(0.2) rotate(0deg) translate(220px, 0px);
+            }
+            100% {
+                transform: scale(0.2) rotate(1100deg) translate(300px, 0px);
+            }
+        }
+        @keyframes loader-anim-yellow {
+            0% {
+                transform: scale(0.2) rotate(0deg) translate(300px, 0px);
+            }
+            100% {
+                transform: scale(0.2) rotate(1100deg) translate(220px, 0px);
+            }
+        }
+        @keyframes loader-anim-orange {
+        0%,
+            70% {
+                transform: scale(0.2) rotate(30deg) translate(0px);
+            }
+            85% {
+                transform: scale(0.2) rotate(30deg) translate(-300px);
+            }
+            100% {
+                transform: scale(0.2) rotate(30deg) translate(0px);
+            }
+        }
+        @keyframes wrapper-loader-anim {
+            0% {
+                transform: scale(0) translateY(0px);
+            }
+            10% {
+                transform: scale(1) translateY(20px);
+            }
+            50%,
+            90% {
+                transform: scale(1.2) translateY(10px);
+            }
+            100% {
+                transform: scale(0) translateY(0px);
+            }
+        }
+        @keyframes submit-after-anim {
+            0% {transform:scale(1); opacity:0.3 }
+            100% {transform:scale(2); opacity:0 }
+        }
+        @keyframes submit-anim {
+            0% {transform:scale(1) }
+            5%, 95% {transform:scale(0.7) }
+            100% {transform:scale(1)}
+        }
+        @keyframes check {
+            from {
+                stroke-dashoffset: 1000;
+            }
+            to {
+                stroke-dashoffset: 0;
+            }
+        }
+        @media screen and (max-width: 1100px) {
+            .frm-vote__header--info label{
+                text-align: left;
+                width: 100%;
+            }
+            .gapy-10{
+                gap: 5px;
+            }
+            .frm_vote__footer textarea{
+                margin-top: 5px;
+            }
+            .none-mobile{
+                display: none;
+            }
+        }
+        @media screen and (max-width: 768px) {
+            .table__responsive--css table {
+                border: 0;
+            }
+           .table__responsive--css table thead {
+                border: none;
+                clip: rect(0 0 0 0);
+                height: 1px;
+                margin: -1px;
+                overflow: hidden;
+                padding: 0;
+                position: absolute;
+                width: 1px;
+            }
+            .table__responsive--css table tr {
+                /* border-bottom: 3px solid #ddd; */
+                margin-bottom: .625em;
+            }
+            .table__responsive--css table td {
+                border-bottom: 1px solid #ddd;
+                font-size: .8em;
+                text-align: right;
+                display: flex;
+                align-items: center;
+            }
+            .table__responsive--css table td:not(:first-child) {
+                max-height: 32px;
+                font-size: 12px;
+            }
+            .table__responsive--css table td::before {
+                /*
+                * aria-label has no advantage, it won't be read inside a table
+                content: attr(aria-label);
+                */
+                content: attr(data-label);
+                font-weight: bold;
+                text-transform: uppercase;
+                display: flex;
+                color: #da9a40;
+                white-space: nowrap;
+            }
+            .table__responsive--css table td:last-child {
+                border-bottom: 0;
+            }
+            .table__responsive--css table tr td label{
+                position: relative;
+                justify-content: flex-end;
+            }
+            .table__responsive--css table tr td:not(:first-child){
+                width: 100%;
+                
+            }
+            .b-mobile{
+                display: block;
+            }
+            .frm_vote{
+                padding: 0;
+            }
+        }
+        @media screen and (max-width: 480px) {
+            .frm-vote__header--info > div{
+                width: 100%;
+            }
+            .frm_vote__header--title h1{
+                font-size: 26px;
+            }
+            .b-mobile{
+                display: inline-block;
+            }
+            .table__responsive--css table tr td:first-child{
+                min-width: 280px;
+            }
+            .btn--send{
+                transform: scale(0.4);
+            }
+        }
+    </style>
+</head>
+    <body class="frm_vote">
+        <header class="frm_vote__header">
+            <div class="frm_vote__header--logo flex align-center justify-center w-100">
+                <a href="https://sunrisehotel.com.vn" target="_blank">
+                    <picture>
+                        <source srcset="https://sunrisehotel.com.vn/wp-content/uploads/2017/05/SUNRISEHOTEL_LOGO-300x92.png" media="(max-width: 767px)">
+                        <img src="https://sunrisehotel.com.vn/wp-content/uploads/2017/05/SUNRISEHOTEL_LOGO-300x92.png" alt="SUNRISEHOTEL" class="mw-100">
+                    </picture>
+                </a>
+            </div>
+            <div class="frm_vote__header--title flex align-center justify-center w-100">
+                <h1>Ý KIẾN KHÁCH HÀNG</h1>
+                <span class="w-100">HOTEL GUEST SATISFACTION SURVEY</span>
+            </div>
+            <br class="none-mobile"/>
+            <div class="frm-vote__header--info">
+                <div class="flex align-center gapy-10 w-100">
+                    <label for="frm_vote__room--number">Số phòng/<span class="b-mobile"></span>Room number:</label>
+                    <input type="text" name="" id="frm_vote__room--number" placeholder="Vui lòng nhập số phòng" autofocus required>
+                </div>
+                <div class="flex align-center gapy-10 w-100">
+                    <label for="frm_vote__date">Ngày nhận phòng/<span class="b-mobile"></span>Check-in date:</label>
+                    <input type="date" name="" id="frm_vote__date" required>
+                </div>
+                <div class="flex align-center gapy-10 w-100">
+                    <label for="frm_vote__guest--name">Tên khách(không bắt buộc)/<span class="b-mobile"></span>Guest Name (optional)</label>
+                    <input type="text" name="" id="frm_vote__guest--name" placeholder="Họ và tên">
+                </div>
+                <div class="flex align-center gapy-10 w-100">
+                    <label for="frm_vote__phone">Số điện thoại(không bắt buộc)/<span class="b-mobile"></span>Phone (optional):</label>
+                    <input type="phone" name="" id="frm_vote__phone" placeholder="Vui lòng nhập số điện thoại">
+                </div>
+            </div>
+        </header>
+        <article>
+            <section class="frm_vote__content">
+                <div class="table__responsive--css">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th scope="col">Nội dung</th>
+                                <th scope="col">Rất hài lòng<br/><small>Very satisfied</small></th>
+                                <th scope="col">Hài lòng<br/><small>Satisfied</small></th>
+                                <th scope="col">Trung bình<br/><small>Neutral</small></th>
+                                <th scope="col">Không hài lòng<br/><small>Dissatisfied</small></th>
+                                <th scope="col">Rất không hài lòng<br/><small>Very dissatisfied</small></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="table__responsive--css-check01">
+                                <td>1. Quá trình nhận phòng nhanh chóng/How quickly was the check-in proscess?</td>
+                                <td scope="row" data-label="RẤT HÀI LÒNG/VERY SATISFIED">
+                                    <input type="radio" class="v-satisfied" name="table__responsive--css-check01" id="q1-check1">
+                                    <label for="q1-check1"></label>
+                                </td>
+                                <td data-label="HÀI LÒNG/SATISFIED">
+                                    <input type="radio" class="satisfied" name="table__responsive--css-check01" id="q1-check2">
+                                    <label for="q1-check2"></label>
+                                </td>
+                                <td data-label="TRUNG BÌNH/NEUTRAL">
+                                    <input type="radio" class="neutral" name="table__responsive--css-check01" id="q1-check3">
+                                    <label for="q1-check3"></label>
+                                </td>
+                                <td data-label="KHÔNG HÀI LÒNG/DISSATISFIED">
+                                    <input type="radio" class="dissatisfied" name="table__responsive--css-check01" id="q1-check4">
+                                    <label for="q1-check4"></label>
+                                </td>
+                                <td data-label="RẤT KHÔNG HÀI LÒNG/VERY DISSATISFIED">
+                                    <input type="radio" class="v-dissatisfied" name="table__responsive--css-check01" id="q1-check5">
+                                    <label for="q1-check5"></label>
+                                </td>
+                            </tr>
+                            <tr class="table__responsive--css-check02">
+                                <td>2. Quá trình trả phòng nhanh chóng/How quickly was the check-out process?</td>
+                                <td scope="row" data-label="RẤT HÀI LÒNG/VERY SATISFIED">
+                                    <input type="radio" class="v-satisfied" name="table__responsive--css-check02" id="q2-check1">
+                                    <label for="q2-check1"></label>
+                                </td>
+                                <td data-label="HÀI LÒNG/SATISFIED">
+                                    <input type="radio" class="satisfied" name="table__responsive--css-check02" id="q2-check2">
+                                    <label for="q2-check2"></label>
+                                </td>
+                                <td data-label="TRUNG BÌNH/NEUTRAL">
+                                    <input type="radio" class="neutral" name="table__responsive--css-check02" id="q2-check3">
+                                    <label for="q2-check3"></label>
+                                </td>
+                                <td data-label="KHÔNG HÀI LÒNG/DISSATISFIED">
+                                    <input type="radio" class="dissatisfied" name="table__responsive--css-check02" id="q2-check4">
+                                    <label for="q2-check4"></label>
+                                </td>
+                                <td data-label="RẤT KHÔNG HÀI LÒNG/VERY DISSATISFIED">
+                                    <input type="radio" class="v-dissatisfied" name="table__responsive--css-check02" id="q2-check5">
+                                    <label for="q2-check5"></label>
+                                </td>
+                            </tr>
+                            <tr class="table__responsive--css-check03">
+                                <td>3. Thái độ của nhân viên Lễ tân/How was the attitude of front desk staff?</td>
+                                <td scope="row" data-label="RẤT HÀI LÒNG/VERY SATISFIED">
+                                    <input type="radio" class="v-satisfied" name="table__responsive--css-check03" id="q3-check1">
+                                    <label for="q3-check1"></label>
+                                </td>
+                                <td data-label="HÀI LÒNG/SATISFIED">
+                                    <input type="radio" class="satisfied" name="table__responsive--css-check03" id="q3-check2">
+                                    <label for="q3-check2"></label>
+                                </td>
+                                <td data-label="TRUNG BÌNH/NEUTRAL">
+                                    <input type="radio" class="neutral" name="table__responsive--css-check03" id="q3-check3">
+                                    <label for="q3-check3"></label>
+                                </td>
+                                <td data-label="KHÔNG HÀI LÒNG/DISSATISFIED">
+                                    <input type="radio" class="dissatisfied" name="table__responsive--css-check03" id="q3-check4">
+                                    <label for="q3-check4"></label>
+                                </td>
+                                <td data-label="RẤT KHÔNG HÀI LÒNG/VERY DISSATISFIED">
+                                    <input type="radio" class="v-dissatisfied" name="table__responsive--css-check03" id="q3-check5">
+                                    <label for="q3-check5"></label>
+                                </td>
+                            </tr>
+                            <tr class="table__responsive--css-check04">
+                                <td>4. Không gian phòng sạch sẽ khi nhận phòng/How clean was your room upon arrival?</td>
+                                <td scope="row" data-label="RẤT HÀI LÒNG/VERY SATISFIED">
+                                    <input type="radio" class="v-satisfied" name="table__responsive--css-check04" id="q4-check1">
+                                    <label for="q4-check1"></label>
+                                <td data-label="HÀI LÒNG/SATISFIED">
+                                    <input type="radio" class="satisfied" name="table__responsive--css-check04" id="q4-check2">
+                                    <label for="q4-check2"></label>
+                                </td>
+                                <td data-label="TRUNG BÌNH/NEUTRAL">
+                                    <input type="radio" class="neutral" name="table__responsive--css-check04" id="q4-check3">
+                                    <label for="q4-check3"></label>
+                                </td>
+                                <td data-label="KHÔNG HÀI LÒNG/DISSATISFIED">
+                                    <input type="radio" class="dissatisfied" name="table__responsive--css-check04" id="q4-check4">
+                                    <label for="q4-check4"></label>
+                                </td>
+                                <td data-label="RẤT KHÔNG HÀI LÒNG/VERY DISSATISFIED">
+                                    <input type="radio" class="v-dissatisfied" name="table__responsive--css-check04" id="q4-check5">
+                                    <label for="q4-check5"></label>
+                                </td>
+                            </tr>
+                            <tr class="table__responsive--css-check05">
+                                <td>5. Trang thiết bị trong phòng đầy đủ/How well-equipped was your room?</td>
+                                <td scope="row" data-label="RẤT HÀI LÒNG/VERY SATISFIED">
+                                    <input type="radio" class="v-satisfied" name="table__responsive--css-check05" id="q5-check1">
+                                    <label for="q5-check1"></label>
+                                </td>
+                                <td data-label="HÀI LÒNG/SATISFIED">
+                                    <input type="radio" class="satisfied" name="table__responsive--css-check05" id="q5-check2">
+                                    <label for="q5-check2"></label>
+                                </td>
+                                <td data-label="TRUNG BÌNH/NEUTRAL">
+                                    <input type="radio" class="neutral" name="table__responsive--css-check05" id="q5-check3">
+                                    <label for="q5-check3"></label>
+                                </td>
+                                <td data-label="KHÔNG HÀI LÒNG/DISSATISFIED">
+                                    <input type="radio" class="dissatisfied" name="table__responsive--css-check05" id="q5-check4">
+                                    <label for="q5-check4"></label>
+                                </td>
+                                <td data-label="RẤT KHÔNG HÀI LÒNG/VERY DISSATISFIED">
+                                    <input type="radio" class="v-dissatisfied" name="table__responsive--css-check05" id="q5-check5">
+                                    <label for="q5-check5"></label>
+                                </td>
+                            </tr>
+                            <tr class="table__responsive--css-check06">
+                                <td>6. Độ mềm mại của giường ngủ/How comfortable was your bed linens?</td>
+                                <td scope="row" data-label="RẤT HÀI LÒNG/VERY SATISFIED">
+                                    <input type="radio" class="v-satisfied" name="table__responsive--css-check06" id="q6-check1">
+                                    <label for="q6-check1"></label>
+                                </td>
+                                <td data-label="HÀI LÒNG/SATISFIED">
+                                    <input type="radio" class="satisfied" name="table__responsive--css-check06" id="q6-check2">
+                                    <label for="q6-check2"></label>
+                                </td>
+                                <td data-label="TRUNG BÌNH/NEUTRAL">
+                                    <input type="radio" class="neutral" name="table__responsive--css-check06" id="q6-check3">
+                                    <label for="q6-check3"></label>
+                                </td>
+                                <td data-label="KHÔNG HÀI LÒNG/DISSATISFIED">
+                                    <input type="radio" class="dissatisfied" name="table__responsive--css-check06" id="q6-check4">
+                                    <label for="q6-check4"></label>
+                                </td>
+                                <td data-label="RẤT KHÔNG HÀI LÒNG/VERY DISSATISFIED">
+                                    <input type="radio" class="v-dissatisfied" name="table__responsive--css-check06" id="q6-check5">
+                                    <label for="q6-check5"></label>
+                                </td>
+                            </tr>
+                            <tr class="table__responsive--css-check07">
+                                <td>7. Hệ thống nóng/lạnh/thông gió hoạt động tốt/Did the Heating/cooling/ventilation worked properly?</td>
+                                <td scope="row" data-label="RẤT HÀI LÒNG/VERY SATISFIED">
+                                    <input type="radio" class="v-satisfied" name="table__responsive--css-check07" id="q7-check1">
+                                    <label for="q7-check1"></label>
+                                </td>
+                                <td data-label="HÀI LÒNG/SATISFIED">
+                                    <input type="radio" class="satisfied" name="table__responsive--css-check07" id="q7-check2">
+                                    <label for="q7-check2"></label>
+                                </td>
+                                <td data-label="TRUNG BÌNH/NEUTRAL">
+                                    <input type="radio" class="neutral" name="table__responsive--css-check07" id="q7-check3">
+                                    <label for="q7-check3"></label>
+                                </td>
+                                <td data-label="KHÔNG HÀI LÒNG/DISSATISFIED">
+                                    <input type="radio" class="dissatisfied" name="table__responsive--css-check07" id="q7-check4">
+                                    <label for="q7-check4"></label>
+                                </td>
+                                <td data-label="RẤT KHÔNG HÀI LÒNG/VERY DISSATISFIED">
+                                    <input type="radio" class="v-dissatisfied" name="table__responsive--css-check07" id="q7-check5">
+                                    <label for="q7-check5"></label>
+                                </td>
+                            </tr>
+                            <tr class="table__responsive--css-check08">
+                                <td>8. Mùi hương trong phòng dễ chịu/Did your room/suite smelled fresh/clean?</td>
+                                <td scope="row" data-label="RẤT HÀI LÒNG/VERY SATISFIED">
+                                    <input type="radio" class="v-satisfied" name="table__responsive--css-check08" id="q8-check1">
+                                    <label for="q8-check1"></label>
+                                </td>
+                                <td data-label="HÀI LÒNG/SATISFIED">
+                                    <input type="radio" class="satisfied" name="table__responsive--css-check08" id="q8-check2">
+                                    <label for="q8-check2"></label>
+                                </td>
+                                <td data-label="TRUNG BÌNH/NEUTRAL">
+                                    <input type="radio" class="neutral" name="table__responsive--css-check08" id="q8-check3">
+                                    <label for="q8-check3"></label>
+                                </td>
+                                <td data-label="KHÔNG HÀI LÒNG/DISSATISFIED">
+                                    <input type="radio" class="dissatisfied" name="table__responsive--css-check08" id="q8-check4">
+                                    <label for="q8-check4"></label>
+                                </td>
+                                <td data-label="RẤT KHÔNG HÀI LÒNG/VERY DISSATISFIED">
+                                    <input type="radio" class="v-dissatisfied" name="table__responsive--css-check08" id="q8-check5">
+                                    <label for="q8-check5"></label>
+                                </td>
+                            </tr>
+                            <tr class="table__responsive--css-check09">
+                                <td>9. Thái độ nhân viên  phục vụ phòng/How was the attitude of  Housekeeper?</td>
+                                <td scope="row" data-label="RẤT HÀI LÒNG/VERY SATISFIED">
+                                    <input type="radio" class="v-satisfied" name="table__responsive--css-check09" id="q9-check1">
+                                    <label for="q9-check1"></label>
+                                </td>
+                                <td data-label="HÀI LÒNG/SATISFIED">
+                                    <input type="radio" class="satisfied" name="table__responsive--css-check09" id="q9-check2">
+                                    <label for="q9-check2"></label>
+                                </td>
+                                <td data-label="TRUNG BÌNH/NEUTRAL">
+                                    <input type="radio" class="neutral" name="table__responsive--css-check09" id="q9-check3">
+                                    <label for="q9-check3"></label>
+                                </td>
+                                <td data-label="KHÔNG HÀI LÒNG/DISSATISFIED">
+                                    <input type="radio" class="dissatisfied" name="table__responsive--css-check09" id="q9-check4">
+                                    <label for="q9-check4"></label>
+                                </td>
+                                <td data-label="RẤT KHÔNG HÀI LÒNG/VERY DISSATISFIED">
+                                    <input type="radio" class="v-dissatisfied" name="table__responsive--css-check09" id="q9-check5">
+                                    <label for="q9-check5"></label>
+                                </td>
+                            </tr>
+                            <tr class="table__responsive--css-check10">
+                                <td>10. Thái độ nhân viên an ninh ( giữ xe)/How was the attitude of  Security?</td>
+                                <td scope="row" data-label="RẤT HÀI LÒNG/VERY SATISFIED">
+                                    
+                                    <input type="radio" class="v-satisfied" name="table__responsive--css-check10" id="q10-check1">
+                                    <label for="q10-check1"></label>
+                                </td>
+                                <td data-label="HÀI LÒNG/SATISFIED">
+                                    <input type="radio" class="satisfied" name="table__responsive--css-check10" id="q10-check2">
+                                    <label for="q10-check2"></label>
+                                </td>
+                                <td data-label="TRUNG BÌNH/NEUTRAL">
+                                    <input type="radio" class="neutral" name="table__responsive--css-check10" id="q10-check3">
+                                    <label for="q10-check3"></label>
+                                </td>
+                                <td data-label="KHÔNG HÀI LÒNG/DISSATISFIED">
+                                    <input type="radio" class="dissatisfied" name="table__responsive--css-check10" id="q10-check4">
+                                    <label for="q10-check4"></label>
+                                </td>
+                                <td data-label="RẤT KHÔNG HÀI LÒNG/VERY DISSATISFIED">
+                                    <input type="radio" class="v-dissatisfied" name="table__responsive--css-check10" id="q10-check5">
+                                    <label for="q10-check5"></label>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>                
+            </section>
+        </article>
+        <footer class="frm_vote__footer">
+            <div>
+                <h4 class="frm_vote__footer--title">Ý KIẾN KHÁC/VẤN ĐỀ/ĐỀ NGHỊ/Other comments/Issues/Suggestions:</h4>
+                <textarea name="" id="" cols="30" rows="5"></textarea>
+            </div>
+            <div class="btn--send">
+                <span class="submit">Submit</span>
+                <div class="loader-wrapper">
+                   <span class="loader yellow"></span>
+                   <span class="loader pink"></span>
+                </div>
+                <span class="loader orange"></span>
+                <div class="check-wrapper">
+                    <svg version="1.1"width="65px" height="38px" viewBox="0 0 64.5 37.4">
+                        <polyline class="check" points="5,13 21.8,32.4 59.5,5 "/>
+                    </svg>
+                </div>
+            </div>
+            <svg xmlns="http://www.w3.org/2000/svg" version="1.1">  
+                <defs>    
+                    <filter id="goo">     
+                        <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />      
+                        <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7" result="goo" />      
+                        <feBlend in="SourceGraphic" in2="goo" />    
+                    </filter>  
+                </defs>
+            </svg>
+        </footer>
+        <script>
+            const wrapper = document.querySelector(".btn--send");
+            const submitButton = document.querySelector(".submit");
+            submitButton.addEventListener("click", () => {
+                if (!wrapper.classList.contains("checked")) {
+                    wrapper.classList.add("checked");
+                    // setTimeout(() => wrapper.classList.remove("checked"), 8000);
+                }
+            });
+        </script>
+    </body>
+</html>

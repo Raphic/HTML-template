@@ -1,0 +1,403 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<div class="print-wrapt printter">
+    <style>
+        .print-wrapt{           
+            display: none;
+            opacity: 0;
+            position: absolute;
+            z-index: -99999;
+        }
+        @media print {
+            @page{
+                width:86mm;
+                height: 54mm;
+                margin: 0mm;
+                line-height: 1.2em;
+                position: relative;
+                background: red;
+            }
+            *{
+                padding: 0 !important;
+                margin: 0 !important;
+                box-shadow: none !important;
+                border-radius: 0 !important;
+                font-size: 16px !important;
+                box-sizing: border-box !important;
+                background: transparent !important;
+            }
+            input, button, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, ins, kbd, q, s, samp, strike, tt, var, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video{
+                display: none !important;
+                opacity: 0;
+                width: 0;
+                height: 0;
+                z-index: -99999;
+                position: absolute;
+            }
+            div.printter,
+            h4.printter,
+            img.printter,
+            div.print-wrapt{
+                display: block !important;
+                opacity: 1;
+                width: 100%;
+                height: 100%;
+                position: relative !important;
+                z-index: 1;
+            }
+            div.print-wrapt{
+                width: 100%;
+                height: 200px;
+                position: absolute !important;
+                top: 0;
+                left: 50%;
+                transform: translateX(-50%);
+                border: 1px solid chocolate;
+                display: flex !important;
+                /* justify-self: center; */
+                justify-content: center;
+                align-items: end;
+                padding: 1.5em 2em !important;
+            }
+            div.print-content{
+                width: 100%;
+                height: 60px;
+                display: flex !important;
+                align-items: center;
+                justify-content: space-between;
+                gap: 0.5em;
+            }
+            div.print-content h4.printter{
+                display: flex !important;
+                align-items: center;
+            }
+            div.print-content img.printter{
+                width: 60px;
+                height: 60px;
+                padding: 0.25em;
+                border-radius: 0.375em;
+            }
+        }
+    </style>
+    <div class="print-content printter">
+        <h4 id="HoTenIN" class="printter"> Trần Lê Thị Nguyễn</h4>
+        <img src="https://chart.googleapis.com/chart?cht=qr&chl=https%3A%2F%2Fhonghunghospital.com.vn%2F&chs=60x60&chld=L|0" id="qr-code" class="printter">   
+    </div>
+</div>
+<input type="text" id="" class="form-control" placeholder="QR Code">
+<input type="text" id="" class="form-control" placeholder="Tên bệnh nhân">
+<button id="btnInPhieu" type="button" class="btn btn-primary">btnInPhieu</button>
+<script>
+    const elementInfo = [
+        { type: 'id', value: 'txtTimMaYTe' },
+        { type: 'id', value: 'txtHoTenBN' },
+    ];
+    //Kiểm tra xem phần tử đã tồn tại trong DOM chưa
+    function checkDoM(elementList) {
+        let missingElements = [];
+        for (const info of elementList) {
+            let element = null;
+            if (info.type === 'id') {
+                element = document.getElementById(info.value);
+            } else if (info.type === 'class') {
+                element = document.querySelector(`.${info.value}`);
+            } else if (info.type === 'tag') {
+                element = document.querySelector(info.value);
+            }
+            if (!element) {
+                console.log(`${info.value} đã được khai báo nhưng không tồn tại trong DOM.`);
+                missingElements.push(info.value);
+            }
+        }
+        if (missingElements.length > 0) {
+            console.error(`${missingElements.join(', ')} không tồn tại trong DOM`);
+            return false;
+        }
+        for (const info of elementList) {
+            let element = null;
+            if (info.type === 'id') {
+                element = document.getElementById(info.value);
+            } else if (info.type === 'class') {
+                element = document.querySelector(`.${info.value}`);
+            } else if (info.type === 'tag') {
+                element = document.querySelector(info.value);
+            }
+            if (!element.value) {
+                console.error(`${info.value} đã được khai báo nhưng chưa nhập giá trị.`);
+                return false;
+            }
+        }
+        return true;
+    }
+    //End Kiểm tra xem phần tử đã tồn tại trong DOM chưa
+    //Transform giá trị giữa 2 input
+    const updateValueQR = (mappings) => {
+        mappings.forEach((mapping) => {
+            const fromElement = document.getElementById(mapping.from);
+            const toElement = document.getElementById(mapping.to);
+            if (fromElement && toElement) {
+                const value = fromElement.value;
+                const transformedValue = mapping.transform ? mapping.transform(value) : value;
+                toElement.textContent = transformedValue;
+            }
+        });
+    };
+    const valueMappings = [
+        { from: 'txtHoTenBN', to: 'HoTenIN', transform: (value) => value.toUpperCase() },
+    ];
+    //End Transform giá trị giữa 2 input
+    //Get QR code to img by google API
+    let isQRCodeReady = false;
+    const generateQR = (inputId, outputId) => {
+        const inputElement = document.getElementById(inputId);
+        const outputElement = document.getElementById(outputId);
+        const contentQR = inputElement.value;
+        const qrCodeUrl = `https://chart.googleapis.com/chart?cht=qr&chl=${encodeURIComponent(contentQR)}&chs=200x200&chld=L|0`;
+        const imgElement = outputElement;
+
+        const imgLoad = new Promise((resolve, reject) => {
+            imgElement.addEventListener("load", () => resolve());
+            imgElement.addEventListener("error", () => reject("Kiểm tra kết nối internet"));
+            imgElement.src = qrCodeUrl;
+            isQRCodeReady = true;
+        });
+        imgLoad
+        .then(() => {
+            if (isQRCodeReady) {
+                window.print();
+            } else {
+                setTimeout(() => {
+                    imgElement.src = qrCodeUrl;
+                    window.print();
+                },3000);
+            }
+        })
+        .catch((error) => {
+            console.error(error);
+        });
+    };
+    //End get QR code to img by google API
+    document.getElementById('btnInPhieu').addEventListener('click', (e) => {
+        const result = checkDoM(elementInfo);
+        if (result) {
+            e.preventDefault();
+            updateValueQR(valueMappings);
+            generateQR("txtTimMaYTe", "qr-code");
+        } else {
+            console.log("Vui lòng kiểm tra lại Mã y tế và Họ tên bệnh nhân");
+        }
+        
+    });
+</script>
+<div>
+    <style>
+        .treeview-menu{
+            left: 32px;
+            position: fixed;
+            max-height: 100vh;
+            top: 0;
+            bottom: auto;
+        }
+        .menu-up{
+            position: fixed;
+            top: inherit;
+        }
+    </style>
+    <ul class="sidebar-menu tree" data-widget="tree">
+        <li class="treeview">
+            <a href="#">
+                <i class="fa-solid fa-bell fa-2xs"><span class="path1"></span><span class="path2"></span></i>
+                <span>Thông báo</span>
+                <span class="pull-right-container"><i class="fa fa-angle-right pull-right"></i></span>
+            </a>
+            <ul class="treeview-menu">
+                <li class=""><a href="/thongbaoketqua"><i class="icon-Commit"><span class="path13"></span><span class="path2"></span></i>Thông báo kết quả</a></li>
+                <li class=""><a href="/mauthongbao"><i class="icon-Commit"><span class="path13"></span><span class="path2"></span></i>Mẫu thông báo</a></li>
+            </ul>
+        </li>
+    </ul>
+    <script>
+        $(document).ready(function() {
+            
+            $("sidebar-collapse .treeview").hover(function (e) {
+                $(".sidebar-collapse .treeview").find(".treeview-menu").css({
+                    "left": "32px",
+                    "max-height": "100vh",
+                    "top": "0",
+                    "bottom": "auto",
+                    "position": "absolute"
+                });
+                var $childMenu = $(this).find(".treeview-menu");
+                var menuHeight = Number($childMenu.height()) + 22; // Chiều cao menu
+                var screenHeight = Number($(window).height()); // Chiều cao màn hình
+                var hoverPosition = Number($(this).offset().top); // Vị trí rê chuột tính từ đỉnh
+                var distanceToBottom = Number(screenHeight - hoverPosition); // Chiều cao từ vị trí của .treeview-menu tới cuối màn hình
+                var hoverToBottom = Number(screenHeight - e.clientY); // Chiều cao từ vị trí rê chuột tới cuối màn hình
+                // console.log("menuHeight Chiều cao menu" + menuHeight);
+                // console.log("screenHeight Chiều cao màn hình" + screenHeight);
+                // console.log("hoverPosition Vị trí rê chuột tính từ đỉnh" + hoverPosition);
+                // console.log("distanceToBottom Chiều cao từ menu tới cuối màn hình" + distanceToBottom);
+                // console.log("hoverToBottom Chiều cao từ vị trí rê chuột tới cuối màn hình" + hoverToBottom);
+                if ( screenHeight <= menuHeight) {
+                    $childMenu.css({
+                        "position": "fixed",
+                        "top": "0",
+                        "bottom": "auto",
+                        "max-height": "100vh",
+                    });
+                    console.log("0");
+                } else{
+                    console.log("1");
+                    $childMenu.css({
+                        "position": "absolute",
+                        "top": "inherit",
+                        "bottom": "auto",
+                        "max-height": "100vh",
+                    });
+                    if (hoverToBottom < screenHeight / 2) {
+                        console.log("dưới");
+                        $childMenu.css({
+                            "position": "fixed",
+                            "top": "inherit",
+                            "bottom": distanceToBottom - 40 + "px",
+                            "max-height": "100vh",
+                        });
+                        if (hoverPosition < menuHeight) {
+                            console.log("3");
+                            $childMenu.css({
+                                "position": "fixed",
+                                "top": "inherit",
+                                "bottom": distanceToBottom - 40 + "px",
+                                "max-height": hoverPosition + 40 + "px",
+                            });
+                        }
+                    } else{
+                        console.log("trên");
+                        $childMenu.css({
+                            "position": "absolute",
+                            "top": "0",
+                            "bottom": "auto",
+                            "max-height": distanceToBottom + "px",
+                        });
+                    }
+                }
+            });
+        });
+        //Menu có nội dung cao hơn màn hình
+        //Menu có nội dung nhỏ hơn từ khoản cách hover tới cuối màn hình
+        //Menu có nội dung lớn hơn từ khoản cách hover tới cuối màn hình
+        //Menu có nội dung nhỏ hơn từ khoản cách hover tới đàu màn hinh
+        //Menu có nội dung lơn hơn từ khoản cách hover tới đàu màn hinh
+    </script>
+</div>
+<div class="select2-focus">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" integrity="sha512-nMNlpuaDPrqlEls3IX/Q56H36qvBASwb3ipuo3MxeWbsQB1881ox0cRv7UPTgBlriqoynt35KjEwgGUeUXIPnw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js" integrity="sha512-2ImtlRlf2VVmiGZsjm9bEyhjGW4dU7B6TNwh/hx/iSByxNENtj3WVE6o/9Lj4TJeVXPi4bnOIMXFIJJAeufa0A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    
+    <div class="w50-gapy10 flex flex-align-center gapy-5">
+        <label class="w80px" for="txtSoDienThoaiBN">Số điện thoại</label>
+        <input class="input grow-1" type="tel" id="txtSoDienThoaiBN" size="10" maxlength="10" minlength="10" value="" required="" title="Vui lòng nhập số điện thoại 10 chữ số" placeholder="Số điện thoại" autocomplete="off">                                   
+    </div>
+    <br/>
+    <div class="w50 flex flex-align-center gapy-5">
+        <label class="w90px" for="cboNgheNghiepBN">Nghề nghiệp <span class="clr-red">(*)</span></label>
+        <input type="text" id="txtNgheNghiepBN" value="" class="input grow-1 disablegroup" autocomplete="off" list="dtlNgheNghiepBN">
+    </div>
+    <br/>
+    <div class="w50-gapy10 flex flex-align-center gapy-5">
+        <label class="w80px" for="cboGioiTinhBN">Nhóm KH</label>
+        <select class="input s0 grow-1" id="cboGioiTinhBN" required="" aria-hidden="true">
+            <option value="0" selected="">Chọn</option>
+            <option value="1">VIP - VIP</option>
+            <option value="2">KHTX - Khách hàng thường xuyên</option>
+            <option value="3">KHKT - Khách hàng khó tính</option>
+        </select>
+    </div>
+    <br/>
+    <div class="w50-gapy10 flex flex-align-center gapy-5">
+        <label class="w80px" for="cboLoaiKhachBN">Bệnh nhân</label>
+        <select class="input s1 grow-1" id="cboLoaiKhachBN" required="" aria-hidden="true">
+            <option value="0" selected="">Chọn</option>
+            <option value="1">VIP - VIP1</option>
+            <option value="2">KHTX - Khách hàng thường xuyên</option>
+            <option value="3">KHKT - Khách hàng khó tính</option>
+        </select>
+    </div>
+    <br/>
+    <div class="w50-gapy10 flex flex-align-center gapy-5">
+        <label class="w80px" for="cboDanTocBN">Dân tộc</label>
+        <select class="input s2 grow-1" id="cboDanTocBN" required="" aria-hidden="true">
+            <option value="0" selected="">Chọn</option>
+            <option value="1">VIP - VIP2</option>
+            <option value="2">KHTX - Khách hàng thường xuyên</option>
+            <option value="3">KHKT - Khách hàng khó tính</option>
+        </select>
+    </div>
+    <br/>
+    <div class="w100 flex flex-align-center gapy-5">
+        <label class="w90px" for="cboDiaChiBN">Địa chỉ <span class="clr-red">(*)</span></label>
+        <input type="text" id="txtDiaChiBN" value="" class="input grow-1 disablegroup" autocomplete="off" list="dtlDiaChiBN">
+        <datalist id="dtlDiaChiBN"></datalist>
+        <input class="input three-field disablegroup" type="text" id="txtSoNhaBN" value="" placeholder="Ấp/số nhà">
+    </div>
+    <script>
+    const inputFocus = [
+        'txtSoDienThoaiBN',
+        'cboLoaiKhachBN',
+        'cboGioiTinhBN',
+        'cboDanTocBN',
+        'txtNgheNghiepBN',
+        'txtSoNhaBN',
+        'txtDiaChiBN',
+        'txtSoDienThoaiBN',
+    ];
+    function findNextInput(currentInput) {
+        const currentId = currentInput.id;
+        let nextIndex = inputFocus.indexOf(currentId) + 1;
+        while (nextIndex < inputFocus.length) {
+            const nextInput = document.getElementById(inputFocus[nextIndex]);
+            if (nextInput && !nextInput.disabled && !nextInput.readOnly) {
+                return nextInput;
+            }
+            nextIndex++;
+        }
+        return null;
+    }
+    const inputSelect = document.querySelectorAll('.input');
+    inputSelect.forEach((input) => {
+        input.addEventListener('keydown', (event) => {
+            if (event.key === 'Enter') {
+                event.preventDefault();
+                const nextInput = findNextInput(input);
+                if (nextInput) {
+                    nextInput.focus();
+                }
+            }
+        });
+    });
+    $('select.input').on('select2:select', function (e) {
+        $(this).blur();
+        const currentId = $(this).attr('id');
+        const currentIndex = inputFocus.indexOf(currentId);
+        const nextIndex = currentIndex + 1;
+        if (nextIndex < inputFocus.length) {
+            const nextId = inputFocus[nextIndex];
+            const nextInput = $(`#${nextId}`);
+            if (nextInput.length > 0) {
+                nextInput.focus();
+            }
+        }
+    });
+
+    $('select.input').select2({
+        language: 'vi',
+        closeOnSelect: true,
+    });
+    // $('select.input').on('select.input:select', function (e) {
+    //     console.log($('.select.input'));
+    //     const nextInput = findNextInput(e.target);
+    //     if (nextInput) {
+    //         nextInput.focus();
+    //     }
+    // });
+    </script>
+</div>

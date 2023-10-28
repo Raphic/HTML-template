@@ -1,0 +1,202 @@
+<link rel="stylesheet" href="css/btn.css">
+
+
+<br>
+<br>
+<button class="btn-ds-bn">Danh Sách Bệnh Nhân (F5)</button>
+<style>
+    .btn-ds-bn{
+        border: none;
+        min-width: 64px;
+        height: 32px;
+        line-height: 32px;
+        padding: 0 16px;
+        cursor: pointer;
+        font-size: inherit;
+        transition: 0.3s all;
+        position: relative;
+    }
+    .btn-ds-bn:hover{
+        background: transparent;
+        transition: 0.3s all 0.6s;
+        color: var(--clr-btn-ds-bn-primary);
+    }
+    .btn-ds-bn:before {
+        content: "";
+        position: absolute;
+        width: calc(100% + 1px);
+        height: calc(100% + 2px);
+        display: block;
+        top: calc(1px/-1);
+        left: calc(1px/-1);
+        background: linear-gradient(to right, #1d99cc 0%, #1d99cc 100%), linear-gradient(to top, #1d99cc 50%, transparent 50%), linear-gradient(to top, #1d99cc 50%, transparent 50%), linear-gradient(to right, #1d99cc 0%, #1d99cc 100%), linear-gradient(to left, #1d99cc 0%, #1d99cc 100%);
+        background-size: 100% 1px, 1px 200%, 1px 200%, 0% 1px, 0% 1px;
+        background-position: 50% 100%, 0% 0%, 100% 0%, 100% 0%, 0% 0%;
+        background-repeat: no-repeat, no-repeat;
+        transition: transform 0.3s ease-in-out, background-position 0.3s ease-in-out, background-size 0.3s ease-in-out;
+        transform: scaleX(0) rotate(180deg);
+        transition-delay: 0.4s, 0.2s, 0s;
+    }
+    .btn-ds-bn:hover:before {
+        background-size: 200% 1px, 1px 200%, 1px 200%, 55% 1px, 55% 1px;
+        background-position: 50% 100%, 0% 100%, 100% 100%, 100% 0%, 0% 0%;
+        transform: scaleX(1) rotate(180deg);
+        transition-delay: 0s, 0.2s, 0.4s;
+    }
+</style>
+
+
+<br>
+<br>
+<div>
+    <a class="btn">
+        <span>
+          <span>
+            <span>Hover Me</span>
+          </span>
+        </span>
+    </a>
+</div>
+
+<div>
+    <input class="input" type="datetime-local" id="frm__right-info-medical--time" value="">
+    <input class="input w120px" type="date" id="frm__right-info-medical--appoint">
+</div>
+<script>
+// Định nghĩa một thư viện để cập nhật thời gian
+const DateTimeUpdater = {
+    update: function (settings) {
+        const currentDate = new Date();
+        // Duyệt qua từng cài đặt và cập nhật thời gian cho từng trường
+        settings.forEach(setting => {
+            const { offsetDay, timeZone, outputSelector, type } = setting;
+            // Tính toán thời gian theo múi giờ và độ trễ
+            const timeZoneOffset = timeZone * 60; // Độ chênh lệch múi giờ tính bằng phút
+            const offsetMilliSeconds = offsetDay * 24 * 60 * 60 * 1000; // Độ trễ tính bằng mili giây
+            currentDate.setMinutes(currentDate.getMinutes() + timeZoneOffset);
+            currentDate.setTime(currentDate.getTime() + offsetMilliSeconds);
+            // Format thời gian thành chuỗi
+            const currentDateTime = currentDate.toISOString().slice(0, type === "date" ? 10 : 16);
+            // Cập nhật giá trị cho trường cụ thể
+            const element = document.querySelector(outputSelector);
+            if (element) {
+                element.value = currentDateTime;
+                if (type) {
+                    element.type = type;
+                }
+            }
+        });
+    }
+};
+// Sử dụng thư viện để cập nhật thời gian cho các trường cụ thể
+const settings = [
+    {
+        offsetDay: 3,
+        timeZone: 7, // Múi giờ GMT+7
+        outputSelector: "#frm__right-info-medical--time",
+        type: "datetime-local"
+    },
+    {
+        offsetDay: 2,
+        timeZone: -5, // Múi giờ GMT-5
+        outputSelector: "#frm__right-info-medical--appoint",
+        type: "date"
+    }
+];
+DateTimeUpdater.update(settings);
+</script>
+<script>
+    const inputFocus = {
+        "frm__left-frm-day": "frm__left-to-day",
+        "frm__left-to-day": "load-slbn-bhyt",
+        "load-slbn-bhyt": "frm__right-info-patient--surplus",
+        "frm__right-info-patient--surplus": "frm__right-info-patient--name",
+        "frm__right-info-patient--name": "frm__right-info-patient--code",
+        "frm__right-info-patient--code": "frm__right-info-patient--target",
+        "frm__right-info-patient--target": "frm__right-info-patient--number",
+        "frm__right-info-patient--number": "frm__right-info-patient--expired",
+        "frm__right-info-patient--expired": "frm__right-info-patient--sale",
+        "frm__right-info-patient--sale": "frm__right-info-patient--age",
+        "frm__right-info-patient--age": "frm__right-info-patient--gender",
+        "frm__right-info-patient--gender": "frm__right-info-patient--address",
+        "frm__right-info-patient--address": "frm__right-info-medical--time",
+        "frm__right-info-medical--time": "frm__right-info-medical--icd01",
+        "frm__right-info-medical--icd01": "frm__right-info-medical--icd01-expand",
+        "frm__right-info-medical--icd01-expand": "frm__right-info-medical--icd02",
+        "frm__right-info-medical--icd02": "frm__right-info-medical--icd02-expand",
+        "frm__right-info-medical--icd02-expand": "frm__right-info-medical--solving",
+        "frm__right-info-medical--solving": "frm__right-info-medical--solving-expand",
+        "frm__right-info-medical--solving-expand": "frm__right-info-medical--appoint",
+        "frm__right-info-medical--appoint": "frm__right-info-medical--appoint-note",
+        "frm__right-info-medical--appoint-note": "frm__right-info-medical--appoint-expand",
+        "frm__right-info-medical--appoint-expand": "frm__right-info-medical--diagnosis",
+        "frm__right-info-medical--diagnosis": "frm__right-info-medical--symptom",
+        "frm__right-info-medical--symptom": "frm__right-info-medical--note-txt",
+        "frm__right-info-medical--note-txt": "frm__right-info-medical--disabilities",
+        "frm__right-info-medical--disabilities": "frm__right-info-medical--doctor",
+        "frm__right-info-medical--doctor": "frm__right-info-medical--vessel",
+        "frm__right-info-medical--vessel": "frm__right-info-medical--breathing",
+        "frm__right-info-medical--breathing": "frm__right-info-medical--height",
+        "frm__right-info-medical--height": "frm__right-info-medical--temperature",
+        "frm__right-info-medical--temperature": "frm__right-info-medical--pressure",
+        "frm__right-info-medical--pressure": "frm__right-info-medical--pressure-expand",
+        "frm__right-info-medical--pressure-expand": "frm__right-info-medical--weight",
+        "frm__right-info-medical--weight": "frm__right-info-medical--sugar",
+        "frm__right-info-medical--sugar": "frm__right-info-medical--progress",
+        "frm__right-info-medical--progress": "frm__right-info-medical--stage",
+        "frm__right-info-medical--stage": "frm__right-info-medical--txt-01",
+        "frm__right-info-medical--txt-01": "frm__right-info-medical--txt-02",
+        "frm__right-info-medical--txt-02": "frm__right-info-medical--textarea",
+        "frm__right-info-medical--textarea": "frm__right-info-medical--eye-no-glass-right",
+        "frm__right-info-medical--eye-no-glass-right": "frm__right-info-medical--eye-no-glass-left",
+        "frm__right-info-medical--eye-no-glass-left": "frm__right-info-medical--eye-glass-right",
+        "frm__right-info-medical--eye-glass-right": "frm__right-info-medical--eye-glass-left",
+        "frm__right-info-medical--eye-glass-left": "frm__right-info-medical--eye-pressure-right",
+        "frm__right-info-medical--eye-pressure-right": "frm__right-info-medical--eye-pressure-left",
+        "frm__right-info-medical--eye-pressure-left": "frm__left-frm-day",
+        // Thêm các ánh xạ tương ứng cho các input khác ở đây
+    };
+    const inputs = document.querySelectorAll('.input');
+    let currentInput = null;
+    inputs.forEach((input) => {
+        input.addEventListener('keydown', (event) => {
+            if (event.key === 'Enter' || event.key === 'ArrowRight') {
+                event.preventDefault();
+                let nextInput = findNextInput(input);
+                while (nextInput && (nextInput.disabled || nextInput.readOnly)) {
+                    nextInput = findNextInput(nextInput);
+                }
+                if (nextInput) {
+                    nextInput.focus();
+                }
+            } else if (event.key === 'ArrowLeft') {
+                event.preventDefault();
+                let prevInput = findPreviousInput(input);
+                while (prevInput && (prevInput.disabled || prevInput.readOnly)) {
+                    prevInput = findPreviousInput(prevInput);
+                }
+                if (prevInput) {
+                    prevInput.focus();
+                }
+            }
+        });
+    });
+    function findNextInput(currentInput) {
+        const currentId = currentInput.id;
+        const nextId = inputFocus[currentId];
+        return document.getElementById(nextId);
+    }
+    function findPreviousInput(currentInput) {
+        const currentId = currentInput.id;
+        for (const id in inputFocus) {
+            if (inputFocus[id] === currentId) {
+                return document.getElementById(id);
+            }
+        }
+        return null;
+    }
+</script>
+
+
+
+

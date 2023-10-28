@@ -1,0 +1,74 @@
+@import url(global.css);
+.frm_04{
+    max-width: var(--width-desktop);
+    margin: auto;
+    font-size: var(--fz-primary);
+}
+.frm__right-action{
+    /* box-shadow: 0px 5px 12px -2px rgba(0,0,0,0.5); */
+}
+
+.frm_04 div.tbl-fix-header{
+    height: 422px;
+}
+.frm__left-day .input{
+    min-width: 100px;
+    margin-left: 5px;
+}
+.btn-ds-bn{
+    line-height: 1.2;
+    font-size: 13px;
+    font-weight: bold;
+    width: 100%;
+    height: 100%;
+}
+.frm__left-action .btn,
+.frm__left-action > div{
+    width: calc(50% - 5px);
+}
+.frm__left-load-slbn-bhyt label{
+    color: var(--clr-btn-primary);
+    text-decoration: underline;
+}
+.frm__left-load-slbn-bhyt .input{
+    width: 50px;
+    text-align: center;
+    padding: 0 10px;
+    cursor:auto;
+}
+#frm__right-info-medical--time{
+    border: 1px solid var(--clr-btn-third);
+}
+.frm__right-info label{
+    text-align: right;
+}
+.frm__right-info-medical label{
+    min-width: 110px;
+}
+textarea[name="medical-note"]{
+    min-height: 95px;
+    padding-top: 5px;
+}
+
+.frm_return_medicine div.tbl-fix-header{
+    height: 500px;
+}
+
+.frm_duoc div.tlb-pills-export{
+    height: 140px;
+}
+.frm_noitru textarea[name="medical-note"]{
+    min-height: 60px;
+}
+.frm_noitru div.frm__left-ds-benhnhan{
+    height: 440px;
+}
+.frm_noitru div.frm__right-phieu-cham-soc{
+    height: 330px;
+}
+.frm_nhacc div.frm__left-vattu{
+    height: 380px;
+}
+.frm_nhacc div.frm__right-vattu{
+    height: 290px;
+}
