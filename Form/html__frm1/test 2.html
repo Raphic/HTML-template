@@ -376,8 +376,6 @@
     });
     $('select.input').on('select2:select', function (e) {
         $(this).blur();
-        const currentId = $(this).attr('id');
-        const currentIndex = inputFocus.indexOf(current);
         const nextInput = findNextInput($(this).attr('id'));
         if (nextInput) {
             nextInput.focus();
