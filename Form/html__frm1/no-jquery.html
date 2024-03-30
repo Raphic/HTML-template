@@ -1,0 +1,110 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#FF6B00"> 
+    <!-- <meta http-equiv="refresh" content="60"> -->
+    <title>No Jquery</title>
+
+    <link rel="stylesheet" href="css/frm_04.css">
+
+    <style>
+
+    </style>
+    <script>
+        
+        console.time('$');
+        document.addEventListener('DOMContentLoaded', function() {
+            $('this').addEventListener('click', function(event) {
+                console.log("1"); 
+            }); 
+            $('#btnShowHoSoKham').addEventListener('click', function(event) {
+                const $this = $('#btnShowHoSoKham');
+                $this.classList.add('newClass');
+                console.log($this); 
+            });      
+        });
+        console.timeEnd('$');
+        const $ = (selector) => {
+            selector = String(selector);
+            return selector.startsWith('#') ? document.querySelector(selector) :
+                selector.startsWith('.') ? document.querySelectorAll(selector) :
+                selector.startsWith('this') ? this :
+                document.querySelectorAll(selector);
+        };                 
+    </script>
+</head>
+
+<body class="new_style">
+    <br><br>
+    <div class="w30 mrg-auto">
+        <div class="flex flex-column flex-wrap gapy-5">
+            <button class="btn btn-history w100" id="btnShowHoSoKham" title="Hồ sơ khám" data-bs-toggle="modal" data-bs-target="#lich-su-trong-ngay-modal"><i class="fa-regular fa-folder-open fa-lg"></i> Hồ sơ khám</button>
+            <button class="btn w100" id="noIcon" data-bs-toggle="modal" data-bs-target="#tao-mau-dien-bien-modal">Tạo mẫu</button>
+            <button class="btn btn-eye-syringe w100" title="Load mẫu hồ sơ khám" data-bs-toggle="modal" data-bs-target="#chon-mau-dien-bien-modal" id="btnLoadMauDienBienBenh"><i class="fa-solid fa-download fa-lg"></i> Load mẫu</button>
+            
+        </div>
+    </div>
+    <script>
+        let dangClick = false;
+        const btnLoading = (btnSelector) => {
+            const btn = document.querySelector(btnSelector);
+            // let oClass, oName;
+
+            const add = () => {
+                const iElement = btn.querySelector('i');
+                iElement
+                    ? oClass = iElement.getAttribute('class')
+                    : (oName = btn.textContent.trim(), btn.innerHTML = "<i class='fa-solid fa-spinner fa-spin fa-lg'></i>");
+                console.log(oClass);
+                console.log(oName);
+                !iElement
+                    ? btn.innerHTML = "<i class='fa-solid fa-spinner fa-spin fa-lg'></i>"
+                    : iElement.setAttribute('class', 'fa-solid fa-spinner fa-spin fa-lg');
+
+                return { oClass, oName };
+            };
+
+            const remove = ({ oClass, oName }) => {
+                console.log(oClass);
+                console.log(oName);
+                const iElement = btn.querySelector('i');
+
+                !iElement
+                    ? btn.textContent = oName
+                    : iElement.setAttribute('class', oClass);
+
+                btn.blur();
+                dangClick = false;
+            };
+
+            return (!btn || dangClick)
+                ? {
+                    add: () => {},
+                    remove: () => {}
+                }
+                : {
+                    add,
+                    remove
+                };
+        };
+        
+        document.querySelector('#btnShowHoSoKham').addEventListener('click', function(event) {
+            var $this = ('#btnShowHoSoKham');
+            btnLoading($this).add();
+            setTimeout(() => btnLoading($this).remove(), 3000);
+        });
+        document.querySelector('#noIcon').addEventListener('click', function(event) {
+            var $this = ('#noIcon');
+            btnLoading($this).add();
+            setTimeout(() => btnLoading($this).remove(), 3000);
+        });
+    </script>
+</body>
+
+</html>
+
+
+<script>
+    
+</script>

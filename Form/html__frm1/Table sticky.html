@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table Sticky</title>
+    <link rel="stylesheet" href="css/color_theme.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/frm_04.css">
+
+    <style>
+        .new_style .tbl-sticky{
+            width: 600px;
+            height: 300px;
+            margin: auto;
+        }
+        .new_style .tbl-sticky th,
+        .new_style .tbl-sticky td{
+            min-width: 110px;
+        }
+        .sticky-clone{
+            pointer-events: none; 
+        }
+        .sticky-clone th,
+        .sticky-clone td{
+            text-align: center;
+        }
+    </style>
+</head>
+<body class="theme-primary new_style">
+    <div style="width : 50px; height: 100px"></div>
+    <div class="w100 over-auto">
+        <table id="tblChucNangSong" class="frm-table tbl-border tbl-sm tbl-bg-white">
+            <thead>
+                <tr>
+                    <th rowspan="2" style="width: 100px;" class="p-sticky-left">
+                        <p>Điểm news</p>
+                        <span class="badge badge-success-light">0</span>
+                        <span class="badge badge-info-light">1</span>
+                        <span class="badge badge-warning-light">2</span>
+                        <span class="badge badge-danger-light">3</span>
+                    </th>
+                    <th style="width: 90px;" class="p-sticky-left">Ngày</th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                </tr>
+                <tr>
+                    <th style="width: 110px;" class="p-sticky-left">Giờ</th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="p-sticky-left">0</td>
+                    <td class="p-sticky-left"></td>
+                    <td>80</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="p-sticky-left">1</td>
+                    <td class="p-sticky-left"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="p-sticky-left">2</td>
+                    <td class="p-sticky-left"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="p-sticky-left">3</td>
+                    <td class="p-sticky-left">26</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="p-sticky-left">4</td>
+                    <td class="p-sticky-left"></td>
+                    <td></td>
+                    <td>25</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>25</td>
+                </tr>
+                <tr>
+                    <td class="p-sticky-left">5</td>
+                    <td class="p-sticky-left"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="p-sticky-left">6</td>
+                    <td class="p-sticky-left"></td>
+                    <td></td>
+                    <td></td>
+                    <td>20</td>
+                    <td>20</td>
+                    <td>20</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td colspan="8"></td>
+                </tr>
+                <tr>
+                    <td class="p-sticky-left">0</td>
+                    <td class="p-sticky-left"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>80</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="p-sticky-left">1</td>
+                    <td class="p-sticky-left"></td>
+                    <td>60</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="p-sticky-left">2</td>
+                    <td class="p-sticky-left"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="p-sticky-left">3</td>
+                    <td class="p-sticky-left"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="p-sticky-left">4</td>
+                    <td class="p-sticky-left"></td>
+                    <td></td>
+                    <td>25</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>25</td>
+                </tr>
+                <tr>
+                    <td class="p-sticky-left">5</td>
+                    <td class="p-sticky-left"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="p-sticky-left">6</td>
+                    <td class="p-sticky-left">20</td>
+                    <td></td>
+                    <td></td>
+                    <td>20</td>
+                    <td></td>
+                    <td>20</td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            stickyTbl('tblChucNangSong');
+            
+            function stickyTbl($table) {
+                // Lấy tham chiếu đến bảng gốc
+                var table = document.getElementById($table);
+
+                // Kiểm tra xem bảng đã có class 'tbl-sticky' chưa, nếu chưa thì thêm vào
+                !table.parentNode.classList.contains('tbl-sticky') ? table.parentNode.classList.add('tbl-sticky') : null;
+
+                // Lấy tất cả các dòng trong tbody của bảng
+                var rows = Array.from(table.querySelectorAll('tbody tr'));
+
+                // Tạo một bảng clone
+                var cloneTable = document.createElement('table');
+                cloneTable.classList.add('sticky-clone');
+                cloneTable.style.position = 'absolute';
+                cloneTable.style.top = table.offsetTop + 'px';
+                cloneTable.style.left = table.offsetLeft + 'px';
+                cloneTable.style.width = table.offsetWidth + 'px';
+                cloneTable.style.height = table.offsetHeight + 'px';
+                cloneTable.style.zIndex = '1';
+
+                // Tạo một tbody cho bảng clone
+                var cloneTbody = document.createElement('tbody');
+
+                // Lặp qua từng dòng và thực hiện xử lý
+                rows.forEach(function(row) {
+                    // Lấy tất cả các ô trong dòng
+                    var cells = Array.from(row.querySelectorAll('td'));
+
+                    // Lấy tất cả các ô có class 'p-sticky-left' và thêm vào bảng clone
+                    var stickyLeftCells = cells.filter(cell => cell.classList.contains('p-sticky-left'));
+                    var cloneRow = document.createElement('tr');
+                    stickyLeftCells.forEach(function(cell) {
+                        var cloneCell = cell.cloneNode(true);
+                        cloneCell.style.width = cell.offsetWidth + 'px';
+                        cloneCell.style.height = cell.offsetHeight + 'px';
+                        cloneRow.appendChild(cloneCell);
+                    });
+                    cloneTbody.appendChild(cloneRow);
+                });
+
+                // Thêm tbody vào bảng clone
+                cloneTable.appendChild(cloneTbody);
+
+                // Thêm bảng clone vào document
+                document.body.appendChild(cloneTable);
+            }
+        });
+    </script>
+</body>
+</html>

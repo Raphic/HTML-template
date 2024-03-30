@@ -1,0 +1,454 @@
+<!DOCTYPE html >
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Print PDF</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
+    
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.3.4/html2canvas.min.js"></script>
+    <!-- <script type="text/javascript" src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script> -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jsbarcode/3.11.6/JsBarcode.all.min.js"></script>
+    <style>
+        @font-face {
+                font-family: 'Roboto';
+                src: url('extend_fe/Roboto-Regular.eot');
+                src: url('extend_fe/Roboto-Regular.eot?#iefix') format('embedded-opentype'),
+                    url('extend_fe/Roboto-Regular.woff2') format('woff2'),
+                    url('extend_fe/Roboto-Regular.woff') format('woff'),
+                    url('extend_fe/Roboto-Regular.ttf') format('truetype');
+                font-weight: normal;
+                font-style: normal;
+                font-display: swap;
+            }
+        @font-face {
+            font-family: 'Libre-Barcode-128';
+            font-weight: normal;
+            font-style: normal;
+            src: url('extend_fe/Libre_Barcode_128/LibreBarcode128-Regular.ttf') format('truetype'),
+                 url('extend_fe/Libre_Barcode_128/LibreBarcode128-Regular.svg#LibreBarcode128-Regular') format('svg');
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'BarcodeFont';
+            font-weight: normal;
+            font-style: normal;
+            src: url('extend_fe/barcode_font/BarcodeFont.ttf') format('truetype');
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'eanbwrp36tt';
+            font-weight: normal;
+            font-style: normal;
+            src: url('extend_fe/font_barcode_full/eanbwrp36tt.ttf') format('truetype');
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'IDAutomationHC39M';
+            font-weight: normal;
+            font-style: normal;
+            src: url('extend_fe/font_barcode_full/IDAutomationHC39M.ttf') format('truetype');
+            font-display: swap;
+        } 
+        @font-face {
+            font-family: 'LibreBarcode39-Regular';
+            font-weight: normal;
+            font-style: normal;
+            src: url('extend_fe/Libre_Barcode_39/LibreBarcode39-Regular.ttf') format('truetype');
+            font-display: swap;
+        }
+        /* .z-none{
+            z-index: -99999;
+            position: fixed;
+            top: 210%;
+        } */
+        .flex{
+            display: flex;
+        }
+        .left{
+            width: 25%;
+            height: 200px;
+            background-color: antiquewhite;
+            transition: all 0.3s;
+        }
+        .right{
+            transition: all 0.3s;
+            width: 75%;
+            height: 200px;
+            background-color: aquamarine;
+        }
+        .flex:hover .left{
+            width: 0;
+        }
+        .flex:hover .right{
+            width: 100%;
+        }
+        .bar{
+            font-size: 60px;
+            /* transform: scale(1,3); */
+        }
+        .code1{
+            font-family: 'Libre-Barcode-128';
+        }
+        .code2{
+            font-family: 'BarcodeFont';
+        }
+        .code3{
+            font-family: 'eanbwrp36tt';
+        }
+        .code4{
+            font-size: 20px;
+            font-family: 'IDAutomationHC39M';
+        }
+        .code5{
+            font-size: 120px;
+            font-family: 'LibreBarcode39-Regular';
+        }
+    </style>
+</head>
+
+<body>
+    <br>
+    <div class="container flex">
+        <div class="left">Left</div>
+        <div class="right"></div>
+    </div>
+    <br>
+
+    <div class="container">
+        <p class="bar code1">125478524W2</p>
+        <p class="bar code2">125478524W2</p>
+        
+        <p class="bar code3">125478524w2</p>
+        
+        <p class="bar code4">125478524W2</p>
+       
+        <p class="bar code5">125478524W2</p>
+        
+        <svg id="printBarcode"></svg>
+
+        <p class="barcode" data-barcode="125478524W21"></p>
+        <p class="barcode" data-barcode="125478524W22"></p>
+        <p class="barcode" data-barcode="125478524W23"></p>
+        <br/>
+        <button id="btnPrintPdf" class="btn btn-danger" type="button"><i class="fa-solid fa-spinner fa-spin fa-lg d-none"></i><i class="fa-solid fa-print fa-lg"></i> Print PDF</button>
+        <br/><br/>
+        <button id="btnBarcode" class="btn btn-success" type="button" accesskey="i"><i class="fa-solid fa-spinner fa-spin fa-lg d-none"></i><i class="fa-solid fa-print fa-lg"></i> Print barcode</button>
+    </div>
+    <br>    
+    <div id="printPdf" class="hide-print">
+        <div style="font-family: 'Roboto'; font-size: 14px; width: auto; margin: auto;">
+            <div style="max-width: 100%; padding: 1rem;">
+                <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                    <p style="margin: 0; padding: 0;">Bệnh viện đa khoa Hồng Hưng</p>
+                    <p style="margin: 0; padding: 0;">Số phiếu: <span style="text-shadow: 0px 0px 0px #000000, 0px 0px 0px #000000;">417</span></p>
+                </div>
+                <div style="display: flex; justify-content: start; margin-bottom: 0.5rem;">
+                    <p style="margin: 0; padding: 0;">Bộ phân kho chẵn</p>
+                </div>
+            </div>
+            <div style="max-width: 100%; padding: 1rem;">
+                <p style="width: 100%; margin: 0; padding: 0; display: inline-block; text-align: center; font-size: 2rem; font-weight: bold; margin-bottom: 0.5rem;">Phiếu nhập kho</p>
+                <p style="width: 100%; margin: 0; padding: 0; display: inline-block; text-align: center;">30/10/2020 <span>11:30:43</span></p>
+            </div>
+            <div style="max-width: 100%; padding: 1rem;">
+                <div style="display: flex; justify-content: start; margin-bottom: 0.5rem;">
+                    <p style="width: 100%;  margin: 0; padding: 0;">Nhà cung cấp: <span style="text-shadow: 0px 0px 0px #000000, 0px 0px 0px #000000;">Công ty TNHH Một Thành Viên Vimedimex Bình Dương</span></p>
+                </div>
+                <div style="display: flex; justify-content: start; align-items: center; margin-bottom: 0.5rem;">
+                    <p style="margin: 0; padding: 0; width: 28%;">Số hóa đơn: <span style="text-shadow: 0px 0px 0px #000000, 0px 0px 0px #000000;">0718918</span></p>
+                    <p style="margin: 0; padding: 0; width: 28%;">Ký hiệu: <span style="text-shadow: 0px 0px 0px #000000, 0px 0px 0px #000000;">BD/20P</span></p>
+                    <p style="margin: 0; padding: 0; width: 28%;">Ngày hóa đơn: <span style="text-shadow: 0px 0px 0px #000000, 0px 0px 0px #000000;">270/10/2023</span></p>
+                </div>
+                <div style="display: flex; justify-content: start; margin-bottom: 0.5rem;">
+                    <p style="margin: 0; padding: 0; width: 56%;">Người nhập: <span style="text-shadow: 0px 0px 0px #000000, 0px 0px 0px #000000;">Phạm Nguyễn Khánh Duy</span></p>
+                    <p style="margin: 0; padding: 0; width: 28%;">Nhập tại: <span style="text-shadow: 0px 0px 0px #000000, 0px 0px 0px #000000;">Kho chẵn</span></p>
+                </div>
+                <div style="display: flex; justify-content: start;">
+                    <p style="margin: 0; padding: 0; width: 100%;">Ghi chú: </p>
+                </div>
+            </div>
+            <table width="100%" border="1" cellspacing="0" cellpadding="5" style="border: 1px solid;">
+                <thead>
+                    <tr style="text-shadow: 0px 0px 0px #000000, 0px 0px 0px #000000; text-align: center;">
+                        <th style="font-weight: normal; border: 1px solid; padding: 5px;">STT</th>
+                        <th style="font-weight: normal; border: 1px solid; padding: 5px;">Tên nhãn hiệu - qui cách</th>
+                        <th style="font-weight: normal; border: 1px solid; padding: 5px;">ĐVT</th>
+                        <th style="font-weight: normal; border: 1px solid; padding: 5px;">Số lô</th>
+                        <th style="font-weight: normal; border: 1px solid; padding: 5px;">HSD</th>
+                        <th style="font-weight: normal; border: 1px solid; padding: 5px;">SL</th>
+                        <th style="font-weight: normal; border: 1px solid; padding: 5px;">CK</th>
+                        <th style="font-weight: normal; border: 1px solid; padding: 5px;">Đơn giá</th>
+                        <th style="font-weight: normal; border: 1px solid; padding: 5px;">Thành tiền</th>
+                        <th style="font-weight: normal; border: 1px solid; padding: 5px;">VAT</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="text-align: right; border: 1px solid; padding: 5px;">1</td>
+                        <td style="border: 1px solid; padding: 5px;">Sản phẩm 1</td>
+                        <td style="text-align: right; border: 1px solid; padding: 5px;">Gói</td>
+                        <td style="text-align: right; border: 1px solid; padding: 5px;">X34567</td>
+                        <td style="text-align: right; border: 1px solid; padding: 5px;">20/12/2023</td>
+                        <td style="text-align: right; border: 1px solid; padding: 5px;">3000</td>
+                        <td style="text-align: right; border: 1px solid; padding: 5px;">0</td>
+                        <td style="text-align: right; border: 1px solid; padding: 5px;">96,123,456</td>
+                        <td style="text-align: right; border: 1px solid; padding: 5px;">96,123,456,123,123</td>
+                        <td style="text-align: right; border: 1px solid; padding: 5px;">5%</td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: right; border: 1px solid; padding: 5px;">1</td>
+                        <td style="border: 1px solid; padding: 5px;">Sản phẩm 1</td>
+                        <td style="text-align: right; border: 1px solid; padding: 5px;">Gói</td>
+                        <td style="text-align: right; border: 1px solid; padding: 5px;">X34567</td>
+                        <td style="text-align: right; border: 1px solid; padding: 5px;">20/12/2023</td>
+                        <td style="text-align: right; border: 1px solid; padding: 5px;">3000</td>
+                        <td style="text-align: right; border: 1px solid; padding: 5px;">0</td>
+                        <td style="text-align: right; border: 1px solid; padding: 5px;">96,123,456</td>
+                        <td style="text-align: right; border: 1px solid; padding: 5px;">96,123,456,123,123</td>
+                        <td style="text-align: right; border: 1px solid; padding: 5px;">5%</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div style="max-width: 100%; padding: 1rem;">
+                <div style="display: flex; justify-content: start; margin-bottom: 0.5rem;">
+                    <p style="margin: 0; padding: 0; width: 20%;">Tổng cộng: <span style="text-shadow: 0px 0px 0px #000000, 0px 0px 0px #000000;">4</span></p>
+                    <p style="margin: 0; padding: 0; width: 30%;">khoản</p>
+                    <p style="margin: 0; padding: 0; width: 25%; text-align: right;">Tiền hàng (VND):</p>
+                    <p style="margin: 0; padding: 0; width: 25%; text-align: right;"><span style="text-shadow: 0px 0px 0px #000000, 0px 0px 0px #000000;">13,658,987,456</span></p>
+                </div>
+                <div style="display: flex; justify-content: start; margin-bottom: 0.5rem;">
+                    <p style="margin: 0; padding: 0; width: 75%; text-align: right;">VAT (VND):</p>
+                    <p style="margin: 0; padding: 0; width: 25%; text-align: right;"><span style="text-shadow: 0px 0px 0px #000000, 0px 0px 0px #000000;">13,658,987,456</span></p>
+                </div>
+                <div style="display: flex; justify-content: start; margin-bottom: 0.5rem;">
+                    <p style="margin: 0; padding: 0; width: 75%; text-align: right;">Giá trị thanh toán (VND):</p>
+                    <p style="margin: 0; padding: 0; width: 25%; text-align: right;"><span style="text-shadow: 0px 0px 0px #000000, 0px 0px 0px #000000;">13,658,987,456</span></p>
+                </div>
+                <div style="display: flex; justify-content: start; margin-bottom: 1rem;">
+                    <p style="margin: 0; padding: 0; width: 75%;">Tổng số tiền (viết bằng chữ): Mười hai triệu không trăm năm mươi ngàn đồng một trăm lẻ</p>
+                </div>
+                <div style="display: flex; justify-content: start; margin-bottom: 0.8rem;">
+                    <p style="margin: 0; padding: 0; width: 20%;">Phiếu nhập này gồm: <span style="text-shadow: 0px 0px 0px #000000, 0px 0px 0px #000000;">4</span></p>
+                    <p style="margin: 0; padding: 0; width: 10%;">khoản, <span id="page">0</span></p>
+                    <p style="margin: 0; padding: 0; width: 20%;">trang</p>
+                    <p style="margin: 0; padding: 0; width: 50%; text-align: right;"><span>8:48</span> Ngày <span>2</span> tháng <span>11</span> năm <span>2023</span></p>
+                </div>
+                <div style="display: flex; justify-content: start;">
+                    <p style="margin: 0; padding: 0; width: 25%; text-align: center;">Kế Toán</p>
+                    <p style="margin: 0; padding: 0; width: 25%; text-align: center;">Người Lập Biểu</p>
+                    <p style="margin: 0; padding: 0; width: 25%; text-align: center;">Thủ Kho</p>
+                    <p style="margin: 0; padding: 0; width: 25%; text-align: center;">Trưởng Khoa Dược</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- <script type="module" src="./js/importjs.js"></script> -->
+    <!-- <script type="module">
+        async function loadData() {
+            import * as content from './doc/content.js';
+            window.a = fontTimeBase64;
+            console.log(a);
+        }
+        loadData();
+    </script> -->
+    <script>
+        $(document).ready(() => {
+           $("#btnPrintPdf").click(() => {
+                settingPrintPdf('printPdf', 'page', 'btnPrintPdf');
+           });
+            $("#btnBarcode").click(() => {
+                printNewAPI('qr');
+            });
+          
+        });
+
+        // Sử dụng thư viện JsBarcode
+        JsBarcode("#printBarcode", "1706175363Q", {
+            format: "CODE128",
+            width: 2,
+            height: 50,
+            //Setting for text under barcode
+            displayValue: true,
+            fontOptions: "bold italic",
+            font: "monospace",
+            text: "Content text",
+            textPosition: "top",
+            textAlign: "left",
+            textMargin: 2,
+            fontSize: 20,
+        });
+        
+
+
+        // Sử dụng thư viện new API của local host
+        const setPrintURL = (type) => {
+            hostURL = 'https://img.honghunghospital.com.vn/';
+            typeURL = (type === 'qr') ? 'getQRcode?data=' : 'getBarcode?data=';
+        };
+        // Sử dụng thư viện new API của local host
+        const printNewAPI = (type) =>{
+            setPrintURL(type);
+            // Khai báo khởi tạo jsPDF
+            window.jsPDF = window.jspdf.jsPDF;
+            const pdfDoc = new jsPDF('l', 'mm', [56, 34]);
+            // Add font
+            const fontBase64 = 'font/Josefin_Sans/fontContent.txt';
+
+            
+            pdfDoc.addFileToVFS('font/Josefin_Sans/JosefinSans-Bold.ttf', fontBase64)
+            // pdfDoc.addFont('font/Josefin_Sans/JosefinSans-Regular.ttf', 'jose', 'normal');
+            pdfDoc.addFont('font/Josefin_Sans/JosefinSans-Bold.ttf', 'jose-bold', 'bold');
+            // Lấy data
+            const tenBN = 'TRẦN Nguyễn VẦNg TRẶng';
+            const gtBN = 'NAM';
+            const doB = '12/12/2023';
+            const maBN = '02158749658487';
+            const printtime = '12:20:25';
+            const code = '08365478915CT';
+
+            var width = 56;
+            var left = 2;
+            var top = 8;
+
+            // Tạo data và đổi sang img + url
+            const imgURL = 'http://172.16.10.42:8000/getQRcode?data=' + `${encodeURIComponent(code)}` + '&module_height=4&module_width=0.12&write_text=false';
+            pdfDoc.addImage(imgURL, 'JPEG', left -=7.8, 18,);
+            // Tên bệnh nhân
+            left += 7.8;
+            pdfDoc.setFont('jose-bold', 'bold');
+            pdfDoc.setFontSize(9);
+            pdfDoc.text(tenBN.toUpperCase(), left, top);
+            // Mã bệnh nhân , ngày sinh, giới tính, thời gian in
+            pdfDoc.setFont(undefined, 'italic');
+            pdfDoc.text('BN: ' + maBN.toUpperCase(), left, top += 3.5);
+            pdfDoc.text('DOB: ' + doB.toUpperCase() + ' - ' + gtBN, left, top += 3.5);
+            pdfDoc.text(printtime, width -= 4, top += 5, null, null, "right");
+            // Mã Barcode
+            pdfDoc.setFont(undefined, 'bold');
+            pdfDoc.setFontSize(11);
+            pdfDoc.text(code, left, top);
+            // Xem ở cửa sổ mới
+            var blob = pdfDoc.output('blob');
+            var url = window.URL.createObjectURL(blob);
+            window.open(url);
+        }
+        // Sử dụng thư viện jsPDH + JsBarcode
+        const printImgPDF = () => {
+            const barcodeElements = document.querySelectorAll('.barcode');
+            window.jsPDF = window.jspdf.jsPDF;
+            const pdfDoc = new jsPDF('p', 'mm', "a5");
+            barcodeElements.forEach((element, index) => {
+                const barcodeData = element.getAttribute('data-barcode');
+                const canvas = document.createElement('canvas');
+                JsBarcode(canvas, barcodeData, {
+                    format: 'CODE128',
+                    lineColor: '#000',
+                    width: 1.5,
+                    height: 60,
+                    displayValue: true,
+                });
+                const barcodeDataURL = canvas.toDataURL('image/png');
+                pdfDoc.addImage(barcodeDataURL, 'PNG', 5, 5 + index * 25);
+            });
+            pdfDoc.save('barcode-test.pdf');
+        }
+
+        const settingPrintPdf = (printContentId, totalPagesId, btnID) => {
+            window.jsPDF = window.jspdf.jsPDF;
+            const printContent = document.getElementById(printContentId); 
+            const totalPages = document.getElementById(totalPagesId);
+            const btnPrint = document.getElementById(btnID)
+            const doc = new jsPDF();
+            btnPrint.querySelectorAll('.fa-solid').forEach((element) => {
+                element.classList.toggle('d-none');
+            });
+            doc.addFont('extend_fe/Roboto-Regular.ttf', 'Roboto', 'normal');
+            doc.setFont('Roboto', 'normal');
+            doc.setLanguage('vi');
+            doc.html(printContent, {
+                x: 0,
+                y: 0,
+                // width: 200,
+                // windowWidth: 830,
+                autoPaging: 'text',
+                unicode: 'UTF-8',
+                margin: [10, 5, 10, 5],
+                callback: (doc) => {
+                    totalPages.textContent = doc.internal.getNumberOfPages();
+                    doc.html(printContent, {
+                        x: 0,
+                        y: 0,
+                        width: 200,
+                        windowWidth: 830,
+                        autoPaging: 'text',
+                        unicode: 'UTF-8',
+                        margin: [10, 5, 10, 5],
+                        callback: (doc) => {
+                            btnPrint.querySelectorAll('.fa-solid').forEach((element) => {
+                                element.classList.toggle('d-none');
+                            });
+                            doc.save('nhapkho.pdf');
+                            var blob = doc.output('blob');
+                            var url = window.URL.createObjectURL(blob);
+                            window.open(url);    
+                        },
+                    });  
+                },
+            });
+        };
+    //     function printBarcode (bn, lstcode, printtime) {
+    //     // Khai báo khởi tạo jsPDF
+    //     window.jsPDF = window.jspdf.jsPDF;
+        
+    //     // Truyền dữ liệu
+    //     lstcode.forEach((code, index) => {
+    //         const pdfDoc = new jsPDF('l', 'mm', [56, 32]);
+    //         setFont(pdfDoc);
+    //         JsBarcode("#barCodeImg", code, {
+    //             format: "CODE128",
+    //             width: 1.2,
+    //             height: 65,
+    //             //Setting for text under barcode
+    //             displayValue: false,
+    //         });
+    //         var jsImg = document.querySelector('img#barCodeImg');
+    //         var width = 56;
+    //         var left = 7;
+    //         var top = 5;
+    //         // Tạo data và đổi sang img + url
+    //         // const imgURL = `https://img.honghunghospital.com.vn/getBarcode?data=${encodeURIComponent(code)}&svg=false&module_height=15&module_width=0.4&font_size=10&write_text=false&C128B=false`;
+    //         pdfDoc.addImage(jsImg, 'JPEG', 7.2, 12);
+    //         left += 2;
+    //         // Tên bệnh nhân
+    //         pdfDoc.setFont('times', 'bold');
+    //         pdfDoc.setFontSize(10);
+    //         pdfDoc.text(bn.tenbenhnhan.toUpperCase(), left, top);
+    //         // Mã bệnh nhân , ngày sinh, giới tính, thời gian in
+
+    //         pdfDoc.setFont('times', 'italic');
+    //         pdfDoc.text('BN: ' + bn.codebenhnhan.toUpperCase(), left += 0.5, top += 3.5);
+
+    //         pdfDoc.text('DOB: ' + bn.ngaysinh + ' - ' + bn.giotinh.toUpperCase(), left, top += 3.5);
+    //         pdfDoc.text(printtime, width -= 1, top += 3.5, null, 90);
+    //         // Mã Barcode
+    //         pdfDoc.setFont('times', 'bold');
+    //         pdfDoc.setFontSize(13.5);
+    //         pdfDoc.text(code, 6, top += 16, null, 90);
+    //         // Xem ở cửa sổ mới
+    //         var blob = pdfDoc.output('blob');
+    //         var url = window.URL.createObjectURL(blob);
+    //         window.open(url);
+    //         SendToPrinter(blob, "intem", "In tem", function () { });
+    //     })
+    // }
+   </script>
+</body>
+
+</html>

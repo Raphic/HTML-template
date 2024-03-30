@@ -6,7 +6,7 @@
     <title>Form nhà cung cấp</title>
 
     <link rel="stylesheet" href="css/frm_04.css">
-    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 </head>
 <body>
     <div class="new_style frm_04 frm_nhacc">
@@ -277,12 +277,12 @@
                             </table>
                         </div>
                     </div>
-                    <div class="w100 flex flex-align-center flex-justify-end flex-wrap gapy-5">
-                        <button class="btn btn-eye-syringe">Khởi tạo(F6)</button>
-                        <button class="btn"><i class="fa-solid fa-plus fa-lg"></i> Thêm(F1)</button>
+                    <div class="w100 flex flex-align-center flex-justify-end flex-wrap gapy-5 pd-10">
+                        <button class="btn btn-eye-syringe" id="btnf6">Khởi tạo(F6)</button>
+                        <button class="btn" id="btnf1" disabled><i class="fa-solid fa-plus fa-lg"></i> Thêm(F1)</button>
                         <button class="btn btn-history">Lưu(F2)</button>
-                        <button class="btn">Sửa(F3)</button>
-                        <button class="btn btn-cancel">Hủy(ALT+F12)</button>
+                        <button class="btn" id="btnf5">Sửa(F5)</button>
+                        <button class="btn btn-cancel" id="btnHuy">Hủy(ALT+F12)</button>
                         <button class="btn btn-exit"><i class="fa-solid fa-trash-can fa-lg"></i> Xóa(F10)</button>
                         <button class="btn" title="In (ALT + F4)"><i class="fa-solid fa-print fa-lg"></i></button>
                         <button class="btn" title="Xuất Exell"><i class="fa-solid fa-file-csv fa-lg"></i></button>
@@ -293,6 +293,29 @@
             </div>
         </div>
     </div>
-    <script src="js/frm_04.js"></script>
+    <script>
+        $(document).ready(() => {
+            $('.btn').on('click', function() {
+                console.log($(this).text());
+            });
+        })
+        const addKeyboard = (event, keyMap, comboKey) => {
+            if ((event.key === 'F12' && event.altKey) || (keyMap[event.key] && keyMap[event.key].length && !keyMap[event.key].prop('disabled') && !event.ctrlKey)) {
+                event.preventDefault();
+                (keyMap[event.key] || comboKey).click();
+            }
+        }
+        $(document).on('keydown', function (event) {
+            if(keyMapping[event.key]){
+                event.preventDefault();
+            }
+            addKeyboard(event, keyMapping, $("#btnHuy"));
+        });
+        const keyMapping = {
+            'F1': $("#btnf1"),
+            'F6': $("#btnf6"),
+            'F5': $("#btnf5"),
+        };
+    </script>
 </body>
 </html>

@@ -1,0 +1,1084 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#FF6B00"> 
+    <!-- <meta http-equiv="refresh" content="60"> -->
+    <title>Select Arrow</title>
+
+    <link href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css">
+    <link href="https://cdn.datatables.net/select/1.7.0/css/select.dataTables.min.css" rel="stylesheet" type="text/css">
+    <link href="https://cdn.datatables.net/keytable/2.10.0/css/keyTable.dataTables.min.css" rel="stylesheet" type="text/css">
+    <link href="https://cdn.datatables.net/plug-ins/1.13.6/features/searchHighlight/dataTables.searchHighlight.css" rel="stylesheet" type="text/css">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="https://cdn.datatables.net/rowreorder/1.4.1/css/rowReorder.dataTables.min.css" rel="stylesheet" type="text/css">
+
+    <link href="https://cdn.datatables.net/1.13.7/css/dataTables.bootstrap5.min.css" rel="stylesheet" type="text/css">
+
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="css/frm_04.css">
+    
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/select/1.6.2/js/dataTables.select.min.js"></script>
+    <script src="https://cdn.datatables.net/keytable/2.11.0/js/dataTables.keyTable.min.js"></script>
+    <script src="https://cdn.datatables.net/plug-ins/1.13.6/features/searchHighlight/dataTables.searchHighlight.min.js"></script>
+
+    <script src="https://cdn.datatables.net/rowreorder/1.4.1/js/dataTables.rowReorder.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap5.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    
+    <style>
+        /* button:not(#buttonClick){
+            background-color: antiquewhite;
+            color: brown;
+            width: 0;
+            height: 0;
+            border: none;
+            box-shadow: none;
+            font-size: 0;
+        } */
+        .input{
+            border: red;
+            background-color: antiquewhite !important;
+        }
+    </style>
+</head>
+<script>
+// function withLoading(button, callback) {
+//     var icon = button.find('i');
+//     oClass = icon.attr('class');
+//     icon.removeClass().addClass('fa-solid fa-spinner fa-spin fa-lg');
+//     return new Promise((resolve, reject) => {
+//         try {
+//             const result = callback();
+//             if (result instanceof Promise) {
+//                 result.then(() => {
+//                     console.log("3");
+//                     resolve();
+//                 }).catch((error) => {
+//                     console.log("4");
+//                     reject(error);
+//                 });
+//             } else {
+//                 button.find('i').removeClass();
+//                 console.log("5");
+//                 resolve();
+//             }
+//         } catch (error) {
+//             console.log("6");
+//             reject(error);
+//         }
+//     });
+// }
+const loading = ($btn) => {
+    const btn = $($btn);
+    const add = () => {
+        oClass = btn.find('i').attr('class');
+        btn.find('i').removeClass().addClass('fa-solid fa-spinner fa-spin fa-lg');
+    }
+    const remove = () => {
+        btn.find('i').removeClass().addClass(oClass);
+        btn.blur();
+    }
+    return { add, remove };
+}
+$("#btnHuyThongTinKham").click(() => {
+    loading('#btnHuyThongTinKham').add();
+    LoadThongTinBenhNhan(); 
+    loading('#btnHuyThongTinKham').remove();
+});
+
+</script>
+<style>
+    .new_style tbody tr td *{
+        vertical-align: middle !important;
+    }
+    .selected,
+    .stayed{
+        background: #057e41 !important;
+        color: #fff !important;
+    }
+    button:focus{
+        background: #e41616;
+    }
+    @media print {
+        .frm-table{
+            display: none !important;
+            
+        }
+    }
+</style>
+<body class="new_style">
+    <div>
+        <table class="frm-table tbl-border tbl-sm" id="" style="width: 100%;">
+            <thead>
+                <tr>
+                    <th>STT</th>
+                    <th>Số lượng</th>
+                    <th>Tên dịch vụ</th>
+                    <th>ĐVT</th>
+                    <th>Đơn giá DV</th>
+                    <th>Đơn giá BH</th>
+                    <th>Đơn giá NN</th>
+                    <th>Viết tắt</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="  txt-left">1</td>
+                    <td><input style="text-align: right;" class="input grow-1" type="text" value="5"></td>
+                    <td class="  txt-left" title="Nhổ răng vĩnh viễn lung lay (Nhi khoa)"><span class="line line-clamp-2">Nhổ răng vĩnh viễn lung lay (Nhi khoa)</span></td>
+                    <td class="  txt-center">Lần</td>
+                    <td class="  txt-right">414,000</td>
+                    <td class="  txt-right">102,000</td>
+                    <td class="  txt-right">456,000</td>
+                    <td>nrvvllk</td>
+                </tr>
+                <tr>
+                    <td class="  txt-left">2</td>
+                    <td><input style="text-align: right;" class="input grow-1" type="text" value="8"></td>
+                    <td class="  txt-left" title="Nhổ chân răng vĩnh viễn (Nhi khoa)"><span class="line line-clamp-2">Nhổ chân răng vĩnh viễn (Nhi khoa)</span></td>
+                    <td class="  txt-center">Lần</td>
+                    <td class="  txt-right">414,000</td>
+                    <td class="  txt-right">190,000</td>
+                    <td class="  txt-right">456,000</td>
+                    <td>ncrvvk</td>
+                </tr>
+                <tr>
+                    <td class="  txt-left">3</td>
+                    <td><input style="text-align: right;" class="input grow-1" type="text" value="1"></td>
+                    <td class="  txt-left" title="Cắt lợi trùm răng khôn hàm dưới (Nhi khoa)"><span class="line line-clamp-2">Cắt lợi trùm răng khôn hàm dưới (Nhi khoa)</span></td>
+                    <td class="  txt-center">Lần</td>
+                    <td class="  txt-right">414,000</td>
+                    <td class="  txt-right">158,000</td>
+                    <td class="  txt-right">456,000</td>
+                    <td>cltrkhdk</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <script>
+
+        </script>
+    </div>
+    <table class="frm-table tbl-border tbl-sm" id="tableTimKiemDichVu"
+        style="width: 100%; position: relative;">
+        <thead>
+            <tr>
+                <th class="sorting_disabled hide_column" rowspan="1" colspan="1" style="width: auto;">IDDV</th>
+                <th class="sorting_disabled hide_column" rowspan="1" colspan="1" style="width: auto;">IDDVT</th>
+                <th class="sorting_disabled txt-left" rowspan="1" colspan="1" style="width: 120px;">Mã dịch vụ</th>
+                <th class="sorting_disabled txt-left" rowspan="1" colspan="1" style="width: 488.141px;">Tên dịch vụ</th>
+                <th class="sorting_disabled txt-center" rowspan="1" colspan="1" style="width: 50px;">ĐVT</th>
+                <th class="sorting_disabled txt-right" rowspan="1" colspan="1" style="width: 100px;">Đơn giá DV</th>
+                <th class="sorting_disabled txt-right" rowspan="1" colspan="1" style="width: 100px;">Đơn giá BH</th>
+                <th class="sorting_disabled txt-right" rowspan="1" colspan="1" style="width: 100px;">Đơn giá NN</th>
+                <th class="sorting_disabled txt-right" rowspan="1" colspan="1" style="width: 66px;">Tỷ lệ (%)</th>
+                <th class="sorting_disabled hide_column" rowspan="1" colspan="1" style="width: auto;">MaPhongKham</th>
+                <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 89.8594px;">Viết tắt</th>
+            </tr>
+        </thead>
+    
+        <tbody>
+            <tr>
+                <td class="  hide_column">
+                    <div style="position: absolute; height: 1px; width: 0px; overflow: hidden;"><input type="text"
+                            tabindex="0"></div>204
+                </td>
+                <td class="  hide_column">16</td>
+                <td class="  txt-left"></td>
+                <td class="  txt-left" title="Nhổ răng vĩnh viễn lung lay (Nhi khoa)"><span class="line line-clamp-2">Nhổ
+                        răng vĩnh viễn lung lay (Nhi khoa)</span></td>
+                <td class="  txt-center">Lần</td>
+                <td class="  txt-right">414,000</td>
+                <td class="  txt-right">102,000</td>
+                <td class="  txt-right">456,000</td>
+                <td class="  txt-right">0</td>
+                <td class="  hide_column">26</td>
+                <td>nrvvllk</td>
+            </tr>
+            <tr>
+                <td class="  hide_column">205</td>
+                <td class="  hide_column">16</td>
+                <td class="  txt-left"></td>
+                <td class="  txt-left" title="Nhổ chân răng vĩnh viễn (Nhi khoa)"><span class="line line-clamp-2">Nhổ chân
+                        răng vĩnh viễn (Nhi khoa)</span></td>
+                <td class="  txt-center">Lần</td>
+                <td class="  txt-right">414,000</td>
+                <td class="  txt-right">190,000</td>
+                <td class="  txt-right">456,000</td>
+                <td class="  txt-right">0</td>
+                <td class="  hide_column">26</td>
+                <td>ncrvvk</td>
+            </tr>
+            <tr>
+                <td class="  hide_column">206</td>
+                <td class="  hide_column">16</td>
+                <td class="  txt-left"></td>
+                <td class="  txt-left" title="Cắt lợi trùm răng khôn hàm dưới (Nhi khoa)"><span
+                        class="line line-clamp-2">Cắt lợi trùm răng khôn hàm dưới (Nhi khoa)</span></td>
+                <td class="  txt-center">Lần</td>
+                <td class="  txt-right">414,000</td>
+                <td class="  txt-right">158,000</td>
+                <td class="  txt-right">456,000</td>
+                <td class="  txt-right">0</td>
+                <td class="  hide_column">26</td>
+                <td>cltrkhdk</td>
+            </tr>
+            <tr>
+                <td class="  hide_column">207</td>
+                <td class="  hide_column">16</td>
+                <td class="  txt-left"></td>
+                <td class="  txt-left" title="Điều trị tuỷ răng sữa (01 chân)"><span class="line line-clamp-2">Điều trị tuỷ
+                        răng sữa (01 chân)</span></td>
+                <td class="  txt-center">Lần</td>
+                <td class="  txt-right">542,000</td>
+                <td class="  txt-right">271,000</td>
+                <td class="  txt-right">597,000</td>
+                <td class="  txt-right">0</td>
+                <td class="  hide_column">26</td>
+                <td>dttrsc</td>
+            </tr>
+            <tr>
+                <td class="  hide_column">208</td>
+                <td class="  hide_column">16</td>
+                <td class="  txt-left"></td>
+                <td class="  txt-left"><span class="line line-clamp-2">Điều trị tuỷ răng sữa (nhiều chân)</span></td>
+                <td class="  txt-center">Lần</td>
+                <td class="  txt-right">764,000</td>
+                <td class="  txt-right">382,000</td>
+                <td class="  txt-right">841,000</td>
+                <td class="  txt-right">0</td>
+                <td class="  hide_column">26</td>
+                <td>dttrsc</td>
+            </tr>
+            <tr>
+                <td class="  hide_column">209</td>
+                <td class="  hide_column">16</td>
+                <td class="  txt-left"></td>
+                <td class="  txt-left"><span class="line line-clamp-2">Nhổ răng sữa</span></td>
+                <td class="  txt-center">Lần</td>
+                <td class="  txt-right">50,000</td>
+                <td class="  txt-right">37,300</td>
+                <td class="  txt-right">55,000</td>
+                <td class="  txt-right">0</td>
+                <td class="  hide_column">26</td>
+                <td>nrs</td>
+            </tr>
+            <tr>
+                <td class="  hide_column">210</td>
+                <td class="  hide_column">16</td>
+                <td class="  txt-left"></td>
+                <td class="  txt-left"><span class="line line-clamp-2">Nhổ chân răng sữa</span></td>
+                <td class="  txt-center">Lần</td>
+                <td class="  txt-right">50,000</td>
+                <td class="  txt-right">37,300</td>
+                <td class="  txt-right">55,000</td>
+                <td class="  txt-right">0</td>
+                <td class="  hide_column">26</td>
+                <td>ncrs</td>
+            </tr>
+            <tr>
+                <td class="  hide_column">211</td>
+                <td class="  hide_column">16</td>
+                <td class="  txt-left"></td>
+                <td class="  txt-left"><span class="line line-clamp-2">Thông khí nhân tạo không xâm nhập [giờ theo thực
+                        tế]</span></td>
+                <td class="  txt-center">Lần</td>
+                <td class="  txt-right">720,000</td>
+                <td class="  txt-right">559,000</td>
+                <td class="  txt-right">792,000</td>
+                <td class="  txt-right">0</td>
+                <td class="  hide_column">26</td>
+                <td>tkntkxnttt</td>
+            </tr>
+            <tr>
+                <td class="  hide_column">212</td>
+                <td class="  hide_column">16</td>
+                <td class="  txt-left"></td>
+                <td class="  txt-left"><span class="line line-clamp-2">Thông khí nhân tạo CPAP qua van Boussignac [giờ theo
+                        thực tế]</span></td>
+                <td class="  txt-center">Lần</td>
+                <td class="  txt-right">720,000</td>
+                <td class="  txt-right">559,000</td>
+                <td class="  txt-right">792,000</td>
+                <td class="  txt-right">0</td>
+                <td class="  hide_column">26</td>
+                <td>tkntcqvbttt</td>
+            </tr>
+            <tr>
+                <td class="  hide_column">213</td>
+                <td class="  hide_column">16</td>
+                <td class="  txt-left"></td>
+                <td class="  txt-left"><span class="line line-clamp-2">Thông khí nhân tạo không xâm nhập phương thức CPAP
+                        [giờ theo thực tế]</span></td>
+                <td class="  txt-center">Lần</td>
+                <td class="  txt-right">720,000</td>
+                <td class="  txt-right">559,000</td>
+                <td class="  txt-right">792,000</td>
+                <td class="  txt-right">0</td>
+                <td class="  hide_column">26</td>
+                <td>tkntkxnptcttt</td>
+            </tr>
+            <tr>
+                <td class="  hide_column">214</td>
+                <td class="  hide_column">16</td>
+                <td class="  txt-left"></td>
+                <td class="  txt-left"><span class="line line-clamp-2">Thông khí nhân tạo không xâm nhập phương thức BiPAP
+                        [giờ theo thực tế]</span></td>
+                <td class="  txt-center">Lần</td>
+                <td class="  txt-right">720,000</td>
+                <td class="  txt-right">559,000</td>
+                <td class="  txt-right">792,000</td>
+                <td class="  txt-right">0</td>
+                <td class="  hide_column">26</td>
+                <td>tkntkxnptbttt</td>
+            </tr>
+            <tr>
+                <td class="  hide_column">215</td>
+                <td class="  hide_column">16</td>
+                <td class="  txt-left"></td>
+                <td class="  txt-left"><span class="line line-clamp-2">Thông khí nhân tạo xâm nhập [giờ theo thực tế]</span>
+                </td>
+                <td class="  txt-center">Lần</td>
+                <td class="  txt-right">720,000</td>
+                <td class="  txt-right">559,000</td>
+                <td class="  txt-right">792,000</td>
+                <td class="  txt-right">0</td>
+                <td class="  hide_column">26</td>
+                <td>tkntxnttt</td>
+            </tr>
+            <tr>
+                <td class="  hide_column">216</td>
+                <td class="  hide_column">16</td>
+                <td class="  txt-left"></td>
+                <td class="  txt-left"><span class="line line-clamp-2">Thông khí nhân tạo xâm nhập phương thức VCV [giờ theo
+                        thực tế]</span></td>
+                <td class="  txt-center">Lần</td>
+                <td class="  txt-right">720,000</td>
+                <td class="  txt-right">559,000</td>
+                <td class="  txt-right">792,000</td>
+                <td class="  txt-right">0</td>
+                <td class="  hide_column">26</td>
+                <td>tkntxnptvttt</td>
+            </tr>
+            <tr>
+                <td class="  hide_column">217</td>
+                <td class="  hide_column">16</td>
+                <td class="  txt-left"></td>
+                <td class="  txt-left"><span class="line line-clamp-2">Thông khí nhân tạo xâm nhập phương thức PCV [giờ theo
+                        thực tế]</span></td>
+                <td class="  txt-center">Lần</td>
+                <td class="  txt-right">720,000</td>
+                <td class="  txt-right">559,000</td>
+                <td class="  txt-right">792,000</td>
+                <td class="  txt-right">0</td>
+                <td class="  hide_column">26</td>
+                <td>tkntxnptpttt</td>
+            </tr>
+            <tr>
+                <td class="  hide_column">218</td>
+                <td class="  hide_column">16</td>
+                <td class="  txt-left"></td>
+                <td class="  txt-left"><span class="line line-clamp-2">Thông khí nhân tạo xâm nhập phương thức A/C (VCV)
+                        [giờ theo thực tế]</span></td>
+                <td class="  txt-center">Lần</td>
+                <td class="  txt-right">720,000</td>
+                <td class="  txt-right">559,000</td>
+                <td class="  txt-right">792,000</td>
+                <td class="  txt-right">0</td>
+                <td class="  hide_column">26</td>
+                <td>tkntxnptattt</td>
+            </tr>
+            <tr>
+                <td class="  hide_column">219</td>
+                <td class="  hide_column">16</td>
+                <td class="  txt-left"></td>
+                <td class="  txt-left"><span class="line line-clamp-2">Thông khí nhân tạo xâm nhập phương thức SIMV [giờ
+                        theo thực tế]</span></td>
+                <td class="  txt-center">Lần</td>
+                <td class="  txt-right">720,000</td>
+                <td class="  txt-right">559,000</td>
+                <td class="  txt-right">792,000</td>
+                <td class="  txt-right">0</td>
+                <td class="  hide_column">26</td>
+                <td>tkntxnptsttt</td>
+            </tr>
+            <tr>
+                <td class="  hide_column">220</td>
+                <td class="  hide_column">16</td>
+                <td class="  txt-left"></td>
+                <td class="  txt-left"><span class="line line-clamp-2">Thông khí nhân tạo xâm nhập phương thức PSV [giờ theo
+                        thực tế]</span></td>
+                <td class="  txt-center">Lần</td>
+                <td class="  txt-right">720,000</td>
+                <td class="  txt-right">559,000</td>
+                <td class="  txt-right">792,000</td>
+                <td class="  txt-right">0</td>
+                <td class="  hide_column">26</td>
+                <td>tkntxnptpttt</td>
+            </tr>
+            <tr>
+                <td class="  hide_column">221</td>
+                <td class="  hide_column">16</td>
+                <td class="  txt-left"></td>
+                <td class="  txt-left"><span class="line line-clamp-2">Thông khí nhân tạo xâm nhập phương thức CPAP [giờ
+                        theo thực tế]</span></td>
+                <td class="  txt-center">Lần</td>
+                <td class="  txt-right">720,000</td>
+                <td class="  txt-right">559,000</td>
+                <td class="  txt-right">792,000</td>
+                <td class="  txt-right">0</td>
+                <td class="  hide_column">26</td>
+                <td>tkntxnptcttt</td>
+            </tr>
+        </tbody>
+    </table>
+    <script>
+        
+        tableTimKiemDichVu = $('#tableTimKiemDichVu').DataTable({
+        columnDefs: [
+            { className: "hide_column", "targets": [0, 1, 9] },
+            { className: "txt-left", "targets": [2, 3] },
+            { className: "txt-center", "targets": [4] },
+            { className: "txt-right", "targets": [5,6,7,8] },
+
+            { "width": "120px", "targets": 2 },
+            { "width": "50px", "targets": [4, 8] },
+            { "width": "100px", "targets": [5,6,7] },
+
+            { "searchable": false, "targets": [0, 1, 9] }
+        ],
+        searchCols: [
+            null,  // Cột thứ nhất, sử dụng tìm kiếm mặc định
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            { "search": "^", "regex": true }
+        ],
+        autoWidth: false,
+        ordering: false,
+        pageLength :18,
+        searching: true,
+        searchHighlight: true,
+    }).draw();
+    tableTimKiemDichVu.on('preSearch.dt', function() {
+        console.log("1");
+        var keyword = tableTimKiemDichVu.column(10).search().toString();
+        if (keyword !== '' && !keyword.startsWith('^')) {
+            
+            tableTimKiemDichVu.column(10).search('^' + keyword).draw();
+        }
+    });
+    </script>
+    <br/><br/><br/>
+    <button id="buttonClick">Click</button>
+    <div class="frm_04">
+        <div class="flex">
+            <div class="w100 bg-2 pd-10">
+                <div class="w100 tbl-select-arrow tbl-fix-header tbl-fix-footer" style="height: 300px;">
+                    <table id="table1" class="frm-table tbl-border tbl-sm">
+                        <thead>
+                            <tr>
+                                <th class="d-none"></th>
+                                <th class="d-none"></th>
+                                <th class="d-none"></th>
+                                <th class="d-none"></th>
+                                <th>STT</th>
+                                <th>Occupation</th>
+                                <th>Name</th>
+                                <th>Ghi chú</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="d-none">1</td>
+                                <td class="d-none">0</td>
+                                <td class="d-none">0</td>
+                                <td class="d-none">3</td>
+                                <td></td>
+                                <td>1</td>
+                                <td style="text-align: center;">Nguyễn Văn A</td>
+                                <td title="Lorem ipsum"><span class="">Lorem ipsum dolor sit amet</span></td>
+                            </tr>
+                            <tr>
+                                <td class="d-none">1</td>
+                                <td class="d-none">0</td>
+                                <td class="d-none">0</td>
+                                <td class="d-none">3</td>
+                                <td style=" height: 64px;">2</td>
+                                <td contenteditable="true" class="cusor-center">&ensp;</td>
+                                <td contenteditable="true" style="text-align: left; vertical-align: text-top;"></td>
+                                <td><span contenteditable="true" class="line line-clamp-2"></span></td>
+                            </tr>
+                            <tr>
+                                <td class="d-none">1</td>
+                                <td class="d-none">0</td>
+                                <td class="d-none">0</td>
+                                <td class="d-none">3</td>
+                                <td>3</td>
+                                <td>3</td>
+                                <td>Nguyễn Văn cv</td>
+                                <td>Lorem ipsum dolor sit amet</td>
+                            </tr>
+                            <tr>
+                                <td class="d-none">1</td>
+                                <td class="d-none">0</td>
+                                <td class="d-none">0</td>
+                                <td class="d-none">3</td>
+                                <td>4</td>
+                                <td>45</td>
+                                <td>Nguyễn Văn cv</td>
+                                <td>Lorem ipsum dolor sit amet</td>
+                            </tr>
+                            <tr>
+                                <td class="d-none">1</td>
+                                <td class="d-none">0</td>
+                                <td class="d-none">0</td>
+                                <td class="d-none">3</td>
+                                <td>5</td>
+                                <td>33</td>
+                                <td>Nguyễn Văn cv</td>
+                                <td>Lorem ipsum dolor sit amet</td>
+                            </tr>
+                            <tr>
+                                <td class="d-none">1</td>
+                                <td class="d-none">0</td>
+                                <td class="d-none">0</td>
+                                <td class="d-none">3</td>
+                                <td>Yosef Hartman</td>
+                                <td>Theatrical and Performance</td>
+                                <td>Ronald Mayo</td>
+                                <td>Plant Etiologist</td>
+                            </tr>
+                            <tr class="not-allow">
+                                <td class="d-none">1</td>
+                                <td class="d-none">0</td>
+                                <td class="d-none">0</td>
+                                <td class="d-none">3</td>
+                                <td>6</td>
+                                <td>April Douglas</td>
+                                <td>Health Educator</td>
+                                <td>Makeup Artists</td>
+                            </tr>
+                            <tr>
+                                <td class="d-none">1</td>
+                                <td class="d-none">0</td>
+                                <td class="d-none">0</td>
+                                <td class="d-none">3</td>
+                                <td>7</td>
+                                <td>Salma Mcbride</td>
+                                <td>Mental Health Counselor</td>
+                                <td>Kassandra Donovan</td>
+                            </tr>
+                            <tr>
+                                <td class="d-none">1</td>
+                                <td class="d-none">0</td>
+                                <td class="d-none">0</td>
+                                <td class="d-none">3</td>
+                                <td>Yosef Hartman</td>
+                                <td>Theatrical and Performance</td>
+                                <td>Ronald Mayo</td>
+                                <td>Plant Etiologist</td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <th colspan="4">
+                                    <table class="frm-table tbl-border tbl-sm">
+                                        <tfoot>
+                                            <tr>
+                                                <th rowspan="3">Tổng Cộng</th>   
+                                                <th style="text-align:left">Số loại thuốc</th>
+                                                <th style="text-align:right">1</th>
+                                                <th rowspan="3"></th>
+                                            </tr>
+                                            <tr>
+                                                <th style="text-align:left">Số lượng</th>
+                                                <th style="text-align:right">1</th>
+                                            </tr>
+                                            <tr>
+                                                <th style="text-align:left">Thành tiền</th>
+                                                <th style="text-align:right">2,774</th>
+                                            </tr>
+                                        </tfoot>
+                                    </table>
+                                </th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+                <br/><br/><br/><br/><br/><br/><br/><br/><br/>
+                <div class="w100 tbl-select-arrow">
+                    <button id="hiden-focus">Focus</button>
+                    <table class="frm-table tbl-border tbl-drag" id="tbl-exmp">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>MÃ BN</th>
+                                <th>STT</th>
+                                <th>TÊN BỆNH NHÂN</th>
+                                <th>ABCBDAA</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>1</td>
+                                <td>1</td>
+                                <td>Nguyễn Văn A</td>
+                                <td>Lorem ipsum dolor sit amet</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>2</td>
+                                <td>2</td>
+                                <td>Nguyễn Văn b</td>
+                                <td>Lorem ipsum dolor sit amet</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>3</td>
+                                <td>3</td>
+                                <td>Nguyễn Văn cv</td>
+                                <td>Lorem ipsum dolor sit amet</td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>4</td>
+                                <td>45</td>
+                                <td>Nguyễn Văn cv</td>
+                                <td>Lorem ipsum dolor sit amet</td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td>5</td>
+                                <td>33</td>
+                                <td>Nguyễn Văn cv</td>
+                                <td>Lorem ipsum dolor sit amet</td>
+                            </tr>
+                            <tr>
+                                <td>6</td>
+                                <td>6</td>
+                                <td>21</td>
+                                <td>Nguyễn Văn cv</td>
+                                <td>Lorem ipsum dolor sit amet</td>
+                            </tr>
+                            <tr>
+                                <td>7</td>
+                                <td>7</td>
+                                <td>32</td>
+                                <td>Nguyễn Văn cv</td>
+                                <td>Lorem ipsum dolor sit amet</td>
+                            </tr><tr>
+                                <td>8</td>
+                                <td>8</td>
+                                <td>12</td>
+                                <td>Nguyễn Văn cv</td>
+                                <td>Lorem ipsum dolor sit amet</td>
+                            </tr>
+                            <tr>
+                                <td>9</td>
+                                <td>9</td>
+                                <td>012</td>
+                                <td>Nguyễn Văn cv</td>
+                                <td>Lorem ipsum dolor sit amet</td>
+                            </tr>
+                            <tr>
+                                <td>10</td>
+                                <td>10</td>
+                                <td>55</td>
+                                <td>Nguyễn Văn cv</td>
+                                <td>Lorem ipsum dolor sit amet</td>
+                            </tr>
+                            <tr>
+                                <td>11</td>
+                                <td>01235584</td>
+                                <td>66</td>
+                                <td>Nguyễn Văn cv</td>
+                                <td>Lorem ipsum dolor sit amet</td>
+                            </tr>
+                            <tr>
+                                <td>12</td>
+                                <td>01235584</td>
+                                <td>14</td>
+                                <td>Nguyễn Văn cv</td>
+                                <td>Lorem ipsum dolor sit amet</td>
+                            </tr>
+                            <tr>
+                                <td>13</td>
+                                <td>01235584</td>
+                                <td>18</td>
+                                <td>Nguyễn Văn cv</td>
+                                <td>Lorem ipsum dolor sit amet</td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td><button class="btn btn-exit"><i class="fa-regular fa-circle-xmark fa-lg"></i></button></td>
+                                <td>
+                                    <div class="flex flex-align-center gapy-5">
+                                        <input type="text" value="VẬT TƯ Y TẾ 001" class="input " placeholder="">
+                                        <button class="btn btn-search" style="display: none;">
+                                            <i class="fa-brands fa-searchengin fa-lg"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                                <td><input class="input number" type="text" value="3"></td>
+                                <td class="txt-left">DUNG DỊCH SÁT KHUẨN, KHỬ TRÙNG TRONG PHÒNG XÉT NGHIỆM, BUỒNG MỔ, BUỒNG BỆNH LOẠI 1 </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div id="sHeight" style="background: #e41616; width: 100%;"></div>
+
+            </div>
+        </div>
+        
+    </div>
+    <script src="js/reOrderRows.js"></script>
+    <script src="js/selectRow.js"></script>
+    <script src="js/tblHeight.js"></script>
+    <script>
+        $(() => {
+            tblArrowSelect(event, $("#table1"), function(){});
+            // tblArrowSelect(event, $("#tbl-exmp"), function(){});
+
+            tblSetHeight("sHeight", 17);
+        });
+        $('#tbl-exmp tbody tr').click(function() {
+            console.log("1")
+        });
+        
+
+
+
+        $("button").on("click", function(){
+            console.log($(this).attr('ID') + " đã được click");
+        });
+        // const tabless = document.getElementsByTagName("table");
+        // for (let i = 0; i < tabless.length; i++) {
+        //     tabless[i].addEventListener('click', function(event) {
+        //         const clickedElement = event.target;
+        //         if (clickedElement.hasAttribute('contenteditable') && clickedElement.tagName.toLowerCase() === 'td') {
+        //             console.log("1");
+
+        //             // const newSpan = document.createElement('span');
+        //             // clickedElement.appendChild(newSpan);
+        //             // if (clickedElement.hasAttribute('contenteditable') && clickedElement.getAttribute('contenteditable') === 'true') {
+        //             //     clickedElement.removeAttribute('contenteditable');
+        //             //     newSpan.setAttribute('contenteditable', 'true');
+        //             //     newSpan.classList.add('line');
+        //             //     newSpan.focus();
+        //             // }
+        //         }
+        //     });
+        // }
+
+     
+        // const elements = document.getElementsByClassName("cusor-center");
+        // if (elements.length > 0) {
+        //     const targetElement = elements[0];
+        //     const newSpan = document.createElement('span');
+        //     targetElement.appendChild(newSpan);
+        //     if (targetElement.hasAttribute('contenteditable') && targetElement.getAttribute('contenteditable') === 'true') {
+        //         targetElement.removeAttribute('contenteditable');
+        //         newSpan.setAttribute('contenteditable', 'true');
+        //         newSpan.classList.add('line');
+        //     }
+        // } else {
+        //     console.error('Không tìm thấy class "cusor-center".');
+        // }
+
+
+
+       function addTitle($parentDiv, tagClass) {
+            $parentDiv.on('mouseover', function() {
+                const target = $(this).find(tagClass);
+                if (target.length > 0) {
+                    target.on('mouseover', function() {
+                        var content = $(this).text();
+                        var parent = $(this).parent();
+                        !parent.attr('title') ? parent.attr('title', content) : null;
+                    });
+                }
+            });
+        }
+        addTitle($('table'), ('span.line'));
+        // reorderRow('table1');
+        // $("#tbl-exmp").on('mouseenter', function() {
+        //     console.log("1");
+        //     orderRow($(this).attr('id'));
+        // });
+        function orderRow(tableId) {
+            let draggedRow;
+            function dragstart(e) {
+                draggedRow = e.target;
+                e.dataTransfer.setData('text/plain', ''); 
+            }
+            function dragover(e) {
+                e.preventDefault();
+                let targetRow = e.target.closest('tr');
+                if (targetRow && draggedRow && targetRow !== draggedRow) {
+                    let parent = targetRow.parentNode;
+                    let rect = targetRow.getBoundingClientRect();
+                    let isAfter = e.clientY > rect.top + rect.height / 2;
+                    if (isAfter) {
+                        parent.insertBefore(draggedRow, targetRow.nextElementSibling);
+                    } else {
+                        parent.insertBefore(draggedRow, targetRow);
+                    }
+                }
+            }
+            function setupDragAndDrop() {
+                var rows = document.getElementById(tableId).getElementsByTagName('tr');
+                Array.from(rows).forEach(function (row) {
+                    row.hasAttribute('draggable') ? null : row.setAttribute('draggable', 'true');
+                    row.hasEventListener('dragstart', dragstart) ? null : row.addEventListener('dragstart', dragstart);
+                    row.hasEventListener('dragover', dragover) ? null : row.addEventListener('dragover', dragover);
+                });
+            }
+            Element.prototype.hasEventListener = function (eventName, handler) {
+                var events = this._events && this._events[eventName];
+                return events ? events.some(event => event.handler === handler) : false;
+            };
+            setupDragAndDrop();
+        }
+        const cSetting = {
+            select: {
+                style: 'single',
+            },
+            language: {
+                "lengthMenu": "",
+                "zeroRecords": "Không có dữ liệu",
+                "info": "",
+                "infoEmpty": "Không có dữ liệu",
+                "infoFiltered": "(lọc từ _MAX_ dòng)",
+                "paginate": {
+                    "previous": "T. trước",
+                    "next": "T. tiếp"
+                },
+                "search": "Tìm kiếm",
+            },
+            autoWidth: true,
+            scrollX: true,
+            paging: true,
+            searching: true,
+            info: true,
+            order: [[0, 'desc']],
+            keys: true,
+        }
+        $('#tbl-exmp').DataTable($.extend({},cSetting, {
+            columnDefs: [
+                { className: "hide_column", "targets": [0, 1] },
+                { width: "60px", targets: [2, 3] },
+            ],
+            // ordering: false,
+            pageLength: 20,
+            keys: true,
+            // rowReorder: {
+            //     selector: 'tr'
+            // },
+        }));
+
+        console.time('spanTbl');
+        function spanTbl() {
+            $('table td').each(function() {
+                var span = $('<span></span>');
+                var txt = $(this).html();
+                span.html(txt);
+                span.addClass('line line-clamp-2');
+                $(this).html('');
+                $(this).append(span);
+                $(this).attr('title', txt);
+                if (typeof Callback === 'function') {
+                    Callback(span);
+                }
+            });
+        }
+        console.timeEnd('spanTbl');
+    </script>
+    <div>
+        <hr>
+        <div class="content" id="thongtinkhambenh">
+            <div class="row">
+                <div class="col-lg-2 mb-4">
+                    <input type="text" id="txtBenhPhu" value="" class="input grow-1 disablegroup" autocomplete="off" list="">      
+                </div>
+                <div class="col-lg-2 mb-4">
+                    <input type="text" id="" value="" class="input grow-1 disablegroup" autocomplete="off" list="">      
+                </div><div class="col-lg-2 mb-4">
+                    <input type="text" id="" value="" class="input grow-1 disablegroup" autocomplete="off" list="">      
+                </div><div class="col-lg-2 mb-4">
+                    <input type="text" id="" value="" class="input grow-1 disablegroup" autocomplete="off" list="">      
+                </div>
+                <div class="col-lg-2 mb-4">
+                    <input type="text" id="cboBenhPhu" value="cboBenhPhu" class="input grow-1 disablegroup" autocomplete="off" list="">      
+                </div>
+                <div class="col-lg-2 mb-4">
+                    <input type="text" id="" value="" class="input grow-1 disablegroup" autocomplete="off" list="">      
+                </div><div class="col-lg-2 mb-4">
+                    <input type="text" id="" value="" class="input grow-1 disablegroup" autocomplete="off" list="">      
+                </div>
+                <div class="col-lg-2 mb-4">
+                    <input type="text" id="txtBenhPhuCV1" value="" class="input grow-1 disablegroup" autocomplete="off" list="">      
+                </div>
+                
+                
+                <div class="col-lg-2 mb-4">
+                    <select class="input w100px select2">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                    </select>
+                </div>
+                
+                <div class="col-lg-2 mb-4">
+                    <input type="text" id="" value="" class="input grow-1 disablegroup" autocomplete="off" list="">      
+                </div>
+                <div class="col-lg-10 mb-4">
+                    <textarea type="text" id="htmlInput" value="" class="input grow-1" spellcheck="false" style="width: 100%; min-height: 150px;"></textarea> 
+                    <button id="previewButton" class="btn btn-primary">Preview HTML</button>  
+                </div>
+                <div class="col-lg-10 mb-4">
+                    <textarea id="outputTextarea" rows="10" cols="50"></textarea>
+                </div>
+                
+            </div>
+        </div>
+        <script>
+            $(document).ready(() => {
+                $('.select2').select2();
+                const exceptions = ['cboBenhPhu', 'txtBenhPhu'];
+                enterNextInput($("#thongtinkhambenh"), ".input", exceptions, function(){
+                    const stopIndex = $("#cboBenhPhu").index(event.target);
+                    console.log(stopIndex)
+                    if (stopIndex === 0) {
+                        $("#cboBenhPhu").focus();
+                    }
+                });
+
+                $('#previewButton').on('click', function() {
+                    var htmlCode = $('#htmlInput').val();
+                    var domArray = $($.parseHTML(htmlCode));
+                    var iframe = $('<iframe>', { frameborder: 0, scrolling: 'yes' });
+                    $('#outputTextarea').val('');
+                    domArray.each(function() {
+                        iframe.append($(this).clone());
+                    });
+                    $('#outputTextarea').val(iframe.prop('outerHTML'));
+                });
+
+                // $('textarea').on('keydown', function (e) {
+                //     if (e.key === 'Enter') {
+                //         var textarea = $(this);
+                //         var cursorPosition = textarea.prop("selectionStart");
+                //         var lines = textarea.val().split('\n');
+                //         var currentLine = 0;
+                //         for (var i = 0; i < lines.length; i++) {
+                //             currentLine += lines[i].length + 1; 
+                //             if (cursorPosition <= currentLine) {
+                //                 break;
+                //             }
+                //         }
+                //         if (cursorPosition === currentLine) {
+                //             console.log('Bạn đã ấn Enter ở cuối dòng.');
+                //         }
+                //     }
+                // });
+            });
+            function enterNextInput($wrapContent, classInput, exceptions, callback) {
+                $wrapContent.on('keydown', classInput, function (event) {
+                    if (event.key === 'Enter') {
+                        const currentId = $(this).attr('id');
+                        if ($(this).is('textarea') || $(this).next().is('textarea')) {
+                            return;
+                        }
+                        exceptions && exceptions.includes(currentId) ? null : event.preventDefault();
+                        const $inputs = $wrapContent.find(classInput);
+                        const currentIndex = $inputs.index(this);
+                        let nextIndex = currentIndex + 1;
+                        nextIndex = (nextIndex >= $inputs.length) ? 0 : nextIndex;
+                        while (nextIndex < $inputs.length) {
+                            const $nextInput = $inputs.eq(nextIndex);
+                            if (!$nextInput.prop('disabled') && 
+                                !$nextInput.prop('hidden') && 
+                                !$nextInput.prop('checked') && 
+                                !$nextInput.prop('readonly') && 
+                                !$nextInput.is('textarea') 
+                            ) { 
+                                if ($nextInput.hasClass('select2')) {
+                                    $nextInput.select2('open');
+                                    $nextInput.on('select2:close', function () {
+                                        $inputs.eq(nextIndex + 1).focus()
+                                    });
+                                } else {
+                                    $nextInput.focus();
+                                }
+                                break;
+                            }
+                            nextIndex = (nextIndex >= $inputs.length - 1) ? 0 : nextIndex + 1;
+                        }
+                        if (typeof callback === 'function') {
+                            callback();
+                        }
+                    }
+                });
+            }
+            
+        </script>
+        <script>
+            function printBarcode (bn, lstcode, printtime) {
+                // Khai báo khởi tạo jsPDF
+                window.jsPDF = window.jspdf.jsPDF;
+                // Truyền dữ liệu
+                lstcode.forEach((code, index) => {
+                    const pdfDoc = new jsPDF('l', 'mm', [56, 32]);
+                    setFont(pdfDoc);
+                    var width = 56;
+                    var left = 0;
+                    var top = 6;
+                    // Tạo data và đổi sang img + url
+                    const imgURL = `https://img.honghunghospital.com.vn/getBarcode?data=${encodeURIComponent(code)}&svg=false&module_height=3&module_width=0.13&font_size=10&write_text=false&C128B=false`;
+                    pdfDoc.addImage(imgURL, 'JPEG', -5, 17.5);
+                    left += 2;
+                    // Tên bệnh nhân
+                    pdfDoc.setFont('times', 'bold');
+                    pdfDoc.setFontSize(11);
+                    pdfDoc.text(bn.tenbenhnhan.toUpperCase(), left, top);
+                    // Mã bệnh nhân , ngày sinh, giới tính, thời gian in
+
+                    pdfDoc.setFont('times', 'italic');
+                    pdfDoc.text('BN: ' + bn.codebenhnhan.toUpperCase(), left += 0.5, top += 5);
+
+
+                    pdfDoc.text('DOB: ' + bn.ngaysinh + ' - ' + bn.giotinh.toUpperCase(), left, top += 3.5);
+                    pdfDoc.text(printtime, width -= 3.5, top += 5, null, null, "right");
+                    // Mã Barcode
+                    pdfDoc.setFont('times', 'bold');
+                    pdfDoc.setFontSize(13);
+                    pdfDoc.text(code, left, top);
+                    // Xem ở cửa sổ mới
+                    var blob = pdfDoc.output('blob');
+                    // var url = window.URL.createObjectURL(blob);
+                    // window.open(url);
+                    SendToPrinter(blob, "intem", "In tem", function () { });
+                })
+            }
+
+        </script>
+    </div>
+</body>
+</html>

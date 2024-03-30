@@ -353,3 +353,64 @@ document.addEventListener("DOMContentLoaded", function () {
 //         language: 'vi',
 //     });
 // });
+const select = (id) => document.getElementById(id);
+const tabSettings = [
+    {
+        idSelect: 'cboLoaiTiepNhan',
+        tabs: [
+            'frm_list__info-tab1',
+            'frm_list__info-tab2',
+            'frm_list__info-tab3'
+        ]
+    },
+];
+    const select = (id) => document.getElementById(id);
+    const tabSettings = [
+        {
+            idSelect: 'cboLoaiTiepNhan',
+            tabs: [
+                'frm_list__info-tab1',
+                'frm_list__info-tab2',
+                'frm_list__info-tab3'
+            ],
+            ihiden: 'wrapBtnTop'
+        },
+    ];
+    tabSettings.forEach(setting => {
+        const selectElement = select(setting.idSelect);
+        if (selectElement) {
+            const tabs = setting.tabs.map(select);
+            let activeTabIndex = 0;
+            let lastActiveTabIndex = 0;
+            function updateTabs() {
+                if (selectElement.value === '2') { // nội trú
+                        tabs.forEach((tab, index) => {
+                        if (index === 0) {
+                            tab.checked = true;
+                        } else if (index === 1) {
+                            tab.disabled = false;
+                        } else {
+                            tab.disabled = true;
+                        }
+                    });
+                    lastActiveTabIndex = activeTabIndex;
+                }
+            }
+            selectElement.addEventListener('change', () => {
+                updateTabs();
+            });
+            
+            tabs.forEach((tab, index) => {
+                tab.addEventListener('change', () => {
+                    activeTabIndex = index;
+                    if (activeTabIndex === 0) {
+                        console.log("1");
+                        ihiden.style.display = 'block';
+                    } else {
+                        ihiden.style.display = 'none';
+                    }
+                });
+            });
+            updateTabs();
+        }
+    });

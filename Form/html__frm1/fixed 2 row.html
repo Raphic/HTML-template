@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <link rel="stylesheet" href="css/color_theme.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/frm_04.css">
+
+
+    <meta charset=utf-8 />
+    <title>DataTables - JS Bin</title>
+</head>
+
+<body class="theme-primary new_style">
+    <div class="">
+        <table id="detailedTable" class="frm-table tbl-border tbl-sm tbl-bg-white tbl-fixed-tow" style="width: 100%">
+            <thead>
+                <tr>
+                    <th rowspan="2" style="width: 120px;">
+                        <p>Điểm news</p>
+                        <span class="badge badge-success-light">0</span>
+                        <span class="badge badge-info-light">1</span>
+                        <span class="badge badge-warning-light">2</span>
+                        <span class="badge badge-danger-light">3</span>
+                    </th>
+                    <th style="width: 110px;">Ngày</th>
+                    <th colspan="2">02/02</p></th>
+                    <th colspan="2">03/02</p></th>
+                    <th colspan="2">04/02</p></th>
+                    <th colspan="2">05/02</p></th>
+                    <th colspan="2">06/02</p></th>
+                    <th colspan="2">07/02</p></th>
+                    <th colspan="2">08/02</p></th>
+                </tr>
+                <tr>
+                    <th style="width: 110px;">Giờ</th>
+                    <th colspan="2">6:33</p></th>
+                    <th colspan="2">6:45</p></th>
+                    <th colspan="2">8:56</p></th>
+                    <th colspan="2">9:00</p></th>
+                    <th colspan="2">10:00</p></th>
+                    <th colspan="2">11:30</p></th>
+                    <th colspan="2">12:05</p></th>
+                </tr>
+            </thead>
+            <tbody>
+               
+                <tr>
+                    <td><p class="txt-lg pd-5"><b>A + B</b> <br> <small>Hô hấp <br>(<i>lần/phút</i>)</small></p></td>
+                    <td class="badge-danger-light">
+                        <div class="flex flex-justify-space-between">
+                            <span class="badge badge-danger">3</span><span class="badge badge-danger-light">&#8805; 25</span>
+                        </div>
+                    </td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><p class="txt-lg pd-5"><b>A + B</b> <br> <small>Hô hấp <br>(<i>lần/phút</i>)</small></p></td>
+                    <td class="badge-warning-light">
+                        <div class="flex flex-justify-space-between">
+                            <span class="badge badge-warning">2</span><span class="badge badge-warning-light">21-24</span>
+                        </div>
+                    </td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <script>
+        
+
+    </script>
+    <style>
+        .wrapt-canvas{
+            position: relative;
+        }
+        #myCanvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            pointer-events: none; /* Đảm bảo canvas không ảnh hưởng đến sự kiện click chuột */
+        }
+    </style>
+    
+    <div class="wrapt-canvas">
+        <canvas id="myCanvas"></canvas>
+        <table id="dataTable" class="frm-table tbl-border tbl-sm tbl-bg-white">
+            <tbody>
+                <tr>
+                    <td>0</td>
+                    <td></td>
+                    <td>80</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>26</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td></td>
+                    <td></td>
+                    <td>25</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>25</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>20</td>
+                    <td>20</td>
+                    <td>20</td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        const canvas = document.getElementById('myCanvas');
+        const ctx = canvas.getContext('2d');
+        const table = document.getElementById('dataTable');
+        // Lấy kích thước của table
+        const tableWidth = table.clientWidth;
+        const tableHeight = table.clientHeight;
+        // Thiết lập kích thước cho canvas
+        canvas.width = tableWidth;
+        canvas.height = tableHeight;
+        // Tạo mảng dữ liệu
+        const rows = table.querySelectorAll('tr');
+        const cells = table.querySelectorAll('td:not(:first-child)');
+        const data = [];
+
+        rows.forEach(row => {
+            const cells = row.querySelectorAll('td:not(:first-child)');
+            cells.forEach(cell => {
+                const value = parseFloat(cell.textContent.trim());
+                if (!isNaN(value)) {
+                    data.push(value);
+                }
+            });
+        });
+
+console.log(data);
+        // Vẽ đường thẳng
+        ctx.beginPath();
+        for (let i = 0; i < data.length; i++) {
+            const x = i * 50 + 25;
+            const y = 200 - data[i];
+            if (i === 0) {
+                ctx.moveTo(x, y);
+            } else {
+                ctx.lineTo(x, y);
+            }
+        }
+        ctx.strokeStyle = 'red';
+        ctx.lineWidth = 2;
+        ctx.stroke();
+        // Vẽ các điểm
+        for (let i = 0; i < data.length; i++) {
+            const x = i * 50 + 25;
+            const y = 200 - data[i];
+            ctx.beginPath();
+            ctx.arc(x, y, 5, 0, 2 * Math.PI);
+            ctx.fillStyle = 'blue';
+            ctx.fill();
+        }
+    </script>
+    <!-- <script>
+        const canvas = document.getElementById('myCanvas');
+        const ctx = canvas.getContext('2d');
+
+        // Tạo mảng dữ liệu
+        const data = [26, 80, 25, 20, 20, 20, 25];
+
+        // Vẽ đường thẳng
+        ctx.beginPath();
+        for (let i = 0; i < data.length; i++) {
+        const x = i * 50 + 25;
+        const y = 200 - data[i];
+        if (i === 0) {
+            ctx.moveTo(x, y);
+        } else {
+            ctx.lineTo(x, y);
+        }
+        }
+        ctx.strokeStyle = 'red';
+        ctx.lineWidth = 2;
+        ctx.stroke();
+
+        // Vẽ các điểm
+        for (let i = 0; i < data.length; i++) {
+        const x = i * 50 + 25;
+        const y = 200 - data[i];
+        ctx.beginPath();
+        ctx.arc(x, y, 5, 0, 2 * Math.PI);
+        ctx.fillStyle = 'blue';
+        ctx.fill();
+        }
+
+    </script> -->
+    
+</body>
+
+</html>

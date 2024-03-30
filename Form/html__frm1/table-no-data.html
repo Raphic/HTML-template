@@ -1,0 +1,1200 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#FF6B00"> 
+    <!-- <meta http-equiv="refresh" content="60"> -->
+    <title>Table not using DataTable</title>
+
+    <!-- <link href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css">
+    <link href="https://cdn.datatables.net/select/1.7.0/css/select.dataTables.min.css" rel="stylesheet" type="text/css">
+    <link href="https://cdn.datatables.net/keytable/2.10.0/css/keyTable.dataTables.min.css" rel="stylesheet" type="text/css">
+    <link href="https://cdn.datatables.net/plug-ins/1.13.6/features/searchHighlight/dataTables.searchHighlight.css" rel="stylesheet" type="text/css"> -->
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <!-- <link href="https://cdn.datatables.net/rowreorder/1.4.1/css/rowReorder.dataTables.min.css" rel="stylesheet" type="text/css">
+    <link href="https://cdn.datatables.net/1.13.7/css/dataTables.bootstrap5.min.css" rel="stylesheet" type="text/css">
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" /> -->
+    <link rel="stylesheet" href="css/color_theme.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/frm_04.css">
+    
+    <!-- 
+    <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/select/1.6.2/js/dataTables.select.min.js"></script>
+    <script src="https://cdn.datatables.net/keytable/2.11.0/js/dataTables.keyTable.min.js"></script>
+    <script src="https://cdn.datatables.net/plug-ins/1.13.6/features/searchHighlight/dataTables.searchHighlight.min.js"></script>
+
+    <script src="https://cdn.datatables.net/rowreorder/1.4.1/js/dataTables.rowReorder.min.js"></script>
+
+    
+    <script src="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap5.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script> -->
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+
+<style>
+    .new_style tbody tr td *{
+        vertical-align: middle !important;
+    }
+    .selected,
+    .stayed{
+        background: #057e41 !important;
+        color: #fff !important;
+    }
+    button:focus{
+        background: #e41616;
+    }
+    @media print {
+        .frm-table{
+            display: none !important;
+            
+        }
+    }
+</style>
+<body class="theme-primary new_style">
+    <div class="w100 tbl-fix-header mrg-t-5">
+        <table class="frm-table tbl-border tbl-sm" id="tbl-exp" style="width: 100%;">
+            <thead>
+                <tr>
+                    <th>STT</th>
+                    <th>Số lượng</th>
+                    <th>Tên dịch vụ</th>
+                    <th>ĐVT</th>
+                    <th>Đơn giá DV</th>
+                    <th>Đơn giá BH</th>
+                    <th>Đơn giá NN</th>
+                    <th>Viết tắt</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="txt-left">1</td>
+                    <td><input style="text-align: right;" class="input grow-1" type="text" value="5"></td>
+                    <td class="txt-left"><span class="line line-clamp-2">Nhổ răng vĩnh viễn lung lay (Nhi khoa)</span></td>
+                    <td class="txt-center">Lần</td>
+                    <td class="txt-right">414,000</td>
+                    <td class="txt-right">102,000</td>
+                    <td class="txt-right">456,000</td>
+                    <td>nrvvllk</td>
+                </tr>
+                <tr>
+                    <td class="txt-left">2</td>
+                    <td><input style="text-align: right;" class="input grow-1" type="text" value="8"></td>
+                    <td class="txt-left"><span class="line line-clamp-2">Nhổ chân răng vĩnh viễn (Nhi khoa)</span></td>
+                    <td class="txt-center">Lần</td>
+                    <td class="txt-right">414,000</td>
+                    <td class="txt-right">190,000</td>
+                    <td class="txt-right">456,000</td>
+                    <td>ncrvvk</td>
+                </tr>
+                <tr>
+                    <td class="txt-left">3</td>
+                    <td><input style="text-align: right;" class="input grow-1" type="text" value="1"></td>
+                    <td class="txt-left"><span class="line line-clamp-2">Cắt lợi trùm răng khôn hàm dưới (Nhi khoa)</span></td>
+                    <td class="txt-center">Lần</td>
+                    <td class="txt-right">414,000</td>
+                    <td class="txt-right">158,000</td>
+                    <td class="txt-right">456,000</td>
+                    <td>cltrkhdk</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <script>
+        function sortTbl(tableID, columnNames, reorderColumn, status) {
+            const table = document.getElementById(tableID);
+            const headers = table.querySelectorAll("thead th");
+            const tbody = table.querySelector("tbody");
+            const upperColumnNames = columnNames.map(name => name.toUpperCase());
+            const upperReorderColumn = reorderColumn.toUpperCase();
+            let isAscending = true;
+            // Thêm class tbl-sort vào table để set css
+            !table.classList.contains('tbl-sort') ? table.classList.add('tbl-sort') : null;
+            for (let i = 0; i < headers.length; i++) {
+                upperColumnNames.includes(headers[i].innerText.trim()) ? headers[i].classList.add('sorten') : null;
+                // Sự kiện click th
+                headers[i].addEventListener("click", function () {
+                    const columnName = this.innerText.trim();
+                    const columnIndex = Array.from(this.parentNode.children).indexOf(this);
+                    const reorderIndex = Array.from(headers).findIndex(header => header.innerText.trim() === upperReorderColumn);
+                    // Điều kiện nội dung th nằm trong mảng truyền vào
+                    upperColumnNames.includes(columnName) ?
+                    (
+                        isAscending = !isAscending,
+                        sortOrder = status ? (isAscending ? -1 : 1) : 1,
+                        // Remove tất cả các class nếu có
+                        Array.from(headers).forEach(th => {
+                            th.classList.remove('current-asc', 'current-desc');
+                        }),
+                        // Thêm class tương ứng
+                        this.classList.add(status ? (isAscending ? 'current-desc' : 'current-asc') : 'current-asc'),
+                        // Lấy giá trị các dòng
+                        values = Array.from(tbody.querySelectorAll(`td:nth-child(${columnIndex + 1})`)).map(td => {
+                            text = td.querySelector('input') ? td.querySelector('input').value.trim() : td.cloneNode(true).innerText.trim();
+                            return !isNaN(parseFloat(text)) ? parseFloat(text) : text;
+                        }),
+                        // Sắp xếp các hàng trong tbody dựa trên giá trị cột tương ứng
+                        sortedRows = Array.from(tbody.querySelectorAll("tr")).sort((a, b) => {
+                            valueA = values[a.rowIndex - 1];
+                            valueB = values[b.rowIndex - 1];
+
+                            const sortOrder = status ? (isAscending ? -1 : 1) : 1;
+
+                            return (typeof valueA === 'number' && typeof valueB === 'number') ? sortOrder * (valueA - valueB) : sortOrder * String(valueA).localeCompare(String(valueB));
+                        }),
+                        // Xóa hết các dòng trong table
+                        tbody.innerHTML = "",
+                        // Thêm các hàng đã sắp xếp vào tbody
+                        sortedRows.forEach((row, index) => {
+                            tbody.appendChild(row);
+                            row.cells[reorderIndex].innerText = (index + 1).toString();
+                        })
+                    ) : null ;
+                });
+            }
+        }
+        sortTbl('tbl-exp', ['Tên dịch vụ', 'SỐ LƯỢNG', 'Đơn giá BH'], 'STT', false);
+    </script>
+
+    <div style="width: 600px ;height: 300px; overflow: auto; margin: auto; position: relative;">
+        <table class="frm-table tbl-border tbl-sm tbl-bg-white tbl-fixed-tow">
+            <thead>
+                <tr>
+                    <th rowspan="2" style="width: 120px;">
+                        <p>Điểm news</p>
+                        <span class="badge badge-success-light">0</span>
+                        <span class="badge badge-info-light">1</span>
+                        <span class="badge badge-warning-light">2</span>
+                        <span class="badge badge-danger-light">3</span>
+                    </th>
+                    <th style="width: 110px;">Ngày</th>
+                    <th colspan="2"><p>02/02</p></th>
+                    <th colspan="2"><p>03/02</p></th>
+                    <th colspan="2"><p>04/02</p></th>
+                    <th colspan="2"><p>05/02</p></th>
+                    <th colspan="2"><p>06/02</p></th>
+                    <th colspan="2"><p>07/02</p></th>
+                    <th colspan="2"><p>08/02</p></th>
+                    <th colspan="2"><p>09/02</p></th>
+                    <th colspan="2"><p>10/02</p></th>
+                    <th colspan="2"><p>11/02</p></th>
+                    <th colspan="2"><p>12/02</p></th>
+                    <th colspan="2"><p>13/02</p></th>
+                </tr>
+                <tr>
+                    <th style="width: 110px;">Giờ</th>
+                    <th colspan="2"><p>6:33</p></th>
+                    <th colspan="2"><p>6:45</p></th>
+                    <th colspan="2"><p>8:56</p></th>
+                    <th colspan="2"><p>9:00</p></th>
+                    <th colspan="2"><p>10:00</p></th>
+                    <th colspan="2"><p>11:30</p></th>
+                    <th colspan="2"><p>12:05</p></th>
+                    <th colspan="2"><p>13:15</p></th>
+                    <th colspan="2"><p>15:58</p></th>
+                    <th colspan="2"><p>17:56</p></th>
+                    <th colspan="2"><p>19:20</p></th>
+                    <th colspan="2"><p>20:00</p></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td colspan="26" style="height: 5px;"></td>
+                </tr>
+                <tr>
+                    <td rowspan="2"><p class="txt-lg pd-5"><b>A + B</b> <br> <small>Hô hấp <br>(<i>lần/phút</i>)</small></p></td>
+                    <td class="badge-danger-light">
+                        <div class="flex flex-justify-space-between">
+                            <span class="badge badge-danger">3</span><span class="badge badge-danger-light">&#8805; 25</span>
+                        </div>
+                    </td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                </tr>
+                <tr>
+                    <td class="badge-warning-light">
+                        <div class="flex flex-justify-space-between">
+                            <span class="badge badge-warning">2</span><span class="badge badge-warning-light">21-24</span>
+                        </div>
+                    </td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                </tr>
+                <tr>
+                    <td colspan="26" style="height: 5px;"></td>
+                </tr>
+                <tr>
+                    <td rowspan="2"><p class="txt-lg pd-5"><b>A + B</b> <br> <small>Hô hấp <br>(<i>lần/phút</i>)</small></p></td>
+                    <td class="badge-danger-light">
+                        <div class="flex flex-justify-space-between">
+                            <span class="badge badge-danger">3</span><span class="badge badge-danger-light">&#8805; 25</span>
+                        </div>
+                    </td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                </tr>
+                <tr>
+                    <td class="badge-warning-light">
+                        <div class="flex flex-justify-space-between">
+                            <span class="badge badge-warning">2</span><span class="badge badge-warning-light">21-24</span>
+                        </div>
+                    </td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                </tr>
+                <tr>
+                    <td colspan="26" style="height: 5px;"></td>
+                </tr>
+                <tr>
+                    <td rowspan="2"><p class="txt-lg pd-5"><b>A + B</b> <br> <small>Hô hấp <br>(<i>lần/phút</i>)</small></p></td>
+                    <td class="badge-danger-light">
+                        <div class="flex flex-justify-space-between">
+                            <span class="badge badge-danger">3</span><span class="badge badge-danger-light">&#8805; 25</span>
+                        </div>
+                    </td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                </tr>
+                <tr>
+                    <td class="badge-warning-light">
+                        <div class="flex flex-justify-space-between">
+                            <span class="badge badge-warning">2</span><span class="badge badge-warning-light">21-24</span>
+                        </div>
+                    </td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                </tr>
+                <tr>
+                    <td colspan="26" style="height: 5px;"></td>
+                </tr>
+                <tr>
+                    <td rowspan="2"><p class="txt-lg pd-5"><b>A + B</b> <br> <small>Hô hấp <br>(<i>lần/phút</i>)</small></p></td>
+                    <td class="badge-danger-light">
+                        <div class="flex flex-justify-space-between">
+                            <span class="badge badge-danger">3</span><span class="badge badge-danger-light">&#8805; 25</span>
+                        </div>
+                    </td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                </tr>
+                <tr>
+                    <td class="badge-warning-light">
+                        <div class="flex flex-justify-space-between">
+                            <span class="badge badge-warning">2</span><span class="badge badge-warning-light">21-24</span>
+                        </div>
+                    </td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                </tr>
+                <tr>
+                    <td colspan="26" style="height: 5px;"></td>
+                </tr>
+                <tr>
+                    <td rowspan="2"><p class="txt-lg pd-5"><b>A + B</b> <br> <small>Hô hấp <br>(<i>lần/phút</i>)</small></p></td>
+                    <td class="badge-danger-light">
+                        <div class="flex flex-justify-space-between">
+                            <span class="badge badge-danger">3</span><span class="badge badge-danger-light">&#8805; 25</span>
+                        </div>
+                    </td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                </tr>
+                <tr>
+                    <td class="badge-warning-light">
+                        <div class="flex flex-justify-space-between">
+                            <span class="badge badge-warning">2</span><span class="badge badge-warning-light">21-24</span>
+                        </div>
+                    </td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                </tr>
+                <tr>
+                    <td colspan="26" style="height: 5px;"></td>
+                </tr>
+                <tr>
+                    <td rowspan="2"><p class="txt-lg pd-5"><b>A + B</b> <br> <small>Hô hấp <br>(<i>lần/phút</i>)</small></p></td>
+                    <td class="badge-danger-light">
+                        <div class="flex flex-justify-space-between">
+                            <span class="badge badge-danger">3</span><span class="badge badge-danger-light">&#8805; 25</span>
+                        </div>
+                    </td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                </tr>
+                <tr>
+                    <td class="badge-warning-light">
+                        <div class="flex flex-justify-space-between">
+                            <span class="badge badge-warning">2</span><span class="badge badge-warning-light">21-24</span>
+                        </div>
+                    </td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                </tr>
+                <tr>
+                    <td colspan="26" style="height: 5px;"></td>
+                </tr>
+                <tr>
+                    <td rowspan="2"><p class="txt-lg pd-5"><b>A + B</b> <br> <small>Hô hấp <br>(<i>lần/phút</i>)</small></p></td>
+                    <td class="badge-danger-light">
+                        <div class="flex flex-justify-space-between">
+                            <span class="badge badge-danger">3</span><span class="badge badge-danger-light">&#8805; 25</span>
+                        </div>
+                    </td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                </tr>
+                <tr>
+                    <td class="badge-warning-light">
+                        <div class="flex flex-justify-space-between">
+                            <span class="badge badge-warning">2</span><span class="badge badge-warning-light">21-24</span>
+                        </div>
+                    </td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                </tr>
+                <tr>
+                    <td colspan="26" style="height: 5px;"></td>
+                </tr>
+                <tr>
+                    <td rowspan="2"><p class="txt-lg pd-5"><b>A + B</b> <br> <small>Hô hấp <br>(<i>lần/phút</i>)</small></p></td>
+                    <td class="badge-danger-light">
+                        <div class="flex flex-justify-space-between">
+                            <span class="badge badge-danger">3</span><span class="badge badge-danger-light">&#8805; 25</span>
+                        </div>
+                    </td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                </tr>
+                <tr>
+                    <td class="badge-warning-light">
+                        <div class="flex flex-justify-space-between">
+                            <span class="badge badge-warning">2</span><span class="badge badge-warning-light">21-24</span>
+                        </div>
+                    </td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                </tr>
+                <tr>
+                    <td colspan="26" style="height: 5px;"></td>
+                </tr>
+                <tr>
+                    <td rowspan="2"><p class="txt-lg pd-5"><b>A + B</b> <br> <small>Hô hấp <br>(<i>lần/phút</i>)</small></p></td>
+                    <td class="badge-danger-light">
+                        <div class="flex flex-justify-space-between">
+                            <span class="badge badge-danger">3</span><span class="badge badge-danger-light">&#8805; 25</span>
+                        </div>
+                    </td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                </tr>
+                <tr>
+                    <td class="badge-warning-light">
+                        <div class="flex flex-justify-space-between">
+                            <span class="badge badge-warning">2</span><span class="badge badge-warning-light">21-24</span>
+                        </div>
+                    </td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                </tr>
+                <tr>
+                    <td colspan="26" style="height: 5px;"></td>
+                </tr>
+                <tr>
+                    <td rowspan="2"><p class="txt-lg pd-5"><b>A + B</b> <br> <small>Hô hấp <br>(<i>lần/phút</i>)</small></p></td>
+                    <td class="badge-danger-light">
+                        <div class="flex flex-justify-space-between">
+                            <span class="badge badge-danger">3</span><span class="badge badge-danger-light">&#8805; 25</span>
+                        </div>
+                    </td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                </tr>
+                <tr>
+                    <td class="badge-warning-light">
+                        <div class="flex flex-justify-space-between">
+                            <span class="badge badge-warning">2</span><span class="badge badge-warning-light">21-24</span>
+                        </div>
+                    </td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                </tr>
+                <tr>
+                    <td colspan="26" style="height: 5px;"></td>
+                </tr>
+                <tr>
+                    <td rowspan="2"><p class="txt-lg pd-5"><b>A + B</b> <br> <small>Hô hấp <br>(<i>lần/phút</i>)</small></p></td>
+                    <td class="badge-danger-light">
+                        <div class="flex flex-justify-space-between">
+                            <span class="badge badge-danger">3</span><span class="badge badge-danger-light">&#8805; 25</span>
+                        </div>
+                    </td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                </tr>
+                <tr>
+                    <td class="badge-warning-light">
+                        <div class="flex flex-justify-space-between">
+                            <span class="badge badge-warning">2</span><span class="badge badge-warning-light">21-24</span>
+                        </div>
+                    </td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                </tr>
+                <tr>
+                    <td colspan="26" style="height: 5px;"></td>
+                </tr>
+                <tr>
+                    <td rowspan="2"><p class="txt-lg pd-5"><b>A + B</b> <br> <small>Hô hấp <br>(<i>lần/phút</i>)</small></p></td>
+                    <td class="badge-danger-light">
+                        <div class="flex flex-justify-space-between">
+                            <span class="badge badge-danger">3</span><span class="badge badge-danger-light">&#8805; 25</span>
+                        </div>
+                    </td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                </tr>
+                <tr>
+                    <td class="badge-warning-light">
+                        <div class="flex flex-justify-space-between">
+                            <span class="badge badge-warning">2</span><span class="badge badge-warning-light">21-24</span>
+                        </div>
+                    </td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                </tr>
+                <tr>
+                    <td colspan="26" style="height: 5px;"></td>
+                </tr>
+                <tr>
+                    <td rowspan="2"><p class="txt-lg pd-5"><b>A + B</b> <br> <small>Hô hấp <br>(<i>lần/phút</i>)</small></p></td>
+                    <td class="badge-danger-light">
+                        <div class="flex flex-justify-space-between">
+                            <span class="badge badge-danger">3</span><span class="badge badge-danger-light">&#8805; 25</span>
+                        </div>
+                    </td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                </tr>
+                <tr>
+                    <td class="badge-warning-light">
+                        <div class="flex flex-justify-space-between">
+                            <span class="badge badge-warning">2</span><span class="badge badge-warning-light">21-24</span>
+                        </div>
+                    </td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                </tr>
+                <tr>
+                    <td colspan="26" style="height: 5px;"></td>
+                </tr>
+                <tr>
+                    <td rowspan="2"><p class="txt-lg pd-5"><b>A + B</b> <br> <small>Hô hấp <br>(<i>lần/phút</i>)</small></p></td>
+                    <td class="badge-danger-light">
+                        <div class="flex flex-justify-space-between">
+                            <span class="badge badge-danger">3</span><span class="badge badge-danger-light">&#8805; 25</span>
+                        </div>
+                    </td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                </tr>
+                <tr>
+                    <td class="badge-warning-light">
+                        <div class="flex flex-justify-space-between">
+                            <span class="badge badge-warning">2</span><span class="badge badge-warning-light">21-24</span>
+                        </div>
+                    </td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                </tr>
+                <tr>
+                    <td colspan="26" style="height: 5px;"></td>
+                </tr>
+                <tr>
+                    <td rowspan="2"><p class="txt-lg pd-5"><b>A + B</b> <br> <small>Hô hấp <br>(<i>lần/phút</i>)</small></p></td>
+                    <td class="badge-danger-light">
+                        <div class="flex flex-justify-space-between">
+                            <span class="badge badge-danger">3</span><span class="badge badge-danger-light">&#8805; 25</span>
+                        </div>
+                    </td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                    <td><p></p></td>
+                </tr>
+                <tr>
+                    <td class="badge-warning-light">
+                        <div class="flex flex-justify-space-between">
+                            <span class="badge badge-warning">2</span><span class="badge badge-warning-light">21-24</span>
+                        </div>
+                    </td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                    <td><p>✔</p></td>
+                </tr>
+
+                
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

@@ -2,6 +2,7 @@
 .frm_04{
     max-width: var(--width-desktop);
     margin: auto;
+    padding: 10px;
     font-size: var(--fz-primary);
 }
 .frm__right-action{
@@ -15,6 +16,22 @@
     min-width: 100px;
     margin-left: 5px;
 }
+.frm__left-day-improve{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+.frm__left-day-improve > div:first-child{
+    flex: 2 1 clamp(190px, 65%, 200px);
+}
+.frm__left-day-improve > div:nth-child(2){
+    flex: 1 1 calc(35% - 10px);
+}
+.frm__left-day-improve > div > div{
+    flex-grow: 1;
+    gap: 5px;
+}
 .btn-ds-bn{
     line-height: 1.2;
     font-size: 13px;
@@ -27,7 +44,7 @@
     width: calc(50% - 5px);
 }
 .frm__left-load-slbn-bhyt label{
-    color: var(--clr-btn-primary);
+    color: rgba(var(--clr-btn-primary), 1);
     text-decoration: underline;
 }
 .frm__left-load-slbn-bhyt .input{
@@ -37,7 +54,7 @@
     cursor:auto;
 }
 #frm__right-info-medical--time{
-    border: 1px solid var(--clr-btn-third);
+    border: 1px solid rgba(var(--clr-btn-third), 1);
 }
 .frm__right-info label{
     text-align: right;
@@ -46,14 +63,18 @@
     min-width: 110px;
 }
 textarea[name="medical-note"]{
-    min-height: 95px;
+    min-height: 100%;
     padding-top: 5px;
 }
-
+.frm_nhacc,
+.frm_return_medicin,
+.frm_duoc,
+.frm_noitru{
+    padding: 10px;
+}
 .frm_return_medicine div.tbl-fix-header{
     height: 500px;
 }
-
 .frm_duoc div.tlb-pills-export{
     height: 140px;
 }
@@ -71,4 +92,64 @@ textarea[name="medical-note"]{
 }
 .frm_nhacc div.frm__right-vattu{
     height: 290px;
+}
+/* #tableKetQuaTimKiem tbody tr td:nth-child(3){
+    min-width: 110px;
+}
+#tableKetQuaTimKiem tbody tr td:nth-child(4){
+    min-width: 180px;
+} */
+#tableChiTietHD tr:nth-child(even),
+#tableChiTietHD tr:nth-child(odd){
+    
+}
+#tableChiTietHD tr th:nth-child(7),
+#tableChiTietHD tr td:nth-child(7),
+#tableChiTietHD tr td:nth-child(7) input{
+    width: 60px;
+}
+#tableChiTietHD tr th:nth-child(8),
+#tableChiTietHD tr td:nth-child(8){
+    width: 100px;
+}
+#tableChiTietHD tr th:nth-child(9),
+#tableChiTietHD tr td:nth-child(9){
+    width: 400px;
+}
+#tableChiTietHD tr th:nth-child(10),
+#tableChiTietHD tr td:nth-child(10){
+    width: 50px;
+}
+#tableChiTietHD tr th:nth-child(11),
+#tableChiTietHD tr td:nth-child(11) input,
+#tableChiTietHD tr td:nth-child(11),
+#tableChiTietHD tr th:nth-child(12),
+#tableChiTietHD tr td:nth-child(12) input,
+#tableChiTietHD tr td:nth-child(12){
+    width: 80px;
+}
+#tableChiTietHD tr th:nth-child(13),
+#tableChiTietHD tr td:nth-child(13) input,
+#tableChiTietHD tr td:nth-child(13){
+    width: 120px;
+}
+#tableChiTietHD tr th:nth-child(14),
+#tableChiTietHD tr td:nth-child(14) input,
+#tableChiTietHD tr td:nth-child(14){
+    width: clamp(120px, 100%, 300px);
+}
+.frm-tk-vattu > div > .row:nth-child(1) > div:nth-child(1){
+    display: none;
+} 
+#tableTimKiemVatTu_filter{
+    float: left;
+}
+#tableTimKiemPhieuNhap_filter {
+    float: left;
+}
+#tableTimKiemHangHoa_filter {
+    float: left;
+}
+#tableTimKiemDichVu_filter {
+    float: left;
 }

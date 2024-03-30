@@ -1,0 +1,1263 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Hợp đồng sức khỏe</title>
+
+    <link rel="stylesheet" href="css/frm_04.css">
+
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    
+</head>
+
+    <body>
+        <div class="new_style frm_04">
+            <div class="flex flex-wrap gapy-10">
+                <div class="w30-gapy5 flex flex-flow-column flex-wrap gapy-5 bg-2 box-shadow-5 bdr-5 pd-10">
+                    <div class="w100 flex flex-wrap gapy-5">
+                        <div class="w100 flex flex-align-center gapy-5">
+                            <label class="w90px txt-right" for=""></label>
+                            <input class="input grow-1" type="search" id="" value="">
+                            <button class="btn"><i class="fa-solid fa-magnifying-glass fa-lg"></i></button>
+                        </div>
+                        <div class="w65-gapy5 flex flex-align-center gapy-5">
+                            <label class="w90px txt-right clr-red" for="id1">Mã hợp đồng</label>
+                            <input class="input w100px grow-1" type="text" id="id1" value="">
+                        </div>
+                        <div class="w35 flex flex-align-center gapy-5">
+                            <label class="w70px txt-right clr-red" for="id8">Tỉ lệ chi phí</label>
+                            <input class="input w40px grow-1" type="text" id="id8" value="">
+                        </div>
+                        <div class="w100 flex flex-align-center gapy-5">
+                            <label class="w90px txt-right" for="id2">Ngày hợp đồng</label>
+                            <input class="input grow-1" type="date" id="id2" value="">
+                        </div>
+                        <div class="w100 flex flex-align-center gapy-5">
+                            <label class="w90px txt-right" for="id3">Giá trị hợp đồng</label>
+                            <input class="input grow-1" type="text" id="id3" value="">
+                        </div>
+                        <div class="w100 flex flex-align-center gapy-5">
+                            <label class="w90px txt-right" for="id4">Số tiền tạm ứng</label>
+                            <input class="input grow-1" type="text" id="id4" value="">
+                        </div>
+                        <div class="w100 flex flex-align-center gapy-5">
+                            <label class="w90px txt-right" for="id5" title="Ngày có và hết hiệu lực">Hiệu lực</label>
+                            <input class="input grow-1" type="date" id="id5" title="Ngày có hiệu lực" value="">
+                            <input class="input grow-1" type="date" id="id6" title="Ngày hết hiệu lực" value="">
+                        </div>
+                        <div class="w100 flex flex-align-center gapy-5">
+                            <label class="w90px txt-right clr-red" for="id7">Nơi làm việc</label>
+                            <input class="input grow-1" type="text" id="id7" value="">
+                        </div>
+                        
+                        <div class="w100 flex flex-align-center flex-justify-end gapy-10 mrg-t-5">
+                            <button class="btn" id="" title=""><i class="fa-solid fa-plus fa-lg"></i> Thêm (F1)</button>
+                            <button class="btn btn-history" id="" title=""><i class="fa-solid fa-check fa-lg"></i> Lưu (Ctrl + S)</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="w70-gapy5 flex flex-flow-column flex-wrap gapy-10 bg-2 box-shadow-5 bdr-5 pd-10">                  
+                    <div class="w100 tbl-select-arrow tbl-fix-header" style="height: 264px;">
+                        <table class="frm-table tbl-border tbl-sm" id="testID">
+                            <thead>
+                                <tr>
+                                    <th style="width: 85px;" title="Mã hợp đồng">MÃ</th>
+                                    <th style="width: 75px;" title="Ngày hợp đồng">NGÀY</th>
+                                    <th style="width: 100px;" title="Giá trị hợp đồng">GIÁ TRỊ</th>
+                                    <th style="width: 100px;" title="Số tiền tạm ứng">ST TẠM ỨNG</th>
+                                    <th style="width: 75px;" title="Ngày hiệu lực">HIỆU LỰC</th>
+                                    <th style="width: 75px;" title="Ngày hết hạn">HẾT HẠN</th>
+                                    <th>NƠI LÀM VIỆC</th>
+                                    <th style="width: 50px;" title="Tỉ lệ chi phí">TLCP</th>
+                                    <th style="width: 75px;" title="Ngày cập nhật">CẬP NHẬT</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>023698745</td>
+                                    <td>12/12/2023</td>
+                                    <td class="txt-right">123,258,111</td>
+                                    <td class="txt-right">123,258,111</td>
+                                    <td>12/12/2023</td>
+                                    <td>12/12/2023</td>
+                                    <td class="txt-left"><span class="line line-clamp-1">Lorem ipsum dolor sit amet</span></td>
+                                    <td class="txt-right">100.00</td>
+                                    <td>12/12/2023</td>
+                                </tr>
+                                <tr>
+                                    <td>023698745</td>
+                                    <td>12/12/2023</td>
+                                    <td class="txt-right">123,258,111</td>
+                                    <td class="txt-right">123,258,111</td>
+                                    <td>12/12/2023</td>
+                                    <td>12/12/2023</td>
+                                    <td class="txt-left"><span class="line line-clamp-1">Lorem ipsum dolor sit amet</span></td>
+                                    <td class="txt-right">100.00</td>
+                                    <td>12/12/2023</td>
+                                </tr>
+                                <tr>
+                                    <td>023698745</td>
+                                    <td>12/12/2023</td>
+                                    <td class="txt-right">123,258,111</td>
+                                    <td class="txt-right">123,258,111</td>
+                                    <td>12/12/2023</td>
+                                    <td>12/12/2023</td>
+                                    <td class="txt-left"><span class="line line-clamp-1">Lorem ipsum dolor sit amet</span></td>
+                                    <td class="txt-right">100.00</td>
+                                    <td>12/12/2023</td>
+                                </tr>
+                                <tr>
+                                    <td>023698745</td>
+                                    <td>12/12/2023</td>
+                                    <td class="txt-right">123,258,111</td>
+                                    <td class="txt-right">123,258,111</td>
+                                    <td>12/12/2023</td>
+                                    <td>12/12/2023</td>
+                                    <td class="txt-left"><span class="line line-clamp-1">Lorem ipsum dolor sit amet</span></td>
+                                    <td class="txt-right">100.00</td>
+                                    <td>12/12/2023</td>
+                                </tr>
+                                <tr>
+                                    <td>023698745</td>
+                                    <td>12/12/2023</td>
+                                    <td class="txt-right">123,258,111</td>
+                                    <td class="txt-right">123,258,111</td>
+                                    <td>12/12/2023</td>
+                                    <td>12/12/2023</td>
+                                    <td class="txt-left"><span class="line line-clamp-1">Lorem ipsum dolor sit amet</span></td>
+                                    <td class="txt-right">100.00</td>
+                                    <td>12/12/2023</td>
+                                </tr>
+                                <tr>
+                                    <td>023698745</td>
+                                    <td>12/12/2023</td>
+                                    <td class="txt-right">123,258,111</td>
+                                    <td class="txt-right">123,258,111</td>
+                                    <td>12/12/2023</td>
+                                    <td>12/12/2023</td>
+                                    <td class="txt-left"><span class="line line-clamp-1">Lorem ipsum dolor sit amet</span></td>
+                                    <td class="txt-right">100.00</td>
+                                    <td>12/12/2023</td>
+                                </tr>
+                                <tr>
+                                    <td>023698745</td>
+                                    <td>12/12/2023</td>
+                                    <td class="txt-right">123,258,111</td>
+                                    <td class="txt-right">123,258,111</td>
+                                    <td>12/12/2023</td>
+                                    <td>12/12/2023</td>
+                                    <td class="txt-left"><span class="line line-clamp-1">Lorem ipsum dolor sit amet</span></td>
+                                    <td class="txt-right">100.00</td>
+                                    <td>12/12/2023</td>
+                                </tr>
+                                <tr>
+                                    <td>023698745</td>
+                                    <td>12/12/2023</td>
+                                    <td class="txt-right">123,258,111</td>
+                                    <td class="txt-right">123,258,111</td>
+                                    <td>12/12/2023</td>
+                                    <td>12/12/2023</td>
+                                    <td class="txt-left"><span class="line line-clamp-1">Lorem ipsum dolor sit amet</span></td>
+                                    <td class="txt-right">100.00</td>
+                                    <td>12/12/2023</td>
+                                </tr>
+                                <tr>
+                                    <td>023698745</td>
+                                    <td>12/12/2023</td>
+                                    <td class="txt-right">123,258,111</td>
+                                    <td class="txt-right">123,258,111</td>
+                                    <td>12/12/2023</td>
+                                    <td>12/12/2023</td>
+                                    <td class="txt-left"><span class="line line-clamp-1">Lorem ipsum dolor sit amet</span></td>
+                                    <td class="txt-right">100.00</td>
+                                    <td>12/12/2023</td>
+                                </tr>
+                                <tr>
+                                    <td>023698745</td>
+                                    <td>12/12/2023</td>
+                                    <td class="txt-right">123,258,111</td>
+                                    <td class="txt-right">123,258,111</td>
+                                    <td>12/12/2023</td>
+                                    <td>12/12/2023</td>
+                                    <td class="txt-left"><span class="line line-clamp-1">Lorem ipsum dolor sit amet</span></td>
+                                    <td class="txt-right">100.00</td>
+                                    <td>12/12/2023</td>
+                                </tr>
+                                <tr>
+                                    <td>023698745</td>
+                                    <td>12/12/2023</td>
+                                    <td class="txt-right">123,258,111</td>
+                                    <td class="txt-right">123,258,111</td>
+                                    <td>12/12/2023</td>
+                                    <td>12/12/2023</td>
+                                    <td class="txt-left"><span class="line line-clamp-1">Lorem ipsum dolor sit amet</span></td>
+                                    <td class="txt-right">100.00</td>
+                                    <td>12/12/2023</td>
+                                </tr>
+                                <tr>
+                                    <td>023698745</td>
+                                    <td>12/12/2023</td>
+                                    <td class="txt-right">123,258,111</td>
+                                    <td class="txt-right">123,258,111</td>
+                                    <td>12/12/2023</td>
+                                    <td>12/12/2023</td>
+                                    <td class="txt-left"><span class="line line-clamp-1">Lorem ipsum dolor sit amet</span></td>
+                                    <td class="txt-right">100.00</td>
+                                    <td>12/12/2023</td>
+                                </tr>
+                                <tr>
+                                    <td>023698745</td>
+                                    <td>12/12/2023</td>
+                                    <td class="txt-right">123,258,111</td>
+                                    <td class="txt-right">123,258,111</td>
+                                    <td>12/12/2023</td>
+                                    <td>12/12/2023</td>
+                                    <td class="txt-left"><span class="line line-clamp-1">Lorem ipsum dolor sit amet</span></td>
+                                    <td class="txt-right">100.00</td>
+                                    <td>12/12/2023</td>
+                                </tr>
+                                <tr>
+                                    <td>023698745</td>
+                                    <td>12/12/2023</td>
+                                    <td class="txt-right">123,258,111</td>
+                                    <td class="txt-right">123,258,111</td>
+                                    <td>12/12/2023</td>
+                                    <td>12/12/2023</td>
+                                    <td class="txt-left"><span class="line line-clamp-1">Lorem ipsum dolor sit amet</span></td>
+                                    <td class="txt-right">100.00</td>
+                                    <td>12/12/2023</td>
+                                </tr>
+                                <tr>
+                                    <td>023698745</td>
+                                    <td>12/12/2023</td>
+                                    <td class="txt-right">123,258,111</td>
+                                    <td class="txt-right">123,258,111</td>
+                                    <td>12/12/2023</td>
+                                    <td>12/12/2023</td>
+                                    <td class="txt-left"><span class="line line-clamp-1">Lorem ipsum dolor sit amet</span></td>
+                                    <td class="txt-right">100.00</td>
+                                    <td>12/12/2023</td>
+                                </tr>
+                                <tr>
+                                    <td>023698745</td>
+                                    <td>12/12/2023</td>
+                                    <td class="txt-right">123,258,111</td>
+                                    <td class="txt-right">123,258,111</td>
+                                    <td>12/12/2023</td>
+                                    <td>12/12/2023</td>
+                                    <td class="txt-left"><span class="line line-clamp-1">Lorem ipsum dolor sit amet</span></td>
+                                    <td class="txt-right">100.00</td>
+                                    <td>12/12/2023</td>
+                                </tr>
+                                <tr>
+                                    <td>023698745</td>
+                                    <td>12/12/2023</td>
+                                    <td class="txt-right">123,258,111</td>
+                                    <td class="txt-right">123,258,111</td>
+                                    <td>12/12/2023</td>
+                                    <td>12/12/2023</td>
+                                    <td class="txt-left"><span class="line line-clamp-1">Lorem ipsum dolor sit amet</span></td>
+                                    <td class="txt-right">100.00</td>
+                                    <td>12/12/2023</td>
+                                </tr>
+                                <tr>
+                                    <td>023698745</td>
+                                    <td>12/12/2023</td>
+                                    <td class="txt-right">123,258,111</td>
+                                    <td class="txt-right">123,258,111</td>
+                                    <td>12/12/2023</td>
+                                    <td>12/12/2023</td>
+                                    <td class="txt-left"><span class="line line-clamp-1">Lorem ipsum dolor sit amet</span></td>
+                                    <td class="txt-right">100.00</td>
+                                    <td>12/12/2023</td>
+                                </tr>
+                                <tr>
+                                    <td>023698745</td>
+                                    <td>12/12/2023</td>
+                                    <td class="txt-right">123,258,111</td>
+                                    <td class="txt-right">123,258,111</td>
+                                    <td>12/12/2023</td>
+                                    <td>12/12/2023</td>
+                                    <td class="txt-left"><span class="line line-clamp-1">Lorem ipsum dolor sit amet</span></td>
+                                    <td class="txt-right">100.00</td>
+                                    <td>12/12/2023</td>
+                                </tr>
+                                <tr>
+                                    <td>023698745</td>
+                                    <td>12/12/2023</td>
+                                    <td class="txt-right">123,258,111</td>
+                                    <td class="txt-right">123,258,111</td>
+                                    <td>12/12/2023</td>
+                                    <td>12/12/2023</td>
+                                    <td class="txt-left"><span class="line line-clamp-1">Lorem ipsum dolor sit amet</span></td>
+                                    <td class="txt-right">100.00</td>
+                                    <td>12/12/2023</td>
+                                </tr>
+                                <tr>
+                                    <td>023698745</td>
+                                    <td>12/12/2023</td>
+                                    <td class="txt-right">123,258,111</td>
+                                    <td class="txt-right">123,258,111</td>
+                                    <td>12/12/2023</td>
+                                    <td>12/12/2023</td>
+                                    <td class="txt-left"><span class="line line-clamp-1">Lorem ipsum dolor sit amet</span></td>
+                                    <td class="txt-right">100.00</td>
+                                    <td>12/12/2023</td>
+                                </tr>
+                                <tr>
+                                    <td>023698745</td>
+                                    <td>12/12/2023</td>
+                                    <td class="txt-right">123,258,111</td>
+                                    <td class="txt-right">123,258,111</td>
+                                    <td>12/12/2023</td>
+                                    <td>12/12/2023</td>
+                                    <td class="txt-left"><span class="line line-clamp-1">Lorem ipsum dolor sit amet</span></td>
+                                    <td class="txt-right">100.00</td>
+                                    <td>12/12/2023</td>
+                                </tr>
+                                <tr>
+                                    <td>023698745</td>
+                                    <td>12/12/2023</td>
+                                    <td class="txt-right">123,258,111</td>
+                                    <td class="txt-right">123,258,111</td>
+                                    <td>12/12/2023</td>
+                                    <td>12/12/2023</td>
+                                    <td class="txt-left"><span class="line line-clamp-1">Lorem ipsum dolor sit amet</span></td>
+                                    <td class="txt-right">100.00</td>
+                                    <td>12/12/2023</td>
+                                </tr>
+                                <tr>
+                                    <td>023698745</td>
+                                    <td>12/12/2023</td>
+                                    <td class="txt-right">123,258,111</td>
+                                    <td class="txt-right">123,258,111</td>
+                                    <td>12/12/2023</td>
+                                    <td>12/12/2023</td>
+                                    <td class="txt-left"><span class="line line-clamp-1">Lorem ipsum dolor sit amet</span></td>
+                                    <td class="txt-right">100.00</td>
+                                    <td>12/12/2023</td>
+                                </tr>
+                                <tr>
+                                    <td>023698745</td>
+                                    <td>12/12/2023</td>
+                                    <td class="txt-right">123,258,111</td>
+                                    <td class="txt-right">123,258,111</td>
+                                    <td>12/12/2023</td>
+                                    <td>12/12/2023</td>
+                                    <td class="txt-left"><span class="line line-clamp-1">Lorem ipsum dolor sit amet</span></td>
+                                    <td class="txt-right">100.00</td>
+                                    <td>12/12/2023</td>
+                                </tr>
+                                <tr>
+                                    <td>023698745</td>
+                                    <td>12/12/2023</td>
+                                    <td class="txt-right">123,258,111</td>
+                                    <td class="txt-right">123,258,111</td>
+                                    <td>12/12/2023</td>
+                                    <td>12/12/2023</td>
+                                    <td class="txt-left"><span class="line line-clamp-1">Lorem ipsum dolor sit amet</span></td>
+                                    <td class="txt-right">100.00</td>
+                                    <td>12/12/2023</td>
+                                </tr>
+                                <tr>
+                                    <td>023698745</td>
+                                    <td>12/12/2023</td>
+                                    <td class="txt-right">123,258,111</td>
+                                    <td class="txt-right">123,258,111</td>
+                                    <td>12/12/2023</td>
+                                    <td>12/12/2023</td>
+                                    <td class="txt-left"><span class="line line-clamp-1">Lorem ipsum dolor sit amet</span></td>
+                                    <td class="txt-right">100.00</td>
+                                    <td>12/12/2023</td>
+                                </tr>
+                                <tr>
+                                    <td>023698745</td>
+                                    <td>12/12/2023</td>
+                                    <td class="txt-right">123,258,111</td>
+                                    <td class="txt-right">123,258,111</td>
+                                    <td>12/12/2023</td>
+                                    <td>12/12/2023</td>
+                                    <td class="txt-left"><span class="line line-clamp-1">Lorem ipsum dolor sit amet</span></td>
+                                    <td class="txt-right">100.00</td>
+                                    <td>12/12/2023</td>
+                                </tr>
+                                <tr>
+                                    <td>023698745</td>
+                                    <td>12/12/2023</td>
+                                    <td class="txt-right">123,258,111</td>
+                                    <td class="txt-right">123,258,111</td>
+                                    <td>12/12/2023</td>
+                                    <td>12/12/2023</td>
+                                    <td class="txt-left"><span class="line line-clamp-1">Lorem ipsum dolor sit amet</span></td>
+                                    <td class="txt-right">100.00</td>
+                                    <td>12/12/2023</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                
+                <div class="w100 flex flex-wrap gapy-10 bg-2 box-shadow-5 bdr-5 pd-10">
+                    <div class="w100 flex bg-third clr-white pdl-10 pdr-5 bdr-5">
+                        <h2 class="frm__block--title"><i class="fa-regular fa-file-excel fa-lg"></i> Import danh sách nhân viên</h2>
+                    </div>
+                    <div class="tabs-css w100 flex flex-wrap flex-align-center">
+                        <!-- Tab 1 -->
+                        <input type="radio" name="tabs-css" id="tab1" aria-controls="content01" checked="">
+                        <label for="tab1">Đã import</label>
+                        <!-- Tab 2 -->
+                        <input type="radio" name="tabs-css" id="tab2" aria-controls="content02">
+                        <label for="tab2">Chưa import</label>
+                        <!-- Infomation -->
+                        <div class="flex flex-justify-end flex-wrap gapy-5 mrg-l-auto">
+                            <div class="w50 flex flex-align-center gapy-5">
+                                <label class="w100px txt-right" for="id9">Trạng thái: </label>
+                                <input class="input grow-1 clr-red no-border txt-bold txt-upper" type="text" id="id9" value="Chưa import file Excel" disabled>
+                            </div>
+                            <div class="w25-gapy5 flex flex-align-center gapy-5">
+                                <label class="w100px txt-right" for="id10">Tổng hồ sơ</label>
+                                <input class="input grow-1" type="text" id="id10" value="20,000" disabled>
+                            </div>
+                            <div class="w25-gapy5 flex flex-align-center gapy-5">
+                                <label class="w100px txt-right" for="id11">Số dòng</label>
+                                <input class="input grow-1" type="text" id="id11" value="100,000" disabled>
+                            </div>
+                        </div>
+                        <!-- Content Warp -->
+                        <div class="tab-panels">
+                            <!-- Content 1 -->
+                            <section id="content01" class="tab-panel">
+                                <div class="flex flex-flow-column flex-wrap gapy-10">
+                                    <div class="w100 tbl-select-arrow tbl-fix-header" id="tblImportExcel" style="max-height: 300px;">
+                                        <table class="frm-table tbl-border tbl-sm">
+                                            <thead>
+                                                <tr>
+                                                    <th style="width: 30px" title="Số thứ tự">STT</th>
+                                                    <th style="width: 75px" title="Mã bệnh nhân">MÃ BN</th>
+                                                    <th style="width: 200px;">TÊN BỆNH NHÂN</th>
+                                                    <th style="width: 40px;" title="Giới tính">GT</th>
+                                                    <th style="width: 75px;">NGÀY SINH</th>
+                                                    <th style="width: 75px;">SỐ ĐIỆN THOẠI</th>
+                                                    <th style="width: 75px;" title="Căn cước công dân">CCCD</th>
+                                                    <th>ĐỊA CHỈ</th>
+                                                    <th style="width: 150px;">EMAIL</th>
+                                                    <th style="width: 40px;" title="Mã nhóm dịch vụ">MÃ NDV</th>
+                                                    <th style="width: 75px;">NGÀY KHÁM</th>
+                                                    <th style="width: 40px;">NGƯỜI TẠO</th>
+                                                    <th style="width: 40px;" title="Mã đối tượng">MÃ DT</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>1</td>
+                                                    <td>03256</td>
+                                                    <td class="txt-left">Lên Loreamsea Lỏrem</td>
+                                                    <td>Nam</td>
+                                                    <td>01/01/2023</td>
+                                                    <td>0123654789</td>
+                                                    <td>023658741452</td>
+                                                    <td class="txt-left"><span class="line line-clamp-2">Hòa Thành, Long Thành Trung, Thành phố Tây Ninh, tỉnh Tây Ninh</span></td>
+                                                    <td class="txt-left"><span class="line line-clamp-2">googlechromeie@gmail.com</span></td>
+                                                    <td>1236</td>
+                                                    <td>01/01/2023</td>
+                                                    <td>1125</td>
+                                                    <td>123654</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>2</td>
+                                                    <td>03256</td>
+                                                    <td class="txt-left">Lên Loreamsea Lỏrem</td>
+                                                    <td>Nam</td>
+                                                    <td>01/01/2023</td>
+                                                    <td>0123654789</td>
+                                                    <td>023658741452</td>
+                                                    <td class="txt-left"><span class="line line-clamp-2">Hòa Thành, Long Thành Trung, Thành phố Tây Ninh, tỉnh Tây Ninh</span></td>
+                                                    <td class="txt-left"><span class="line line-clamp-2">googlechromeie@gmail.com</span></td>
+                                                    <td>1236</td>
+                                                    <td>01/01/2023</td>
+                                                    <td>1125</td>
+                                                    <td>123654</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>3</td>
+                                                    <td>03256</td>
+                                                    <td class="txt-left">Lên Loreamsea Lỏrem</td>
+                                                    <td>Nam</td>
+                                                    <td>01/01/2023</td>
+                                                    <td>0123654789</td>
+                                                    <td>023658741452</td>
+                                                    <td class="txt-left"><span class="line line-clamp-2">Hòa Thành, Long Thành Trung, Thành phố Tây Ninh, tỉnh Tây Ninh</span></td>
+                                                    <td class="txt-left"><span class="line line-clamp-2">googlechromeie@gmail.com</span></td>
+                                                    <td>1236</td>
+                                                    <td>01/01/2023</td>
+                                                    <td>1125</td>
+                                                    <td>123654</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>4</td>
+                                                    <td>03256</td>
+                                                    <td class="txt-left">Lên Loreamsea Lỏrem</td>
+                                                    <td>Nam</td>
+                                                    <td>01/01/2023</td>
+                                                    <td>0123654789</td>
+                                                    <td>023658741452</td>
+                                                    <td class="txt-left"><span class="line line-clamp-2">Hòa Thành, Long Thành Trung, Thành phố Tây Ninh, tỉnh Tây Ninh</span></td>
+                                                    <td class="txt-left"><span class="line line-clamp-2">googlechromeie@gmail.com</span></td>
+                                                    <td>1236</td>
+                                                    <td>01/01/2023</td>
+                                                    <td>1125</td>
+                                                    <td>123654</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>5</td>
+                                                    <td>03256</td>
+                                                    <td class="txt-left">Lên Loreamsea Lỏrem</td>
+                                                    <td>Nam</td>
+                                                    <td>01/01/2023</td>
+                                                    <td>0123654789</td>
+                                                    <td>023658741452</td>
+                                                    <td class="txt-left"><span class="line line-clamp-2">Hòa Thành, Long Thành Trung, Thành phố Tây Ninh, tỉnh Tây Ninh</span></td>
+                                                    <td class="txt-left"><span class="line line-clamp-2">googlechromeie@gmail.com</span></td>
+                                                    <td>1236</td>
+                                                    <td>01/01/2023</td>
+                                                    <td>1125</td>
+                                                    <td>123654</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>6</td>
+                                                    <td>03256</td>
+                                                    <td class="txt-left">Lên Loreamsea Lỏrem</td>
+                                                    <td>Nam</td>
+                                                    <td>01/01/2023</td>
+                                                    <td>0123654789</td>
+                                                    <td>023658741452</td>
+                                                    <td class="txt-left"><span class="line line-clamp-2">Hòa Thành, Long Thành Trung, Thành phố Tây Ninh, tỉnh Tây Ninh</span></td>
+                                                    <td class="txt-left"><span class="line line-clamp-2">googlechromeie@gmail.com</span></td>
+                                                    <td>1236</td>
+                                                    <td>01/01/2023</td>
+                                                    <td>1125</td>
+                                                    <td>123654</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>7</td>
+                                                    <td>03256</td>
+                                                    <td class="txt-left">Lên Loreamsea Lỏrem</td>
+                                                    <td>Nam</td>
+                                                    <td>01/01/2023</td>
+                                                    <td>0123654789</td>
+                                                    <td>023658741452</td>
+                                                    <td class="txt-left"><span class="line line-clamp-2">Hòa Thành, Long Thành Trung, Thành phố Tây Ninh, tỉnh Tây Ninh</span></td>
+                                                    <td class="txt-left"><span class="line line-clamp-2">googlechromeie@gmail.com</span></td>
+                                                    <td>1236</td>
+                                                    <td>01/01/2023</td>
+                                                    <td>1125</td>
+                                                    <td>123654</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>8</td>
+                                                    <td>03256</td>
+                                                    <td class="txt-left">Lên Loreamsea Lỏrem</td>
+                                                    <td>Nam</td>
+                                                    <td>01/01/2023</td>
+                                                    <td>0123654789</td>
+                                                    <td>023658741452</td>
+                                                    <td class="txt-left"><span class="line line-clamp-2">Hòa Thành, Long Thành Trung, Thành phố Tây Ninh, tỉnh Tây Ninh</span></td>
+                                                    <td class="txt-left"><span class="line line-clamp-2">googlechromeie@gmail.com</span></td>
+                                                    <td>1236</td>
+                                                    <td>01/01/2023</td>
+                                                    <td>1125</td>
+                                                    <td>123654</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>9</td>
+                                                    <td>03256</td>
+                                                    <td class="txt-left">Lên Loreamsea Lỏrem</td>
+                                                    <td>Nam</td>
+                                                    <td>01/01/2023</td>
+                                                    <td>0123654789</td>
+                                                    <td>023658741452</td>
+                                                    <td class="txt-left"><span class="line line-clamp-2">Hòa Thành, Long Thành Trung, Thành phố Tây Ninh, tỉnh Tây Ninh</span></td>
+                                                    <td class="txt-left"><span class="line line-clamp-2">googlechromeie@gmail.com</span></td>
+                                                    <td>1236</td>
+                                                    <td>01/01/2023</td>
+                                                    <td>1125</td>
+                                                    <td>123654</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>10</td>
+                                                    <td>03256</td>
+                                                    <td class="txt-left">Lên Loreamsea Lỏrem</td>
+                                                    <td>Nam</td>
+                                                    <td>01/01/2023</td>
+                                                    <td>0123654789</td>
+                                                    <td>023658741452</td>
+                                                    <td class="txt-left"><span class="line line-clamp-2">Hòa Thành, Long Thành Trung, Thành phố Tây Ninh, tỉnh Tây Ninh</span></td>
+                                                    <td class="txt-left"><span class="line line-clamp-2">googlechromeie@gmail.com</span></td>
+                                                    <td>1236</td>
+                                                    <td>01/01/2023</td>
+                                                    <td>1125</td>
+                                                    <td>123654</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>11</td>
+                                                    <td>03256</td>
+                                                    <td class="txt-left">Lên Loreamsea Lỏrem</td>
+                                                    <td>Nam</td>
+                                                    <td>01/01/2023</td>
+                                                    <td>0123654789</td>
+                                                    <td>023658741452</td>
+                                                    <td class="txt-left"><span class="line line-clamp-2">Hòa Thành, Long Thành Trung, Thành phố Tây Ninh, tỉnh Tây Ninh</span></td>
+                                                    <td class="txt-left"><span class="line line-clamp-2">googlechromeie@gmail.com</span></td>
+                                                    <td>1236</td>
+                                                    <td>01/01/2023</td>
+                                                    <td>1125</td>
+                                                    <td>123654</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>12</td>
+                                                    <td>03256</td>
+                                                    <td class="txt-left">Lên Loreamsea Lỏrem</td>
+                                                    <td>Nam</td>
+                                                    <td>01/01/2023</td>
+                                                    <td>0123654789</td>
+                                                    <td>023658741452</td>
+                                                    <td class="txt-left"><span class="line line-clamp-2">Hòa Thành, Long Thành Trung, Thành phố Tây Ninh, tỉnh Tây Ninh</span></td>
+                                                    <td class="txt-left"><span class="line line-clamp-2">googlechromeie@gmail.com</span></td>
+                                                    <td>1236</td>
+                                                    <td>01/01/2023</td>
+                                                    <td>1125</td>
+                                                    <td>123654</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>12</td>
+                                                    <td>03256</td>
+                                                    <td class="txt-left">Lên Loreamsea Lỏrem</td>
+                                                    <td>Nam</td>
+                                                    <td>01/01/2023</td>
+                                                    <td>0123654789</td>
+                                                    <td>023658741452</td>
+                                                    <td class="txt-left"><span class="line line-clamp-2">Hòa Thành, Long Thành Trung, Thành phố Tây Ninh, tỉnh Tây Ninh</span></td>
+                                                    <td class="txt-left"><span class="line line-clamp-2">googlechromeie@gmail.com</span></td>
+                                                    <td>1236</td>
+                                                    <td>01/01/2023</td>
+                                                    <td>1125</td>
+                                                    <td>123654</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>12</td>
+                                                    <td>03256</td>
+                                                    <td class="txt-left">Lên Loreamsea Lỏrem</td>
+                                                    <td>Nam</td>
+                                                    <td>01/01/2023</td>
+                                                    <td>0123654789</td>
+                                                    <td>023658741452</td>
+                                                    <td class="txt-left"><span class="line line-clamp-2">Hòa Thành, Long Thành Trung, Thành phố Tây Ninh, tỉnh Tây Ninh</span></td>
+                                                    <td class="txt-left"><span class="line line-clamp-2">googlechromeie@gmail.com</span></td>
+                                                    <td>1236</td>
+                                                    <td>01/01/2023</td>
+                                                    <td>1125</td>
+                                                    <td>123654</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>12</td>
+                                                    <td>03256</td>
+                                                    <td class="txt-left">Lên Loreamsea Lỏrem</td>
+                                                    <td>Nam</td>
+                                                    <td>01/01/2023</td>
+                                                    <td>0123654789</td>
+                                                    <td>023658741452</td>
+                                                    <td class="txt-left"><span class="line line-clamp-2">Hòa Thành, Long Thành Trung, Thành phố Tây Ninh, tỉnh Tây Ninh</span></td>
+                                                    <td class="txt-left"><span class="line line-clamp-2">googlechromeie@gmail.com</span></td>
+                                                    <td>1236</td>
+                                                    <td>01/01/2023</td>
+                                                    <td>1125</td>
+                                                    <td>123654</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>12</td>
+                                                    <td>03256</td>
+                                                    <td class="txt-left">Lên Loreamsea Lỏrem</td>
+                                                    <td>Nam</td>
+                                                    <td>01/01/2023</td>
+                                                    <td>0123654789</td>
+                                                    <td>023658741452</td>
+                                                    <td class="txt-left"><span class="line line-clamp-2">Hòa Thành, Long Thành Trung, Thành phố Tây Ninh, tỉnh Tây Ninh</span></td>
+                                                    <td class="txt-left"><span class="line line-clamp-2">googlechromeie@gmail.com</span></td>
+                                                    <td>1236</td>
+                                                    <td>01/01/2023</td>
+                                                    <td>1125</td>
+                                                    <td>123654</td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td>12</td>
+                                                    <td>03256</td>
+                                                    <td class="txt-left">Lên Loreamsea Lỏrem</td>
+                                                    <td>Nam</td>
+                                                    <td>01/01/2023</td>
+                                                    <td>0123654789</td>
+                                                    <td>023658741452</td>
+                                                    <td class="txt-left"><span class="line line-clamp-2">Hòa Thành, Long Thành Trung, Thành phố Tây Ninh, tỉnh Tây Ninh</span></td>
+                                                    <td class="txt-left"><span class="line line-clamp-2">googlechromeie@gmail.com</span></td>
+                                                    <td>1236</td>
+                                                    <td>01/01/2023</td>
+                                                    <td>1125</td>
+                                                    <td>123654</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>12</td>
+                                                    <td>03256</td>
+                                                    <td class="txt-left">Lên Loreamsea Lỏrem</td>
+                                                    <td>Nam</td>
+                                                    <td>01/01/2023</td>
+                                                    <td>0123654789</td>
+                                                    <td>023658741452</td>
+                                                    <td class="txt-left"><span class="line line-clamp-2">Hòa Thành, Long Thành Trung, Thành phố Tây Ninh, tỉnh Tây Ninh</span></td>
+                                                    <td class="txt-left"><span class="line line-clamp-2">googlechromeie@gmail.com</span></td>
+                                                    <td>1236</td>
+                                                    <td>01/01/2023</td>
+                                                    <td>1125</td>
+                                                    <td>123654</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>12</td>
+                                                    <td>03256</td>
+                                                    <td class="txt-left">Lên Loreamsea Lỏrem</td>
+                                                    <td>Nam</td>
+                                                    <td>01/01/2023</td>
+                                                    <td>0123654789</td>
+                                                    <td>023658741452</td>
+                                                    <td class="txt-left"><span class="line line-clamp-2">Hòa Thành, Long Thành Trung, Thành phố Tây Ninh, tỉnh Tây Ninh</span></td>
+                                                    <td class="txt-left"><span class="line line-clamp-2">googlechromeie@gmail.com</span></td>
+                                                    <td>1236</td>
+                                                    <td>01/01/2023</td>
+                                                    <td>1125</td>
+                                                    <td>123654</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>12</td>
+                                                    <td>03256</td>
+                                                    <td class="txt-left">Lên Loreamsea Lỏrem</td>
+                                                    <td>Nam</td>
+                                                    <td>01/01/2023</td>
+                                                    <td>0123654789</td>
+                                                    <td>023658741452</td>
+                                                    <td class="txt-left"><span class="line line-clamp-2">Hòa Thành, Long Thành Trung, Thành phố Tây Ninh, tỉnh Tây Ninh</span></td>
+                                                    <td class="txt-left"><span class="line line-clamp-2">googlechromeie@gmail.com</span></td>
+                                                    <td>1236</td>
+                                                    <td>01/01/2023</td>
+                                                    <td>1125</td>
+                                                    <td>123654</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>12</td>
+                                                    <td>03256</td>
+                                                    <td class="txt-left">Lên Loreamsea Lỏrem</td>
+                                                    <td>Nam</td>
+                                                    <td>01/01/2023</td>
+                                                    <td>0123654789</td>
+                                                    <td>023658741452</td>
+                                                    <td class="txt-left"><span class="line line-clamp-2">Hòa Thành, Long Thành Trung, Thành phố Tây Ninh, tỉnh Tây Ninh</span></td>
+                                                    <td class="txt-left"><span class="line line-clamp-2">googlechromeie@gmail.com</span></td>
+                                                    <td>1236</td>
+                                                    <td>01/01/2023</td>
+                                                    <td>1125</td>
+                                                    <td>123654</td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td>12</td>
+                                                    <td>03256</td>
+                                                    <td class="txt-left">Lên Loreamsea Lỏrem</td>
+                                                    <td>Nam</td>
+                                                    <td>01/01/2023</td>
+                                                    <td>0123654789</td>
+                                                    <td>023658741452</td>
+                                                    <td class="txt-left"><span class="line line-clamp-2">Hòa Thành, Long Thành Trung, Thành phố Tây Ninh, tỉnh Tây Ninh</span></td>
+                                                    <td class="txt-left"><span class="line line-clamp-2">googlechromeie@gmail.com</span></td>
+                                                    <td>1236</td>
+                                                    <td>01/01/2023</td>
+                                                    <td>1125</td>
+                                                    <td>123654</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>12</td>
+                                                    <td>03256</td>
+                                                    <td class="txt-left">Lên Loreamsea Lỏrem</td>
+                                                    <td>Nam</td>
+                                                    <td>01/01/2023</td>
+                                                    <td>0123654789</td>
+                                                    <td>023658741452</td>
+                                                    <td class="txt-left"><span class="line line-clamp-2">Hòa Thành, Long Thành Trung, Thành phố Tây Ninh, tỉnh Tây Ninh</span></td>
+                                                    <td class="txt-left"><span class="line line-clamp-2">googlechromeie@gmail.com</span></td>
+                                                    <td>1236</td>
+                                                    <td>01/01/2023</td>
+                                                    <td>1125</td>
+                                                    <td>123654</td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td>12</td>
+                                                    <td>03256</td>
+                                                    <td class="txt-left">Lên Loreamsea Lỏrem</td>
+                                                    <td>Nam</td>
+                                                    <td>01/01/2023</td>
+                                                    <td>0123654789</td>
+                                                    <td>023658741452</td>
+                                                    <td class="txt-left"><span class="line line-clamp-2">Hòa Thành, Long Thành Trung, Thành phố Tây Ninh, tỉnh Tây Ninh</span></td>
+                                                    <td class="txt-left"><span class="line line-clamp-2">googlechromeie@gmail.com</span></td>
+                                                    <td>1236</td>
+                                                    <td>01/01/2023</td>
+                                                    <td>1125</td>
+                                                    <td>123654</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>12</td>
+                                                    <td>03256</td>
+                                                    <td class="txt-left">Lên Loreamsea Lỏrem</td>
+                                                    <td>Nam</td>
+                                                    <td>01/01/2023</td>
+                                                    <td>0123654789</td>
+                                                    <td>023658741452</td>
+                                                    <td class="txt-left"><span class="line line-clamp-2">Hòa Thành, Long Thành Trung, Thành phố Tây Ninh, tỉnh Tây Ninh</span></td>
+                                                    <td class="txt-left"><span class="line line-clamp-2">googlechromeie@gmail.com</span></td>
+                                                    <td>1236</td>
+                                                    <td>01/01/2023</td>
+                                                    <td>1125</td>
+                                                    <td>123654</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>12</td>
+                                                    <td>03256</td>
+                                                    <td class="txt-left">Lên Loreamsea Lỏrem</td>
+                                                    <td>Nam</td>
+                                                    <td>01/01/2023</td>
+                                                    <td>0123654789</td>
+                                                    <td>023658741452</td>
+                                                    <td class="txt-left"><span class="line line-clamp-2">Hòa Thành, Long Thành Trung, Thành phố Tây Ninh, tỉnh Tây Ninh</span></td>
+                                                    <td class="txt-left"><span class="line line-clamp-2">googlechromeie@gmail.com</span></td>
+                                                    <td>1236</td>
+                                                    <td>01/01/2023</td>
+                                                    <td>1125</td>
+                                                    <td>123654</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>12</td>
+                                                    <td>03256</td>
+                                                    <td class="txt-left">Lên Loreamsea Lỏrem</td>
+                                                    <td>Nam</td>
+                                                    <td>01/01/2023</td>
+                                                    <td>0123654789</td>
+                                                    <td>023658741452</td>
+                                                    <td class="txt-left"><span class="line line-clamp-2">Hòa Thành, Long Thành Trung, Thành phố Tây Ninh, tỉnh Tây Ninh</span></td>
+                                                    <td class="txt-left"><span class="line line-clamp-2">googlechromeie@gmail.com</span></td>
+                                                    <td>1236</td>
+                                                    <td>01/01/2023</td>
+                                                    <td>1125</td>
+                                                    <td>123654</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>12</td>
+                                                    <td>03256</td>
+                                                    <td class="txt-left">Lên Loreamsea Lỏrem</td>
+                                                    <td>Nam</td>
+                                                    <td>01/01/2023</td>
+                                                    <td>0123654789</td>
+                                                    <td>023658741452</td>
+                                                    <td class="txt-left"><span class="line line-clamp-2">Hòa Thành, Long Thành Trung, Thành phố Tây Ninh, tỉnh Tây Ninh</span></td>
+                                                    <td class="txt-left"><span class="line line-clamp-2">googlechromeie@gmail.com</span></td>
+                                                    <td>1236</td>
+                                                    <td>01/01/2023</td>
+                                                    <td>1125</td>
+                                                    <td>123654</td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td>12</td>
+                                                    <td>03256</td>
+                                                    <td class="txt-left">Lên Loreamsea Lỏrem</td>
+                                                    <td>Nam</td>
+                                                    <td>01/01/2023</td>
+                                                    <td>0123654789</td>
+                                                    <td>023658741452</td>
+                                                    <td class="txt-left"><span class="line line-clamp-2">Hòa Thành, Long Thành Trung, Thành phố Tây Ninh, tỉnh Tây Ninh</span></td>
+                                                    <td class="txt-left"><span class="line line-clamp-2">googlechromeie@gmail.com</span></td>
+                                                    <td>1236</td>
+                                                    <td>01/01/2023</td>
+                                                    <td>1125</td>
+                                                    <td>123654</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </section>
+                            <!-- End Content 1 -->
+                            <!-- Content 2 -->
+                            <section id="content02" class="tab-panel">
+                                <div class="flex flex-flow-column flex-wrap gapy-10">
+                                    <div class="w100 tbl-select-arrow tbl-fix-header" id="tblNoneImportExcel" style="max-height: 300px;">
+                                        <table class="frm-table tbl-border tbl-sm">
+                                            <thead>
+                                                <tr>
+                                                    <th style="width: 30px" title="Số thứ tự">STT</th>
+                                                    <th style="width: 75px" title="Mã bệnh nhân">MÃ BN</th>
+                                                    <th style="width: 200px;">TÊN BỆNH NHÂN</th>
+                                                    <th style="width: 40px;" title="Giới tính">GT</th>
+                                                    <th style="width: 75px;">NGÀY SINH</th>
+                                                    <th style="width: 75px;">SỐ ĐIỆN THOẠI</th>
+                                                    <th style="width: 75px;" title="Căn cước công dân">CCCD</th>
+                                                    <th>ĐỊA CHỈ</th>
+                                                    <th style="width: 150px;">EMAIL</th>
+                                                    <th style="width: 40px;" title="Mã nhóm dịch vụ">MÃ NDV</th>
+                                                    <th style="width: 75px;">NGÀY KHÁM</th>
+                                                    <th style="width: 40px;">NGƯỜI TẠO</th>
+                                                    <th style="width: 40px;" title="Mã đối tượng">MÃ ĐT</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>1</td>
+                                                    <td>03256</td>
+                                                    <td class="txt-left">Chưa Import Excel</td>
+                                                    <td>Nam</td>
+                                                    <td>01/01/2023</td>
+                                                    <td>0123654789</td>
+                                                    <td>023658741452</td>
+                                                    <td class="txt-left"><span class="line line-clamp-2">Hòa Thành, Long Thành Trung, Thành phố Tây Ninh, tỉnh Tây Ninh</span></td>
+                                                    <td class="txt-left"><span class="line line-clamp-2">googlechromeie@gmail.com</span></td>
+                                                    <td>1236</td>
+                                                    <td>01/01/2023</td>
+                                                    <td>1125</td>
+                                                    <td>123654</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>2</td>
+                                                    <td>03256</td>
+                                                    <td class="txt-left">Lên Loreamsea Lỏrem</td>
+                                                    <td>Nam</td>
+                                                    <td>01/01/2023</td>
+                                                    <td>0123654789</td>
+                                                    <td>023658741452</td>
+                                                    <td class="txt-left"><span class="line line-clamp-2">Hòa Thành, Long Thành Trung, Thành phố Tây Ninh, tỉnh Tây Ninh</span></td>
+                                                    <td class="txt-left"><span class="line line-clamp-2">googlechromeie@gmail.com</span></td>
+                                                    <td>1236</td>
+                                                    <td>01/01/2023</td>
+                                                    <td>1125</td>
+                                                    <td>123654</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>3</td>
+                                                    <td>03256</td>
+                                                    <td class="txt-left">Lên Loreamsea Lỏrem</td>
+                                                    <td>Nam</td>
+                                                    <td>01/01/2023</td>
+                                                    <td>0123654789</td>
+                                                    <td>023658741452</td>
+                                                    <td class="txt-left"><span class="line line-clamp-2">Hòa Thành, Long Thành Trung, Thành phố Tây Ninh, tỉnh Tây Ninh</span></td>
+                                                    <td class="txt-left"><span class="line line-clamp-2">googlechromeie@gmail.com</span></td>
+                                                    <td>1236</td>
+                                                    <td>01/01/2023</td>
+                                                    <td>1125</td>
+                                                    <td>123654</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>4</td>
+                                                    <td>03256</td>
+                                                    <td class="txt-left">Lên Loreamsea Lỏrem</td>
+                                                    <td>Nam</td>
+                                                    <td>01/01/2023</td>
+                                                    <td>0123654789</td>
+                                                    <td>023658741452</td>
+                                                    <td class="txt-left"><span class="line line-clamp-2">Hòa Thành, Long Thành Trung, Thành phố Tây Ninh, tỉnh Tây Ninh</span></td>
+                                                    <td class="txt-left"><span class="line line-clamp-2">googlechromeie@gmail.com</span></td>
+                                                    <td>1236</td>
+                                                    <td>01/01/2023</td>
+                                                    <td>1125</td>
+                                                    <td>123654</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>5</td>
+                                                    <td>03256</td>
+                                                    <td class="txt-left">Lên Loreamsea Lỏrem</td>
+                                                    <td>Nam</td>
+                                                    <td>01/01/2023</td>
+                                                    <td>0123654789</td>
+                                                    <td>023658741452</td>
+                                                    <td class="txt-left"><span class="line line-clamp-2">Hòa Thành, Long Thành Trung, Thành phố Tây Ninh, tỉnh Tây Ninh</span></td>
+                                                    <td class="txt-left"><span class="line line-clamp-2">googlechromeie@gmail.com</span></td>
+                                                    <td>1236</td>
+                                                    <td>01/01/2023</td>
+                                                    <td>1125</td>
+                                                    <td>123654</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>6</td>
+                                                    <td>03256</td>
+                                                    <td class="txt-left">Lên Loreamsea Lỏrem</td>
+                                                    <td>Nam</td>
+                                                    <td>01/01/2023</td>
+                                                    <td>0123654789</td>
+                                                    <td>023658741452</td>
+                                                    <td class="txt-left"><span class="line line-clamp-2">Hòa Thành, Long Thành Trung, Thành phố Tây Ninh, tỉnh Tây Ninh</span></td>
+                                                    <td class="txt-left"><span class="line line-clamp-2">googlechromeie@gmail.com</span></td>
+                                                    <td>1236</td>
+                                                    <td>01/01/2023</td>
+                                                    <td>1125</td>
+                                                    <td>123654</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>7</td>
+                                                    <td>03256</td>
+                                                    <td class="txt-left">Lên Loreamsea Lỏrem</td>
+                                                    <td>Nam</td>
+                                                    <td>01/01/2023</td>
+                                                    <td>0123654789</td>
+                                                    <td>023658741452</td>
+                                                    <td class="txt-left"><span class="line line-clamp-2">Hòa Thành, Long Thành Trung, Thành phố Tây Ninh, tỉnh Tây Ninh</span></td>
+                                                    <td class="txt-left"><span class="line line-clamp-2">googlechromeie@gmail.com</span></td>
+                                                    <td>1236</td>
+                                                    <td>01/01/2023</td>
+                                                    <td>1125</td>
+                                                    <td>123654</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>8</td>
+                                                    <td>03256</td>
+                                                    <td class="txt-left">Lên Loreamsea Lỏrem</td>
+                                                    <td>Nam</td>
+                                                    <td>01/01/2023</td>
+                                                    <td>0123654789</td>
+                                                    <td>023658741452</td>
+                                                    <td class="txt-left"><span class="line line-clamp-2">Hòa Thành, Long Thành Trung, Thành phố Tây Ninh, tỉnh Tây Ninh</span></td>
+                                                    <td class="txt-left"><span class="line line-clamp-2">googlechromeie@gmail.com</span></td>
+                                                    <td>1236</td>
+                                                    <td>01/01/2023</td>
+                                                    <td>1125</td>
+                                                    <td>123654</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>9</td>
+                                                    <td>03256</td>
+                                                    <td class="txt-left">Lên Loreamsea Lỏrem</td>
+                                                    <td>Nam</td>
+                                                    <td>01/01/2023</td>
+                                                    <td>0123654789</td>
+                                                    <td>023658741452</td>
+                                                    <td class="txt-left"><span class="line line-clamp-2">Hòa Thành, Long Thành Trung, Thành phố Tây Ninh, tỉnh Tây Ninh</span></td>
+                                                    <td class="txt-left"><span class="line line-clamp-2">googlechromeie@gmail.com</span></td>
+                                                    <td>1236</td>
+                                                    <td>01/01/2023</td>
+                                                    <td>1125</td>
+                                                    <td>123654</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>10</td>
+                                                    <td>03256</td>
+                                                    <td class="txt-left">Lên Loreamsea Lỏrem</td>
+                                                    <td>Nam</td>
+                                                    <td>01/01/2023</td>
+                                                    <td>0123654789</td>
+                                                    <td>023658741452</td>
+                                                    <td class="txt-left"><span class="line line-clamp-2">Hòa Thành, Long Thành Trung, Thành phố Tây Ninh, tỉnh Tây Ninh</span></td>
+                                                    <td class="txt-left"><span class="line line-clamp-2">googlechromeie@gmail.com</span></td>
+                                                    <td>1236</td>
+                                                    <td>01/01/2023</td>
+                                                    <td>1125</td>
+                                                    <td>123654</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>11</td>
+                                                    <td>03256</td>
+                                                    <td class="txt-left">Lên Loreamsea Lỏrem</td>
+                                                    <td>Nam</td>
+                                                    <td>01/01/2023</td>
+                                                    <td>0123654789</td>
+                                                    <td>023658741452</td>
+                                                    <td class="txt-left"><span class="line line-clamp-2">Hòa Thành, Long Thành Trung, Thành phố Tây Ninh, tỉnh Tây Ninh</span></td>
+                                                    <td class="txt-left"><span class="line line-clamp-2">googlechromeie@gmail.com</span></td>
+                                                    <td>1236</td>
+                                                    <td>01/01/2023</td>
+                                                    <td>1125</td>
+                                                    <td>123654</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>12</td>
+                                                    <td>03256</td>
+                                                    <td class="txt-left">Lên Loreamsea Lỏrem</td>
+                                                    <td>Nam</td>
+                                                    <td>01/01/2023</td>
+                                                    <td>0123654789</td>
+                                                    <td>023658741452</td>
+                                                    <td class="txt-left"><span class="line line-clamp-2">Hòa Thành, Long Thành Trung, Thành phố Tây Ninh, tỉnh Tây Ninh</span></td>
+                                                    <td class="txt-left"><span class="line line-clamp-2">googlechromeie@gmail.com</span></td>
+                                                    <td>1236</td>
+                                                    <td>01/01/2023</td>
+                                                    <td>1125</td>
+                                                    <td>123654</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </section>
+                            <!-- End Content 2 -->
+                        </div>
+                    </div>
+                    <div class="w100 flex flex-align-center flex-justify-end gapy-10">
+                        <button class="btn" id="" title="Tạo excel mẫu"><i class="fa-solid fa-plus fa-lg"></i> Tạo mẫu</button>
+                        <button class="btn" id="" title="Lấy dữ liệu excel"><i class="fa-regular fa-file-excel fa-lg"></i> Lấy dữ liệu</button>
+                        <button class="btn btn-history" id="" title="Lưu file excel"><i class="fa-solid fa-check fa-lg"></i> Lưu</button>
+                        <button class="btn" id="" title="Xuất excel lỗi"><i class="fa-solid fa-file-arrow-down fa-lg"></i> Xuất excel lỗi</button>
+                        <button class="btn" id="" title="Khai báo dịch vụ kỹ thuật"><i class="fa-solid fa-bed-pulse fa-lg"></i> Khai báo DVKT</button>
+                        <button class="btn" id="" title="Tạo hồ sơ khám sức khỏe"><i class="fa-solid fa-folder-plus fa-lg"></i> Tạo hồ sơ</button>
+                        <button class="btn btn-eye-syringe" id="" title="Xem báo cáo"><i class="fa-regular fa-eye fa-lg"></i> Xem báo cáo</button>
+                        <button class="btn" id="" title="Xuất kết quả xét nghiệm"><i class="fa-solid fa-print fa-lg"></i> Xuất KQ XN</button>
+                        <button class="btn btn-exit" id="" title="Xóa danh sách"><i class="fa-solid fa-trash-can fa-lg"></i> Xóa</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <style>
+        </style>
+        <script>
+            $(() => {
+                console.log("wr1ap");
+                tblArrowSelect(event, $('#testID'));
+            });
+            
+            const tblArrowSelect = (event, $table, callback) => {
+                // const warpAll = $('.tbl-select-arrow');
+                // warpAll.each(function (index) {
+                //     index = index + 1;
+                // });
+
+                // console.log(warpAll.eq(indexTbl - 1).find($table).attr('ID'));
+
+                const wrap = $table.closest('.tbl-select-arrow');  
+                const tbodyHeight = wrap.height() - $table.find('thead').height();
+                const fullHeight = $table.height();
+                const inputAbsent = wrap.find('input[aria-controls=' + $table.attr('ID') + ']');
+                const btnAbsent = wrap.find('#' + $table.attr('ID') + 'Btnfocus');
+                if (btnAbsent.length === 0 && inputAbsent.length === 0) {
+                    const wrap = $table.hasClass('dataTable') ? wrap : $table;
+                    wrap.prepend($('<button>', {
+                        id: $table.attr('ID') + 'Btnfocus', 
+                        css: {
+                            opacity: 0,
+                            height: '100px',
+                            width: '100px',
+                            border: 'none',
+                            outline: 'none',
+                            position: 'absolute',
+                        },
+                    }));
+                }
+                const targetFocus = !$table.hasClass('dataTable') ? $('#' + $table.attr('ID') + 'Btnfocus') : inputAbsent;
+                const rowCount = $table.find('tbody tr').length;
+                if (rowCount > 0) {
+                    const row = $table.find('tbody tr');
+                    const cell = row.find('td');
+                    const firstRow = row.eq(0);
+                    const firstCell = cell.filter(':not(.d-none):not(.hide_column):not([style*="display: none"]):not([style*="visibility: hidden"])').eq(0);
+                    const itemHeight = row.height();
+                    const itemCenter = Math.round(tbodyHeight / itemHeight / 2 * itemHeight + itemHeight);
+                    targetFocus.focus();
+                    $table.hasClass('dataTable') ? firstCell.click() : firstRow.click().addClass("selected stayed");
+                    function keydown(){
+                        wrap.off('keydown').on('keydown', function (event) {
+                            var key = event.keyCode || event.which;
+                            var currentRow = $table.find("tbody tr.selected");
+                            var currentIndex = currentRow.index();
+                            if ($(event.target).closest(wrap).length > 0) {
+                                if (key === 13) {
+                                    event.preventDefault();
+                                    $table.hasClass('dataTable') ?
+                                    $table.find("tbody tr td.focus").trigger("click") :
+                                    (
+                                        $table.find("tbody tr.stayed").removeClass('stayed') , 
+                                        currentRow.click().addClass('stayed')
+                                    );
+                                }
+                                if (key === 40 && !$table.hasClass('dataTable')) {
+                                    event.preventDefault();
+                                    const nextIndex = currentIndex + 1;
+                                    const nextRow = $table.find('tbody tr').eq(nextIndex < rowCount ? nextIndex : 0);
+                                    currentRow.removeClass("selected");
+                                    nextRow.addClass("selected");
+
+                                    const currentScroll = wrap.scrollTop();
+                                    const nextRowPosition = nextRow.position().top;
+                                    if (nextRowPosition > itemCenter) {
+                                        wrap.scrollTop(currentScroll + itemHeight);
+                                    } else {
+                                        wrap.scrollTop(0);
+                                    }
+                                }
+                                if (key === 38 && !$table.hasClass('dataTable')) {
+                                    event.preventDefault();
+                                    const preIndex = currentIndex - 1;
+                                    const prevRow = $table.find('tbody tr').eq(preIndex >= 0 ? preIndex : rowCount - 1);
+                                    currentRow.removeClass("selected");
+                                    prevRow.addClass("selected");
+
+                                    const currentScroll = wrap.scrollTop();
+                                    const prevRowPosition = prevRow.position().top;
+                                    if (prevRowPosition < fullHeight - itemCenter) {
+                                        wrap.scrollTop(currentScroll - itemHeight)
+                                    } else {
+                                        wrap.scrollTop(fullHeight) ;
+                                    }
+                                   
+                                }
+                            } else {
+                                cell.removeClass('focus');
+                                $table.DataTable().cell.blur();
+                            }
+                        });
+                    };
+                    keydown();
+                    function clickRow (){
+                        row.off('click').one('click', function() {
+                            $(this).addClass('selected stayed').siblings().removeClass('selected stayed');
+                            targetFocus.focus();
+
+                            const currentRowPosition = $(this).position().top;
+                            const currentScroll = wrap.scrollTop(currentRowPosition - itemCenter);
+                            // wrap.animate({
+                            //     scrollTop: currentScroll
+                            // }, 1000);
+                            clickRow();
+                        });
+                    }
+                    !$table.hasClass('dataTable') ? clickRow() : null;
+                    $table.on('click', function(){
+                        targetFocus.focus();
+                    })
+                    $(document).on('click', function(event) {
+                        !$(event.target).closest($table).length && !$table.hasClass('dataTable') ?
+                        (
+                            row.each(function() {
+                                $(this).hasClass('stayed') ? $(this).addClass('selected').siblings().removeClass('selected') : null ;
+                            })
+                        ) :
+                        (   
+                            !$table.hasClass('dataTable') ? 
+                            (
+                                targetFocus.focus(),
+                                clickRow (),
+                                keydown()
+                            )
+                            : null
+                        );
+                    });
+                    if (typeof callback === 'function') {
+                        callback();
+                    } 
+                }
+            };
+        </script>
+    </body>
+
+</html>

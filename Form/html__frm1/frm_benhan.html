@@ -1,0 +1,1459 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Bệnh án</title>
+
+    <link rel="stylesheet" href="css/frm_04.css">
+    
+</head>
+<body class="new_style frm_04">
+    <!-- <div class="flex flex-wrap gapy-10"> -->
+    <div class="tabs-css w100">
+        <!-- Tab 1 -->
+        <input type="radio" name="tabs-css" id="tab1" aria-controls="thonhtinbenhan" value="thonhtinbenhan" >
+        <label for="tab1">Thông tin bệnh án</label>
+        <!-- Tab 2 -->
+        <input type="radio" name="tabs-css" id="tab2" aria-controls="noidungbenhan" value="noidungbenhan">
+        <label for="tab2">Nội dung bệnh án</label>
+        <!-- Tab 3 -->
+        <input type="radio" name="tabs-css" id="tab3" aria-controls="tongketbenhan" value="tongketbenhan" >
+        <label for="tab3">Tổng kết bệnh án</label>
+        <!-- Tab 4 -->
+        <input type="radio" name="tabs-css" id="tab4" aria-controls="benhansan" value="benhansan">
+        <label for="tab4">Tổng kết bệnh án sản</label>
+        <!-- Tab 5 -->
+        <input type="radio" name="tabs-css" id="tab5" aria-controls="phieuphanloai" value="phieuphanloai" checked="">
+        <label for="tab5">Phiếu phân loại</label>
+        <!-- Content Wrap -->
+        <div class="tab-panels">
+            <!-- Content 1 -->
+            <section id="thonhtinbenhan" class="tab-panel">
+                <div class="column-3">
+                    <div class="bg-secondary d-inline-block w100 mrg-b-10 box-shadow-5 bdr-5">
+                        <div class="w100 flex bg-third clr-white pdl-10 pdr-5 bdr-5">
+                            <h2 class="frm__block--title"><i class="fa-solid fa-laptop-file fa-lg"></i> Thông tin bệnh án</h2>
+                        </div>
+                        <div class="w100 flex flex-wrap gapy-5 pd-10">
+                            <div class="w100 flex flex-align-center gapy-5">
+                                <label class="w90px txt-right" for="">Bệnh viện</label>
+                                <input class="input w100px grow-1" type="text" id="" value="" placeholder="Bệnh viện Đa Khoa Hồng Hưng">
+                                <input class="input w25" type="text" id="" value="" placeholder="MS: 10/BV-01">
+                            </div>
+                            <div class="w100 flex flex-align-center gapy-5">
+                                <label class="w90px txt-right" for="">Bệnh án <span class="clr-red">(*)</label>
+                                <select class="input w140px grow-1" id="" required>
+                                    <option value="0" selected>Ngoại khoa</option>
+                                    <option value="1">Nội khoa</option>
+                                    <option value="2">Cấp cứu</option>
+                                </select>
+                                <input class="input w25" type="text" id="" value="" placeholder="Số lưu trữ">
+                            </div>
+                            <div class="w100 flex flex-align-center gapy-5">
+                                <label class="w90px txt-right" for="">Khoa</label>
+                                <input class="input w100px grow-1" type="text" id="" value="" placeholder="Khoa">
+                                <input class="input w25" type="text" id="" value="" placeholder="Giường số">
+                            </div>
+                            <div class="w100 flex flex-align-center gapy-5">
+                                <label class="w90px txt-right" for="">Mã y tế</label>
+                                <input class="input w100px grow-1" type="text" id="" value="" placeholder="">
+                                <input class="input w25" type="date" id="" value="">
+                            </div>
+                            <div class="w100 flex flex-align-center gapy-5">
+                                <label class="w90px txt-right" for="">Giám đốc</label>
+                                <input class="input w100px grow-1" type="text" id="" value="" placeholder="">
+                            </div>
+                            <div class="w100 flex flex-align-center gapy-5">
+                                <label class="w90px txt-right" for="">Trưởng khoa</label>
+                                <input class="input w100px grow-1" type="text" id="" value="" placeholder="">
+                            </div>
+                            <div class="w100 flex flex-align-center gapy-5">
+                                <label class="w90px txt-right" for="">BS làm bệnh án</label>
+                                <input class="input w100px grow-1" type="text" id="" value="" placeholder="">
+                            </div>
+                            <div class="w100 flex flex-align-center gapy-5">
+                                <label class="w90px txt-right" for="">BS điều trị</label>
+                                <input class="input w100px grow-1" type="text" id="" value="" placeholder="">
+                            </div>
+                            <div class="w100 flex flex-align-center gapy-5">
+                                <label class="w90px txt-right" for="">Người giao HS</label>
+                                <input class="input w100px grow-1" type="text" id="" value="" placeholder="">
+                            </div>
+                            <div class="w100 flex flex-align-center gapy-5">
+                                <label class="w90px txt-right" for="">Người nhận HS</label>
+                                <input class="input w100px grow-1" type="text" id="" value="" placeholder="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-secondary d-inline-block w100 mrg-b-10 box-shadow-5 bdr-5">
+                        <div class="w100 flex bg-third clr-white pdl-10 pdr-5 bdr-5">
+                            <h2 class="frm__block--title"><i class="fa-solid fa-hospital-user fa-lg"></i> Thông tin bệnh nhân</h2>
+                        </div>
+                        <div class="w100 flex flex-wrap gapy-5 pd-10">
+                            <div class="w50 flex flex-align-center gapy-5">
+                                <label class="w90px txt-right" for="">Mã BHYT</label>
+                                <input class="input w100px grow-1" type="text" id="" value="">
+                            </div>
+                            <div class="w50-gapy5 flex flex-align-center gapy-5">
+                                <label class="w90px txt-right" for="">Ngày hết hạn</label>
+                                <input class="input w100px grow-1" type="date" id="" value="">
+                            </div>
+                            <div class="w100 flex flex-align-center gapy-5">
+                                <label class="w90px txt-right" for="">Họ và tên <span class="clr-red">(*)</span></label>
+                                <input class="input w100px grow-1" type="text" id="" value="" required readonly>
+                                <select class="input w25" id="" required>
+                                    <option value="1" selected>Miễn phí</option>
+                                    <option value="2">Thu phí</option>
+                                    <option value="3">Khác</option>
+                                </select>
+                            </div>
+                            <div class="w50 flex flex-align-center gapy-5">
+                                <label class="w90px txt-right" for="">Ngày sinh</label>
+                                <input class="input w100px grow-1" type="date" id="" value="">
+                            </div>
+                            <div class="w25-gapy5 flex flex-align-center gapy-5">
+                                <label class="w40px txt-right" for="-age">Tuổi</label>
+                                <input class="input w40px grow-1" type="number" id="" value="">
+                            </div>
+                            <div class="w25-gapy5 flex flex-align-center gapy-5">
+                                <label class="w50px txt-right" for="-month">Tháng/N</label>
+                                <input class="input w40px grow-1" type="number" id="" value="">
+                            </div>
+                            <div class="w50 flex flex-align-center gapy-5">
+                                <label class="w90px txt-right" for="">CCCC/Hộ chiếu</label>
+                                <input class="input w100px grow-1" type="number" id="" value="">
+                            </div>
+                            <div class="w50-gapy5 flex flex-align-center gapy-5">
+                                <label class="w40px txt-right" for="">SĐT <span class="clr-red">(*)</span></label>
+                                <input class="input w100px grow-1" type="tel" id="" size="10" maxlength="10" minlength="10" value="" title="Vui lòng nhập số điện thoại 10 chữ số" placeholder="Số điện thoại" autocomplete="off">
+                            </div>
+                            <div class="w100 flex flex-align-center gapy-5">
+                                <div class="flex grow-1 flex-align-center gapy-5">
+                                    <label class="w90px txt-right" for="">Giới tính <span class="clr-red">(*)</span></label>
+                                    <select class="input grow-1" id="" required>
+                                        <option value="1" selected>Khác</option>
+                                        <option value="2">Nam</option>
+                                        <option value="3">Nữ</option>
+                                    </select>
+                                </div>
+                                <div class="flex grow-1 flex-align-center gapy-5">
+                                    <label class="w60px" for="">Dân tộc <span class="clr-red">(*)</label>
+                                    <select class="input grow-1" id="" required>
+                                        <option value="0" selected>Kinh</option>
+                                        <option value="1">Tày</option>
+                                        <option value="2">Nùng</option>
+                                        <option value="3">Mèo</option>
+                                        <option value="4">Mương</option>
+                                    </select>
+                                </div>
+                                <div class="flex flex-align-center gapy-5">
+                                    <input type="checkbox" id="" name="check-all">
+                                    <label for="">Ngoại kiều</label>
+                                </div>
+                            </div>
+                            <div class="w50 flex flex-align-center gapy-5">
+                                <label class="w90px txt-right" for="">Nghề nghiệp <span class="clr-red">(*)</label>
+                                <select class="input w140px" id="" required>
+                                    <option value="0" selected>Lao động phổ thông</option>
+                                    <option value="1">Văn phòng</option>
+                                    <option value="2">Công nhân</option>
+                                    <option value="3">Xây dựng</option>
+                                    <option value="4">Nội trợ</option>
+                                </select>
+                            </div>
+                            <div class="w50-gapy5 flex flex-align-center gapy-5">
+                                <input class="input w100px grow-1" type="tel" id="" size="10" maxlength="10" minlength="10" value="" required title="Vui lòng nhập số điện thoại 10 chữ số" placeholder="Địa chỉ làm việc">
+                            </div>
+                            <div class="w75 flex flex-align-center gapy-5">
+                                <label class="w90px txt-right" for="">Địa chỉ <span class="clr-red">(*)</label>
+                                <input class="input w100px grow-1" type="text" id="" value="" placeholder="Địa chỉ">
+                            </div>
+                            <div class="w25-gapy5 flex flex-align-center gapy-5">
+                                <input class="input w100px w100px grow-1" type="text" id="" value="" placeholder="Ấp/số nhà">
+                            </div>
+                            <div class="w100 flex flex-align-center gapy-5">
+                                <label class="w90px txt-right" for="">Nơi cư trú</label>
+                                <select class="input w100px grow-1" id="">
+                                    <option value="0" selected>Dương Minh Châu</option>
+                                    <option value="1">Lao động phổ thông</option>
+                                    <option value="2">Công nhân</option>
+                                    <option value="3">Xây dựng</option>
+                                    <option value="4">Nội trợ</option>
+                                </select>
+                                <select class="input w100px grow-1" id="">
+                                    <option value="0" selected>Dương Minh Châu</option>
+                                    <option value="1">Lao động phổ thông</option>
+                                    <option value="2">Công nhân</option>
+                                    <option value="3">Xây dựng</option>
+                                    <option value="4">Nội trợ</option>
+                                </select>
+                                <select class="input w100px grow-1" id="">
+                                    <option value="0" selected>Dương Minh Châu</option>
+                                    <option value="1">Lao động phổ thông</option>
+                                    <option value="2">Công nhân</option>
+                                    <option value="3">Xây dựng</option>
+                                    <option value="4">Nội trợ</option>
+                                </select>
+                            </div>
+                            <div class="w100 flex flex-align-center gapy-5">
+                                <label class="w90px txt-right" for="">Người liên hệ</label>
+                                <select class="input w40px grow-1" id="">
+                                    <option value="0" selected>Ông/bà</option>
+                                    <option value="1">Anh/chị</option>
+                                    <option value="2">Con/cháu</option>
+                                    <option value="3">Chú/bác</option>
+                                    <option value="4">Cô/dì</option>
+                                </select>
+                                <input class="input w30 grow-1" placeholder="Họ tên người liên hệ" type="text" id="" value="">
+                                <input class="input w20 grow-1" placeholder="Số điện thoại" type="text" id="" value="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-secondary d-inline-block w100 mrg-b-10 box-shadow-5 bdr-5">
+                        <div class="w100 flex bg-third clr-white pdl-10 pdr-5 bdr-5">
+                            <h2 class="frm__block--title"><i class="fa-solid fa-laptop-file fa-lg"></i> Quản lý người bệnh</h2>
+                            <div class="flex flex-align-center flex-justify-end gapy-5 mrg-l-auto">
+                                <label class="txt-right" for="">Vào viện do bệnh này lần thứ</label>
+                                <input class="input w40px bd bd-clr-1" type="text" id="" value="">
+                            </div>
+                        </div>
+                        <div class="w100 flex flex-wrap gapy-5 pd-10">
+                            <div class="w100 flex flex-align-center gapy-5">
+                                <label class="w90px txt-right" for="">Tổng ngày ĐT</label>
+                                <input class="input w60px" type="text" id="" value="">
+                                <input class="input w100px grow-1" type="datetime-local" id="" value="">
+                                <input class="input w100px grow-1" type="datetime-local" id="" value="">
+                            </div>
+                            <div class="w100 flex flex-align-center gapy-5">
+                                <label class="w90px txt-right" for="">Trực tiếp vào</label>
+                                <div class="w25 flex flex-align-center">
+                                    <input type="checkbox" class="disablegroup" id="ckCC" name="check-all-01">
+                                    <label for="ckCC">Cấp cứu</label>
+                                </div>
+                                <div class="w20 flex flex-align-center">
+                                    <input type="checkbox" class="disablegroup" id="ckKKB" name="check-all-01">
+                                    <label for="ckKKB">KKB</label>
+                                </div>
+                                <div class="grow-1 flex flex-align-center">
+                                    <input type="checkbox" class="disablegroup" id="ckKdt" name="check-all-01">
+                                    <label for="ckKdt">Khoa điều trị</label>
+                                </div>
+                            </div>
+                            <div class="w100 flex flex-align-center gapy-5">
+                                <label class="w90px txt-right" for="">Nơi giới thiệu</label>
+                                <div class="w25 flex flex-align-center">
+                                    <input type="checkbox" class="disablegroup" id="ckCqyt" name="check-all-02">
+                                    <label for="ckCqyt">Cơ quan y tế</label>
+                                </div>
+                                <div class="w20 flex flex-align-center">
+                                    <input type="checkbox" class="disablegroup" id="ckTd" name="check-all-02">
+                                    <label for="ckTd">Tự đến</label>
+                                </div>
+                                <div class="grow-1 flex flex-align-center">
+                                    <input type="checkbox" class="disablegroup" id="ckKhac01" name="check-all-02">
+                                    <label for="ckKhac01">Khác</label>
+                                </div>
+                            </div>               
+                            <div class="w100 flex flex-align-center gapy-5">
+                                <label class="w90px txt-right" for="">Vào khoa</label>
+                                <input class="input w100px grow-1" type="text" id="" value="">
+                                <input class="input w140px" type="datetime-local" id="" value="">
+                            </div>
+                            <div class="w100 flex flex-align-center gapy-5">
+                                <label class="w90px txt-right" for="">Chuyển khoa</label>
+                                <input class="input w100px grow-1" type="text" id="" value="">
+                                <input class="input w140px" type="datetime-local" id="" value="">
+                            </div>
+                            <div class="w100 flex flex-align-center gapy-5">
+                                <label class="w90px txt-right" for="">&ensp;</label>
+                                <input class="input w100px grow-1" type="text" id="" value="">
+                                <input class="input w140px" type="datetime-local" id="" value="">
+                            </div>
+                            <div class="w100 flex flex-align-center gapy-5">
+                                <label class="w90px txt-right" for="">&ensp;</label>
+                                <input class="input w100px grow-1" type="text" id="" value="">
+                                <input class="input w140px" type="datetime-local" id="" value="">
+                            </div>
+                            <div class="w100 flex flex-align-center gapy-5">
+                                <label class="w90px txt-right" for="">Chuyển viện</label>
+                                <div class="w25 flex flex-align-center">
+                                    <input type="checkbox" class="disablegroup" id="ckTT" name="check-all-03">
+                                    <label for="ckTT">Tuyến trên</label>
+                                </div>
+                                <div class="w20 flex flex-align-center">
+                                    <input type="checkbox" class="disablegroup" id="ckTD" name="check-all-03">
+                                    <label for="ckTD">Tuyến dưới</label>
+                                </div>
+                                <div class="grow-1 flex flex-align-center">
+                                    <input type="checkbox" class="disablegroup" id="ckCK" name="check-all-03">
+                                    <label for="ckCK">Chuyên khoa</label>
+                                </div>
+                            </div>
+                            <div class="w100 flex flex-align-center gapy-5">
+                                <label class="w90px txt-right" for="">Chuyển đến</label>
+                                <input class="input w100px grow-1" type="text" id="" value="">
+                            </div>
+                            <div class="w100 flex flex-align-center gapy-5">
+                                <label class="w90px txt-right" for="">Ra viện</label>
+                                <div class="w25 flex flex-align-center">
+                                    <input type="checkbox" class="disablegroup" id="ckXV" name="check-all-04">
+                                    <label for="ckXV">Xin về</label>
+                                </div>
+                                <div class="w20 flex flex-align-center">
+                                    <input type="checkbox" class="disablegroup" id="ckBV" name="check-all-04">
+                                    <label for="ckBV">Bỏ về</label>
+                                </div>
+                                <div class="grow-1 flex flex-align-center">
+                                    <input type="checkbox" class="disablegroup" id="ckRv" name="check-all-04">
+                                    <label for="ckRv">Ra về</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-secondary d-inline-block w100 mrg-b-10 box-shadow-5 bdr-5">
+                        <div class="w100 flex bg-third clr-white pdl-10 pdr-5 bdr-5">
+                            <h2 class="frm__block--title"><i class="fa-solid fa-laptop-file fa-lg"></i> Chuẩn đoán</h2>
+                        </div>
+                        <div class="w100 flex flex-wrap gapy-5 pd-10">
+                            <div class="w100 flex flex-align-center gapy-5">
+                                <label class="w90px txt-right" for="">Nơi chuyển đến</label>
+                                <input class="input w100px grow-1" type="text" id="" value="">
+                            </div>
+                            <div class="w100 flex flex-align-center gapy-5">
+                                <label class="w90px txt-right" for="">KKB, Cấp cứu</label>
+                                <input class="input w100px grow-1" type="text" id="" value="">
+                            </div>
+                            <div class="w100 flex flex-align-center gapy-5">
+                                <label class="w90px txt-right" for="">Khi vào khoa ĐT</label>
+                                <input class="input w100px grow-1" type="text" id="" value="">
+                            </div>
+                            <div class="w100 flex flex-align-center gapy-5">
+                                <div class="w25 flex flex-align-center">
+                                    <input type="checkbox" class="disablegroup" id="ckTB" name="check-all-05">
+                                    <label for="ckTB">Tai biến</label>
+                                </div>
+                                <div class="w25 flex flex-align-center">
+                                    <input type="checkbox" class="disablegroup" id="ckBC" name="check-all-05">
+                                    <label for="ckBC">Biến chứng</label>
+                                </div>
+                                <div class="w25 flex flex-align-center"></div>
+                                <div class="w25 flex flex-align-center"></div>
+                            </div>
+                            <div class="w100 flex flex-align-center gapy-5">
+                                <div class="w25 flex flex-align-center">
+                                    <input type="checkbox" class="disablegroup" id="ckBpt" name="check-all-06">
+                                    <label for="ckBpt">Do phẫu thuật</label>
+                                </div>
+                                <div class="w25 flex flex-align-center">
+                                    <input type="checkbox" class="disablegroup" id="ckDgm" name="check-all-06">
+                                    <label for="ckDgm">Do gây mê</label>
+                                </div>
+                                <div class="w25 flex flex-align-center">
+                                    <input type="checkbox" class="disablegroup" id="ckDnk" name="check-all-06">
+                                    <label for="ckDnk">Do nhiễm khuẩn</label>
+                                </div>
+                                <div class="w25 flex flex-align-center">
+                                    <input type="checkbox" class="disablegroup" id="ckKhac06" name="check-all-06">
+                                    <label for="ckKhac06">Khác</label>
+                                </div>
+                            </div>
+                            <div class="w100 flex flex-align-center gapy-5">
+                                <label class="w200px txt-right" for="">Tổng số ngày điều trị sau phẫu thuật</label>
+                                <input class="input w100px grow-1" type="text" id="" value="">
+                            </div>
+                            <div class="w100 flex flex-align-center gapy-5">
+                                <label class="w200px txt-right" for="">Tổng số lần phẫu thuật</label>
+                                <input class="input w100px grow-1" type="text" id="" value="">
+                            </div>
+                            <div class="w100 flex flex-align-center gapy-5">
+                                <label class="w90px txt-right" for="">Bệnh chính</label>
+                                <input class="input w100px grow-1" type="text" id="" value="">
+                            </div>
+                            <div class="w100 flex flex-align-center gapy-5">
+                                <label class="w90px txt-right" for="">Nguyên nhân</label>
+                                <input class="input w100px grow-1" type="text" id="" value="">
+                            </div>
+                            <div class="w100 flex flex-align-center gapy-5">
+                                <label class="w90px txt-right" for="">Bệnh kèm theo</label>
+                                <input class="input w100px grow-1" type="text" id="" value="">
+                            </div>
+                            <div class="w100 flex flex-align-center gapy-5">
+                                <label class="w90px txt-right" for="">CĐ trước PT</label>
+                                <input class="input w100px grow-1" type="text" id="" value="">
+                            </div>
+                            <div class="w100 flex flex-align-center gapy-5">
+                                <label class="w90px txt-right" for="">CĐ sau PT</label>
+                                <input class="input w100px grow-1" type="text" id="" value="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-secondary d-inline-block w100 mrg-b-10 box-shadow-5 bdr-5">
+                        <div class="w100 flex bg-third clr-white pdl-10 pdr-5 bdr-5">
+                            <h2 class="frm__block--title"><i class="fa-solid fa-laptop-file fa-lg"></i> Tình trạng ra viện</h2>
+                        </div>
+                        <div class="w100 flex flex-wrap gapy-5 pd-10">
+                            <div class="w100 flex flex-align-center gapy-5">
+                                <label class="w90px txt-right" for="">KQ điều trị</label>
+                                <div class="w25 flex flex-align-center">
+                                    <input type="checkbox" class="disablegroup" id="ckKhoi" name="check-all-07">
+                                    <label for="ckKhoi">Khỏi</label>
+                                </div>
+                                <div class="w20 flex flex-align-center">
+                                    <input type="checkbox" class="disablegroup" id="ckDoGiam" name="check-all-07">
+                                    <label for="ckDoGiam">Đỡ, giảm</label>
+                                </div>
+                                <div class="grow-1 flex flex-align-center">
+                                    <input type="checkbox" class="disablegroup" id="ckKhongdoi" name="check-all-07">
+                                    <label for="ckKhongdoi">Không đổi</label>
+                                </div>
+                            </div>
+                            <div class="w100 flex flex-align-center gapy-5">
+                                <label class="w90px txt-right" for="">&ensp;</label>
+                                <div class="w25 flex flex-align-center">
+                                    <input type="checkbox" class="disablegroup" id="ckNanghon" name="check-all-07">
+                                    <label for="ckNanghon">Nặng hơn</label>
+                                </div>
+                                <div class="w25 flex flex-align-center">
+                                    <input type="checkbox" class="disablegroup" id="ckTD" name="check-all-07">
+                                    <label for="ckTD">Tử vong</label>
+                                </div>
+                            </div>
+                            <div class="w100 flex flex-align-center gapy-5">
+                                <label class="w90px txt-right" title="Giải phẫu bệnh khi có sinh tiết" for="">GP bệnh (KCST)</label>
+                                <div class="w25 flex flex-align-center">
+                                    <input type="checkbox" class="disablegroup" id="ckLanhtinh" name="check-all-08">
+                                    <label for="ckLanhtinh">Lành tính</label>
+                                </div>
+                                <div class="w25 flex flex-align-center">
+                                    <input type="checkbox" class="disablegroup" id="ckNghingo" name="check-all-08">
+                                    <label for="ckNghingo">Nghi ngờ</label>
+                                </div>
+                                <div class="grow-1 flex flex-align-center">
+                                    <input type="checkbox" class="disablegroup" id="ckActinh" name="check-all-08">
+                                    <label for="ckActinh">Ác tinh</label>
+                                </div>
+                            </div>
+                            <div class="w100 flex flex-align-center gapy-5">
+                                <label class="w90px txt-right" for="">Tử vong</label>
+                                <input class="input w140px" type="datetime-local" id="" value="">
+                                <input class="input w100px grow-1" type="text" id="" value="" placeholder="Nguyên nhân tử vong">
+                            </div>
+                            <div class="w100 flex flex-align-center gapy-5">
+                                <label class="w90px txt-right" title="Giải phẫu bệnh khi có sinh tiết" for="">&ensp;</label>
+                                <div class="w25 flex flex-align-center">
+                                    <input type="checkbox" class="disablegroup" id="ckDobenh" name="check-all-09">
+                                    <label for="ckDobenh">Do bệnh</label>
+                                </div>
+                                <div class="w25 flex flex-align-center">
+                                    <input type="checkbox" class="disablegroup" id="ckTBDT" name="check-all-09">
+                                    <label for="ckTBDT">Tai biến điều trị</label>
+                                </div>
+                                <div class="grow-1 flex flex-align-center">
+                                    <input type="checkbox" class="disablegroup" id="ckKhac09" name="check-all-09">
+                                    <label for="ckKhac09">Khác</label>
+                                </div>
+                            </div>
+                            <div class="w100 flex flex-align-center gapy-5">
+                                <label class="w90px txt-right" title="Giải phẫu bệnh khi có sinh tiết" for="">&ensp;</label>
+                                <div class="w25 flex flex-align-center">
+                                    <input type="checkbox" class="disablegroup" id="ck48hvv" name="check-all-09">
+                                    <label for="ck48hvv">24h vào viện</label>
+                                </div>
+                                <div class="w25 flex flex-align-center">
+                                    <input type="checkbox" class="disablegroup" id="ck48hvv" name="check-all-09">
+                                    <label for="ck48hvv">48h vào viện</label>
+                                </div>
+                                <div class="grow-1 flex flex-align-center">
+                                    <input type="checkbox" class="disablegroup" id="ck72hvv" name="check-all-09">
+                                    <label for="ck72hvv">72h vào viện</label>
+                                </div>
+                            </div>
+                            <div class="w100 flex flex-align-center gapy-5">
+                                <label class="w90px txt-right" title="Khám nghiệm tử thi" for="">KN tử thi</label>
+                                <select class="input w60px" id="">
+                                    <option value="1" selected="">Có</option>
+                                    <option value="2">Không</option>
+                                </select>
+                                <input class="input w100px grow-1" type="text" id="" value="" placeholder="Chuẩn đoán giải phẫu tử thi">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-secondary d-inline-block w100 mrg-b-10 box-shadow-5 bdr-5">
+                        <div class="w100 flex bg-third clr-white pdl-10 pdr-5 bdr-5">
+                            <h2 class="frm__block--title"><i class="fa-solid fa-laptop-file fa-lg"></i> Hồ sơ, phim, ảnh</h2>
+                            <div class="flex flex-align-center flex-justify-end gapy-5 mrg-l-auto">
+                                <label class="w90px txt-right" for="">Toàn bộ</label>
+                                <input class="input w40px bd bd-clr-1" type="text" id="" value="" placeholder="Số tờ">
+                            </div>
+                        </div>
+                        <div class="w100 flex flex-wrap gapy-5 pd-10">
+                            <div class="w50 flex flex-align-center gapy-5">
+                                <label class="w90px txt-right" for="">X-quang</label>
+                                <input class="input w100px grow-1" type="text" id="" value="" placeholder="Số tờ">
+                            </div>
+                            <div class="w50-gapy5 flex flex-align-center gapy-5">
+                                <label class="w90px txt-right" for="">CT Scanner</label>
+                                <input class="input w100px grow-1" type="text" id="" value="" placeholder="Số tờ">
+                            </div>
+                            <div class="w50 flex flex-align-center gapy-5">
+                                <label class="w90px txt-right" for="">Siêu âm</label>
+                                <input class="input w100px grow-1" type="text" id="" value="" placeholder="Số tờ">
+                            </div>
+                            <div class="w50-gapy5 flex flex-align-center gapy-5">
+                                <label class="w90px txt-right" for="">Xét nghiệm</label>
+                                <input class="input w100px grow-1" type="text" id="" value="" placeholder="Số tờ">
+                            </div>
+                            <div class="w100 flex flex-align-center gapy-5">
+                                <label class="w90px txt-right" for="">Khác</label>
+                                <input class="input w100px grow-1" type="text" id="" value="" placeholder="Nội dung">
+                                <input class="input w50px" type="text" id="" value="" placeholder="Số tờ">
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- End Content 1 -->
+            <!-- Content 2 -->
+            <section id="noidungbenhan" class="tab-panel">
+                <div class="column-2">
+                    <div class="bg-secondary d-inline-block w100 mrg-b-10 box-shadow-5 bdr-5">
+                        <div class="w100 flex bg-third clr-white pdl-10 pdr-5 bdr-5">
+                            <h2 class="frm__block--title"><i class="fa-solid fa-laptop-file fa-lg"></i> Lý do vào viện</h2>
+                            <div class="flex flex-align-center flex-justify-end gapy-5 mrg-l-auto">
+                                <label class="txt-right" for="">Vào ngày thứ bao nhiêu của bệnh</label>
+                                <input class="input w40px bd bd-clr-1" type="text" id="" value="">
+                            </div>
+                        </div>
+                        <div class="w100 flex flex-wrap gapy-5 pd-10">
+                            <textarea class="w100 bd bd-clr-0 bdr-5" style="height: 61px;"></textarea>
+                        </div>
+                    </div>
+                    <div class="bg-secondary d-inline-block w100 mrg-b-10 box-shadow-5 bdr-5">
+                        <div class="w100 flex bg-third clr-white pdl-10 pdr-5 bdr-5">
+                            <h2 class="frm__block--title"><i class="fa-solid fa-laptop-file fa-lg"></i> Hỏi bệnh</h2>
+                        </div>
+                        <div class="w100 flex flex-wrap gapy-10 pd-10">
+                            <div class="w100 flex flex-wrap gapy-5">
+                                <label class="w100 txt-wrap l-h10" for=""><span>1.</span> Quá trình bệnh lý <i>(khởi phát, diễn biến, chuẩn đoán, điều trị của tuyến dưới v.v...)</i>.</label>
+                                <textarea class="w100 bd bd-clr-0 bdr-5" style="height: 61px;"></textarea>
+                            </div>
+                            <div class="w100 flex flex-wrap gapy-5">
+                                <label class="w100 txt-wrap l-h10" for=""><span>2.</span> Tiền sử bệnh bản thân <i>(phát triển thể lực từ nhỏ đến lớn, những bệnh đã mắc, phương pháp điều trị, tiêm phòng, ăn uống, sinh hoạt v.v...)</i>.</label>
+                                <textarea class="w100 bd bd-clr-0 bdr-5" style="height: 61px;"></textarea>
+                            </div>
+                            <div class="w100 flex flex-wrap gapy-5">
+                                <label class="w100" for=""><span>3.</span> Đặc điểm liên quan bệnh</i>.</label>
+                                <div class="w30 flex flex-align-center">
+                                    <input type="checkbox" class="disablegroup" id="ckTB" name="check-ddlqb-01">
+                                    <label for="ckTB" class="w60px">Dị ứng</label>
+                                    <input class="input w60px" type="text" id="" value="" placeholder="Thời gian">
+                                </div>
+                                <div class="w30 flex flex-align-center">
+                                    <input type="checkbox" class="disablegroup" id="ckBC" name="check-ddlqb-01">
+                                    <label for="ckBC" class="w60px">Ma túy</label>
+                                    <input class="input w60px" type="text" id="" value="" placeholder="Thời gian">
+                                </div>
+                                <div class="w30 flex flex-align-center">
+                                    <input type="checkbox" class="disablegroup" id="ckBC" name="check-ddlqb-01">
+                                    <label for="ckBC" class="w60px">Rượu bia</label>
+                                    <input class="input w60px" type="text" id="" value="" placeholder="Thời gian">
+                                </div>
+                                <div class="w30 flex flex-align-center">
+                                    <input type="checkbox" class="disablegroup" id="ckBC" name="check-ddlqb-01">
+                                    <label for="ckBC" class="w60px">Thuốc lá</label>
+                                    <input class="input w60px" type="text" id="" value="" placeholder="Thời gian">
+                                </div>
+                                <div class="w30 flex flex-align-center">
+                                    <input type="checkbox" class="disablegroup" id="ckBC" name="check-ddlqb-01">
+                                    <label for="ckBC" class="w60px">Thuốc lào</label>
+                                    <input class="input w60px" type="text" id="" value="" placeholder="Thời gian">
+                                </div>
+                                <div class="w30 flex flex-align-center">
+                                    <input type="checkbox" class="disablegroup" id="ckBC" name="check-ddlqb-01">
+                                    <label for="ckBC" class="w60px">Khác</label>
+                                    <input class="input w60px" type="text" id="" value="" placeholder="Thời gian">
+                                </div>
+                            </div>
+                            <div class="w100 flex flex-wrap gapy-5">
+                                <label class="w100 txt-wrap l-h10" for=""><span>4.</span> Tiền sử bệnh gia đình <i>(những người trong gia đình, bệnh đã mắc, đời sống, tinh thần, vật chất v.v...)</i>.</label>
+                                <textarea class="w100 bd bd-clr-0 bdr-5" style="height: 61px;"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-secondary d-inline-block w100 mrg-b-10 box-shadow-5 bdr-5">
+                        <div class="w100 flex bg-third clr-white pdl-10 pdr-5 bdr-5">
+                            <h2 class="frm__block--title"><i class="fa-solid fa-laptop-file fa-lg"></i> Khám bệnh</h2>
+                        </div>
+                        <div class="w100 flex flex-wrap gapy-10 pd-10">
+                            <div class="w100 flex flex-wrap gapy-5">
+                                <label class="w100 txt-wrap l-h10" for=""><span>1.</span> Toàn thân <i>(ý thức, da niêm mạc, hệ thống hạch, tuyến giáp, vị trí, kích thước, số lượng, di động v.v...)</i>.</label>
+                                <textarea class="w65 bd bd-clr-0 bdr-5" style="height: 160px;"></textarea>
+                                <div class="w35-gapy5 flex flex-wrap gapy-5">
+                                    <div class="w100 flex flex-align-center gapy-5">
+                                        <input class="input w90px grow-1" type="text" id="" value="">
+                                        <label class="w110px" for="">Nhiệt độ (*C)</label>
+                                    </div>
+                                    <div class="w100 flex flex-align-center gapy-5">
+                                        <input class="input w90px grow-1" type="text" id="" value="">
+                                        <label class="w110px" for="">Mạch (lần/phút)</label>
+                                    </div>
+                                    <div class="w100 flex flex-align-center gapy-5">
+                                        <input class="input w40px grow-1" type="text" id="" value="">
+                                        <span>/</span>
+                                        <input class="input w40px grow-1" type="text" id="" value="">
+                                        <label class="w110px" for="">Huyết áp (mmHg)</label>
+                                    </div>
+                                    <div class="w100 flex flex-align-center gapy-5">
+                                        <input class="input w90px grow-1" type="text" id="" value="">
+                                        <label class="w110px" for="">Nhịp thở (lần/phút)</label>
+                                    </div>
+                                    <div class="w100 flex flex-align-center gapy-5">
+                                        <input class="input w90px grow-1" type="text" id="" value="">
+                                        <label class="w110px" for="">Cân nặg (kg)</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="w50-gapy5 flex flex-wrap gapy-5">
+                                <label class="w100 txt-wrap l-h10" for=""><span>2.</span> Bệnh ngoại khoa</label>
+                                <textarea class="w100 bd bd-clr-0 bdr-5" style="height: 61px;"></textarea>
+                            </div>
+                            <div class="w50-gapy5 flex flex-wrap gapy-5">
+                                <label class="w100 txt-wrap l-h10" for=""><span>3.</span> Các xét nghiệm cận lâm sàn cần làm</label>
+                                <textarea class="w100 bd bd-clr-0 bdr-5" style="height: 61px;"></textarea>
+                            </div>
+                            <div class="w100 flex flex-wrap gapy-5">
+                                <label class="w100 txt-wrap l-h10" for=""><span>4.</span> Tóm tắt bệnh án</label>
+                                <textarea class="w100 bd bd-clr-0 bdr-5" style="height: 61px;"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-secondary d-inline-block w100 mrg-b-10 box-shadow-5 bdr-5">
+                        <div class="w100 flex bg-third clr-white pdl-10 pdr-5 bdr-5">
+                            <h2 class="frm__block--title"><i class="fa-solid fa-laptop-file fa-lg"></i> Các cơ quan</h2>
+                        </div>
+                        <div class="w100 flex flex-wrap gapy-10 pd-10">
+                            <div class="w50-gapy5 flex flex-wrap gapy-5">
+                                <label class="w100 txt-wrap l-h10" for=""><span>1.</span> Tuần hoàn</label>
+                                <textarea class="w100 bd bd-clr-0 bdr-5" style="height: 61px;"></textarea>
+                            </div>
+                            <div class="w50-gapy5 flex flex-wrap gapy-5">
+                                <label class="w100 txt-wrap l-h10" for=""><span>2.</span> Hô hấp</label>
+                                <textarea class="w100 bd bd-clr-0 bdr-5" style="height: 61px;"></textarea>
+                            </div>
+                            <div class="w50-gapy5 flex flex-wrap gapy-5">
+                                <label class="w100 txt-wrap l-h10" for=""><span>3.</span> Tiêu hóa</label>
+                                <textarea class="w100 bd bd-clr-0 bdr-5" style="height: 61px;"></textarea>
+                            </div>
+                            <div class="w50-gapy5 flex flex-wrap gapy-5">
+                                <label class="w100 txt-wrap l-h10" for=""><span>4.</span> Thận - tiết niệu - sinh dục</label>
+                                <textarea class="w100 bd bd-clr-0 bdr-5" style="height: 61px;"></textarea>
+                            </div>
+                            <div class="w50-gapy5 flex flex-wrap gapy-5">
+                                <label class="w100 txt-wrap l-h10" for=""><span>5.</span> Thần kinh</label>
+                                <textarea class="w100 bd bd-clr-0 bdr-5" style="height: 61px;"></textarea>
+                            </div>
+                            <div class="w50-gapy5 flex flex-wrap gapy-5">
+                                <label class="w100 txt-wrap l-h10" for=""><span>6.</span> Cơ - Xương - Khớp</label>
+                                <textarea class="w100 bd bd-clr-0 bdr-5" style="height: 61px;"></textarea>
+                            </div>
+                            <div class="w50-gapy5 flex flex-wrap gapy-5">
+                                <label class="w100 txt-wrap l-h10" for=""><span>7.</span> Tai - Mũi - Họng</label>
+                                <textarea class="w100 bd bd-clr-0 bdr-5" style="height: 61px;"></textarea>
+                            </div>
+                            <div class="w50-gapy5 flex flex-wrap gapy-5">
+                                <label class="w100 txt-wrap l-h10" for=""><span>8.</span> Răng - Hàm - Mặt</label>
+                                <textarea class="w100 bd bd-clr-0 bdr-5" style="height: 61px;"></textarea>
+                            </div>
+                            <div class="w50-gapy5 flex flex-wrap gapy-5">
+                                <label class="w100 txt-wrap l-h10" for=""><span>9.</span> Mắt</label>
+                                <textarea class="w100 bd bd-clr-0 bdr-5" style="height: 61px;"></textarea>
+                            </div>
+                            <div class="w50-gapy5 flex flex-wrap gapy-5">
+                                <label class="w100 txt-wrap l-h10" for=""><span>10.</span> Nội tiết, dinh dưỡng và các bệnh lý khác</label>
+                                <textarea class="w100 bd bd-clr-0 bdr-5" style="height: 61px;"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-secondary d-inline-block w100 mrg-b-10 box-shadow-5 bdr-5">
+                        <div class="w100 flex bg-third clr-white pdl-10 pdr-5 bdr-5">
+                            <h2 class="frm__block--title"><i class="fa-solid fa-laptop-file fa-lg"></i> Chuẩn đoán khi vào khoa điều trị</h2>
+                        </div>
+                        <div class="w100 flex flex-wrap gapy-10 pd-10">
+                            <div class="w50-gapy5 flex flex-wrap gapy-5">
+                                <label class="w100 txt-wrap l-h10" for=""><span>1.</span> Bệnh chính</label>
+                                <textarea class="w100 bd bd-clr-0 bdr-5" style="height: 61px;"></textarea>
+                            </div>
+                            <div class="w50-gapy5 flex flex-wrap gapy-5">
+                                <label class="w100 txt-wrap l-h10" for=""><span>2.</span> Bệnh kèm theo <i>(nếu có)</i></label>
+                                <textarea class="w100 bd bd-clr-0 bdr-5" style="height: 61px;"></textarea>
+                            </div>
+                            <div class="w100 flex flex-wrap gapy-5">
+                                <label class="w100 txt-wrap l-h10" for=""><span>3.</span> Phân biệt</label>
+                                <textarea class="w100 bd bd-clr-0 bdr-5" style="height: 60px;"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-secondary d-inline-block w100 mrg-b-10 box-shadow-5 bdr-5">
+                        <div class="w100 flex bg-third clr-white pdl-10 pdr-5 bdr-5">
+                            <h2 class="frm__block--title"><i class="fa-solid fa-laptop-file fa-lg"></i> Tiên lượng</h2>
+                        </div>
+                        <div class="w100 flex flex-wrap gapy-5 pd-10">
+                            <textarea class="w100 bd bd-clr-0 bdr-5" style="height: 58px;"></textarea>
+                        </div>
+                    </div>
+                    <div class="bg-secondary d-inline-block w100 mrg-b-10 box-shadow-5 bdr-5">
+                        <div class="w100 flex bg-third clr-white pdl-10 pdr-5 bdr-5">
+                            <h2 class="frm__block--title"><i class="fa-solid fa-laptop-file fa-lg"></i> Hướng điều trị</h2>
+                        </div>
+                        <div class="w100 flex flex-wrap gapy-5 pd-10">
+                            <textarea class="w100 bd bd-clr-0 bdr-5" style="height: 58px;"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- End Content 2 -->
+            <!-- Content 3 -->
+            <section id="tongketbenhan" class="tab-panel">
+                <div class="w100 flex flex-wrap gapy-10 pd-10 box-shadow-5 bdr-5">
+                    <div class="w50-gapy5 flex flex-wrap gapy-5">
+                        <label class="w100 txt-wrap l-h10" for=""><span>1.</span> Quá trình bệnh lý và diễn biến cận lâm sàn</label>
+                        <textarea class="w100 bd bd-clr-0 bdr-5" style="height: 61px;"></textarea>
+                    </div>
+                    <div class="w50-gapy5 flex flex-wrap gapy-5">
+                        <label class="w100 txt-wrap l-h10" for=""><span>2.</span> Tóm tắt kết quả xét nghiệm cận lâm sàn có giá trị chuẩn đoán</label>
+                        <textarea class="w100 bd bd-clr-0 bdr-5" style="height: 61px;"></textarea>
+                    </div>
+                    <div class="w100 flex flex-wrap gapy-5">
+                        <label class="w100 txt-wrap l-h10" for=""><span>3.</span> Phương pháp điều trị</label>
+                        <textarea class="w100 bd bd-clr-0 bdr-5" style="height: 61px;"></textarea>
+                    </div>
+                    <div class="w100">
+                        <div class="w100 flex flex-align-center gapy-5">
+                            <div class="w10 flex flex-align-center">
+                                <input type="checkbox" class="disablegroup" id="ckPhauthuat" name="check-ppdt-05">
+                                <label for="ckPhauthuat">Phẫu thuật</label>
+                            </div>
+                            <div class="w10 flex flex-align-center">
+                                <input type="checkbox" class="disablegroup" id="ckThuthuat" name="check-ppdt-05">
+                                <label for="ckThuthuat">Thủ thuật</label>
+                            </div>
+                        </div>
+                        <table class="frm-table tbl-border tbl-sm">
+                            <thead>
+                                <tr>
+                                    <th>Ngày giờ</th>
+                                    <th>Phương pháp phẫu thuật/vô cảm</th>
+                                    <th>Bác sỹ phẫu thuật</th>
+                                    <th>Bác sỹ gây mê</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>12-04-2023</td>
+                                    <td class="txt-left"><span class="line line-clamp-1">Phương pháp phẫu thuật</span></td>
+                                    <td class="txt-left">Nguyễn Văn A</td>
+                                    <td class="txt-left">Nguyễn Văn B</td>
+                                </tr>
+                                <tr>
+                                    <td>12-04-2023</td>
+                                    <td class="txt-left"><span class="line line-clamp-1">Phương pháp phẫu thuật</span></td>
+                                    <td class="txt-left">Nguyễn Văn A</td>
+                                    <td class="txt-left">Nguyễn Văn B</td>
+                                </tr>
+                                <tr>
+                                    <td>12-04-2023</td>
+                                    <td class="txt-left"><span class="line line-clamp-1">Phương pháp phẫu thuật</span></td>
+                                    <td class="txt-left">Nguyễn Văn A</td>
+                                    <td class="txt-left">Nguyễn Văn B</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="w50-gapy5 flex flex-wrap gapy-5">
+                        <label class="w100 txt-wrap l-h10" for=""><span>4.</span> Tình trạng người bệnh ra viện</label>
+                        <textarea class="w100 bd bd-clr-0 bdr-5" style="height: 61px;"></textarea>
+                    </div>
+                    <div class="w50-gapy5 flex flex-wrap gapy-5">
+                        <label class="w100 txt-wrap l-h10" for=""><span>5.</span> Hướng điều trị và chế độ tiếp theo</label>
+                        <textarea class="w100 bd bd-clr-0 bdr-5" style="height: 61px;"></textarea>
+                    </div>
+                </div>
+            </section>
+            <!-- End Content 3 -->
+            <!-- Content 4 -->
+            <section id="benhansan" class="tab-panel">
+                <div class="column-2">
+                    <div class="d-inline-block mrg-b-10 flex flex-wrap box-shadow-5 bdr-5">
+                        <div class="w100 flex bg-third clr-white pdl-10 pdr-5 bdr-5">
+                            <h2 class="frm__block--title">IV-Theo dõi tại buồng đẻ</h2>
+                        </div>
+                        <div class="w100 flex flex-wrap gapy-5 pd-10">
+                            <div class="w40 flex flex-align-center gapy-5">
+                                <label class="w110px txt-right" for="">Vào buồng đẻ lúc</label>
+                                <input class="input w150px grow-1" type="datetime-local" id="" value="">
+                            </div>
+                            <div class="w60-gapy5 flex flex-align-center gapy-5">
+                                <label class="w110px txt-right" for="">Tên người theo dõi</label>
+                                <input class="input w80px grow-4" type="text" id="" value="">
+                                <input class="input w80px grow-1" type="text" id="" value="" placeholder="Chức danh">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-inline-block mrg-b-10 flex flex-wrap box-shadow-5 bdr-5">
+                        <div class="w100 flex bg-third clr-white pdl-10 pdr-5 bdr-5">
+                            <h2 class="frm__block--title">1.Đặc điểm trẻ sơ sinh</h2>
+                        </div>
+                        <div class="w100 flex flex-wrap gapy-5 pd-10">
+                            <div class="w100 flex flex-align-center gapy-5">
+                                <label class="w110px txt-right" for="">Đẻ vào lúc</label>
+                                <input class="input w150px grow-1" type="datetime-local" id="" value="">
+                            </div>
+                            <div class="w100 flex flex-align-center gapy-5">
+                                <label class="w110px txt-right" for="">Apgar</label>
+                                <label class="w50px txt-right" for="">1phút</label>
+                                <input class="input w50px grow-1" type="text" id="" value="">
+                                <span>điểm</span>
+                                <label class="w50px txt-right" for="">5phút</label>
+                                <input class="input w50px grow-1" type="text" id="" value="">
+                                <span>điểm</span>
+                                <label class="w50px txt-right" for="">10phút</label>
+                                <input class="input w50px grow-1" type="text" id="" value="">
+                                <span>điểm</span>
+                            </div>
+                            <div class="w35-gapy5 flex flex-align-center gapy-5">
+                                <label class="w110px txt-right" for="">Cân nặng (gram)</label>
+                                <input class="input w50px grow-1" type="text" id="" value="">
+                            </div>
+                            <div class="w30 flex flex-align-center gapy-5">
+                                <label class="w110px txt-right" for="">Cao (cm)</label>
+                                <input class="input w50px grow-1" type="text" id="" value="">
+                            </div>
+                            <div class="w35-gapy5 flex flex-align-center gapy-5">
+                                <label class="w110px txt-right" for="">Vòng đầu (cm)</label>
+                                <input class="input w50px grow-1" type="text" id="" value="">
+                            </div>
+                            <div class="w100 flex flex-align-start gapy-5">
+                                <label class="w110px txt-right" for=""><b>Con</b></label>
+                                <div class="w50 grow-1 flex flex-wrap gapy-5">
+                                    <div class="pdr-10 flex flex-align-center gapy-5">
+                                        <label for="">- Đơn thai</label>
+                                        <div class="flex flex-align-center">
+                                            <input type="checkbox" class="disablegroup" id="donthai01" name="check-donthai">
+                                            <label for="donthai01"><i>Trai</i></label>
+                                        </div>
+                                        <div class="flex flex-align-center">
+                                            <input type="checkbox" class="disablegroup" id="donthai02" name="check-donthai">
+                                            <label for="donthai02"><i>Gái</i></label>
+                                        </div>
+                                    </div>
+                                    <div class="pdr-10 flex flex-align-center gapy-5">
+                                        <label for="">- Đa thai</label>
+                                        <div class="flex flex-align-center">
+                                            <input type="checkbox" class="disablegroup" id="dathai01" name="check-dathai">
+                                            <label for="dathai01">Trai</label>
+                                        </div>
+                                        <div class="flex flex-align-center">
+                                            <input type="checkbox" class="disablegroup" id="dathai02" name="check-dathai">
+                                            <label for="dathai02">Gái</label>
+                                        </div>
+                                    </div>
+                                    <div class="pdr-10 flex flex-align-center gapy-5">
+                                        <label for="">- Tật bẩm sinh</label>
+                                    </div>
+                                    <div class="flex flex-align-center gapy-5">
+                                        <label for="">- Có hậu môn</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="w50 flex flex-align-center gapy-5">
+                                <label class="w110px txt-right" for="">Cụ thể tật bẩm sinh</label>
+                                <input class="input w150px grow-1" type="text" id="" value="">
+                            </div>
+                            <div class="w50-gapy5 flex flex-align-center gapy-5">
+                                <label class="w110px txt-right" for="">Tình trạng trẻ sau đẻ</label>
+                                <input class="input w150px grow-1" type="text" id="" value="">
+                            </div>
+                            <div class="w100 flex flex-align-center gapy-5">
+                                <label class="w110px txt-right" for="">Xử lý và kết quả</label>
+                                <input class="input w150px grow-1" type="text" id="" value="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-inline-block mrg-b-10 flex flex-wrap box-shadow-5 bdr-5">
+                        <div class="w100 flex bg-third clr-white pdl-10 pdr-5 bdr-5">
+                            <h2 class="frm__block--title">2.Đặc điểm sổ rau</h2>
+                        </div>
+                        <div class="w100 flex flex-wrap gapy-5 pd-10">
+                            <div class="w50 flex flex-align-center gapy-5">
+                                <label class="w110px txt-right" for="">Rau</label>
+                                <div class="w20 flex flex-align-center">
+                                    <input type="checkbox" class="disablegroup" id="sorau01" name="checksorau">
+                                    <label for="sorau01"><i>1.Bóc</i></label>
+                                </div>
+                                <div class="w20 flex flex-align-center">
+                                    <input type="checkbox" class="disablegroup" id="sorau02" name="checksorau">
+                                    <label for="sorau02"><i>2.Sổ</i></label>
+                                </div>
+                            </div>
+                            <div class="w50-gapy5 flex flex-align-center gapy-5">
+                                <label class="w110px txt-right" for="">Rau sổ lúc</label>
+                                <input class="input w150px grow-1" type="datetime-local" id="" value="">
+                            </div>
+                            <div class="w50 flex flex-align-center gapy-5">
+                                <label class="w110px txt-right" for="">Cách sổ rau</label>
+                                <input class="input w150px grow-1" type="text" id="" value="">
+                            </div>
+                            <div class="w50-gapy5 flex flex-align-center gapy-5">
+                                <label class="w110px txt-right" for="">Mặt màng</label>
+                                <input class="input w150px grow-1" type="text" id="" value="">
+                            </div>
+                            <div class="w50 flex flex-align-center gapy-5">
+                                <label class="w110px txt-right" for="">Mặt múi</label>
+                                <input class="input w150px grow-1" type="text" id="" value="">
+                            </div>
+                            <div class="w50-gapy5 flex flex-align-center gapy-5">
+                                <label class="w110px txt-right" for="">Bánh rau</label>
+                                <input class="input w150px grow-1" type="text" id="" value="">
+                            </div>
+                            <div class="w25 flex flex-align-center gapy-5">
+                                <label class="w110px txt-right" for="">Cân nặng (gram)</label>
+                                <input class="input w40px grow-1" type="text" id="" value="">
+                            </div>
+                            <div class="w25-gapy5 flex flex-align-center">
+                                <input type="checkbox" class="disablegroup" id="raucuonco" name="checkraucuonco">
+                                <label for="raucuonco">Rau cuốn cổ</label>
+                            </div>
+                            <div class="w25-gapy5 flex flex-align-center gapy-5">
+                                <label class="w110px txt-right" for="">Cuốn rau dài (cm)</label>
+                                <input class="input w30px grow-1" type="text" id="" value="">
+                            </div>
+                            <div class="w25-gapy5 flex flex-align-center">
+                                <input type="checkbox" class="disablegroup" id="cochaymausauco" name="checkcochaymausauco">
+                                <label for="cochaymausauco">Có chảy máu sau cổ</label>
+                            </div>
+                            <div class="w60 flex flex-align-center gapy-5">
+                                <label class="w150px txt-right" for="">Nếu có, lượng máu mất (ml)</label>
+                                <input class="input w80px grow-1" type="text" id="" value="">
+                            </div>
+                            <div class="w40-gapy5 flex flex-align-center">
+                                <input type="checkbox" class="disablegroup" id="kiemsoattucung" name="checkkiemsoattucung">
+                                <label for="kiemsoattucung">Kiểm soát tử cung</label>
+                            </div>
+                            <div class="w100 flex flex-align-center gapy-5">
+                                <label class="w110px txt-right" for="">Xử lý và kết quả</label>
+                                <input class="input w80px grow-1" type="text" id="" value="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-inline-block mrg-b-10 flex flex-wrap box-shadow-5 bdr-5">
+                        <div class="w100 flex bg-third clr-white pdl-10 pdr-5 bdr-5">
+                            <h2 class="frm__block--title">3.Tình trạng sản phụ sau đẻ</h2>
+                        </div>
+                        <div class="w100 flex flex-wrap gapy-5 pd-10">
+                            <div class="w100 flex flex-align-center gapy-5">
+                                <label class="w110px txt-right" for="">Da, niêm mạc</label>
+                                <input class="input w80px grow-1" type="text" id="" value="">
+                            </div>
+                            <div class="w100 flex flex-align-center gapy-5">
+                                <label class="w110px txt-right" for="">Phương pháp đẻ</label>
+                                <div class="w25 flex flex-align-center">
+                                    <input type="checkbox" class="disablegroup" id="ppde01" name="checkppde">
+                                    <label for="ppde01"><i>1.Đẻ thường</i></label>
+                                </div>
+                                <div class="w25 flex flex-align-center">
+                                    <input type="checkbox" class="disablegroup" id="ppde02" name="checkppde">
+                                    <label for="ppde02"><i>2.Forceps</i></label>
+                                </div>
+                                <div class="grow-1 flex flex-align-center">
+                                    <input type="checkbox" class="disablegroup" id="ppde03" name="checkppde">
+                                    <label for="ppde03"><i>3.Giác hút</i></label>
+                                </div>
+                            </div>
+                            <div class="w100 flex flex-align-center gapy-5">
+                                <label class="w110px txt-right" for=""></label>
+                                <div class="w25 flex flex-align-center">
+                                    <input type="checkbox" class="disablegroup" id="ppde04" name="checkppde">
+                                    <label for="ppde04"><i>4.PT</i></label>
+                                </div>
+                                <div class="w25 flex flex-align-center">
+                                    <input type="checkbox" class="disablegroup" id="ppde05" name="checkppde">
+                                    <label for="ppde05"><i>5.Đẻ chỉ huy</i></label>
+                                </div>
+                                <div class="grow-1 flex flex-align-center">
+                                    <input type="checkbox" class="disablegroup" id="ppde06" name="checkppde">
+                                    <label for="ppde06"><i>6.Khác</i></label>
+                                </div>
+                            </div>
+                            <div class="w35-gapy5 flex flex-align-center gapy-5">
+                                <label class="w110px txt-right" for="">Nhiệt độ (<sup>0</sup>C)</label>
+                                <input class="input w40px grow-1" type="text" id="" value="">
+                            </div>
+                            <div class="w35-gapy5 flex flex-align-center gapy-5">
+                                <label class="w110px txt-right" for="">Mạch (lần/phút)</label>
+                                <input class="input w40px grow-1" type="text" id="" value="">
+                            </div>
+                            <div class="w30 flex flex-align-center gapy-5">
+                                <label class="w110px txt-right" for="">Nhịp thở (lần/phút)</label>
+                                <input class="input w40px grow-1" type="text" id="" value="">
+                            </div>
+                            <div class="w70-gapy5 flex flex-align-center gapy-5">
+                                <label class="w110px txt-right" for="">Huyết áp (mmHg)</label>
+                                <input class="input w40px grow-1" type="text" id="" value="">
+                                <span>/</span>
+                                <input class="input w40px grow-1" type="text" id="" value="">
+                            </div>
+                            <div class="w30 flex flex-align-center gapy-5">
+                                <label class="w110px txt-right" for="">Cân nặg (kg)</label>
+                                <input class="input w40px grow-1" type="text" id="" value="">
+                            </div>
+                            <div class="w100 flex flex-align-center gapy-5">
+                                <label class="w110px txt-right" for="">Tầng sinh môn</label>
+                                <div class="w25 flex flex-align-center">
+                                    <input type="checkbox" class="disablegroup" id="tangsinhmon01" name="checktangsinhmon">
+                                    <label for="tangsinhmon01"><i>1.Không rách</i></label>
+                                </div>
+                                <div class="w25 flex flex-align-center">
+                                    <input type="checkbox" class="disablegroup" id="tangsinhmon02" name="checktangsinhmon">
+                                    <label for="tangsinhmon02"><i>2.Rách</i></label>
+                                </div>
+                                <div class="grow-1 flex flex-align-center">
+                                    <input type="checkbox" class="disablegroup" id="tangsinhmon03" name="checktangsinhmon">
+                                    <label for="tangsinhmon03"><i>3.Cắt</i></label>
+                                </div>
+                            </div>
+                            <div class="w100 flex flex-align-center gapy-5">
+                                <label class="txt-right" for="">Nếu có, phương pháp khâu và loại chỉ</label>
+                                <input class="input w80px grow-1" type="text" id="" value="">
+                            </div>
+                            <div class="w40 flex flex-align-center gapy-5">
+                                <label class="w110px txt-right" for="">Số mũi khâu</label>
+                                <input class="input w80px grow-1" type="text" id="" value="">
+                            </div>
+                            <div class="w60-gapy5 flex flex-align-center gapy-5">
+                                <label class="w110px txt-right" for="">Cổ tử cung</label>
+                                <div class="w50 flex flex-align-center">
+                                    <input type="checkbox" class="disablegroup" id="cotucung01" name="checkcotucung">
+                                    <label for="cotucung01"><i>1.Không rách</i></label>
+                                </div>
+                                <div class="w50 flex flex-align-center">
+                                    <input type="checkbox" class="disablegroup" id="cotucung02" name="checkcotucung">
+                                    <label for="cotucung02"><i>2.Rách</i></label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-block mrg-b-10 flex flex-wrap box-shadow-5 bdr-5">
+                        <div class="w100 flex bg-third clr-white pdl-10 pdr-5 bdr-5">
+                            <h2 class="frm__block--title">4.Tình hình phẫu thuật <i>(nếu có)</i></h2>
+                        </div>
+                        <div class="w100 flex flex-wrap gapy-10 pd-10">
+                            <div class="w100 flex flex-wrap gapy-5">
+                                <label class="w100 txt-wrap l-h10" for="">Chuẩn đoán trước phẫu thuật</label>
+                                <textarea class="w100 bd bd-clr-0 bdr-5" style="height: 61px;"></textarea>
+                            </div>
+                            <div class="w100 flex flex-wrap gapy-5">
+                                <label class="w100 txt-wrap l-h10" for="">Chuẩn đoán sau phẫu thuật</label>
+                                <textarea class="w100 bd bd-clr-0 bdr-5" style="height: 61px;"></textarea>
+                            </div>
+                            <div class="w100 flex flex-align-center gapy-5">
+                                <div class="w25 flex flex-align-center">
+                                    <input type="checkbox" class="disablegroup" id="tabien01" name="checktabien">
+                                    <label for="tabien01">Tai biến</label>
+                                </div>
+                                <div class="w25 flex flex-align-center">
+                                    <input type="checkbox" class="disablegroup" id="tabien02" name="checktabien">
+                                    <label for="tabien02">Biến chứng</label>
+                                </div>
+                                <div class="w25 flex flex-align-center"></div>
+                                <div class="w25 flex flex-align-center"></div>
+                            </div>
+                            <div class="w100 flex flex-align-center gapy-5">
+                                <div class="w25 flex flex-align-center">
+                                    <input type="checkbox" class="disablegroup" id="bienchung01" name="checkbienchung">
+                                    <label for="bienchung01">Do phẫu thuật</label>
+                                </div>
+                                <div class="w25 flex flex-align-center">
+                                    <input type="checkbox" class="disablegroup" id="bienchung02" name="checkbienchung">
+                                    <label for="bienchung02">Do gây mê</label>
+                                </div>
+                                <div class="w25 flex flex-align-center">
+                                    <input type="checkbox" class="disablegroup" id="bienchung03" name="checkbienchung">
+                                    <label for="bienchung03">Do nhiễm khuẩn</label>
+                                </div>
+                                <div class="w25 flex flex-align-center">
+                                    <input type="checkbox" class="disablegroup" id="04" name="checkbienchung">
+                                    <label for="04">Khác</label>
+                                </div>
+                            </div>
+                            <div class="w100">
+                                <table class="frm-table tbl-border tbl-sm">
+                                    <thead>
+                                        <tr>
+                                            <th>Ngày giờ</th>
+                                            <th>Phương pháp phẫu thuật/vô cảm</th>
+                                            <th>Bác sỹ phẫu thuật</th>
+                                            <th>Bác sỹ gây mê</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>12-04-2023</td>
+                                            <td class="txt-left"><span class="line line-clamp-1">Phương pháp phẫu thuật</span></td>
+                                            <td class="txt-left">Nguyễn Văn A</td>
+                                            <td class="txt-left">Nguyễn Văn B</td>
+                                        </tr>
+                                        <tr>
+                                            <td>12-04-2023</td>
+                                            <td class="txt-left"><span class="line line-clamp-1">Phương pháp phẫu thuật</span></td>
+                                            <td class="txt-left">Nguyễn Văn A</td>
+                                            <td class="txt-left">Nguyễn Văn B</td>
+                                        </tr>
+                                        <tr>
+                                            <td>12-04-2023</td>
+                                            <td class="txt-left"><span class="line line-clamp-1">Phương pháp phẫu thuật</span></td>
+                                            <td class="txt-left">Nguyễn Văn A</td>
+                                            <td class="txt-left">Nguyễn Văn B</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-block mrg-b-10 flex flex-wrap box-shadow-5 bdr-5">
+                        <div class="w100 flex bg-third clr-white pdl-10 pdr-5 bdr-5">
+                            <h2 class="frm__block--title">5.Hướng điều trị và chế độ tiếp theo</h2>
+                        </div>
+                        <div class="w100 flex flex-wrap gapy-10 pd-10">
+                            <textarea class="w100 bd bd-clr-0 bdr-5" style="height: 280px;"></textarea>
+                        </div>
+                    </div>
+                    <div class="d-inline-block mrg-b-10 flex flex-wrap box-shadow-5 bdr-5">
+                        <div class="w100 flex bg-third clr-white pdl-10 pdr-5 bdr-5">
+                            <h2 class="frm__block--title"><i class="fa-solid fa-laptop-file fa-lg"></i> Hồ sơ, phim, ảnh</h2>
+                            <div class="flex flex-align-center flex-justify-end gapy-5 mrg-l-auto">
+                                <label class="w90px txt-right" for="">Toàn bộ</label>
+                                <input class="input w40px bd bd-clr-1" type="text" id="" value="" placeholder="Số tờ">
+                            </div>
+                        </div>
+                        <div class="w100 flex flex-wrap gapy-5 pd-10">
+                            <div class="w25 flex flex-align-center gapy-5">
+                                <label class="w110px txt-right" for="">X-quang</label>
+                                <input class="input w40px grow-1" type="text" id="" value="" placeholder="Số tờ">
+                            </div>
+                            <div class="w25-gapy5 flex flex-align-center gapy-5">
+                                <label class="w110px txt-right" for="">CT Scanner</label>
+                                <input class="input w40px grow-1" type="text" id="" value="" placeholder="Số tờ">
+                            </div>
+                            <div class="w25-gapy5 flex flex-align-center gapy-5">
+                                <label class="w110px txt-right" for="">Siêu âm</label>
+                                <input class="input w40px grow-1" type="text" id="" value="" placeholder="Số tờ">
+                            </div>
+                            <div class="w25-gapy5 flex flex-align-center gapy-5">
+                                <label class="w110px txt-right" for="">Xét nghiệm</label>
+                                <input class="input w40px grow-1" type="text" id="" value="" placeholder="Số tờ">
+                            </div>
+                            <div class="w50 flex flex-align-center gapy-5">
+                                <label class="w110px txt-right" for="">Khác</label>
+                                <input class="input w100px grow-1" type="text" id="" value="" placeholder="Nội dung">
+                                <input class="input w50px" type="text" id="" value="" placeholder="Số tờ">
+                            </div>
+                            <div class="w50-gapy5 flex flex-align-center gapy-5">
+                                <label class="w110px txt-right" for="">Người giao hồ sơ</label>
+                                <input class="input w100px grow-1" type="text" id="" value="" placeholder="">
+                            </div>
+                            <div class="w50 flex flex-align-center gapy-5">
+                                <label class="w110px txt-right" for="">Bác sỹ điều trị</label>
+                                <input class="input w100px grow-1" type="text" id="" value="" placeholder="">
+                            </div>
+                            <div class="w50-gapy5 flex flex-align-center gapy-5">
+                                <label class="w110px txt-right" for="">Người nhận hồ sơ</label>
+                                <input class="input w100px grow-1" type="text" id="" value="" placeholder="">
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- End Content 4 -->
+            <!-- Content 5 -->
+            <section id="phieuphanloai" class="tab-panel">
+                <div class="flex flex-wrap gapy-10">
+                    <div class="w100 flex flex-align-center flex-justify-space-between bg-third clr-white pdl-10 pdr-5 bdr-5">
+                        <h2 class="frm__block--title"><i class="fa-solid fa-bed fa-lg"></i> Thông tin bệnh nhân</h2>                                            
+                    </div>
+                    <div class="w100 flex flex-wrap gapy-5">
+                        <div class="w100 flex flex-align-center gapy-5">
+                            <label class="w90px txt-right" for="">Họ và tên <span class="clr-red">(*)</span></label>
+                            <input class="input w100px grow-1" type="text" id="" value="" readonly="">
+                            <select class="input w25" id="">
+                                <option value="1" selected="">Nam</option>
+                                <option value="2">Nữ</option>
+                                <option value="3">Khác</option>
+                            </select>
+                        </div>
+                        <div class="w50 flex flex-align-center gapy-5">
+                            <label class="w90px txt-right" for="">Ngày sinh</label>
+                            <input class="input w100px grow-1" type="date" id="" value="">
+                        </div>
+                        <div class="w25-gapy5 flex flex-align-center gapy-5">
+                            <label class="w50px txt-right" for="-month">Tháng/N</label>
+                            <input class="input w40px grow-1" type="number" id="" value="">
+                        </div>
+                        <div class="w25-gapy5 flex flex-align-center gapy-5">
+                            <label class="w50px txt-right" for="-month">Tháng/N</label>
+                            <input class="input w40px grow-1" type="number" id="" value="">
+                        </div>
+                        <div class="w50 flex flex-align-center gapy-5">
+                            <label class="w90px txt-right" for="">Phòng</label>
+                            <select class="input w140px grow-1" id="">
+                                <option value="0" selected="">Lao động phổ thông</option>
+                                <option value="1">Văn phòng</option>
+                                <option value="2">Công nhân</option>
+                                <option value="3">Xây dựng</option>
+                                <option value="4">Nội trợ</option>
+                            </select>
+                        </div>
+                        <div class="w50-gapy5 flex flex-align-center gapy-5">
+                            <label class="w90px txt-right" for="">Giường</label>
+                            <select class="input w140px grow-1" id="">
+                                <option value="0" selected="">Lao động phổ thông</option>
+                                <option value="1">Văn phòng</option>
+                                <option value="2">Công nhân</option>
+                                <option value="3">Xây dựng</option>
+                                <option value="4">Nội trợ</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="w100 flex flex-align-center flex-justify-space-between bg-third clr-white pdl-10 pdr-5 bdr-5">
+                        <h2 class="frm__block--title"><i class="fa-brands fa-font-awesome fa-lg"></i> Nhận định, phân loại</h2>       
+                        <div class="flex flex-align-center flex-justify-end gapy-5 mrg-l-auto">
+                            <label class="txt-right" for="">Vào khám lúc</label>
+                            <input class="input w130px bd bd-clr-1" type="datetime-local" id="" value="">
+                        </div>                                     
+                    </div>
+                    <div class="w100 flex flex-wrap gapy-5">
+                        <div class="w100 flex flex-wrap gapy-5">
+                            <label class="w100 txt-wrap l-h10" for=""><b>- Lý do vào viện, vấn đề sức khỏe</b></label>
+                            <textarea class="w100 bd bd-clr-0 bdr-5" style="height: 61px;"></textarea>
+                        </div>
+                        <div class="w100 flex flex-wrap gapy-5">
+                            <label class="w100 txt-wrap l-h10" for=""><b>- Kết quả đánh giá</b></label>
+                        </div>
+                        <div class="w100 mrg-b-5">
+                            <label class="w100 txt-wrap l-h10" for="">Dấu hiệu sinh tồn, cơ thể</label>
+                            <table class="frm-table tbl-border tbl-sm">
+                                <thead>
+                                    <tr>
+                                        <th>Ngày giờ</th>
+                                        <th>Nhiệt độ</th>
+                                        <th>Mạch</th>
+                                        <th>Huyết áp</th>
+                                        <th>Nhịp thở</th>
+                                        <th>SpO2</th>
+                                        <th>BMI</th>
+                                        <th>Thang điểm hôn mê Glasgow</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>20/02/2050</td>
+                                        <td>38</td>
+                                        <td>112/60</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="w35-gapy5 flex flex-align-center gapy-5">
+                            <label class="w90px txt-right" for="">Toàn trạng</label>
+                            <div class="w15 flex flex-align-center">
+                                <input type="checkbox" class="disablegroup" id="toantrang01" name="checktoantrang">
+                                <label for="toantrang01">Tốt</label>
+                            </div>
+                            <div class="w20 flex flex-align-center">
+                                <input type="checkbox" class="disablegroup" id="toantrang02" name="checktoantrang">
+                                <label for="toantrang02">Trung bình</label>
+                            </div>
+                            <div class="grow-1 flex flex-align-center">
+                                <input type="checkbox" class="disablegroup" id="toantrang03" name="checktoantrang">
+                                <label for="toantrang03">Xấu</label>
+                            </div>
+                        </div>
+                        <div class="w45 flex flex-align-center gapy-5">
+                            <label class="w100px txt-right" for="">Đau ngực</label>
+                            <div class="w15 flex flex-align-center">
+                                <input type="checkbox" class="disablegroup" id="checkdaunguc01" name="checkdaunguc">
+                                <label for="checkdaunguc01">Không</label>
+                            </div>
+                            <div class="grow-1 flex flex-align-center">
+                                <input type="checkbox" class="disablegroup" id="checkdaunguc02" name="checkdaunguc">
+                                <label for="checkdaunguc02">Có (Đo điện tâm đồ nếu cần thiết) </label>
+                            </div>
+                        </div>
+                        <div class="w20-gapy5 flex flex-align-center gapy-5">
+                            <label class="w120px txt-right" for="">Thang điểm đau</label>
+                            <input class="input w100px grow-1" type="text" id="" value="">
+                        </div>
+                        <div class="w35-gapy5 flex flex-align-center gapy-5">
+                            <label class="w90px txt-right" for="">Nguy cơ té ngã</label>
+                            <div class="w15 flex flex-align-center">
+                                <input type="checkbox" class="disablegroup" id="nguycotenga01" name="nguycotenga">
+                                <label for="nguycotenga01">Không</label>
+                            </div>
+                            <div class="w20 flex flex-align-center">
+                                <input type="checkbox" class="disablegroup" id="nguycotenga02" name="nguycotenga">
+                                <label for="nguycotenga02">Thấp</label>
+                            </div>
+                            <div class="w20 flex flex-align-center">
+                                <input type="checkbox" class="disablegroup" id="nguycotenga02" name="nguycotenga">
+                                <label for="nguycotenga02">Trung bình</label>
+                            </div>
+                            <div class="w15 flex flex-align-center">
+                                <input type="checkbox" class="disablegroup" id="nguycotenga02" name="nguycotenga">
+                                <label for="nguycotenga02">Cao</label>
+                            </div>
+                        </div>
+                        <div class="w45 flex flex-align-center gapy-5">
+                            <label class="w100px txt-right" for="">Trạng thái tin thần</label>
+                            <div class="w15 flex flex-align-center">
+                                <input type="checkbox" class="disablegroup" id="trangthaitinthan01" name="trangthaitinthan">
+                                <label for="trangthaitinthan01">Bình thường</label>
+                            </div>
+                            <div class="w15 flex flex-align-center">
+                                <input type="checkbox" class="disablegroup" id="trangthaitinthan02" name="trangthaitinthan">
+                                <label for="trangthaitinthan02">Lo lắng</label>
+                            </div>
+                            <div class="w15 flex flex-align-center">
+                                <input type="checkbox" class="disablegroup" id="trangthaitinthan02" name="trangthaitinthan">
+                                <label for="trangthaitinthan02">Ủ rủ</label>
+                            </div>
+                            <div class="w15 flex flex-align-center">
+                                <input type="checkbox" class="disablegroup" id="trangthaitinthan02" name="trangthaitinthan">
+                                <label for="trangthaitinthan02">Kích động</label>
+                            </div>
+                            <div class="w15 flex flex-align-center">
+                                <input type="checkbox" class="disablegroup" id="trangthaitinthan02" name="trangthaitinthan">
+                                <label for="trangthaitinthan02">Hung hăn</label>
+                            </div>
+                        </div>
+                        <div class="w20-gapy5 flex flex-align-center gapy-5">
+                            <label class="w120px txt-right" for="">Dị ứng</label>
+                            <input class="input w100px grow-1" type="text" id="" value="">
+                        </div>
+                        <div class="w35-gapy5 flex flex-align-center gapy-5">
+                            <label class="w90px txt-right" for="">Dị ứng</label>
+                            <div class="w15 flex flex-align-center">
+                                <input type="checkbox" class="disablegroup" id="diung01" name="diung">
+                                <label for="diung01">Không</label>
+                            </div>
+                            <div class="w20 flex flex-align-center">
+                                <input type="checkbox" class="disablegroup" id="diung02" name="diung">
+                                <label for="diung02">Có</label>
+                            </div>
+                        </div>
+                        <div class="w45 flex flex-align-center gapy-5">
+                            <label class="w100px txt-right" for=""><b>Phân loại mức độ cấp cứu (lần 1)</b></label>
+                            <div class="w15 flex flex-align-center"></div>
+                            <div class="w15 flex flex-align-center">
+                                <input type="checkbox" class="disablegroup" id="phanloaicc01" name="phanloaicc">
+                                <label for="phanloaicc01">Loại 1</label>
+                            </div>
+                            <div class="w15 flex flex-align-center">
+                                <input type="checkbox" class="disablegroup" id="phanloaicc02" name="phanloaicc">
+                                <label for="phanloaicc02">Loại 2</label>
+                            </div>
+                            <div class="w15 flex flex-align-center">
+                                <input type="checkbox" class="disablegroup" id="phanloaicc03" name="phanloaicc">
+                                <label for="phanloaicc03">Loại 3</label>
+                            </div>
+                            <div class="w15 flex flex-align-center">
+                                <input type="checkbox" class="disablegroup" id="phanloaicc04" name="phanloaicc">
+                                <label for="phanloaicc04">Loại 4</label>
+                            </div>
+                        </div>
+                        <div class="w20-gapy5 flex flex-align-center gapy-5">
+                            <div class="grow-1 flex flex-align-center">
+                                <input type="checkbox" class="disablegroup" id="phanloaicc05" name="phanloaicc">
+                                <label for="phanloaicc05">Loại 5</label>
+                            </div>
+                        </div>
+                        <div class="w35-gapy5 flex flex-align-center gapy-5">
+                            <label class="w90px txt-right" for="">Người bệnh được chuyển đến</label>
+                            <div class="w15 flex flex-align-center"></div>
+                            <div class="w20 flex flex-align-center">
+                                <input type="checkbox" class="disablegroup" id="phongchuyenden02" name="phongchuyenden">
+                                <label for="phongchuyenden02">P.hồi sức</label>
+                            </div>
+                            <div class="w20 flex flex-align-center">
+                                <input type="checkbox" class="disablegroup" id="phongchuyenden01" name="phongchuyenden">
+                                <label for="phongchuyenden01">P.cấp cứu</label>
+                            </div>
+                            <div class="w15 flex flex-align-center">
+                                <input type="checkbox" class="disablegroup" id="phongchuyenden03" name="phongchuyenden">
+                                <label for="phongchuyenden03">Khác</label>
+                            </div>
+                        </div>
+                        <div class="w45 flex flex-align-center gapy-5">
+                            <label class="w100px txt-right" for=""><b>Người bệnh được chuyển đến khoa khác</b></label>
+                            <div class="w15 flex flex-align-center"></div>
+                            <div class="w15 flex flex-align-center"></div>
+                            <div class="w15 flex flex-align-center">
+                                <input type="checkbox" class="disablegroup" id="phanloaicc01" name="phanloaicc">
+                                <label for="phanloaicc01">Có</label>
+                            </div>
+                            <div class="w15 flex flex-align-center">
+                                <input type="checkbox" class="disablegroup" id="phanloaicc02" name="phanloaicc">
+                                <label for="phanloaicc02">Không</label>
+                            </div>
+                        </div>
+                        <div class="w20-gapy5 flex flex-align-center gapy-5"></div>
+                        <div class="w100 flex flex-align-center gapy-5">
+                            <label class="w160px txt-right" for="">Lý do chuyển đến khoa khác</label>
+                            <input class="input w100px grow-1" type="text" id="" value="" readonly="">
+                        </div>
+                        <div class="w35-gapy5 flex flex-align-center gapy-5">
+                            <label class="w160px txt-right" for="">Giờ thực hiện</label>
+                            <input class="input w70px" type="time" id="" value="">
+                            <input class="input w100px grow-1" type="text" id="" value="" placeholder="Người thực hiện" >
+                        </div>
+                        <div class="w45 flex flex-align-center gapy-5">
+                            <label class="w100px txt-right" for=""><b>Phân loại mức độ cấp cứu (lần 2)</b></label>
+                            <div class="w15 flex flex-align-center"></div>
+                            <div class="w15 flex flex-align-center">
+                                <input type="checkbox" class="disablegroup" id="phanloaiccv201" name="phanloaiccv2">
+                                <label for="phanloaiccv201">Loại 1</label>
+                            </div>
+                            <div class="w15 flex flex-align-center">
+                                <input type="checkbox" class="disablegroup" id="phanloaiccv202" name="phanloaiccv2">
+                                <label for="phanloaiccv202">Loại 2</label>
+                            </div>
+                            <div class="w15 flex flex-align-center">
+                                <input type="checkbox" class="disablegroup" id="phanloaiccv203" name="phanloaiccv2">
+                                <label for="phanloaiccv203">Loại 3</label>
+                            </div>
+                            <div class="w15 flex flex-align-center">
+                                <input type="checkbox" class="disablegroup" id="phanloaiccv204" name="phanloaiccv2">
+                                <label for="phanloaiccv204">Loại 4</label>
+                            </div>
+                        </div>
+                        <div class="w20-gapy5 flex flex-align-center gapy-5"></div>
+                        <div class="w35-gapy5 flex flex-align-center gapy-5">
+                            <label class="w160px txt-right" for="">Giờ thực hiện</label>
+                            <input class="input w70px" type="time" id="" value="">
+                            <input class="input w100px grow-1" type="text" id="" value="" placeholder="Người thực hiện" >
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- End Content 5 -->
+        </div>
+    </div>
+    
+</body>
+</html>

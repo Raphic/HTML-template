@@ -1,27 +1,52 @@
-<link rel="stylesheet" href="css/btn.css">
 
 
 <br>
 <br>
-<button class="btn-ds-bn">Danh Sách Bệnh Nhân (F5)</button>
+
 <style>
-    .btn-ds-bn{
-        border: none;
+    :root{
+        --clr-bg-primary : #e9ecf1;
+        --clr-bg-secondary: #f0f0f0;
+        --clr-txt-primary : #404042;
+        --clr-txt-secondary: #3c22ff;
+        --clr-txt-hight : #ed2024;
+        --clr-txt-white: #ffffff;
+        --clr-btn-primary: #1d99cc;
+        --clr-btn-secondary: #2a7dbf;
+        --clr-btn-third: #03b291;
+        --clr-btn-four: #FF6B00;
+        --fz-primary: 12px;
+        --width-desktop: 100%;
+    }
+    .new_style .btn,
+    .new_style input[type="file"]::file-selector-button{
+        background: var(--clr-btn-primary);
+        border: 1px solid var(--clr-btn-primary);
+        color: var(--clr-txt-white);
+        border-radius: 16px;
         min-width: 64px;
-        height: 32px;
-        line-height: 32px;
+        height: 28px;
+        line-height: 28px;
         padding: 0 16px;
         cursor: pointer;
         font-size: inherit;
-        transition: 0.3s all;
+        transition: 0.3s all ease-in-out;
+        font-size: 11px;
         position: relative;
     }
-    .btn-ds-bn:hover{
+    .new_style .btn-effect,
+    .new_style input[type="file"]::file-selector-button{
+        border: none;       
+    }
+    .new_style .btn-effect:hover,
+    .new_style input[type="file"]::file-selector-button:hover{
         background: transparent;
         transition: 0.3s all 0.6s;
         color: var(--clr-btn-ds-bn-primary);
+        
     }
-    .btn-ds-bn:before {
+    .new_style .btn-effect:before,
+    .new_style input[type="file"]::file-selector-button:hover{
         content: "";
         position: absolute;
         width: calc(100% + 1px);
@@ -37,7 +62,8 @@
         transform: scaleX(0) rotate(180deg);
         transition-delay: 0.4s, 0.2s, 0s;
     }
-    .btn-ds-bn:hover:before {
+    .new_style .btn-effect:hover:before,
+    .new_style input[type="file"]::file-selector-button:hover::before{
         background-size: 200% 1px, 1px 200%, 1px 200%, 55% 1px, 55% 1px;
         background-position: 50% 100%, 0% 100%, 100% 100%, 100% 0%, 0% 0%;
         transform: scaleX(1) rotate(180deg);
@@ -48,7 +74,7 @@
 
 <br>
 <br>
-<div>
+<div class="new_style">
     <a class="btn">
         <span>
           <span>
@@ -56,8 +82,17 @@
           </span>
         </span>
     </a>
+    <br>
+    <div>
+        <button class="btn btn-effect">Danh Sách Bệnh Nhân (F5)</button>
+    </div>
+    <br>
+    <div>
+        <input class="disablegroup" type="file" id="fileHinhAnh" value="" multiple="">
+    </div>
 </div>
-
+<br>
+<br>
 <div>
     <input class="input" type="datetime-local" id="frm__right-info-medical--time" value="">
     <input class="input w120px" type="date" id="frm__right-info-medical--appoint">
@@ -196,7 +231,122 @@ DateTimeUpdater.update(settings);
         return null;
     }
 </script>
+<div>
+    
+<style>
+    html {
+        box-sizing: border-box;
+    }
 
+    *, *:after, *:before {
+        box-sizing: border-box;
+    }
+
+    :root {
+        --color: #1950FF;
+        --white: #fff;
+    }
+    body {
+        min-height: 90vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #333;
+        font-family: 'Noto Sans', sans-serif;
+    }
+    .navTrigger {
+        /* position: absolute; */
+        top: 15px;
+        right: 15px;
+        z-index: 1000;
+        width: 36px;
+        height: 36px;
+        background: none;
+        border: 0;
+        outline: none;
+        border: none;
+        cursor: pointer;
+        -webkit-appearence: none;
+        -webkit-tap-highlight-color: transparent;
+    }
+    .navTrigger:focus {
+        outline: none;
+    }
+    .navTrigger svg {
+        width: 40px;
+        height: 40px;
+        top: -6px;
+        left: -14px;
+        stroke: #ffffff;
+        stroke-width: 4px;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        fill: none;
+        display: block;
+        /* position: absolute; */
+    }
+    .navTrigger svg path {
+        transition: stroke-dasharray var(--duration, 0.85s) var(--easing, ease) var(--delay, 0s), stroke-dashoffset var(--duration, 0.85s) var(--easing, ease) var(--delay, 0s);
+        stroke-dasharray: var(--array-1, 26px) var(--array-2, 100px);
+        stroke-dashoffset: var(--offset, 126px);
+        transform: translateZ(0);
+    }
+    .navTrigger svg path:nth-child(2) {
+        --duration: .7s;
+        --easing: ease-in;
+        --offset: 100px;
+        --array-2: 74px;
+    }
+    .navTrigger svg path:nth-child(3) {
+        --offset: 133px;
+        --array-2: 107px;
+    }
+    .navTrigger.active svg {
+        stroke: var(--white);
+    }
+    .navTrigger.active svg path {
+        --offset: 57px;
+    }
+    .navTrigger.active svg path:nth-child(1), .navTrigger.active svg path:nth-child(3) {
+        --delay: .15s;
+        --easing: cubic-bezier(.2, .4, .2, 1.1);
+    }
+    .navTrigger.active svg path:nth-child(2) {
+        --duration: .4s;
+        --offset: 2px;
+        --array-1: 1px;
+    }
+    .navTrigger.active svg path:nth-child(3) {
+        --offset: 58px;
+    }
+</style>
+<div class="" style="display: none;">
+    <div class="">
+        <button class="navTrigger" id="navTrigger">
+            <svg viewBox="0 0 40 40">
+                <path d="M19,15 L45,15 C70,15 58,-2 49.0177126,7 L19,37"></path>
+                <path d="M19,24 L45,24 C61.2371586,24 57,49 41,33 L32,24"></path>
+                <path d="M45,33 L19,33 C-8,33 6,-2 22,14 L45,37"></path>
+            </svg>
+        </button>
+    </div>
+</div>
+<script>
+    let burger = document.getElementById('navTrigger');
+    burger.addEventListener('click', function(e){
+        burger.classList.toggle('active');
+    });
+    var allElements = document.querySelectorAll('*');
+    var elementsWithKeyEvents = Array.from(allElements).filter(function (element) {
+        return element.onkeydown !== null || element.onkeyup !== null;
+    });
+    elementsWithKeyEvents.forEach(function (element) {
+        console.log('Element:', element);
+        console.log('Keydown Event:', element.onkeydown);
+        console.log('Keyup Event:', element.onkeyup);
+        console.log('--------------------------');
+    });
+</script>
 
 
 

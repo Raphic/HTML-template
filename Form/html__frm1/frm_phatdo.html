@@ -1,0 +1,819 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#000"> 
+    <title>Tabs phát đố</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+    
+    <link rel="stylesheet" href="css/frm_04.css">
+</head>
+<body>
+    <div class="new_style frm_04">
+        <div class="flex gapy-10" id="contentCanLS">
+             <div class="frm__left bg-2 box-shadow-5 bdr-5">
+                <div class="frm__left-day-improve pd-10">
+                    <div class="flex flex-wrap flex-align-center gapy-5">
+                        <div class="flex flex-justify-end flex-align-center">
+                            <label class="w60px txt-right" for="dtpTimTuNgay">Từ ngày</label>
+                            <input class="input grow-1" type="date" id="dtpTimTuNgay" value="">
+                        </div>
+                        <div class="flex flex-justify-end flex-align-center">
+                            <label class="w60px txt-right" for="dtpTimDenNgay">Đến ngày</label>
+                            <input class="input grow-1" type="date" id="dtpTimDenNgay" value="">
+                        </div>
+                    </div>
+                    <div class="flex flex-align-center flex-justify-end">
+                        <button class="btn btn-full-h btn-ds-bn" id="btnDanhSachBenhNhan">Danh Sách <br />Bệnh Nhân (F5)</button>
+                    </div>
+                </div>
+                <div class="w100 flex flex-wrap flex-align-center flex-justify-space-between pd-10" id="chkTrangThai">
+                    <div class="w50 flex flex-wrap flex-align-center">
+                        <input class="c-radio" type="radio" id="chokham" name="chkTrangThai" checked value="">
+                        <label class="c-radio-label" for="chokham">Chờ khám</label>
+                        <span class="clr-red" id="spChoKham">(0)</span>
+                    </div>
+                    <div class="w50 flex flex-wrap flex-align-center">
+                        <input class="c-radio" type="radio" id="dangkham" name="chkTrangThai" value="">
+                        <label class="c-radio-label" for="dangkham">Đang khám</label>
+                        <span class="clr-blue" id="spDangKham">(3)</span>
+                    </div>
+                    <div class="w50 flex flex-wrap flex-align-center">
+                        <input class="c-radio" type="radio" id="dacokqcls" name="chkTrangThai" value="">
+                        <label class="c-radio-label" for="dacokqcls">Đã có KQCLS</label>
+                        <span class="clr-red" id="spKQCLS">(0)</span>
+                    </div>
+                    <div class="w50 flex flex-wrap flex-align-center">
+                        <input class="c-radio" type="radio" id="dakham" name="chkTrangThai" value="">
+                        <label class="c-radio-label" for="dakham">Đã khám</label>
+                        <span class="clr-blue" id="spDaKham">(6)</span>
+                    </div>              
+                </div>
+                <div class="w100 flex flex-align-center gapy-5 pdl-10 pdr-10">
+                    <label class="w70px txt-right" for="idBN">Bệnh nhân :</label>
+                    <input class="input grow-1 txt-bold txt-upper no-border tenbenhnhan" type="text" disabled="" id="idBN" value="---" style="color:blue; font-family:monospace; font-weight:900; font-size:16pt" title="---">
+                </div>
+                <div class="w100 flex flex-wrap gapy-5 pd-10">
+                    <div class="w100 flex flex-wrap flex-align-center gapy-10">
+                        <button class="w50-gapy5 btn" disabled="" id="btnGoiSTT"><i class="fa-solid fa-arrow-down-1-9 fa-lg"></i> Gọi số thứ tự</button>
+                        <button class="w50-gapy5 btn btn-eye-syringe" id="btnGoiTenBN"><i class="fa-solid fa-arrows-to-eye fa-lg"></i> Gọi tên bệnh nhân</button>
+                        <button class="w50-gapy5 btn" id="btnBatDauKham"><i class="fa-solid fa-house-medical-flag fa-lg"></i> Khám (F1)</button>
+                        <button class="w50-gapy5 btn btn-exit" disabled="" id="btnKetThucKham"><i class="fa-solid fa-house-medical-circle-xmark fa-lg"></i> Kết thúc khám (F2)</button>
+                        <button class="w50-gapy5 btn btn-cancel" id="btnHuyKetThucKham"><i class="fa-solid fa-ban fa-lg"></i> Hủy kết thúc khám</button>
+                        <button class="w50-gapy5 btn" id="btnThuThuat" data-bs-toggle="modal" data-bs-target="#thu-thuat-modal"><i class="fa-solid fa-bed-pulse fa-lg"></i> Thủ thuật</button>
+                    </div>
+                    <div class="w100 tbl-select-arrow">
+                        <table class="frm-table tbl-border tbl__cls" id="tableKetQuaTimKiem">
+                            <thead>
+                                <tr>
+                                    <th class="hide_column">Mã TT khám</th>
+                                    <th class="hide_column">iMã TT khám</th>
+                                    <th>UT</th>
+                                    <th>MÃ BN</th>
+                                    <th>STT</th>
+                                    <th>TÊN BỆNH NHÂN</th>
+                                    <th>NS</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                    <div class="w100 flex flex-wrap flex-align-center gapy-10 mrg-t-5">
+                        <button class="w50-gapy5 btn" id="btnBienBanHoiChan"><i class="fa-solid fa-comment-medical fa-lg"></i> Biên bản hội chẩn</button>
+                        <button class="w50-gapy5 btn btn-history" data-bs-toggle="modal" data-bs-target="#lich-su-kham-benh-modal" id="btnLichSuKham"><i class="fa-solid fa-clock-rotate-left fa-lg"></i> Lịch sử khám</button>
+                        <button class="w50-gapy5 btn" data-bs-toggle="modal" data-bs-target="#nghi-om-modal"><i class="fa-solid fa-mask-face fa-lg"></i> In giấy nghỉ ốm</button>
+                        <button class="w50-gapy5 btn btn-exit" id="btnXoaCache"><i class="fa-regular fa-circle-xmark fa-lg"></i> Xóa bộ nhớ tạm</button>
+                    </div>
+                </div>
+            </div>
+            <div class="frm__right bg-2">
+                <div class="frm__right-info box-shadow-5 bdr-5">
+                    <div class="tabs-css w100 flex flex-wrap flex-align-center p-relative index-2 pd-10">
+                        <!-- Tab 1 -->
+                        <input type="radio" name="tabs-css" id="tab1" aria-controls="thongtinkhambenh" value="thongtinkhambenh" >
+                        <label for="tab1">Khám sàn lọc (F6)</label>
+                        <!-- Tab 2 -->
+                        <input type="radio" name="tabs-css" id="tab2" aria-controls="phacdo" value="phacdo">
+                        <label for="tab2">Phát đồ tiêm chủng (F7)</label>
+                        <!-- Tab 3 -->
+                        <input type="radio" name="tabs-css" id="tab3" aria-controls="toathuoc" value="toathuoc" checked>
+                        <label for="tab3">Quản lý mẫu thủ thuật phẫu thuật</label>
+                        <!-- Tab 4 -->
+                        <input type="radio" name="tabs-css" id="tab4" aria-controls="dichvukythuat" value="dichvukythuat">
+                        <label for="tab4">Dịch vụ kỹ thuật (F9)</label>
+                        <!-- Tab 5 -->
+                        <input type="radio" name="tabs-css" id="tab5" aria-controls="thuchientiemchung" value="thuchientiemchung">
+                        <label for="tab5">Thực hiện tiêm chủng (F10)</label>
+                        <!-- Content Warp -->
+                        <div class="tab-panels">
+                            <!-- Content 1 -->
+                            <section id="thongtinkhambenh" class="tab-panel">
+                                <div class="flex flex-flow-column flex-wrap gapy-10">
+                                    <div class="w100 flex flex-wrap">
+                                        <div class="w100 flex bg-third clr-white pdl-10 pdr-5 bdr-5">
+                                            <h2 class="frm__block--title"><i class="fa-solid fa-hospital-user fa-lg"></i> Thông tin bệnh nhân</h2>
+                                        </div>
+                                        <div class="w100 flex flex-wrap gapy-5 pdt-10">
+                                            <div class="w40 flex flex-align-center gapy-5">
+                                                <label class="w70px" for="id1">Tên phát đồ</label>
+                                                <input class="input w110px grow-1" type="text" id="id1" value="">
+                                            </div>
+                                            <div class="w30-gapy5 flex flex-align-center gapy-5">
+                                                <label class="w90px" for="id5">Trạng thái</label>
+                                                <select class="input grow-1 select2" id="id5"></select>
+                                            </div>
+                                            <div class="w30-gapy5 flex flex-align-center gapy-5">
+                                                <label class="w80px" for="id13">Mã phát đồ</label>
+                                                <input class="input w110px grow-1" type="text" id="id13" value="">
+                                            </div>
+                                            <div class="w40 flex flex-align-center gapy-5">
+                                                <label class="w70px" for="id2">Nhóm bệnh</label>
+                                                <select class="input grow-1 select2" id="id2"></select>
+                                            </div>
+                                            <div class="w30-gapy5 flex flex-align-center gapy-5">
+                                                <label class="w90px" for="id6">Phân quyền</label>
+                                                <select class="input grow-1 select2" id="id6"></select>
+                                            </div>
+                                            <div class="w30-gapy5 flex flex-align-center gapy-5">
+                                                <label class="w80px" for="id14">Tạo tại</label>
+                                                <select class="input grow-1 select2" id="id14"></select>
+                                            </div>
+                                            <div class="w40 flex flex-align-center gapy-5">
+                                                <label class="w70px" for="id8">Đối tượng</label>
+                                                <input class="input w110px grow-1" type="text" id="id3" value="">
+                                            </div>
+                                            <div class="w30-gapy5 flex flex-align-center gapy-5">
+                                                <label class="w90px" for="">Độ tuổi từ</label>
+                                                <input class="input w30px grow-1" type="text" id="id7" value="">
+                                                <label class="" for="id7">tuần</label>
+                                                <input class="input w30px grow-1" type="text" id="id8" value="">
+                                                <label class="" for="id8">tháng</label>
+                                                <input class="input w30px grow-1" type="text" id="id9" value="">
+                                                <label class="" for="id9">năm</label>
+                                            </div>
+                                            <div class="w30-gapy5 flex flex-align-center gapy-5">
+                                                <label class="w80px" for="">đến dưới</label>
+                                                <input class="input w30px grow-1" type="text" id="id15" value="">
+                                                <label class="" for="id15">tuần</label>
+                                                <input class="input w30px grow-1" type="text" id="id16" value="">
+                                                <label class="" for="id16">tháng</label>
+                                                <input class="input w30px grow-1" type="text" id="id17" value="">
+                                                <label class="" for="id17">năm</label>
+                                            </div>
+                                            <div class="w40 flex flex-align-center gapy-5">
+                                                <label class="w70px" for="id4">Ghi chú</label>
+                                                <input class="input w110px grow-1" type="text" id="id4" value="">
+                                            </div>
+                                            <div class="w30-gapy5 flex flex-align-center gapy-5">
+                                                <label class="w90px" for="">Lặp mũi cuối sau</label>
+                                                <input class="input w30px grow-1" type="text" id="id10" value="">
+                                                <label class="" for="id10">ngày</label>
+                                                <input class="input w30px grow-1" type="text" id="id11" value="">
+                                                <label class="" for="id11">tháng</label>
+                                                <input class="input w30px grow-1" type="text" id="id12" value="">
+                                                <label class="" for="id12">năm</label>
+                                            </div>
+                                            <div class="w30-gapy5 flex flex-align-center gapy-5">
+                                                <label class="txt-right w100" for=""><i>(Đặt giá trị là <span class="text-decoration-underline">0</span> nếu không có/ không đặt giới hạn)</i></label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="w100 flex flex-wrap">
+                                        <div class="w100 flex flex-align-center flex-justify-space-between bg-third clr-white pdl-10 pdr-5 bdr-5">
+                                            <h2 class="frm__block--title"><i class="fa-solid fa-syringe fa-lg"></i> Danh sách mũi tiêm</h2>
+                                        </div>
+                                        <div class="w100 flex flex-wrap gapy-5 pdt-10">                                       
+                                            <div class="w40 flex flex-align-center gapy-5">
+                                                <label class="w70px" for="id18">Mũi tiêm</label>
+                                                <select class="input grow-1 select2" id="id18"></select>
+                                            </div>
+                                            <div class="w15-gapy5 flex flex-align-center gapy-5">
+                                                <label class="w90px" for="id19">Đơn vị</label>
+                                                <input class="input w30px grow-1" type="text" id="id19" value="0">
+                                            </div>
+                                            <div class="w15-gapy5 flex flex-align-center gapy-5">
+                                                <label class="w60px" for="id20">Đơn giá</label>
+                                                <input class="input w110px grow-1" type="text" id="id20" value="0">
+                                            </div>
+                                            <div class="w30-gapy5 flex flex-align-center gapy-5">
+                                                <label class="w90px" for="id21">Thành tiền</label>
+                                                <input class="input w110px grow-1" type="text" id="id21" value="0">
+                                            </div>
+                                            <div class="w15-gapy5 flex flex-align-center gapy-5">
+                                                <label class="w70px" for="id22">Số lượng</label>
+                                                <input class="input w30px grow-1" type="text" id="id22" value="0">
+                                            </div>
+                                            <div class="w30 flex flex-align-center gapy-5">
+                                                <label class="w90px" for="">Cách mũi đầu</label>
+                                                <input class="input w30px grow-1" type="text" id="id23" value="0">
+                                                <label class="" for="id23">ngày</label>
+                                                <input class="input w30px grow-1" type="text" id="id24" value="0">
+                                                <label class="" for="id24">tháng</label>
+                                                <input class="input w30px grow-1" type="text" id="id25" value="0">
+                                                <label class="" for="id25">năm</label>
+                                            </div>
+                                            <div class="w30-gapy5 flex flex-align-center gapy-5">
+                                                <label class="w85" for="id26">Cho phép chỉnh lại ngày hẹn sớm hơn</label>
+                                                <input class="input w40px grow-1" type="text" id="id26" value="0">
+                                                
+                                            </div>
+                                            <div class="w25-gapy5 flex flex-align-center gapy-5">
+                                                <label class="txt-left" for="">ngày <i>(so với ngày hẹn tính theo phát đồ)</i></label>
+                                            </div>
+                                            <div class="w100">
+                                                <table class="frm-table tbl-border" id="tblNoiDungSanLoc" style="width: 100%">
+                                                    <thead>
+                                                        <tr>
+                                                            <th style="width: 30px">STT</th>
+                                                            <th>Tên mũi tiêm lẻ</th>
+                                                            <th style="width: 30px">Đơn vị</th>
+                                                            <th style="width: 30px">Số lượng</th>
+                                                            <th style="width: 30px">Đơn giá</th>
+                                                            <th style="width: 30px">Thành tiền</th>
+                                                            <th style="width: 30px">Cách ngày</th>
+                                                            <th style="width: 30px">Cách tháng</th>
+                                                            <th style="width: 30px">Cách năm</th>
+                                                            <th style="width: 30px">Số ngày cho hẹn sớm hơn</th>
+                                                        </tr>                                               
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>1</td>
+                                                            <td>Test 1</td>                                                           
+                                                            <td>1</td>
+                                                            <td>Test 1</td>                                                             
+                                                            <td>1</td>
+                                                            <td>Test 1</td>        
+                                                            <td>1</td>
+                                                            <td>Test 1</td> 
+                                                            <td>1</td>
+                                                            <td>Test 1</td>                                        
+                                                        </tr>
+                                                    </tbody>
+                                                    <tfoot>
+                                                        <th colspan ="2">Số mũi tiêm</th>
+                                                        <th>2</th>
+                                                        <th colspan ="2">Tổng cộng</th>
+                                                        <th colspan ="5"><p class="txt-left">100000000 (vnd)</p></th>
+                                                    </tfoot>                                                                                      
+                                                </table>
+                                            </div>  
+                                            <div class="w100 flex gapy-10 mrg-t-5">
+                                                <button class="btn btn-history mrg-l-auto" disabled id="btnLuuThongTinKham"><i class="fa-solid fa-house-medical-circle-check fa-lg"></i> Lưu</button>
+                                                <button class="btn btn-cancel" id="btnHuyThongTinKham"><i class="fa-solid fa-house-medical-circle-exclamation fa-lg"></i> Hủy</button>
+                                            </div>                                      
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                            <!-- End Content 1 -->
+                            <!-- Content 2 -->
+                            <section id="phacdo" class="tab-panel">
+                                <div class="flex flex-flow-column flex-wrap gapy-10">
+                                    <div class="w100 flex flex-wrap">
+                                        <div class="w100 flex flex-align-center flex-justify-space-between bg-third clr-white pdl-10 pdr-5 bdr-5">
+                                            <h2 class="frm__block--title"><i class="fa-solid fa-truck-medical fa-lg"></i> Thông tin chuyển viện</h2>
+                                        </div>
+                                        <div class="w100 flex flex-wrap gapy-5 pdt-10">
+                                            <div class="w35-gapy5 flex flex-align-center gapy-5">
+                                                <label class="w150px" for="dtpNgayChuyenVien">Ngày chuyển viện</label>
+                                                <input class="input grow-1" type="datetime-local" id="dtpNgayChuyenVien" value="" readonly>
+                                            </div>
+                                            <div class="w65 flex flex-align-center gapy-5">
+                                                <label class="w80px" for="cboBenhVienCV">Bệnh viện <span class="clr-red">(*)</span></label>
+                                                <select class="input grow-1 select2" id="cboBenhVienCV">
+                                                </select>
+                                            </div>
+                                            <div class="w100 flex flex-align-center gapy-5">
+                                                <label class="w150px" for="txtMaICDCV">Bệnh chuyển viện <span class="clr-red">(*)</span></label>
+                                                <input class="input grow-1" type="text" id="txtMaICDCV" value="" disabled>
+                                            </div>
+                                            <div class="w100 flex flex-align-center gapy-5">
+                                                <label class="w150px" for="txtMaICDPhuCV">Mã ICD phụ</label>
+                                                <input class="input grow-1" type="text" id="txtMaICDPhuCV" value="" disabled>
+                                            </div>
+                                            <div class="w50 flex flex-align-center gapy-5">
+                                                <label class="w150px" for="id5">Bệnh kèm theo</label>
+                                                <input class="input grow-1" type="text" id="txtBenhPhuCV" value="" disabled>
+                                            </div>
+                                            <div class="w50-gapy5 flex flex-align-center gapy-5">
+                                                <label class="w150px" for="txtDauHieuLamSang">Dấu hiệu lâm sàng</label>
+                                                <input class="input grow-1" type="text" id="txtDauHieuLamSang" value="">
+                                            </div>
+                                            <div class="w50 flex flex-align-center gapy-5">
+                                                <label class="w150px" for="txtKetQuaXNCLS">Kết quả xét nghiệm, CLS</label>
+                                                <input class="input grow-1" type="text" id="txtKetQuaXNCLS" value="">
+                                            </div>
+                                            <div class="w50-gapy5 flex flex-align-center gapy-5">
+                                                <label class="w150px" for="txtPTTTThuocDaSuDung">PT, TT, thuốc đã sử dụng</label>
+                                                <input class="input grow-1" type="text" id="txtPTTTThuocDaSuDung" value="">
+                                            </div>
+                                            <div class="w50 flex flex-align-center gapy-5">
+                                                <label class="w150px" for="txtTinhTrangBenhNhan">Tình trạng bệnh nhân</label>
+                                                <input class="input grow-1" type="text" id="txtTinhTrangBenhNhan">
+                                            </div>
+                                            <div class="w50-gapy5 flex flex-align-center gapy-5">
+                                                <label class="w150px" for="cboLyDoChuyenVien">Lý do chuyển viện</label>
+                                                <select class="input grow-1 select2" id="cboLyDoChuyenVien">
+                                                </select>
+                                            </div>
+                                            <div class="w50 flex flex-align-center gapy-5">
+                                                <label class="w150px" for="txtHuongDieuTri">Hướng dẫn điều trị</label>
+                                                <input class="input grow-1" type="text" id="txtHuongDieuTri">
+                                            </div>
+                                            <div class="w50-gapy5 flex flex-align-center gapy-5">
+                                                <label class="w150px" for="txtPhuongTienChuyenVien">Phương tiện chuyển viện</label>
+                                                <input type="text" id="txtPhuongTienChuyenVien" value="" class="input grow-1" autocomplete="off" list="dtlPhuongTienChuyenVien">
+                                                <datalist id="dtlPhuongTienChuyenVien">
+                                                    <option value="Tự túc" data-id="1">Tự túc</option>
+                                                </datalist>
+                                            </div>
+                                            <div class="w35-gapy5 flex flex-align-center gapy-5">
+                                                <label class="w150px" for="txtThanNhan">Họ tên người đưa đi</label>
+                                                <input class="input grow-1" type="text" id="txtThanNhan">
+                                            </div>
+                                            <div class="w15 flex flex-align-center gapy-5">
+                                                <label class="w80px" for="txtSoLuuTruCV">Số lưu trữ</label>
+                                                <input class="input grow-1" type="text" id="txtSoLuuTruCV">
+                                            </div>
+                                            <button class="btn btn-cancel grow-1" id="btnChuyenVien"><i class="fa-solid fa-truck-arrow-right fa-lg"></i> Chuyển viện</button>
+                                            <button class="btn grow-1" id="btnInPhieuChuyenVien"><i class="fa-solid fa-print fa-lg"></i> In phiếu chuyển viện</button>
+                                            <button class="btn btn-eye-syringe grow-1" id="btnXemPhieuChuyenVien"><i class="fa-regular fa-eye fa-lg"></i> Xem phiếu chuyển viện</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>                      
+                            <!-- End Content 2 -->
+                            <!-- Content 3 -->
+                            <section id="toathuoc" class="tab-panel">
+                                <div class="flex flex-flow-column flex-wrap gapy-10">
+                                    <div class="w100 flex flex-wrap">
+                                        <div class="w100 flex flex-align-center flex-justify-space-between bg-third clr-white pdl-10 pdr-5 bdr-5">
+                                            <h2 class="frm__block--title"><i class="fa-solid fa-file-lines fa-lg"></i> Mẫu thủ thuật phẫu thuật</h2>
+                                        </div>
+                                        <div class="w100 flex flex-wrap gapy-5 pdt-10">
+                                            <div class="w100 flex flex-align-center gapy-5">
+                                                <label class="w80px" id="id1" for="">Khoa khám bệnh</label>
+                                                <input class="input grow-1" type="text" id="id1" value="">
+                                            </div>
+                                            <div class="w100 flex flex-align-center gapy-5">
+                                                <label class="w80px" id="id2" for="">Tên mẫu</label>
+                                                <input class="input grow-1" type="text" id="id2" value="">
+                                            </div>
+                                            <div class="w100 flex flex-align-self-start gapy-5">
+                                                <label class="w80px pdt-5" id="id3" for="">Tên mẫu</label>
+                                                <textarea class="input grow-1 pdt-5" type="text" id="id3" value="" style="min-height: 150px;"></textarea>
+                                            </div>
+                                            <div class="w100 flex flex-align-center flex-justify-end gapy-5 mrg-t-5">
+                                                <button class="btn">Cập nhật</button>
+                                                <button class="btn btn-history">Thêm mới</button>
+                                                <button class="btn btn-exit" id=""><i class="fa-regular fa-circle-xmark fa-lg"></i> Hủy</button>
+                                            </div>
+                                        </div>
+                                        <div class="w100 flex flex-wrap gapy-5 pdt-10">
+                                            <div class="w100">
+                                                <table class="frm-table tbl-border" id="tblNoiDungSanLoc" style="width: 100%">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Khoa</th>
+                                                            <th>Tiêu đề</th>
+                                                            <th>Nội dung</th>
+                                                            <th>Người tạo</th>
+                                                            <th>Ngày tạo</th>
+                                                            <th>Trạng thái</th>
+                                                            <th>Mã khách hàng</th>
+                                                        </tr>                                               
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>1</td>
+                                                            <td>Test 1</td>                                                           
+                                                            <td>1</td>
+                                                            <td>Test 1</td>                                                             
+                                                            <td>1</td>
+                                                            <td>Test 1</td>        
+                                                            <td>1</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <div class="w100 flex flex-align-center flex-justify-end gapy-5 mrg-t-5">
+                                                <button class="btn btn-cancel" id=""><i class="fa-solid fa-ban fa-lg"></i> Đóng</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>                      
+                            <!-- End Content 3 -->
+                            <!-- Content 4 -->
+                            <section id="dichvukythuat" class="tab-panel">
+                                <div class="flex flex-flow-column flex-wrap gapy-10">
+                                    <div class="w100 flex flex-wrap">
+                                        <div class="w100 flex flex-align-center flex-justify-space-between bg-third clr-white pdl-10 pdr-5 bdr-5">
+                                            <h2 class="frm__block--title"><i class="fa-solid fa-gears fa-lg"></i> Thông tin dịch vụ kỹ thuật</h2>
+                                        </div>
+                                        <div class="w100 flex flex-wrap gapy-5 pdt-10">
+                                            <div class="w30 flex flex-align-center gapy-5">
+                                                <label class="w170px" id="lblLoadTongTienThuDVKT" for="txtSoTienThuDVKT" style="text-decoration:underline">Load tổng số tiền thu (vnd)</label>
+                                                <input class="input grow-1" type="text" id="txtSoTienThuDVKT" value="" disabled>
+                                            </div>
+                                            <div class="w15-gapy5 flex flex-align-center gapy-5">
+                                                <label class="w50px" id="lblLoadSoDuBenhNhan" for="txtSoDuDVKT" style="text-decoration:underline">Số dư</label>
+                                                <input class="input grow-1" type="text" id="txtSoDuDVKT" value="" disabled>
+                                            </div>
+                                            <div class="w20-gapy5 flex flex-align-center gapy-5">
+                                                <label class="w90px" for="cboHinhThucTTDVKT">Hình thức TT</label>
+                                                <select class="input grow-1 select2" id="cboHinhThucTTDVKT">
+                                                    <option value="@((int)HinhThucTT.TH)">Thẻ</option>
+                                                    @if (bThanhToanCongNo)
+                                                    {
+                                                        <option value="@((int)HinhThucTT.AR)">Công nợ</option>
+                                                    }
+                                                </select>
+                                            </div>
+                                            <div class="w20-gapy5 flex flex-align-center gapy-5">
+                                                <button class="btn" id="btnTamThuDVKT"><i class="fa-solid fa-hand-holding-dollar fa-lg"></i> Tạm thu</button>
+                                            </div>
+                                            <div class="w100">
+                                                <style type="text/css" title="customTable" scoped>
+                                                    .frm-table tr td:nth-child(8) input {
+                                                        width: 60px;
+                                                    }
+                                                    .frm-table tr td:nth-child(10) input {
+                                                        width: 200px;
+                                                    }
+                                                    .frm-table tr td:nth-child(11) input {
+                                                        width: 150px;
+                                                    }
+                                                    .frm-table tr td:nth-child(12) input {
+                                                        width: 80px;
+                                                    }
+                                                    .frm-table tr td:nth-child(13) input {
+                                                        width: 100px;
+                                                    }
+                                                    .frm-table tr td:nth-child(14) input {
+                                                        width: 100px;
+                                                    }
+                                                    .frm-table tr td:nth-child(15) input {
+                                                        width: 70px;
+                                                    }
+                                                </style>
+                                                <table class="frm-table tbl-border" id="tableCTDichVu">
+                                                    <thead>
+                                                        <tr>
+                                                            <th class="hide_column">STT</th>
+                                                            <th class="hide_column">ID</th>
+                                                            <th class="hide_column">MACT</th>
+                                                            <th class="hide_column">MAGOI</th>
+                                                            <th class="hide_column">IDDV</th>
+                                                            <th class="hide_column">IDDVT</th>
+                                                            <th>STT</th>
+                                                            <th>Tìm</th>
+                                                            <th>TÊN DỊCH VỤ</th>
+                                                            <th>PHÒNG</th>
+                                                            <th>GHI CHÚ</th>
+                                                            <th>SỐ LƯỢNG</th>
+                                                            <th>ĐƠN GIÁ</th>
+                                                            <th>THÀNH TIỀN</th>
+                                                            <th>TỈ LỆ (%)</th>
+                                                            <th>ĐT</th>
+                                                            <th>XÓA</th>
+                                                            <th class="hide_column">DOITUONG</th>
+                                                            <th class="hide_column">DaThanhToan</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody></tbody>
+                                                    <tfoot>
+                                                        <tr>
+                                                            <th class="hide_column">STT</th>
+                                                            <th class="hide_column">ID</th>
+                                                            <th class="hide_column">MACT</th>
+                                                            <th class="hide_column">MAGOI</th>
+                                                            <th class="hide_column">IDDV</th>
+                                                            <th class="hide_column">IDDVT</th>
+                                                            <th style="border-right:none;"></th>
+                                                            <th style="border-right:none;"></th>
+                                                            <th style="text-align:right; text-transform:lowercase"><label id="lblTongLoaiDV">0</label> loại dịch vụ</th>
+                                                            <th style="border-right:none;"></th>
+                                                            <th style="border-right:none;"></th>
+                                                            <th style="border-right:none;"></th>
+                                                            <th style="border-right:none;"></th>
+                                                            <th style="text-align:right"><label id="lblTongThanhTien">0</label></th>
+                                                            <th style="border-right:none;"></th>
+                                                            <th style="border-right:none;"></th>
+                                                            <th></th>
+                                                            <th class="hide_column">DOITUONG</th>
+                                                        </tr>
+                                                    </tfoot>
+                                                </table>
+                                            </div>
+                                            <div class="w100 flex flex-justify-end gapy-5">
+                                                <button class="btn btn-history d-none" id="btnThemPhieuDVKT"><i class="fa-solid fa-file-circle-plus fa-lg"></i> Thêm phiếu</button>
+                                                <button class="btn btn-history" disabled id="btnLuuDVKT"><i class="fa-solid fa-house-medical-circle-check fa-lg"></i> Lưu</button>
+                                                <button class="btn" id="btnSuaPhieuDVKT"><i class="fa-solid fa-pen-to-square fa-lg"></i> Sửa</button>
+                                                <button class="btn btn-cancel" disabled id="btnHuyDVKT"><i class="fa-solid fa-house-medical-circle-exclamation fa-lg"></i> Hủy</button>
+                                                <button class="btn" id="btnInPhieuCDTHDVKT"><i class="fa-solid fa-print fa-lg"></i> In phiếu CĐ tổng hợp</button>
+                                                <button class="btn" id="btnInPhieuCDDVKT"><i class="fa-solid fa-print fa-lg"></i> In phiếu CĐ</button>
+                                                <button class="btn btn-eye-syringe" id="btnXemPhieuCDDVKT"><i class="fa-regular fa-eye fa-lg"></i> Xem phiếu CĐ</button>
+                                                <button class="btn btn-exit" id="btnXoaPhieuDVKT"><i class="fa-solid fa-trash-can fa-lg"></i> Xóa dịch vụ</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                            <!-- End Content 4 -->
+                            <!-- Content 5 -->
+                            <section id="thuchientiemchung" class="tab-panel">
+                                <div class="flex flex-flow-column flex-wrap gapy-10">
+                                    <div class="w100 flex flex-wrap">
+                                        <div class="w100 flex flex-align-center flex-justify-space-between bg-third clr-white pdl-10 pdr-5 bdr-5">
+                                            <h2 class="frm__block--title"><i class="fa-solid fa-hand-holding-medical fa-lg"></i> Thông tin nhập viện</h2>
+                                            <div>
+                                                <label for="dtpNgayGioNhapVien">Ngày giờ nhập viện</label>
+                                                <input class="input bd bd-clr-1" type="datetime-local" id="dtpNgayGioNhapVien" value="" readonly>
+                                            </div>
+                                        </div>
+                                        <div class="w100 flex flex-wrap gapy-5 pdt-10">
+                                            <div class="w25 flex flex-align-center gapy-5">
+                                                <label class="w60px" for="txtHoTenNV">Họ và tên</label>
+                                                <input class="input grow-1" type="text" id="txtHoTenNV" value="" disabled>
+                                            </div>
+                                            <div class="w10-gapy5 flex flex-align-center gapy-5">
+                                                <label class="w50px" for="numTuoiNV">Tuổi</label>
+                                                <input class="input w30px grow-1" type="number" id="numTuoiNV" value="" disabled>
+                                            </div>
+                                            <div class="w10-gapy5 flex flex-align-center gapy-5">
+                                                <label class="w50px" for="numThangNV">Tháng</label>
+                                                <input class="input w30px grow-1" type="number" id="numThangNV" value="" disabled>
+                                            </div>
+                                            <div class="w55-gapy5 flex flex-align-center gapy-5">
+                                                <label class="w60px" for="id4">Địa chỉ</label>
+                                                <input class="input grow-1" type="text" id="txtDiaChiNV" value="" disabled>
+                                            </div>
+                                            <div class="w25 flex flex-align-center gapy-5">
+                                                <label class="w60px" for="txtSoBHYTNV">Số BHYT</label>
+                                                <input class="input grow-1" type="text" id="txtSoBHYTNV" value="" disabled>
+                                            </div>
+                                            <div class="w20-gapy5 flex flex-align-center gapy-5">
+                                                <label class="w50px" for="dtpBHYTTuNgayNV">Từ ngày</label>
+                                                <input class="input grow-1" type="date" id="dtpBHYTTuNgayNV" value="" disabled>
+                                            </div>
+                                            <div class="w20-gapy5 flex flex-align-center gapy-5">
+                                                <label class="w60px" for="dtpBHYTTuNgayNV">Đến ngày</label>
+                                                <input class="input grow-1" type="date" id="dtpBHYTDenNgayNV" value="" disabled>
+                                            </div>
+                                            <div class="w35-gapy5 flex flex-align-center gapy-5">
+                                                <label class="w80px" for="txtDoiTuongBHYTNV">Đối tượng</label>
+                                                <input class="input grow-1" type="text" id="txtDoiTuongBHYTNV" value="" disabled>
+                                                <label class="w110px" for="txtTlMienGiamNV">TL miễn giảm (%)</label>
+                                                <input class="input w50px" type="text" id="txtTlMienGiamNV" value="" disabled>
+                                            </div>
+                                          
+                                            <div class="w45 flex flex-align-center gapy-5">
+                                                <label class="w60px" for="id10">Mã ICD</label>
+                                                <input class="input grow-1" type="text" id="txtTenBenhChinhNV" value="" disabled>
+                                            </div>
+                                            <div class="w55-gapy5 flex flex-align-center gapy-5">
+                                                <label class="w60px" for="id11">Bệnh phụ</label>
+                                                <input class="input grow-1" type="text" id="txtTenBenhPhuNV" value="" disabled>
+                                            </div>
+                                            <div class="w30 flex flex-align-center gapy-5">
+                                                <label class="w125px" for="cboKhoaNhapVien">Chọn khoa nhập viện <span class="clr-red">(*)</span></label>
+                                                <select class="input grow-1 select2" id="cboKhoaNhapVien">
+                                                </select>
+                                            </div>
+                                            <div class="w20-gapy5 flex flex-align-center gapy-5">
+                                                <label class="w80px" for="txtSoVaoVien">Số vào viện</label>
+                                                <input class="input grow-1" type="text" id="txtSoVaoVien">
+                                            </div>
+                                            <button class="btn btn-history grow-1" id="btnLuuNhapVien"><i class="fa-solid fa-hand-holding-medical fa-lg"></i> Nhập viện</button>
+                                            <button class="btn grow-1" id="btnInPhieuNhapVien"><i class="fa-solid fa-print fa-lg"></i> In phiếu nhập viện</button>
+                                            <button class="btn btn-eye-syringe grow-1" id="btnXemPhieuNhapVien"><i class="fa-regular fa-eye fa-lg"></i> Xem phiếu nhập viện</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                            <!-- End Content 5 -->
+                        </div>
+                    </div>
+                    <div class="p-absolute top-center full-tab-wrapt">
+                        <button class="btn btn-full-tab mrg-r-auto" id="btnFullRigth"><i class="fa-solid fa-angles-left fa-lg"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Modal thủ thuật -->
+        <div class="modal fade" id="thu-thuat--modal" tabindex="-1" aria-labelledby="thu-thuat--modal-Label" aria-modal="true" role="dialog">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl bdr-5">
+                <div class="modal-content bdr-5 bd bd-clr-1">
+                    <div class="modal-header bg-third clr-white">
+                        <h5 class="modal-title" id="thu-thuat--modal-Label"><i class="fa-solid fa-bed-pulse fa-lg"></i> Thủ thuật phẫu thuật</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="flex flex-wrap gapy-10">
+                            <div class="w30-gapy5 flex gapy-5 bg-2 bdr-5">
+                                <div class="w100 flex flex flex-column flex-wrap">
+                                    <div class="w100 flex flex-align-center bg-2 clr-third pdl-10 pdr-5 bdr-5">
+                                        <h2 class="frm__block--title"><i class="fa-solid fa-file-circle-exclamation fa-lg"></i> Thông tin bệnh nhân</h2>
+                                    </div>
+                                    <div class="w100 flex flex-wrap gapy-5 pdl-10 pdr-10">
+                                        <div class="w100 flex flex-align-center gapy-5">
+                                            <label class="w60px txt-right" for="id1">Họ và tên</label>
+                                            <input class="input grow-1" type="text" id="id1" value="">
+                                        </div>
+                                        <div class="w50 flex flex-align-center gapy-5">
+                                            <label class="w60px txt-right" for="id2">Tuổi</label>
+                                            <input class="input w50px grow-1" type="text" id="id2" value="">
+                                        </div>
+                                        <div class="w50-gapy5 flex flex-align-center gapy-5">
+                                            <label class="w60px txt-right" for="id3">Giới tính</label>
+                                            <input class="input w50px grow-1" type="text" id="id4" value="">
+                                        </div>
+                                        <div class="w100 flex flex-align-center gapy-5">
+                                            <label class="w60px txt-right" for="id4">Vào viện</label>
+                                            <input class="input grow-1" type="datetime-local" id="id4">
+                                        </div>
+                                        <div class="w100 flex flex-align-center gapy-5">
+                                            <label class="w60px txt-right" for="id5">Địa chỉ</label>
+                                            <input class="input grow-1" type="text" id="id5" value="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="w70-gapy5 flex gapy-5 bg-2 bdr-5">                               
+                                <div class="w100">
+                                    <table class="frm-table tbl-border">
+                                        <thead>
+                                            <tr>
+                                                <th>Lần</th>
+                                                <th>Phương pháp</th>
+                                                <th>Ngày bắt đầu</th>
+                                                <th>Ngày kết thúc</th>
+                                                <th>PP Vô cảm</th>
+                                                <th>PP Chính</th>
+                                               
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Lorem ipsum dolor sit amet</td>
+                                                <td>1</td>
+                                                <td>50</td>
+                                                <td>20</td>
+                                                <td>20</td>
+                                                <td>Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Lorem ipsum dolor sit amet</td>
+                                                <td>1</td>
+                                                <td>50</td>
+                                             
+                                                <td>5</td>
+                                                <td>20</td>
+                                                <td>Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Lorem ipsum dolor sit amet</td>
+                                                <td>1</td>
+                                                <td>50</td>
+                                                <td>5</td>
+                                                <td>20</td>
+                                                <td>Lorem ipsum dolor sit</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Lorem ipsum</td>
+                                                <td>1</td>
+                                                <td>50</td>
+                                                <td>5</td>
+                                                <td>20</td>
+                                                <td>Lorem ipsum dolor s</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="w55-gapy5 flex flex-wrap gapy-10">
+                                <div class="w100 flex flex flex-column flex-wrap gapy-5 bg-2 bdr-5">
+                                    <div class="w100 flex flex-align-center bg-2 clr-third pdl-10 pdr-5 bdr-5">
+                                        <h2 class="frm__block--title"><i class="fa-solid fa-microscope fa-lg"></i> Thông tin thủ thuật</h2>
+                                    </div>
+                                    <div class="w100 flex flex-wrap gapy-5 pdl-10 pdr-10">
+                                        <div class="w50 flex flex-align-center gapy-5">
+                                            <label class="w120px txt-right" for="id6">Ngày bắt đầu</label>
+                                            <input class="input grow-1" type="datetime-local" id="id6" value="">
+                                        </div>
+                                        <div class="w50-gapy5 flex flex-align-center gapy-5">
+                                            <label class="w120px txt-right" for="id7">Ngày kết thúc</label>
+                                            <input class="input grow-1" type="datetime-local" id="id7" value="">
+                                        </div>
+                                        <div class="w50 flex flex-align-center gapy-5">
+                                            <label class="w120px txt-right" for="id8">Chuẩn đoán trước TT</label>
+                                            <input class="input w50px grow-1" type="text" id="id8" value="">
+                                        </div>
+                                        <div class="w50-gapy5 flex flex-align-center gapy-5">
+                                            <label class="w120px txt-right" for="id9">Chuẩn đoán sau TT</label>
+                                            <input class="input w50px grow-1" type="text" id="id9" value="">
+                                        </div>
+                                        <div class="w50 flex flex-align-center gapy-5">
+                                            <label class="w120px txt-right" for="id10">Phương pháp TT</label>
+                                            <input class="input grow-1" type="text" id="id10">
+                                        </div>
+                                        <div class="w50-gapy5 flex flex-align-center gapy-5">
+                                            <label class="w120px txt-right" for="id11">Loại TT</label>
+                                            <input class="input grow-1" type="text" id="id11" value="">
+                                        </div>
+                                        <div class="w100 flex flex-align-center gapy-5">
+                                            <label class="w120px txt-right" for="id12">Bác sĩ thủ thuật</label>
+                                            <input class="input grow-1" type="text" id="id12" value="">
+                                        </div>
+                                        <div class="w50 flex flex-align-center gapy-5">
+                                            <label class="w120px txt-right" for="id13">Bác sĩ gây mê hồi sức</label>
+                                            <input class="input grow-1" type="text" id="id13" value="">
+                                        </div>
+                                        <div class="w50-gapy5 flex flex-align-center gapy-5">
+                                            <label class="w120px txt-right" for="id14">Bác sĩ hội chuẩn nội</label>
+                                            <input class="input grow-1" type="text" id="id14" value="">
+                                        </div>
+                                        <div class="w50 flex flex-align-center gapy-5">
+                                            <label class="w120px txt-right" for="id15">Gây mê 1</label>
+                                            <input class="input grow-1" type="text" id="id15" value="">
+                                        </div>
+                                        <div class="w50-gapy5 flex flex-align-center gapy-5">
+                                            <label class="w120px txt-right" for="id16">Gây mê 2</label>
+                                            <input class="input grow-1" type="text" id="id16" value="">
+                                        </div>
+                                        <div class="w50 flex flex-align-center gapy-5">
+                                            <label class="w120px txt-right" for="id17">Phụ mổ 1</label>
+                                            <input class="input grow-1" type="text" id="id17" value="">
+                                        </div>
+                                        <div class="w50-gapy5 flex flex-align-center gapy-5">
+                                            <label class="w120px txt-right" for="id18">Phụ mổ 2</label>
+                                            <input class="input grow-1" type="text" id="id18" value="">
+                                        </div>
+                                        <div class="w50 flex flex-align-center gapy-5">
+                                            <label class="w120px txt-right" for="id19">Dụng cụ vòng trong</label>
+                                            <input class="input grow-1" type="text" id="id19" value="">
+                                        </div>
+                                        <div class="w50-gapy5 flex flex-align-center gapy-5">
+                                            <label class="w120px txt-right" for="id20">Dụng cụ vòng ngoài</label>
+                                            <input class="input grow-1" type="text" id="id20" value="">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="w100 flex flex-column flex-wrap gapy-5 bg-2 bdr-5">
+                                    <div class="w100 flex flex-align-center bg-2 clr-third pdl-10 pdr-5 bdr-5">
+                                        <h2 class="frm__block--title"><i class="fa-regular fa-images fa-lg"></i> Trình tự thủ thuật</h2>
+                                    </div>
+                                    <div class="w100 flex flex-wrap gapy-5 pdl-10 pdr-10">
+                                        <div class="w100 flex flex-align-center gapy-5">
+                                            <textarea class="input grow-1" spellcheck="false" type="" id="" value="" style="min-height: 175px; overflow: scroll;"></textarea>
+                                        </div>
+                                        <div class="w100 flex flex-align-center flex-justify-end gapy-5 mrg-b-10">
+                                            <button class="btn">Quản lý mẫu</button>
+                                            <button class="btn btn-history">Thêm mẫu</button>
+                                            <button class="btn btn-exit" id=""><i class="fa-regular fa-circle-xmark fa-lg"></i> Xóa nội dung</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="w45-gapy5 flex gapy-5 bg-2 bdr-5">
+                                <div class="w100 flex flex-column flex-wrap gapy-5 ">
+                                    <div class="w100 flex flex-align-center bg-2 clr-third pdl-10 pdr-5 bdr-5">
+                                        <h2 class="frm__block--title"><i class="fa-solid fa-chalkboard-user fa-lg"></i> Lượt đồ thủ thuật</h2>
+                                    </div>
+                                    <div class="w100 flex flex-wrap gapy-5 pdl-10 pdr-10">
+                                        <div class="w100 flex flex-align-center gapy-5">
+                                            <picture>
+                                                <source media="(max-width:764px)" srcset="https://unsplash.it/1920/1080/?random">
+                                                <img class="images" alt="Image" itemprop="image" src="https://unsplash.it/1920/1080/?random">
+                                            </picture>
+                                        </div>
+                                        <div class="w100 flex flex-align-center flex-justify-end gapy-5 mrg-b-10">
+                                            <button class="btn">Load ảnh</button>
+                                            <button class="btn btn-history">Lưu ảnh</button>
+                                            <button class="btn btn-exit" id=""><i class="fa-regular fa-circle-xmark fa-lg"></i> Xóa ảnh</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="w100 flex flex-align-center flex-justify-end gapy-5 bg-2 bdr-5 pd-10">
+                                <button class="btn">Thêm</button>
+                                <button class="btn btn-history">Lưu</button>
+                                <button class="btn btn-exit" id=""><i class="fa-regular fa-circle-xmark fa-lg"></i> Xóa</button>
+                                <button class="btn">Phiếu TT-PT</button>
+                                <button class="btn">Phiếu phúc trình TT</button>
+                                <button class="btn">Giấy chứng nhận PT</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Modal thủ thuật -->
+    </div>
+</body>
+</html>

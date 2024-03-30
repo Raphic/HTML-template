@@ -1,0 +1,1473 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Phiếu gây mê hồi sức</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    
+    <link rel="stylesheet" href="css/color_theme.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/frm_04.css">
+    
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    
+</head>
+<body class="theme-primary new_style frm_04">
+    <!-- <div class="flex flex-wrap gapy-10"> -->
+    <div class="w100 flex flex-wrap box-shadow-5 bdr-5">        
+        <div class="w100 pd-10">
+            <div class="tabs-css w100">
+                <!-- Tab 1 -->
+                <input type="radio" name="tabs-css" id="tab1" aria-controls="thongtinbn" value="thongtinbn">
+                <label for="tab1">Thông tin bệnh nhân</label>
+                <!-- Tab 2 -->
+                <input type="radio" name="tabs-css" id="tab2" aria-controls="phieugaymehoisuc" value="phieugaymehoisuc" checked>
+                <label for="tab2">Phiếu gây mê hồi sức</label>
+                <!-- Content Wrap -->
+                <div class="tab-panels">
+                    <!-- Content 1 -->
+                    <section id="thongtinbn" class="tab-panel">    
+                        <div class="w100 flex flex-wrap">
+                            <div class="w100 flex bg-third clr-white pdl-10 pdr-5 bdr-5">
+                                <h2 class="frm__block--title"><i class="fa-solid fa-hospital-user fa-lg"></i> Thông tin bệnh nhân</h2>
+                                <div class="flex flex-align-center flex-justify-end gapy-5 mrg-l-auto">
+                                    <label class="txt-right" for="">Ngày phẫu thuật</label>
+                                    <input class="input w130px bd bd-clr-1" type="datetime-local" id="" value="">
+                                </div>
+                            </div>
+                            <div class="w100 flex flex-wrap pd-10 gapy-5">
+                                <div class="w45 flex flex-align-center gapy-5">
+                                    <label class="w140px txt-right" for="">Họ và tên <span class="clr-red">(*)</span></label>
+                                    <input class="input w100px grow-1" type="text" id="" value="">
+                                    <select class="input w15" id="" required="">
+                                        <option value="1" selected="">Nam</option>
+                                        <option value="2">Nữ</option>
+                                        <option value="3">Khác</option>
+                                    </select>
+                                </div>
+                                <div class="w10-gapy5 flex flex-align-center gapy-5">
+                                    <label class="w60px txt-right" for="">Tuổi</label>
+                                    <input class="input w30px grow-1" type="text" id="" value="">
+                                </div>
+                                <div class="w15-gapy5 flex flex-align-center gapy-5">
+                                    <label class="w90px txt-right" for="">Cân nặng (kg)</label>
+                                    <input class="input w40px grow-1" type="text" id="" value="">
+                                </div>
+                                <div class="w15-gapy5 flex flex-align-center gapy-5">
+                                    <label class="w90px txt-right" for="">Chiều cao (cm)</label>
+                                    <input class="input w40px grow-1" type="text" id="" value="">
+                                </div>
+                                <div class="w15-gapy5 flex flex-align-center gapy-5">
+                                    <label class="w90px txt-right" for="">Nhóm máu</label>
+                                    <input class="input w40px grow-1" type="text" id="" value="">
+                                </div>
+                                <div class="w45 flex flex-align-center gapy-5">
+                                    <label class="w140px txt-right" for="">Khoa</label>
+                                    <select class="input w150px grow-1" id="" required="">
+                                        <option value="1" selected="">Khoa nội</option>
+                                        <option value="2">Nữ</option>
+                                        <option value="3">Khác</option>
+                                    </select>
+                                </div>
+                                <div class="w25-gapy5 flex flex-align-center gapy-5">
+                                    <label class="w60px txt-right" for="">Buồng</label>
+                                    <input class="input w40px grow-1" type="text" id="" value="">
+                                </div>
+                                <div class="w30-gapy5 flex flex-align-center gapy-5">
+                                    <label class="w90px txt-right" for="">Giường</label>
+                                    <input class="input w40px grow-1" type="text" id="" value="">
+                                </div>
+                                <div class="w100 flex flex-align-center gapy-5">
+                                    <label class="w140px txt-right" for="">Chuẩn đoán</label>
+                                    <input class="input w110px grow-1" type="text" id="" value="">
+                                </div>
+                                <div class="w70 flex flex-align-center gapy-5">
+                                    <label class="w140px txt-right" for="">Phương pháp phẫu thuật</label>
+                                    <input class="input w110px grow-1" type="text" id="" value="">
+                                </div>
+                                <div class="w30-gapy5 flex flex-align-center gapy-5">
+                                    <label class="w90px txt-right" for="">Tư thế</label>
+                                    <input class="input w110px grow-1" type="text" id="" value="">
+                                </div>
+                                <div class="w100 flex flex-align-center gapy-5">
+                                    <label class="w140px txt-right" for="">Phương pháp vô cảm</label>
+                                    <input class="input w110px grow-1" type="text" id="" value="">
+                                </div>
+                                <div class="w45 flex flex-align-center gapy-5">
+                                    <label class="w140px txt-right" for="">Bác sỹ phẫu thuật</label>
+                                    <input class="input w110px grow-1" type="text" id="" value="">
+                                </div>
+                                <div class="w55-gapy5 flex flex-align-center gapy-5">
+                                    <label class="w60px txt-right" for="">Tiền mê</label>
+                                    <input class="input w40px grow-1" type="text" id="" value="">
+                                </div>
+                                <div class="w45 flex flex-align-center gapy-5">
+                                    <label class="w140px txt-right" for="">Bác sỹ gây mê</label>
+                                    <input class="input w110px grow-1" type="text" id="" value="">
+                                </div>
+                                <div class="w55-gapy5 flex flex-align-center gapy-5">
+                                    <label class="w60px txt-right" for="">Tác dụng</label>
+                                    <input class="input w110px grow-1" type="text" id="" value="">
+                                </div>
+                                <div class="w45 flex flex-align-center gapy-5">
+                                    <label class="w140px txt-right" for="">Nhận xét  kết luận</label>
+                                    <input class="input w110px grow-1" type="text" id="" value="">
+                                </div>  
+                                <div class="w40-gapy5 flex flex-align-center gapy-5">
+                                    <label class="w60px txt-right" for="">Quan sát</label>
+                                    <input class="input w110px grow-1" type="text" id="" value="">
+                                </div>  
+                                <div class="w15-gapy5 flex flex-align-center gapy-5">
+                                    <label class="w100px txt-right" for="">Tổng thời gian mê</label>
+                                    <input class="input w40px grow-1" type="text" id="" value="">
+                                </div>  
+                                <div class="w65 flex flex-align-center gapy-5">
+                                    <label class="w140px txt-right" for="">Đánh giá trước mổ : </label>
+                                    <div class="grow-1 flex flex-align-center gapy-5">
+                                        <label class="w140px txt-right" for="">Xếp loại ASA</label>
+                                        <div class="ckr-tbl flex flex-wrap flex-align-center gapy-5 mrg-b-5">
+                                            <input type="radio" class="input" id="aSARadio01" name="aSARadio" checked="">
+                                            <label class="badge badge-success-light" for="aSARadio01">1</label>
+                                            <input type="radio" class="input" id="aSARadio02" name="aSARadio">
+                                            <label class="badge badge-success-light" for="aSARadio02">2</label>
+                                            <input type="radio" class="input" id="aSARadio03" name="aSARadio">
+                                            <label class="badge badge-success-light" for="aSARadio03">3</label>
+                                            <input type="radio" class="input" id="aSARadio04" name="aSARadio">
+                                            <label class="badge badge-success-light" for="aSARadio04">4</label>
+                                            <input type="radio" class="input" id="aSARadio05" name="aSARadio">
+                                            <label class="badge badge-success-light" for="aSARadio05">5</label>
+                                        </div>           
+                                    </div>
+                                    <div class="flex flex-align-center gapy-5">
+                                        <input type="radio" class="input" id="daDayday" name="daDayCapCuu" checked="">
+                                        <label class="badge badge-success-light" for="daDayday">Dạ dày đầy</label>
+                                        <input type="radio" class="input" id="capCuu" name="daDayCapCuu">
+                                        <label class="badge badge-success-light" for="capCuu">Cấp cứu</label>
+                                    </div>
+                                    <div class="grow-1 flex flex-align-center gapy-5">
+                                        <label class="w140px txt-right" for="">Mallampati</label>
+                                        <div class="ckr-tbl flex flex-wrap flex-align-center gapy-5 mrg-b-5">
+                                            <input type="radio" class="input" id="MallampatiRadio01" name="MallampatiRadio">
+                                            <label class="badge badge-success-light" for="MallampatiRadio01">1</label>
+                                            <input type="radio" class="input" id="MallampatiRadio02" name="MallampatiRadio">
+                                            <label class="badge badge-success-light" for="MallampatiRadio02">2</label>
+                                            <input type="radio" class="input" id="MallampatiRadio03" name="MallampatiRadio">
+                                            <label class="badge badge-success-light" for="MallampatiRadio03">3</label>
+                                            <input type="radio" class="input" id="MallampatiRadio04" name="MallampatiRadio" checked="">
+                                            <label class="badge badge-success-light" for="MallampatiRadio04">4</label>
+                                            <input type="radio" class="input" id="MallampatiRadio05" name="MallampatiRadio">
+                                            <label class="badge badge-success-light" for="MallampatiRadio05">5</label>
+                                        </div>           
+                                    </div>
+                                </div>
+                                <div class="w35-gapy5 flex flex-align-center gapy-5">
+                                    <label class="w60px txt-right" for="">Dị ứng</label>
+                                    <input class="input w110px grow-1" type="text" id="" value="">
+                                </div>  
+                                <div class="w45 flex gapy-5">
+                                    <label class="w140px txt-right txt-wrap l-h13 pdt-5" for="">Tiền sử/ Thuốc dùng liên quan GMHS</label>
+                                    <textarea class="input w110px grow-1" style="height: 61px;" type="text" id="" value=""></textarea>
+                                </div>  
+                                <div class="w55-gapy5 flex gapy-5">
+                                    <label class="w60px txt-right txt-wrap l-h13 pdt-5" for="">Bất thường lâm sàng/ cận lâm sàn liên quan GMHS</label>
+                                    <textarea class="input w110px grow-1" style="height: 61px;" type="text" id="" value=""></textarea>
+                                </div>  
+                            </div>
+                        </div>                    
+                    </section>
+                    <!-- End Content 1 -->
+                    <!-- Content 2 -->
+                    <section id="phieugaymehoisuc" class="tab-panel">
+                        <div class="w100 flex flex-wrap">
+                            <div class="w100 flex bg-third clr-white pdl-10 pdr-5 bdr-5">
+                                <h2 class="frm__block--title"><i class="fa-solid fa-file-contract fa-lg"></i> Thông tin phiếu</h2>
+                            </div>
+                            <div class="w100">
+                                <style>
+                                    #tblPhieuGayMe,
+                                    #tblPhieuGayMe tr,
+                                    #tblPhieuGayMe td{
+                                        cursor: unset;
+                                    }
+                                    #tblPhieuGayMe tr:nth-child(odd):hover{
+                                        background-color: #fff;
+                                        color: inherit;
+                                    }
+                                    #tblPhieuGayMe tr:nth-child(even):hover{
+                                        background-color: rgba(3, 178, 145, 0.1);
+                                        color: inherit;
+                                    }
+                                    #tblPhieuGayMe .bd-top{
+                                        border-top: 2px solid rgba(var(--clr-btn-third), 1);
+                                    }
+                                    #tblPhieuGayMe .badge{
+                                        cursor: pointer;
+                                    }
+                                    #tblPhieuGayMe .current,
+                                    #tblPhieuGayMe .ckr-hiden:checked + label{
+                                        background-color: #05825f;
+                                        color: #ffffff;
+                                    }
+                                    #tblPhieuGayMe .ckr-hiden{
+                                        position: fixed;
+                                        left: -999%;
+                                        opacity: 0;
+                                        z-index: -9999;
+                                    }
+                                    #tblPhieuGayMe .ckr-hiden + label::before,
+                                    #tblPhieuGayMe .ckr-hiden + label::after{
+                                        content: none;
+                                        margin: 0;
+                                        padding: 0;
+                                        width: 0;
+                                        height: 0;
+                                    }
+                                    #tblPhieuGayMe .ckr-hiden + label{
+                                        padding: 3px 5px;
+                                        height: auto;
+                                        line-height: 1rem;
+                                        min-height: auto;
+                                    }
+                                </style>
+                                <table class="frm-table tbl-border tbl-sm" id="tblPhieuGayMe">
+                                    <tbody>
+                                        <tr>
+                                            <td colspan="4" rowspan="6">
+                                                <p>HA</p>
+                                                <p><i class="fa-solid fa-caret-up"></i> Mx <i class="fa-solid fa-caret-down"></i></p>
+                                                <p><i class="fa-solid fa-caret-up"></i> Mn <i class="fa-solid fa-caret-up"></i></p>
+                                                <p><i class="fa-solid fa-caret-down"></i>  <i class="fa-solid fa-caret-down"></i></p>
+                                                <p>150</p>
+                                            </td>
+                                            <td>00:00</td>
+                                            <td>10:00</td>
+                                            <td>20:00</td>
+                                            <td>30:00</td>
+                                            <td>40:00</td>
+                                            <td>50:00</td>
+                                            <td rowspan="16"></td>
+                                            <td>00:00</td>
+                                            <td>10:00</td>
+                                            <td>20:00</td>
+                                            <td>30:00</td>
+                                            <td>40:00</td>
+                                            <td>50:00</td>
+                                            <td rowspan="16"></td>
+                                            <td>00:00</td>
+                                            <td>10:00</td>
+                                            <td>20:00</td>
+                                            <td>30:00</td>
+                                            <td>40:00</td>
+                                            <td>50:00</td>
+                                            <td rowspan="16"></td>
+                                            <td>00:00</td>
+                                            <td>10:00</td>
+                                            <td>20:00</td>
+                                            <td>30:00</td>
+                                            <td>40:00</td>
+                                            <td>50:00</td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <ul class="">
+                                                    <li class="dropdown">
+                                                        <div class="cur-point" data-bs-toggle="dropdown">&ensp;</div>
+                                                        <div class="dropdown-menu">
+                                                            <button class="dropdown-item w100 mrg-0">Nội dung 1</button>
+                                                            <button class="dropdown-item w100 mrg-0">Nội dung 2</button>
+                                                            <button class="dropdown-item w100 mrg-0">Nội dung 3</button>
+                                                            <div class="dropdown-divider"></div>
+                                                            <button class="dropdown-item w100 mrg-0"><i class="fa-solid fa-trash-can"></i> Xóa</button>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                        </tr>
+                                        <tr>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                        </tr>
+                                        <tr>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                        </tr>
+                                        <tr>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                        </tr>
+                                        <tr>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                        </tr>
+                                        <tr class="bd-top">
+                                            <td colspan="4" rowspan="5">
+                                                <p>100</p>
+                                            </td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                        </tr>
+                                        <tr>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                        </tr>
+                                        <tr>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                        </tr>
+                                        <tr>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                        </tr>
+                                        <tr>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                        </tr>
+                                        <tr class="bd-top">
+                                            <td colspan="4" rowspan="5">
+                                                <p>50</p>
+                                            </td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                        </tr>
+                                        <tr>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                        </tr>
+                                        <tr>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                        </tr>
+                                        <tr>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                        </tr>
+                                        <tr>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="30"></td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="4">
+                                                <p>Nhiệt độ</p>
+                                            </td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td rowspan="5"></td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td rowspan="5"></td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td rowspan="5"></td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="4">
+                                                <p>Mất máu</p>
+                                            </td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="4">
+                                                <p>Nước tiểu</p>
+                                            </td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="4">
+                                                <p>ALĐMP/ALĐMPB/ALTMTƯ</p>
+                                            </td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="4">
+                                                <p>Nhịp thở</p>
+                                            </td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="31"></td>
+                                        </tr>
+                                        <tr>
+                                            <td rowspan="6" style="width: 60px;">
+                                                <p>Hô hấp</p>
+                                            </td>
+                                            <td colspan="2" rowspan="6" style="width: 120px;">
+                                                <div>
+                                                    <p class="mrg-b-10">Máy : <b class="l-h10">Phasellus et lectus risus</b></p>
+                                                    <p>Mê : <b class="l-h10">NKQ Phasellus</b></p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <p>TTLT</p>
+                                            </td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td rowspan="6"></td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td rowspan="6"></td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td rowspan="6"></td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <p>FeCO<sub>2</sub></p>
+                                            </td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <p>Áp lực</p>
+                                            </td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <p>SpO<sub>2</sub></p>
+                                            </td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <p>FiO<sub>2</sub></p>
+                                            </td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="width: 120px;">
+                                                <p>% Hal/ ISO /NO<sub>2</sub></p>
+                                            </td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="31"></td>
+                                        </tr>
+                                        <tr>
+                                            <td rowspan="6" style="width: 60px;">
+                                                <p>Thuốc</p>
+                                            </td>
+                                            <td style="width: 60px;">
+                                                <input type="text" class="input w40px" placeholder="" value=""/>
+                                            </td>
+                                            <td style="width: 30px;">
+                                                <input type="text" class="input w30px" placeholder="" value=""/>
+                                            </td>
+                                            <td style="width: 30px;">
+                                                <input type="text" class="input w30px" placeholder="" value=""/>
+                                            </td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td rowspan="6"></td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td rowspan="6"></td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td rowspan="6"></td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="width: 60px;">
+                                                <input type="text" class="input w40px" placeholder="" value=""/>
+                                            </td>
+                                            <td style="width: 30px;">
+                                                <input type="text" class="input w30px" placeholder="" value=""/>
+                                            </td>
+                                            <td style="width: 30px;">
+                                                <input type="text" class="input w30px" placeholder="" value=""/>
+                                            </td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="width: 60px;">
+                                                <input type="text" class="input w40px" placeholder="" value=""/>
+                                            </td>
+                                            <td style="width: 30px;">
+                                                <input type="text" class="input w30px" placeholder="" value=""/>
+                                            </td>
+                                            <td style="width: 30px;">
+                                                <input type="text" class="input w30px" placeholder="" value=""/>
+                                            </td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="width: 60px;">
+                                                <input type="text" class="input w40px" placeholder="" value=""/>
+                                            </td>
+                                            <td style="width: 30px;">
+                                                <input type="text" class="input w30px" placeholder="" value=""/>
+                                            </td>
+                                            <td style="width: 30px;">
+                                                <input type="text" class="input w30px" placeholder="" value=""/>
+                                            </td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="width: 60px;">
+                                                <input type="text" class="input w40px" placeholder="" value=""/>
+                                            </td>
+                                            <td style="width: 30px;">
+                                                <input type="text" class="input w30px" placeholder="" value=""/>
+                                            </td>
+                                            <td style="width: 30px;">
+                                                <input type="text" class="input w30px" placeholder="" value=""/>
+                                            </td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="width: 60px;">
+                                                <input type="text" class="input w40px" placeholder="" value=""/>
+                                            </td>
+                                            <td style="width: 30px;">
+                                                <input type="text" class="input w30px" placeholder="" value=""/>
+                                            </td>
+                                            <td style="width: 30px;">
+                                                <input type="text" class="input w30px" placeholder="" value=""/>
+                                            </td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="31"></td>
+                                        </tr>
+                                        <tr>
+                                            <td rowspan="6" style="width: 60px;">
+                                                <p>Truyền dịch</p>
+                                            </td>
+                                            <td style="width: 60px;">
+                                                <input type="text" class="input w40px" placeholder="" value=""/>
+                                            </td>
+                                            <td style="width: 30px;">
+                                                <input type="text" class="input w30px" placeholder="" value=""/>
+                                            </td>
+                                            <td style="width: 30px;">
+                                                <input type="text" class="input w30px" placeholder="" value=""/>
+                                            </td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td rowspan="6"></td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td rowspan="6"></td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td rowspan="6"></td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="width: 60px;">
+                                                <input type="text" class="input w40px" placeholder="" value=""/>
+                                            </td>
+                                            <td style="width: 30px;">
+                                                <input type="text" class="input w30px" placeholder="" value=""/>
+                                            </td>
+                                            <td style="width: 30px;">
+                                                <input type="text" class="input w30px" placeholder="" value=""/>
+                                            </td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="width: 60px;">
+                                                <input type="text" class="input w40px" placeholder="" value=""/>
+                                            </td>
+                                            <td style="width: 30px;">
+                                                <input type="text" class="input w30px" placeholder="" value=""/>
+                                            </td>
+                                            <td style="width: 30px;">
+                                                <input type="text" class="input w30px" placeholder="" value=""/>
+                                            </td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="width: 60px;">
+                                                <input type="text" class="input w40px" placeholder="" value=""/>
+                                            </td>
+                                            <td style="width: 30px;">
+                                                <input type="text" class="input w30px" placeholder="" value=""/>
+                                            </td>
+                                            <td style="width: 30px;">
+                                                <input type="text" class="input w30px" placeholder="" value=""/>
+                                            </td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="width: 60px;">
+                                                <input type="text" class="input w40px" placeholder="" value=""/>
+                                            </td>
+                                            <td style="width: 30px;">
+                                                <input type="text" class="input w30px" placeholder="" value=""/>
+                                            </td>
+                                            <td style="width: 30px;">
+                                                <input type="text" class="input w30px" placeholder="" value=""/>
+                                            </td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="width: 60px;">
+                                                <input type="text" class="input w40px" placeholder="" value=""/>
+                                            </td>
+                                            <td style="width: 30px;">
+                                                <input type="text" class="input w30px" placeholder="" value=""/>
+                                            </td>
+                                            <td style="width: 30px;">
+                                                <input type="text" class="input w30px" placeholder="" value=""/>
+                                            </td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                            <td>&ensp;</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </section>
+                    <!-- End Content 2 -->
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+</body>
+</html>

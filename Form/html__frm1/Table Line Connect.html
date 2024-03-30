@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table Line Connect</title>
+    <link rel="stylesheet" href="css/color_theme.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/frm_04.css">
+
+    <style>
+        
+        
+        .tbl-line{
+            position: relative;
+            /* margin-left : 50px; */
+            /* padding-left : 40px; */
+        }
+        .tbl-line canvas{
+            position: absolute;
+            left: 0;
+            top: 0;
+            pointer-events: none; 
+        }
+        .tbl-line .number {
+            position: relative;
+            z-index: 2;
+            color: #fff ;
+        }
+        .tbl-line .number::after{
+            content: '';
+            background: rgba(var(--clr-btn-primary), 1);
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            z-index: -1;
+            transform: translate(-50%, -50%);
+        }
+        /* .tbl-line .number:not(:last-child)::before{
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background-color: red;
+            z-index: 1;
+        } */
+    </style>
+</head>
+<body class="theme-primary new_style">
+    <div style="width : 50px; height: 100px"></div>
+    <div class="">
+        <table id="tblChucNangSong" class="frm-table tbl-border tbl-sm tbl-bg-white">
+            <tbody>
+                <tr>
+                    <td>0</td>
+                    <td></td>
+                    <td>80</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>26</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td></td>
+                    <td></td>
+                    <td>25</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>25</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>20</td>
+                    <td>20</td>
+                    <td>20</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td colspan="8"></td>
+                </tr>
+                <tr>
+                    <td>0</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>80</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td></td>
+                    <td>60</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td></td>
+                    <td></td>
+                    <td>25</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>25</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>20</td>
+                    <td></td>
+                    <td></td>
+                    <td>20</td>
+                    <td></td>
+                    <td>20</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td colspan="8"></td>
+                </tr>
+                <tr>
+                    <td>0</td>
+                    <td></td>
+                    <td>80/20</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>26/10</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td></td>
+                    <td></td>
+                    <td>25/10</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>25</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>20/10</td>
+                    <td>20/20</td>
+                    <td>20/30</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td colspan="8"></td>
+                </tr>
+                <tr>
+                    <td>0</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>A</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td></td>
+                    <td>C</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td></td>
+                    <td></td>
+                    <td>c</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>C</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>B</td>
+                    <td></td>
+                    <td></td>
+                    <td>B</td>
+                    <td></td>
+                    <td>A</td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            drawLineTbl('tblChucNangSong');
+            
+            function drawLineTbl($table) {
+                var table = document.getElementById($table);
+                !table.parentNode.classList.contains('tbl-line') ? table.parentNode.classList.add('tbl-line') : null ;
+                var rows = Array.from(table.querySelectorAll('tbody tr'));
+                //Tìm và gán class có number
+                var isNumber = function(value) {
+                    return /^-?\d*\.?\d+$/.test(value);
+                };
+                rows.forEach(function(row) {
+                    var cells = row.querySelectorAll('td');
+                    for (var i = 1; i < cells.length; i++) {
+                        var cell = cells[i];
+                        isNumber(cell.textContent.trim()) || (isNumber(cell.textContent.trim().split("/")[0].trim()) && cell.textContent.trim().includes("/")) ? cell.classList.add('number') : null;
+                    }
+                });
+                //Tách group tr
+                var maxColspan = 1;
+                rows.forEach(function(row) {
+                    var cells = row.querySelectorAll('td[colspan]');
+                    cells.forEach(function(cell) {
+                        parseInt(cell.getAttribute('colspan')) > maxColspan ? maxColspan = parseInt(cell.getAttribute('colspan')) : null ;
+                    });
+                });
+                var groups = [];
+                var currentGroup = [];
+                rows.forEach(function(row) {
+                    var cells = row.querySelectorAll('td[colspan="' + maxColspan + '"]');
+                    if (cells.length > 0) {
+                        if (currentGroup.length > 0) {
+                            groups.push(currentGroup);
+                            currentGroup = [];
+                        }
+                        currentGroup = currentGroup.concat(Array.from(cells));
+                    } else {
+                        currentGroup = currentGroup.concat(Array.from(row.querySelectorAll('td')));
+                    }
+                });
+                currentGroup.length > 0 ? groups.push(currentGroup) : null ;
+                //Lấy tọa độ td và add và group
+                var cellPositions = [];
+                groups.forEach(function(group) {
+                    var groupPositions = [];
+                    group.forEach(function(cell) {
+                        if (cell.classList.contains('number')) {
+                            var rect = cell.getBoundingClientRect();
+                            var tableRect = table.getBoundingClientRect();
+                            var x = rect.left - tableRect.left + rect.width / 2;
+                            var y = rect.top - tableRect.top + rect.height / 2;
+                            groupPositions.push({ x: x, y: y });
+                        }
+                    });
+                    groupPositions.sort(function(a, b) {
+                        return a.x - b.x;
+                    });
+                    cellPositions.push(groupPositions);
+                });
+                console.log(cellPositions);
+                //Vẽ đường line giữa các tọa độ
+                var canvas = document.getElementById('lineCanvas');
+                !canvas ? (
+                    table.insertAdjacentHTML('afterend', '<canvas id="lineCanvas"></canvas>'),
+                    canvas = document.getElementById('lineCanvas')
+                ) : null ;
+            
+                canvas.width = table.getBoundingClientRect().width;
+                canvas.height = table.getBoundingClientRect().height;
+                
+                var ctx = canvas.getContext('2d');
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                ctx.strokeStyle = '#ED2024';
+                ctx.lineWidth = 2;
+                cellPositions.forEach(function(group) {
+                    for (var i = 0; i < group.length - 1; i++) {
+                        var startX = group[i].x;
+                        var startY = group[i].y;
+                        var endX = group[i + 1].x;
+                        var endY = group[i + 1].y;
+                        ctx.beginPath();
+                        ctx.moveTo(startX, startY);
+                        ctx.lineTo(endX, endY);
+                        ctx.stroke();
+                    }
+                });
+            }
+        });
+    </script>
+
+
+    
+
+    
+    <canvas id="myCanvas" width="400" height="200"></canvas>
+    <!-- <script>
+        const canvas = document.getElementById('myCanvas');
+        const ctx = canvas.getContext('2d');
+        // Tạo mảng dữ liệu
+        const data = [26, 80, 25, 20, 20, 20, 20];
+        // Vẽ đường thẳng
+        ctx.beginPath();
+        for (let i = 0; i < data.length; i++) {
+            const x = i * 50 + 25;
+            const y = 150 - data[i];
+            if (i === 0) {
+                ctx.moveTo(x, y);
+            } else {
+                ctx.lineTo(x, y);
+            }
+        }
+        ctx.strokeStyle = 'red';
+        ctx.lineWidth = 2;
+        ctx.stroke();
+        // Vẽ các điểm
+        for (let i = 0; i <script data.length; i++) {
+            const x = i * 50 + 25;
+            const y = 150 - data[i];
+            ctx.beginPath();
+            ctx.arc(x, y, 5, 0, 2 * Math.PI);
+            ctx.fillStyle = 'blue';
+            ctx.fill();
+        }
+    </script> -->
+</body>
+</html>

@@ -1,0 +1,511 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Tiền mế</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    
+    <link rel="stylesheet" href="css/color_theme.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/frm_04.css">
+    
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    
+</head>
+<body class="theme-primary new_style frm_04">
+    <!-- <div class="flex flex-wrap gapy-10"> -->
+    <div class="w100 flex flex-wrap gapy-10 mrg-b-10 box-shadow-5 bdr-5">
+        <div class="w100 flex flex-wrap">
+            <div class="w100 flex bg-third clr-white pdl-10 pdr-5 bdr-5">
+                <h2 class="frm__block--title"><i class="fa-solid fa-hospital-user fa-lg"></i> Thông tin bệnh nhân</h2>
+                <div class="flex flex-align-center flex-justify-end gapy-5 mrg-l-auto">
+                    <label class="txt-right" for="">Ngày lập phiếu</label>
+                    <input class="input w130px bd bd-clr-1" type="datetime-local" id="" value="">
+                </div>
+            </div>
+            <div class="w100 flex flex-wrap pd-10 gapy-5">
+                <div class="w45 flex flex-align-center gapy-5">
+                    <label class="w90px txt-right" for="">Họ và tên <span class="clr-red">(*)</span></label>
+                    <input class="input w100px grow-1" type="text" id="" value="">
+                    <select class="input w15" id="" required="">
+                        <option value="1" selected="">Nam</option>
+                        <option value="2">Nữ</option>
+                        <option value="3">Khác</option>
+                    </select>
+                </div>
+                <div class="w15-gapy5 flex flex-align-center gapy-5">
+                    <label class="w90px txt-right" for="">Tuổi</label>
+                    <input class="input w30px grow-1" type="text" id="" value="">
+                </div>
+                <div class="w40-gapy5 flex flex-align-center gapy-5">
+                    <label class="w90px txt-right" for="">Nghề nghiệp</label>
+                    <select class="input w150px grow-1" id="" required="">
+                        <option value="1" selected="">Đi cấy</option>
+                        <option value="2">Đi cày</option>
+                        <option value="3">Khác</option>
+                    </select>
+                </div>
+                <div class="w45 flex flex-align-center gapy-5">
+                    <label class="w90px txt-right" for="">Chuẩn đoán</label>
+                    <input class="input w110px grow-1" type="text" id="" value="">
+                </div>
+                <div class="w55-gapy5 flex flex-align-center gapy-5">
+                    <label class="w90px txt-right" for="">P.P Phẫu thuật</label>
+                    <input class="input w110px grow-1" type="text" id="" value="">
+                </div>               
+            </div>
+        </div>
+        
+    </div>
+    <div class="w100 flex flex-wrap box-shadow-5 bdr-5">
+        <div class="w100 flex bg-third clr-white pdl-10 pdr-5 bdr-5">
+            <h2 class="frm__block--title"><i class="fa-solid fa-hospital-user fa-lg"></i> Thông tin phiếu khám tiền mê</h2>
+        </div>
+        <div class="w100 flex flex-wrap gapy-5 pd-10">
+            <div class="w100 flex flex-align-center gapy-5">
+                <label class="w100px txt-right" for=""><b>Tiền sử</b></label>
+                <div class="w15 flex flex-align-center">
+                    <input type="checkbox" class="disablegroup" id="kbntv01" name="kbntv">
+                    <label for="kbntv01">Không biết nói tiếng Việt</label>
+                </div>
+                <div class="w15 flex flex-align-center">
+                    <input type="checkbox" class="disablegroup" id="kbntv02" name="kbntv">
+                    <label for="kbntv02">Khác (trẻ em, câm điếc, tâm thần)</label>
+                </div>
+                <div class="w15 flex flex-align-center"></div>
+                <div class="w15 flex flex-align-center">
+                    <input type="checkbox" class="disablegroup" id="kbntv03" name="kbntv">
+                    <label for="kbntv03">Hút thuốc <input class="input w40px grow-1" type="text" id="" value=""> điếu/ngày</label>
+                </div>
+                <div class="w15 flex flex-align-center">
+                    <input type="checkbox" class="disablegroup" id="kbntv04" name="kbntv">
+                    <label for="kbntv04"><i>Đã bỏ <input class="input w40px grow-1" type="text" id="" value=""> năm</i></label>
+                </div>
+                <div class="grow-1 flex flex-align-center"></div>
+            </div>
+            <div class="w100 flex flex-align-center gapy-5">
+                <label class="w100px txt-right" for=""><u>Bản thân</u></label>
+                <div class="w15 flex flex-align-center">
+                    <input type="checkbox" class="disablegroup" id="banthan01" name="banthan">
+                    <label for="banthan01">Uống rượu <input class="input w40px grow-1" type="text" id="" value=""> ml/ngày</label>
+                </div>
+                <div class="w15 flex flex-align-center">
+                    <input type="checkbox" class="disablegroup" id="banthan02" name="banthan">
+                    <label for="banthan02"><i>Đã bỏ</i></label>
+                </div>
+                <div class="w15 flex flex-align-center">
+                    <input type="checkbox" class="disablegroup" id="banthan03" name="banthan">
+                    <label for="banthan03">Dị ứng <input class="input w40px grow-1" type="text" id="" value=""></label>
+                </div>
+                <div class="w15 flex flex-align-center">
+                    <input type="checkbox" class="disablegroup" id="banthan04" name="banthan">
+                    <label for="banthan04"><i>Thuốc <input class="input w40px grow-1" type="text" id="" value=""></i></label>
+                </div>
+                <div class="w15 flex flex-align-center">
+                    <input type="checkbox" class="disablegroup" id="banthan05" name="banthan">
+                    <label for="banthan05"><i>Thức ăn <input class="input w40px grow-1" type="text" id="" value=""></i></label>
+                </div>
+                <div class="grow-1 flex flex-align-center">
+                    <input type="checkbox" class="disablegroup" id="banthan06" name="banthan">
+                    <label for="banthan06"><i>Khác </i></label>
+                </div>
+            </div>
+            <div class="w100 flex flex-align-center gapy-5">
+                <label class="w100px txt-right" for=""></label>
+                <div class="w15 flex flex-align-center">
+                    <input type="checkbox" class="disablegroup" id="banthan07" name="banthan">
+                    <label for="banthan07">Dung thuốc gây nghiện</label>
+                </div>
+                <div class="w15 flex flex-align-center">
+                    <input type="checkbox" class="disablegroup" id="banthan08" name="banthan">
+                    <label for="banthan08">Phẫu thuật <input class="input w40px grow-1" type="text" id="" value=""></label>
+                </div>
+                <div class="w15 flex flex-align-center">
+                    <input type="checkbox" class="disablegroup" id="banthan09" name="banthan">
+                    <label for="banthan09"><i>Mê</i></label>
+                </div>
+                <div class="w15 flex flex-align-center">
+                    <input type="checkbox" class="disablegroup" id="banthan10" name="banthan">
+                    <label for="banthan10"><i>Tê</i></label>
+                </div>
+                <div class="grow-1 flex flex-align-center">
+                    <input type="checkbox" class="disablegroup" id="banthan11" name="banthan">
+                    <label for="banthan11"><i>Tai biến <input class="input w40px grow-1" type="text" id="" value=""></i></label>
+                </div>
+            </div>
+            <div class="w100 flex flex-align-center gapy-5">
+                <label class="w100px txt-right" for=""><u>Tim mạch</u></label>
+                <div class="w15 flex flex-align-center">
+                    <input type="checkbox" class="disablegroup" id="timmach01" name="timmach">
+                    <label for="timmach01"><i>Bình thường</i></label>
+                </div>
+                <div class="w15 flex flex-align-center">
+                    <input type="checkbox" class="disablegroup" id="timmach02" name="timmach">
+                    <label for="timmach02"><i>Cao HA <input class="input w40px grow-1" type="text" id="" value=""></i></label>
+                </div>
+                <div class="grow-1 flex flex-align-center">
+                    <input type="checkbox" class="disablegroup" id="timmach03" name="timmach">
+                    <label for="timmach03"><i>Đau thắt ngực <input class="input w140px grow-1" type="text" id="" value=""></i></label>
+                </div>
+            </div>
+            <div class="w100 flex flex-align-center gapy-5">
+                <label class="w100px txt-right" for=""><u>Hô hấp</u></label>
+                <div class="w15 flex flex-align-center">
+                    <input type="checkbox" class="disablegroup" id="hohap01" name="hohap">
+                    <label for="hohap01"><i>Bình thường</i></label>
+                </div>
+                <div class="w15 flex flex-align-center">
+                    <input type="checkbox" class="disablegroup" id="hohap02" name="hohap">
+                    <label for="hohap02"><i>Suyễn <input class="input w40px grow-1" type="text" id="" value=""></i></label>
+                </div>
+                <div class="w15 flex flex-align-center">
+                    <input type="checkbox" class="disablegroup" id="hohap03" name="hohap">
+                    <label for="hohap03"><i>COPD</i></label>
+                </div>
+                <div class="grow-1 flex flex-align-center">
+                    <input type="checkbox" class="disablegroup" id="hohap03" name="hohap">
+                    <label for="hohap03"><i>Lao phổi</i></label>
+                </div>
+            </div>
+            <div class="w100 flex flex-align-center gapy-5">
+                <label class="w100px txt-right" for=""><u>Nội tiết</u></label>
+                <div class="w15 flex flex-align-center">
+                    <input type="checkbox" class="disablegroup" id="noitiet01" name="noitiet">
+                    <label for="noitiet01"><i>Bình thường</i></label>
+                </div>
+                <div class="w15 flex flex-align-center">
+                    <input type="checkbox" class="disablegroup" id="noitiet02" name="noitiet">
+                    <label for="noitiet02"><i>Bướu giáp</i></label>
+                </div>
+                <div class="grow-1 flex flex-align-center">
+                    <input type="checkbox" class="disablegroup" id="noitiet03" name="noitiet">
+                    <label for="noitiet03"><i>Tiểu đường</i></label>
+                </div>
+            </div>
+            <div class="w100 flex flex-align-center gapy-5">
+                <label class="w100px txt-right" for=""><u>Tiêu hóa</u></label>
+                <div class="w15 flex flex-align-center">
+                    <input type="checkbox" class="disablegroup" id="tieuhoa01" name="tieuhoa">
+                    <label for="tieuhoa01"><i>Bình thường</i></label>
+                </div>
+                <div class="w15 flex flex-align-center">
+                    <input type="checkbox" class="disablegroup" id="tieuhoa02" name="tieuhoa">
+                    <label for="tieuhoa02"><i>HC dd-tt</i></label>
+                </div>
+                <div class="w15 flex flex-align-center">
+                    <input type="checkbox" class="disablegroup" id="tieuhoa03" name="tieuhoa">
+                    <label for="tieuhoa03"><i>XHTH</i></label>
+                </div>
+                <div class="grow-1 flex flex-align-center">
+                    <input type="checkbox" class="disablegroup" id="tieuhoa03" name="tieuhoa">
+                    <label for="tieuhoa03"><i>Khác</i></label>
+                </div>
+            </div>
+            <div class="w100 flex flex-align-center gapy-5">
+                <label class="w100px txt-right" for="">Thuốc đang dùng</label>
+                <input class="input w110px grow-1" type="text" id="" value="">
+            </div>
+            <div class="w100 bd bd-clr-0 mrg-5"></div>
+            <div class="w100 flex flex-align-center gapy-5">
+                <label class="w100px txt-right" for=""><b>Khám lâm sàng</b></label>
+                <div class="w15 flex flex-align-center">
+                    <label for=""><i>Mạch <input class="input w40px grow-1" type="text" id="" value=""> lần/phút</i></label>
+                </div>
+                <div class="w15 flex flex-align-center">
+                    <label for=""><i>Huyết áp <input class="input w40px grow-1" type="text" id="" value="">/<input class="input w40px grow-1" type="text" id="" value=""> mmHg</i></label>
+                </div>
+                <div class="w15 flex flex-align-center">
+                    <label for=""><i>Nhiệt độ <input class="input w40px grow-1" type="text" id="" value=""> <sup>0</sup>C</i></label>
+                </div>
+                <div class="w15 flex flex-align-center">
+                    <label for=""><i>Chiều cao <input class="input w40px grow-1" type="text" id="" value=""> cm</i></label>
+                </div>
+                <div class="grow-1 flex flex-align-center">
+                    <label for=""><i>Cân nặng <input class="input w40px grow-1" type="text" id="" value=""> kg</i></label>
+                </div>
+            </div>
+            <div class="w100 flex flex-align-center gapy-5">
+                <label class="w100px txt-right" for="">Đường thở</label>
+                <div class="w15 flex flex-align-center">
+                    <input type="checkbox" class="disablegroup" id="duongtho01" name="duongtho">
+                    <label for="duongtho01"><i>Cổ ngắn</i></label>
+                </div>
+                <div class="w15 flex flex-align-center">
+                    <input type="checkbox" class="disablegroup" id="duongtho02" name="duongtho">
+                    <label for="duongtho02"><i>Ngửa cổ khó</i></label>
+                </div>
+                <div class="w15 flex flex-align-center">
+                    <input type="checkbox" class="disablegroup" id="duongtho03" name="duongtho">
+                    <label for="duongtho03"><i>Miệng há nhỏ</i></label>
+                </div>
+                <div class="w15 flex flex-align-center">
+                    <input type="checkbox" class="disablegroup" id="duongtho03" name="duongtho">
+                    <label for="duongtho03"><i>Cằm lẹm</i></label>
+                </div>
+                <div class="grow-1 flex flex-align-center">
+                    <input type="checkbox" class="disablegroup" id="duongtho03" name="duongtho">
+                    <label for="duongtho03"><i>Gãy xương hàm, niềm hàm</i></label>
+                </div>
+            </div>
+            <div class="w100 flex flex-align-center gapy-5">
+                <label class="w100px txt-right" for=""></label>
+                <div class="w15 flex flex-align-center">
+                    <input type="checkbox" class="disablegroup" id="duongtho04" name="duongtho">
+                    <label for="duongtho04"><i>Răng giả</i></label>
+                </div>
+                <div class="w15 flex flex-align-center">
+                    <input type="checkbox" class="disablegroup" id="duongtho05" name="duongtho">
+                    <label for="duongtho05"><i>Hàm trên</i></label>
+                </div>
+                <div class="w15 flex flex-align-center">
+                    <input type="checkbox" class="disablegroup" id="duongtho06" name="duongtho">
+                    <label for="duongtho06"><i>Hàm dưới</i></label>
+                </div>
+                <div class="w15 flex flex-align-center">
+                    <input type="checkbox" class="disablegroup" id="duongtho07" name="duongtho">
+                    <label for="duongtho07"><i>Tháo ráp</i></label>
+                </div>
+                <div class="w15 flex flex-align-center">
+                    <input type="checkbox" class="disablegroup" id="duongtho08" name="duongtho">
+                    <label for="duongtho08"><i>Gắn cứng</i></label>
+                </div>
+                <div class="grow-1 flex flex-align-center">
+                    <input type="checkbox" class="disablegroup" id="duongtho09" name="duongtho">
+                    <label for="duongtho09"><i>Răng lung lay</i></label>
+                </div>
+            </div>
+            <div class="w100 flex flex-align-center gapy-5">
+                <label class="w100px txt-right" for=""></label>
+                <div class="w15 flex flex-align-center">
+                    <input type="checkbox" class="disablegroup" id="duongtho10" name="duongtho">
+                    <label for="duongtho10"><i>Mất răng</i></label>
+                </div>
+                <div class="w15 flex flex-align-center">
+                    <input type="checkbox" class="disablegroup" id="duongtho11" name="duongtho">
+                    <label for="duongtho11">Mallampati</label>
+                </div>
+                <div class="w15 flex flex-align-center">
+                    <input type="radio" class="disablegroup" id="duongtho12" name="duongtho">
+                    <label for="duongtho12"><i>I</i></label>
+                </div>
+                <div class="w15 flex flex-align-center">
+                    <input type="radio" class="disablegroup" id="duongtho13" name="duongtho">
+                    <label for="duongtho13"><i>II</i></label>
+                </div>
+                <div class="w15 flex flex-align-center">
+                    <input type="radio" class="disablegroup" id="duongtho14" name="duongtho">
+                    <label for="duongtho14"><i>III</i></label>
+                </div>
+                <div class="grow-1 flex flex-align-center">
+                    <input type="radio" class="disablegroup" id="duongtho15" name="duongtho">
+                    <label for="duongtho15"><i>IV</i></label>
+                </div>
+            </div>
+            <div class="w100 flex flex-align-center gapy-5">
+                <label class="w100px txt-right" for=""><u>Tim mạch</u></label>
+                <div class="w15 flex flex-align-center">
+                    <input type="checkbox" class="disablegroup" id="timmachv201" name="timmachv2">
+                    <label for="timmachv201"><i>Bình thường</i></label>
+                </div>
+                <div class="w15 flex flex-align-center">
+                    <input type="checkbox" class="disablegroup" id="timmachv202" name="timmachv2">
+                    <label for="timmachv202"><i>Cao HA</i></label>
+                </div>
+                <div class="w15 flex flex-align-center">
+                    <input type="checkbox" class="disablegroup" id="timmachv203" name="timmachv2">
+                    <label for="timmachv203"><i>Đau thắt ngực</i></label>
+                </div>
+                <div class="w15 flex flex-align-center">
+                    <input type="checkbox" class="disablegroup" id="timmachv204" name="timmachv2">
+                    <label for="timmachv204"><i>Loạn nhịp</i></label>
+                </div>
+                <div class="grow-1 flex flex-align-center">
+                    <input type="checkbox" class="disablegroup" id="timmachv205" name="timmachv2">
+                    <label for="timmachv205"><i>Xem thêm phần khám tim mạch</i></label>
+                </div>
+            </div>
+            <div class="w100 flex flex-align-center gapy-5">
+                <label class="w100px txt-right" for=""><u>Hô hấp</u></label>
+                <div class="w15 flex flex-align-center">
+                    <input type="checkbox" class="disablegroup" id="hohapv201" name="hohapv2">
+                    <label for="hohapv201"><i>Bình thường</i></label>
+                </div>
+                <div class="w15 flex flex-align-center">
+                    <input type="checkbox" class="disablegroup" id="hohapv202" name="hohapv2">
+                    <label for="hohapv202"><i>Suyễn</i></label>
+                </div>
+                <div class="w15 flex flex-align-center">
+                    <input type="checkbox" class="disablegroup" id="hohapv203" name="hohapv2">
+                    <label for="hohapv203"><i>COPD</i></label>
+                </div>
+                <div class="grow-1 flex flex-align-center">
+                    <input type="checkbox" class="disablegroup" id="hohapv203" name="hohapv2">
+                    <label for="hohapv203"><i>Lao phổi</i></label>
+                </div>
+            </div>
+            <div class="w100 flex flex-align-center gapy-5">
+                <label class="w100px txt-right" for=""><u>Nội tiết</u></label>
+                <div class="w15 flex flex-align-center">
+                    <input type="checkbox" class="disablegroup" id="noitietv201" name="noitietv2">
+                    <label for="noitietv201"><i>Bình thường</i></label>
+                </div>
+                <div class="w15 flex flex-align-center">
+                    <input type="checkbox" class="disablegroup" id="noitietv202" name="noitietv2">
+                    <label for="noitietv202"><i>Bướu giáp</i></label>
+                </div>
+                <div class="grow-1 flex flex-align-center">
+                    <input type="checkbox" class="disablegroup" id="noitietv203" name="noitietv2">
+                    <label for="noitietv203"><i>Tiểu đường</i></label>
+                </div>
+            </div>
+            <div class="w100 flex flex-align-center gapy-5">
+                <label class="w100px txt-right" for=""><u>Thần kinh</u></label>
+                <div class="w15 flex flex-align-center">
+                    <input type="checkbox" class="disablegroup" id="thankinh01" name="thankinh">
+                    <label for="thankinh01"><i>Bình thường</i></label>
+                </div>
+                <div class="w15 flex flex-align-center">
+                    <input type="checkbox" class="disablegroup" id="thankinh02" name="thankinh">
+                    <label for="thankinh02"><i>Glassgow <input class="input w40px grow-1" type="text" id="" value=""> điểm</i></label>
+                </div>
+                <div class="grow-1 flex flex-align-center">
+                    <input type="checkbox" class="disablegroup" id="thankinh03" name="thankinh">
+                    <label for="thankinh03"><i>Yếu, liệt <input class="input grow-1" type="text" id="" value=""></i></label>
+                </div>
+            </div>
+            <div class="w100 flex flex-align-center gapy-5">
+                <label class="w100px txt-right" for=""><u>Cơ xương khớp</u></label>
+                <div class="w15 flex flex-align-center">
+                    <input type="checkbox" class="disablegroup" id="coxuongkhop01" name="coxuongkhop">
+                    <label for="coxuongkhop01"><i>Đi lại bình thường</i></label>
+                </div>
+                <div class="grow-1 flex flex-align-center">
+                    <input type="checkbox" class="disablegroup" id="coxuongkhop02" name="coxuongkhop">
+                    <label for="coxuongkhop02"><i>Vẹo cột sống</i></label>
+                </div>
+            </div>
+            <div class="w100 flex flex-align-center gapy-5">
+                <label class="w130px txt-right" for=""><b>Xét nghiệm cần lưu ý</b></label>
+                <input class="input w110px grow-1" type="text" id="" value="">
+            </div>
+            <div class="w100 flex flex-align-center gapy-5">
+                <label class="w130px txt-right" for="">Đề nghị thêm</label>
+                <input class="input w110px grow-1" type="text" id="" value="">
+            </div>
+            <div class="w100 bd bd-clr-0 mrg-5"></div>
+            <div class="w100 flex flex-align-center gapy-5">
+                <label class="w100px txt-right" for=""><b>Xếp loại ASA</b></label>
+                <div class="w15 flex flex-align-center">
+                    <input type="radio" class="disablegroup" id="xeploaiASA01" name="xeploaiASA">
+                    <label for="xeploaiASA01"><i>I</i></label>
+                </div>
+                <div class="w15 flex flex-align-center">
+                    <input type="radio" class="disablegroup" id="xeploaiASA02" name="xeploaiASA">
+                    <label for="xeploaiASA02"><i>II</i></label>
+                </div>
+                <div class="w15 flex flex-align-center">
+                    <input type="radio" class="disablegroup" id="xeploaiASA03" name="xeploaiASA">
+                    <label for="xeploaiASA03"><i>III</i></label>
+                </div>
+                <div class="w15 flex flex-align-center">
+                    <input type="radio" class="disablegroup" id="xeploaiASA04" name="xeploaiASA">
+                    <label for="xeploaiASA04"><i>VI</i></label>
+                </div>               
+            </div>
+            <div class="w100 flex flex-align-center gapy-5">
+                <label class="w100px txt-right" for=""></label>
+                <div class="w15 flex flex-align-center">
+                    <input type="checkbox" class="disablegroup" id="xeploaiASA405" name="xeploaiASA4">
+                    <label for="xeploaiASA405"><i>Chương trình</i></label>
+                </div>
+                <div class="w15 flex flex-align-center">
+                    <input type="checkbox" class="disablegroup" id="xeploaiASA406" name="xeploaiASA4">
+                    <label for="xeploaiASA406"><i>Cấp cứu</i></label>
+                </div>
+                <div class="grow-1 flex flex-align-center">
+                    <input type="checkbox" class="disablegroup" id="xeploaiASA407" name="xeploaiASA4">
+                    <label for="xeploaiASA407"><i>Bán cấp</i></label>
+                </div>             
+            </div>
+            <div class="w100 flex flex-align-center gapy-5">
+                <label class="w100px txt-right" for=""><b>PP vô cảm đề nghị</b></label>
+                <div class="w15 flex flex-align-center">
+                    <input type="checkbox" class="disablegroup" id="ppvcdn01" name="ppvcdn">
+                    <label for="ppvcdn01"><i>Mê NKQ</i></label>
+                </div>
+                <div class="w15 flex flex-align-center">
+                    <input type="checkbox" class="disablegroup" id="ppvcdn02" name="ppvcdn">
+                    <label for="ppvcdn02"><i>Mê nội PQ</i></label>
+                </div>
+                <div class="w15 flex flex-align-center">
+                    <input type="checkbox" class="disablegroup" id="ppvcdn03" name="ppvcdn">
+                    <label for="ppvcdn03"><i>Mê mask TQ</i></label>
+                </div>  
+                <div class="w15 flex flex-align-center">
+                    <input type="checkbox" class="disablegroup" id="ppvcdn04" name="ppvcdn">
+                    <label for="ppvcdn04"><i>Mê TM</i></label>
+                </div>  
+                <div class="grow-1 flex flex-align-center">
+                    <input type="checkbox" class="disablegroup" id="ppvcdn05" name="ppvcdn">
+                    <label for="ppvcdn05"><i>Tiền mê</i></label>
+                </div>             
+            </div>
+            <div class="w100 flex flex-align-center gapy-5">
+                <label class="w100px txt-right" for=""></label>
+                <div class="w15 flex flex-align-center">
+                    <input type="checkbox" class="disablegroup" id="ppvcdn06" name="ppvcdn">
+                    <label for="ppvcdn06"><i>Tê TS</i></label>
+                </div>
+                <div class="w15 flex flex-align-center">
+                    <input type="checkbox" class="disablegroup" id="ppvcdn07" name="ppvcdn">
+                    <label for="ppvcdn07"><i>Tê NMC</i></label>
+                </div>
+                <div class="w15 flex flex-align-center">
+                    <input type="checkbox" class="disablegroup" id="ppvcdn08" name="ppvcdn">
+                    <label for="ppvcdn08"><i>Tê tùng</i></label>
+                </div>  
+                <div class="w15 flex flex-align-center">
+                    <input type="checkbox" class="disablegroup" id="ppvcdn09" name="ppvcdn">
+                    <label for="ppvcdn09"><i>Tê tại chỗ</i></label>
+                </div>  
+                <div class="grow-1 flex flex-align-center">
+                    <input type="checkbox" class="disablegroup" id="ppvcdn10" name="ppvcdn">
+                    <label for="ppvcdn10"><i>Đặt CVP</i></label>
+                </div>             
+            </div>
+            <div class="w100 flex flex-align-center gapy-5">
+                <label class="w100px txt-right" for=""></label>
+                <div class="w15 flex flex-align-center">
+                    <input type="checkbox" class="disablegroup" id="ppvcdn11" name="ppvcdn">
+                    <label for="ppvcdn11"><i>Đo HADMXL</i></label>
+                </div>
+                <div class="w15 flex flex-align-center">
+                    <input type="checkbox" class="disablegroup" id="ppvcdn12" name="ppvcdn">
+                    <label for="ppvcdn12"><i>Khả năng truyền máu</i></label>
+                </div>
+                <div class="w15 flex flex-align-center">
+                    <label for="ppvcdn13"><i>Nhóm máu <input class="input w40px grow-1" type="text" id="ppvcdn13" value=""></i></label>
+                </div>
+            </div>
+            <div class="w100 flex flex-align-center gapy-5">
+                <label class="w100px txt-right" for=""><b>Chuẩn bị bệnh nhân</b></label>
+                <div class="w15 flex flex-align-center">
+                    <input type="checkbox" class="disablegroup" id="cbbn01" name="cbbn">
+                    <label for="cbbn01"><i>Nhịn ăn từ <input class="input w40px grow-1" type="text" id="" value=""> giờ</i></label>
+                </div>
+                <div class="w30 flex flex-align-center">
+                    <label for="cbbn02"><i>Thuốc tiền mê <input class="input grow-1" type="text" id="cbbn02" value=""></i></label>
+                </div>
+                <div class="grow-1 flex flex-align-center">
+                    <label for="cbbn03"><i>Máu <input class="input grow-1" type="text" id="cbbn03" value=""></i></label>
+                </div>          
+            </div>
+        </div>
+    </div>
+    
+    
+</body>
+</html>

@@ -1,0 +1,191 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Cập nhật bảng kê</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    
+    <link rel="stylesheet" href="css/color_theme.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/frm_04.css">
+    
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    
+</head>
+<body class="theme-primary new_style frm_04">
+    <!-- <div class="flex flex-wrap gapy-10"> -->
+    <div class="flex gapy-10">
+        <div class="frm__left flex flex-column bg-2 box-shadow-5 bdr-5">
+            <div class="w100 grow-1 flex flex-wrap gapy-5 pd-10">
+                <div class="w50 flex flex-align-center gapy-5">
+                    <label class="w60px txt-right" for="">Mã ĐT</label>
+                    <input class="input w90px grow-1" type="text" id="" value="">
+                </div>
+                <div class="w50-gapy5 flex flex-align-center gapy-5">
+                    <label class="w50px txt-right" for="">Mã y tế</label>
+                    <input class="input w90px grow-1" type="text" id="" value="">
+                </div>
+                <div class="w100 flex flex-align-center gapy-5">
+                    <label class="w60px txt-right" for="">Họ và tên</label>
+                    <input class="input w100px grow-1" type="text" id="" value="">
+                    <input class="w15 input" type="text" id="" value="" placeholder="Tuổi">
+                </div>
+                <div class="w100 flex flex-align-center gapy-5">
+                    <label class="w60px txt-right" for="">Địa chỉ</label>
+                    <input class="input w110px grow-1" type="text" id="" value="">
+                </div>
+                <div class="w60 flex flex-align-center gapy-5">
+                    <label class="w60px txt-right" for="">Mã BHYT</label>
+                    <input class="input w90px grow-1" type="text" id="" value="">
+                </div>
+                <div class="w40-gapy5 flex flex-align-center gapy-5">
+                    <label class="w70px txt-right" for="">TL miễn giảm</label>
+                    <input class="input w40px grow-1" type="text" id="" value="">
+                </div>
+                <div class="w100 flex flex-align-center gapy-5">
+                    <label class="w60px txt-right" for="">Đối tượng</label>
+                    <input class="input w110px grow-1" type="text" id="" value="">
+                </div>
+                <div class="w100 flex flex-align-center gapy-5">
+                    <div class="flex grow-1 flex-align-center gapy-5">
+                        <label class="w60px txt-right" for="">Từ ngày</label>
+                        <input class="input w80px grow-1" type="date" id="">
+                    </div>
+                    <div class="flex grow-1 flex-align-center gapy-5">
+                        <label class="w60px txt-right" for="">Đến ngày</label>
+                        <input class="input w80px grow-1" type="date" id="">
+                    </div>
+                </div>
+                <div class="w100 flex flex-align-center gapy-5">
+                    <label class="w60px txt-right" for="">Khoa</label>
+                    <select class="input grow-1" id="">
+                        <option value="1">Vào viện</option>
+                        <option value="2">Chuyển viện</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                    </select>
+                </div>
+                <div class="w100 flex flex-wrap flex-align-center flex-justify-content gapy-5 pdt-5 pdb-5">
+                    <button class="w100 btn"><i class="fa-solid fa-person-booth fa-lg"></i> Chuyển TT từ VP sang NN</button>
+                    <button class="w50-gapy5 btn btn-history"><i class="fa-solid fa-repeat fa-lg"></i> Cập nhật dữ liệu</button>
+                    <button class="w50-gapy5 btn"><i class="fa-solid fa-check fa-lg"></i> Lưu</button>
+                </div>
+                <div class="w100 tbl-select-arrow tbl-fix-header">
+                    <table class="frm-table tbl-border tbl-sm">
+                        <thead>
+                            <tr>
+                                <th>MÃ ĐT</th>
+                                <th>MÃ BỆNH NHÂ</th>
+                                <th>TÊN BỆNH NHÂN</th>
+                                <th>NĂM SINH</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>01235584</td>
+                                <td>01235584</td>
+                                <td><span class="line line-clamp-1">Nguyễn Văn A</span></td>
+                                <td>2023</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="frm__right flex flex-column flex-wrap gapy-10 bg-2">
+            <div class="w100 flex flex-wrap flex-align-center flex-justify-end pd-10 gapy-10 box-shadow-5 bdr-5">
+                <div class="w100 flex flex-align-center gapy-5">
+                    <label class="w180px txt-right" for="">Dịch vũ kỹ thuật - thuốc đã chọn</label>
+                    <select class="input grow-1" id="">
+                        <option value="1">Vào viện</option>
+                        <option value="2">Chuyển viện</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                    </select>
+                </div>
+                <div class="w100 tbl-select-arrow tbl-fix-header">
+                    <table class="frm-table tbl-border tbl-sm">
+                        <thead>
+                            <tr>
+                                <th>STT PCS</th>
+                                <th style="width: 70px;">ĐỐI TƯỢNG</th>
+                                <th>NỘI DUNG</th>
+                                <th>SỐ PHIẾU</th>
+                                <th>SỐ LƯỢNG</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr data-bs-toggle="collapse" data-bs-target="#collapse01" aria-expanded="true" aria-controls="collapse01" class="">
+                                <td colspan="8" class="txt-left">
+                                    <p class="pdl-5"><b>Loại TT1. Khám bệnh</b></p>
+                                </td>
+                            </tr>
+                            <tr class="badge-warning-light collapse show" id="collapse01">
+                                <td>02335</td>
+                                <td class="txt-right">
+                                    <div class="w80px">
+                                        <select class="input grow-1" id="">
+                                            <option value="1">Vào viện</option>
+                                            <option value="2">Chuyển viện</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                        </select>
+                                    </div>
+                                </td>
+                                <td class="txt-left"><span class="line line-clamp-2">Neque porro quisquam est qui dolorem ipsum quia dolor</span></td>
+                                <td class="txt-left"><span class="line line-clamp-2">Neque porro quisquam est qui dolorem ipsum quia dolor</span></td>
+                                <td class="txt-right">1</td>
+                            </tr>
+                            <tr data-bs-toggle="collapse" data-bs-target="#collapse02" aria-expanded="true" aria-controls="collapse02" class="">
+                                <td colspan="8" class="txt-left">
+                                    <p class="pdl-5"><b>Loại TT2. Xét nghiệm</b></p>
+                                </td>
+                            </tr>
+                            <tr class="badge-danger-light collapse show" id="collapse02">
+                                <td>02335</td>
+                                <td class="txt-right">
+                                    <div class="w80px">
+                                        <select class="input grow-1" id="">
+                                            <option value="1">Vào viện</option>
+                                            <option value="2">Chuyển viện</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                        </select>
+                                    </div>
+                                </td>
+                                <td class="txt-left"><span class="line line-clamp-2">Neque porro quisquam est qui dolorem ipsum quia dolor</span></td>
+                                <td class="txt-left"><span class="line line-clamp-2">Neque porro quisquam est qui dolorem ipsum quia dolor</span></td>
+                                <td class="txt-right">1</td>
+                            </tr>
+                            <tr data-bs-toggle="collapse" data-bs-target="#collapse03" aria-expanded="true" aria-controls="collapse03" class="">
+                                <td colspan="8" class="txt-left">
+                                    <p class="pdl-5"><b>Loại TT3. Chuẩn đoán hình ảnh</b></p>
+                                </td>
+                            </tr>
+                            <tr class="badge-info-light collapse show" id="collapse03">
+                                <td>02335</td>
+                                <td class="txt-right">
+                                    <div class="w80px">
+                                        <select class="input grow-1" id="">
+                                            <option value="1">Vào viện</option>
+                                            <option value="2">Chuyển viện</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                        </select>
+                                    </div>
+                                </td>
+                                <td class="txt-left"><span class="line line-clamp-2">Neque porro quisquam est qui dolorem ipsum quia dolor</span></td>
+                                <td class="txt-left"><span class="line line-clamp-2">Neque porro quisquam est qui dolorem ipsum quia dolor</span></td>
+                                <td class="txt-right">1</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
