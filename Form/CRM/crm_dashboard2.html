@@ -1,0 +1,726 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Dash Board 2</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/skin_color.css">
+    
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>    
+</head>
+    
+    <body class="hold-transition light-skin sidebar-mini theme-primary fixed sidebar-collapse">
+        <div class="content-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="row d-flex">
+                        <div class="col-2 flex-grow-1">
+                            <div class="box bg-primary-light">
+                                <div class="box-body text-center">
+                                    <div class="d-flex justify-content-center">
+                                        <h4 class="m-0 fw-600 text-primary bb-2 border-primary">GÍA MUA BÌNH QUÂN</h4>
+                                    </div>
+                                    <div class="mt-2 position-relative">
+                                        <h4 class="m-0 fw-600 text-primary ">3785 đ</h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-2 flex-grow-1">
+                            <div class="box bg-info-light">
+                                <div class="box-body text-center">
+                                    <div class="d-flex justify-content-center">
+                                        <h4 class="m-0 fw-600 text-info bb-2 border-info">SẢN LƯỢNG ĐÃ MUA</h4>
+                                    </div>
+                                    <div class="mt-2 position-relative">
+                                        <h4 class="m-0 fw-600 text-info ">3785 đ</h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-2 flex-grow-1">
+                            <div class="box bg-danger-light">
+                                <div class="box-body text-center">
+                                    <div class="d-flex justify-content-center">
+                                        <h4 class="m-0 fw-600 text-danger bb-2 border-danger">CHI PHÍ ĐÃ BỎ RA</h4>
+                                    </div>
+                                    <div class="mt-2 position-relative">
+                                        <h4 class="m-0 fw-600 text-danger ">3785 đ</h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-2 flex-grow-1">
+                            <div class="box bg-success-light">
+                                <div class="box-body text-center">
+                                    <div class="d-flex justify-content-center">
+                                        <h4 class="m-0 fw-600 text-success bb-2 border-success">SÔ LƯỢNG LÁI MÌ</h4>
+                                    </div>
+                                    <div class="mt-2 position-relative">
+                                        <h4 class="m-0 fw-600 text-success ">3785 đ</h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-2 flex-grow-1">
+                            <div class="box bg-Warning-light">
+                                <div class="box-body text-center">
+                                    <div class="d-flex justify-content-center">
+                                        <h4 class="m-0 fw-600 text-Warning bb-2 border-Warning">ĐIỂM BỘT</h4>
+                                    </div>
+                                    <div class="mt-2 position-relative">
+                                        <h4 class="m-0 fw-600 text-Warning ">3785 đ</h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-2 flex-grow-1">
+                            <div class="box bg-secondary-light">
+                                <div class="box-body text-center">
+                                    <div class="d-flex justify-content-center">
+                                        <h4 class="m-0 fw-600 text-secondary bb-2 border-secondary">TẠP CHẤT</h4>
+                                    </div>
+                                    <div class="mt-2 position-relative">
+                                        <h4 class="m-0 fw-600 text-secondary ">3785 đ</h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="box">
+                            <!-- Main 1 -->
+                            <div class="box-body row">
+                                <div class="col-8 ps-0 pe-4">
+                                    <ul class="nav nav-tabs justify-content-center mb-3 border-0" id="myTab01" role="tablist">
+                                        <li class="nav-item">
+                                            <button class="nav-link bs-3 border-primary rounded-start active" id="tab01-tab" data-bs-toggle="tab" data-bs-target="#tab01" type="button" role="tab" aria-controls="tab01">TỔNG QUAN</button>
+                                        </li>
+                                        <li class="nav-item">
+                                            <button class="nav-link border-primary" id="tab02-tab" data-bs-toggle="tab" data-bs-target="#tab02" type="button" role="tab" aria-controls="tab02">NHÀ MÁY</button>
+                                        </li>
+                                        <li class="nav-item">
+                                            <button class="nav-link border-primary" id="tab03-tab" data-bs-toggle="tab" data-bs-target="#tab03" type="button" role="tab" aria-controls="tab03">LÁI MÌ</button>
+                                        </li>
+                                        <li class="nav-item">
+                                            <button class="nav-link be-3 border-primary rounded-end" id="tab04-tab" data-bs-toggle="tab" data-bs-target="#tab04" type="button" role="tab" aria-controls="tab04">ĐIỂM BỘT MÌ & TẠP CHẤT</button>
+                                        </li>                                       
+                                    </ul>
+                                    <div class="tab-content" id="myTab01Content">
+                                        <div class="tab-pane fade active show" id="tab01" role="tabpanel" aria-labelledby="tab01-tab" tabindex="0">
+                                            <div class="row">
+                                                <div class="col-12 overflow-auto">
+                                                    <div style="min-width: 2500px;">
+                                                        <canvas id="chartGroup" height="400"></canvas>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 bg-info-light">
+                                                    <canvas id="" height="400"></canvas>
+                                                </div>
+                                                <div class="col-12 bg-Warning-light">
+                                                    <canvas id="" height="400"></canvas>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="tab-pane fade" id="tab02" role="tabpanel" aria-labelledby="tab02-tab" tabindex="0">
+                                            <div class="row">
+                                                <div class="col-12">
+                                                    <div class="table-responsive tbl-group">
+                                                        <style scoped>
+                                                            .tbl-group{
+                                                                height: 300px;
+                                                            }
+                                                            .tbl-group .child td:first-child{
+                                                                padding-left: 20px;
+                                                                border-left: 3px solid #cce5ff !important;
+                                                            }
+                                                        </style>
+                                                        <table class="table table-sm table-bordered table-hover fs-6 text-center text-nowrap mb-0" id="tblGiaTheoNgay">
+                                                            <thead class="bg-info sticky-top">
+                                                                <tr>
+                                                                    <th class="bg-info">Tên khách hàng</th>
+                                                                    <th class="bg-info">01/03</th>
+                                                                    <th class="bg-info">02/03</th>
+                                                                    <th class="bg-info">03/03</th>
+                                                                    <th class="bg-info">Tổng</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody class="text-start">
+                                                                <tr role="button" class="bs-3 border-info parent fw-bold" data-status="show">
+                                                                    <td>01. Bột mì</td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                </tr>
+                                                                <tr class="child">
+                                                                    <td>NM BD-45K</td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                </tr>
+                                                                <tr class="child">
+                                                                    <td>NM1 -80K</td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                </tr>
+                                                                <tr class="child">
+                                                                    <td>NM TTX-90K</td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                </tr>
+                                                                <tr role="button" class="bs-3 border-info parent fw-bold" data-status="off">
+                                                                    <td>02. Bột biến tính</td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                </tr>
+                                                                <tr class="child d-none">
+                                                                    <td>NM TTX-90K</td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                </tr>
+                                                                <tr role="button" class="bs-3 border-info parent fw-bold">
+                                                                    <td>03. Xác mì tươi</td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>04. Xác mì sấy</td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>05. Miễn mì</td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                </tr>
+                                                            </tbody>
+                                                            <tfoot class="sticky-bottom">
+                                                                <tr>
+                                                                    <th class="bg-info-light">Tổng</th>
+                                                                    <th class="bg-info-light">10258</th>
+                                                                    <th class="bg-info-light">10258</th>
+                                                                    <th class="bg-info-light">10258</th>
+                                                                    <th class="bg-info-light">10258</th>
+                                                                </tr>
+                                                            </tfoot>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="table-responsive tbl-group">
+                                                        <style scoped>
+                                                            .tbl-group{
+                                                                height: 300px;
+                                                            }
+                                                            .tbl-group .child td:first-child{
+                                                                padding-left: 20px;
+                                                                border-left: 3px solid #cce5ff !important;
+                                                            }
+                                                        </style>
+                                                        <table class="table table-sm table-bordered table-hover fs-6 text-center text-nowrap mb-0" id="tblGiaTheoNgay">
+                                                            <thead class="bg-info sticky-top">
+                                                                <tr>
+                                                                    <th class="bg-info">Tên khách hàng</th>
+                                                                    <th class="bg-info">01/03</th>
+                                                                    <th class="bg-info">02/03</th>
+                                                                    <th class="bg-info">03/03</th>
+                                                                    <th class="bg-info">Tổng</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody class="text-start">
+                                                                <tr role="button" class="bs-3 border-info parent fw-bold" data-status="show">
+                                                                    <td>01. Bột mì</td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                </tr>
+                                                                <tr class="child">
+                                                                    <td>NM BD-45K</td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                </tr>
+                                                                <tr class="child">
+                                                                    <td>NM1 -80K</td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                </tr>
+                                                                <tr class="child">
+                                                                    <td>NM TTX-90K</td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                </tr>
+                                                                <tr role="button" class="bs-3 border-info parent fw-bold" data-status="off">
+                                                                    <td>02. Bột biến tính</td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                </tr>
+                                                                <tr class="child d-none">
+                                                                    <td>NM TTX-90K</td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                </tr>
+                                                                <tr role="button" class="bs-3 border-info parent fw-bold">
+                                                                    <td>03. Xác mì tươi</td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>04. Xác mì sấy</td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>05. Miễn mì</td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                </tr>
+                                                            </tbody>
+                                                            <tfoot class="sticky-bottom">
+                                                                <tr>
+                                                                    <th class="bg-info-light">Tổng</th>
+                                                                    <th class="bg-info-light">10258</th>
+                                                                    <th class="bg-info-light">10258</th>
+                                                                    <th class="bg-info-light">10258</th>
+                                                                    <th class="bg-info-light">10258</th>
+                                                                </tr>
+                                                            </tfoot>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="tab-pane fade" id="tab03" role="tabpanel" aria-labelledby="tab03-tab" tabindex="0">
+                                            <div class="row">
+                                                <div class="col-12 bg-danger-light">
+                                                    <canvas id="" height="400"></canvas>
+                                                </div>
+                                                <div class="col-12 bg-primary-light">
+                                                    <canvas id="" height="400"></canvas>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="tab-pane fade" id="tab04" role="tabpanel" aria-labelledby="tab04-tab" tabindex="0">
+                                            <div class="col-12">
+                                                <div class="row px-3">
+                                                    <div class="col-6 bg-danger-light">
+                                                        <canvas id="" height="400"></canvas>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class="box bb-3 border-info">
+                                                            <h4 class="p-4 m-0 fw-600 text-info">Nhận xét</h4>
+                                                            <ul>
+                                                                <li class="lh-base">Neque porro quisquam est qui dolorem</li>
+                                                                <li class="lh-base">Neque porro quisquam est qui dolorem ipsum quia dolor sit amet</li>
+                                                            </ul>
+                                                        </div>
+                                                        <div class="box mb-0 bb-3 border-info">
+                                                            <h4 class="p-4 m-0 fw-600 text-info">Để thu mua hiệu quả cần</h4>
+                                                            <ol>
+                                                                <li class="lh-base">Neque porro quisquam est qui quia dolor sit amet</li>
+                                                                <li class="lh-base">Neque porro quisquam est qui dolorem ipsum quia dolor sit amet</li>
+                                                                <li class="lh-base">Neque est qui dolorem ipsum quia dolor sit amet</li>
+                                                                <li class="lh-base">Neque porro quisquam est qui dolorem ipsum quia dolor sit amet</li>
+                                                                <li class="lh-base">Neque porro dolor sit amet</li>
+                                                                <li class="lh-base">Neque porro dolor sit amet</li>
+                                                                <li class="lh-base">Neque porro dolor sit amet</li>
+                                                                <li class="lh-base">Neque porro quisquam est qui dolorem ipsum quia dolor sit amet</li>
+                                                            </ol>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-12 bg-success-light">
+                                                <canvas id="" height="400"></canvas>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-4 ps-4">
+                                    <div class="row">
+                                        <div class="col-8 offset-2 d-flex gap-3 mb-4">
+                                            <input class="form-control bb-3 border-primary" type="date" name="date">
+                                            <input class="form-control bb-3 border-primary" type="date" name="date">
+                                        </div>
+                                        <div class="col-12 box bb-3 border-info">
+                                            <div class="box-body ribbon-box p-2">
+                                                <div class="ribbon ribbon-info">Sản lượng mì Việt Nam - Campuchia</div>
+                                            </div>
+                                            <div class="box-body ribbon-box p-1">
+                                                <canvas id="chartMiVC" height="60"></canvas>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 box bb-3 border-info">
+                                            <div class="box-body ribbon-box p-2">
+                                                <div class="ribbon ribbon-info">Giá mua bình quân mì Việt Nam - Campuchia</div>
+                                            </div>
+                                            <div class="box-body ribbon-box p-1">
+                                                <canvas id="chartGiaBQVC" height="60"></canvas>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 box bb-3 border-info">
+                                            <div class="box-body ribbon-box p-2">
+                                                <div class="ribbon ribbon-info">Tỉ trọng thu mua mì ở các nhà máy</div>
+                                            </div>
+                                            <div class="box-body ribbon-box p-1">
+                                                <canvas id="" height="296"></canvas>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 box bb-3 border-info">
+                                            <div class="box-body ribbon-box p-2">
+                                                <div class="ribbon ribbon-info">Đơn giá thu mua bình quân</div>
+                                            </div>
+                                            <div class="box-body ribbon-box p-1">
+                                                <canvas id="" height="145"></canvas>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End Main 1 -->
+                        </div>
+                    </div>
+                </div>
+            </div>    
+        </div>
+        <!-- <script src="vendor_components/chart.js-master/Chart.min.js"></script> -->
+        <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.2/dist/chart.umd.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {       
+                const toCounter = (targetNumber, contentOut, time, formatValue) => {
+                    let start = null;
+                    const duration = time;
+                    const step = (timestamp) => {
+                        if (!start) start = timestamp;
+                        const progress = timestamp - start;
+                        const increment = Math.ceil(targetNumber * (progress / duration));
+
+                        if (progress < duration) {
+                            contentOut.textContent = increment.toLocaleString() + ' ' + formatValue;
+                            requestAnimationFrame(step);
+                        } else {
+                            contentOut.textContent = targetNumber.toLocaleString() + ' ' + formatValue;
+                        }
+                    }
+                    requestAnimationFrame(step);
+                }
+                Chart.register(ChartDataLabels); // add plugin vào chart js
+                ////////////////////////////////////////////////////////////////////////////////////////////
+                // Add group tr
+                const tblGroup = (tableId) => {
+                    const table = document.getElementById(tableId);
+                    if (!table.closest('.tbl-group')) {
+                        console.error('Không tìm thấy thẻ cha có class .tbl-group');
+                        return;
+                    }
+                    const parentRows = table.querySelectorAll('tr.parent');
+                    parentRows.forEach(parentRow => {
+                        const nextRows = getNextRows(parentRow);
+                        let status = parentRow.dataset.status;
+                        if (status === 'show') {
+                            nextRows.forEach(row => {
+                                if (row.classList.contains('d-none')) {
+                                    row.classList.remove('d-none');
+                                }
+                            });
+                        } else if (status === 'off') {
+                            nextRows.forEach(row => {
+                                if (!row.classList.contains('d-none')) {
+                                    row.classList.add('d-none');
+                                }
+                            });
+                        }
+                        parentRow.addEventListener('click', function() {
+                            status = (status === 'show') ? 'off' : 'show';
+                            nextRows.forEach(row => {
+                                row.classList.toggle('d-none');
+                            });
+                        });
+                    });
+
+                    function getNextRows(startRow) {
+                        const nextRows = [];
+                        let nextRow = startRow.nextElementSibling;
+                        while (nextRow && !nextRow.classList.contains('parent')) {
+                            if (nextRow.classList.contains('child')) {
+                                nextRows.push(nextRow);
+                            }
+                            nextRow = nextRow.nextElementSibling;
+                        }
+                        return nextRows;
+                    }
+                };
+                // tblGroup('doanhThuLoai');
+                // End Add group tr
+                const random = (count, min, max) => {
+                    return Array.from({ length: count }, () => Math.floor(Math.random() * (max - min + 1)) + min);
+                }
+                const rValue = () => random(3, 1000, 10000);
+                ////////////////////////////////////////////////////////////////////////////////////////////
+                const group = document.getElementById('chartGroup').getContext('2d');
+
+                const months = ['Tháng 1', 'Tháng 2', 'Tháng 3', 'Tháng 4', 'Tháng 5', 'Tháng 6', 'Tháng 7', 'Tháng 8', 'Tháng 9', 'Tháng 10', 'Tháng 11', 'Tháng 12'];
+                const dataGroup = [];
+                const colors = [
+                    'rgba(255, 99, 132)',
+                    'rgba(255, 159, 64)',
+                    'rgba(75, 192, 192)',
+                    'rgba(54, 162, 235)',
+                    'rgba(153, 102, 255)'
+                ];
+                for (let i = 0; i < 5; i++) {
+                    for (let j = 0; j < 2; j++) {
+                        const label = j === 0 ? `Đã mua NM ${i + 1}` : `Còn lại NM ${i + 1}`;
+                        const backgroundColor = `${colors[i % 5].slice(0, -1)}, ${j === 0 ? 0.6 : 0.2})`;
+                        const borderColor = colors[i % 5];
+                        dataGroup.push({
+                            label,
+                            data: rValue(),
+                            backgroundColor,
+                            borderColor,
+                            stack: `NM${i + 1}`,
+                        });
+                    }
+                    console.log(rValue());
+                }
+                
+                const configGroup = {
+                    type: 'bar',
+                    data: {
+                        labels: months,
+                        datasets: dataGroup,
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        interaction: {
+                            intersect: false,
+                        },
+                        scales: {
+                            x: {
+                                stacked: true,
+                                grid: {
+                                    display: false
+                                }
+                            },
+                            y: {
+                                stacked: true,
+                                display: false,
+                                min: 0,
+                                //max: 20,
+                                beginAtZero: true,
+                            },
+                        },
+                        plugins: {
+                            legend: {
+                                display: true,
+                                position:'top',
+                                align: 'start'
+                            },
+                            title: {
+                                display: false,
+                            },
+                            datalabels: {
+                                display: true,
+                                font: {
+                                    size: 10,
+                                    weight: 'bold',
+                                },
+                                color: '#000',  
+                                offset: -5,                             
+                                align: function(context) {
+                                    return context.datasetIndex % 2 === 0 ? 'center' : 'top'
+                                },
+                                anchor: function(context) {
+                                    return context.datasetIndex % 2 === 0 ? 'center' : 'end'
+                                },
+                                formatter: function(value, context) {
+                                    if (context.datasetIndex % 2 === 0) { // Nếu là label của số liệu đã mua
+                                        return value; 
+                                    } else {
+                                        return value + 't';
+                                    }
+                                },
+                            }
+                        },
+                        //barThickness: 70,
+                        barPercentage: 0.8,        
+                        categoryPercentage: 0.85
+                    }
+                };
+                const chartGroup = new Chart(group, configGroup);
+                ////////////////////////////////////////////////////////////////////////////////////////////
+                ////////////////////////////////////////////////////////////////////////////////////////////
+                const chartMiVC = document.getElementById('chartMiVC').getContext('2d');
+                const configMiVC = {
+                    type: 'bar',
+                    data: {
+                        labels: '%',
+                        datasets: [
+                                {
+                                label: 'Sản lượng mì Campuchia',
+                                axis: 'y',
+                                data: [80],
+                                fill: false,
+                                backgroundColor: ['rgba(255, 99, 132, 0.2)'],
+                                borderColor: ['rgba(255, 99, 132)'],
+                                borderWidth: 1
+                            },
+                            {
+                                label: 'Sản lượng mì Việt Nam',
+                                axis: 'y',
+                                data: [20],
+                                fill: false,
+                                backgroundColor: ['rgba(255, 159, 64, 0.2)'],
+                                borderColor: ['rgba(255, 159, 64)'],
+                                borderWidth: 1
+                            }
+                        ]
+                    },
+                    options: {
+                        // maintainAspectRatio: false,
+                        responsive: true,
+                        legend: {
+                            display: false
+                        },
+                        indexAxis: 'y',
+                        scales: {
+                            x: {
+                                max: 100,
+                                min: 0,
+                                beginAtZero: true,
+                                stacked: true,
+
+                            },
+                            y: {
+                                beginAtZero: true,
+                                grid: {
+                                    display: false,
+                                    offset: true
+                                },
+                                stacked: true,
+                            }
+                        },
+                        plugins: {
+                            legend: true,
+                            title: {
+                                display: false,
+                                text: 'So sánh giá bán tinh bột mì',
+                                font: {
+                                    size: 20,
+                                    weight: 'bold',
+                                },
+                                color: '#7047ee',
+                            }
+                        },
+                        barThickness: 100,
+                        barPercentage: 0.8,
+                        categoryPercentage: 1   
+                    }
+                };
+                const MiVC = new Chart(chartMiVC, configMiVC);
+                ////////////////////////////////////////////////////////////////////////////////////////////
+                const chartGiaBQVC = document.getElementById('chartGiaBQVC').getContext('2d');
+                const configGiaBQVC = {
+                    type: 'bar',
+                    data: {
+                        labels: '%',
+                        datasets: [
+                                {
+                                label: 'Giá mì Campuchia',
+                                axis: 'y',
+                                data: [80],
+                                fill: false,
+                                backgroundColor: ['rgba(255, 99, 132, 0.2)'],
+                                borderColor: ['rgba(255, 99, 132)'],
+                                borderWidth: 1
+                            },
+                            {
+                                label: 'Giá mì Việt Nam',
+                                axis: 'y',
+                                data: [20],
+                                fill: false,
+                                backgroundColor: ['rgba(255, 159, 64, 0.2)'],
+                                borderColor: ['rgba(255, 159, 64)'],
+                                borderWidth: 1
+                            }
+                        ]
+                    },
+                    options: {
+                        // maintainAspectRatio: false,
+                        responsive: true,
+                        legend: {
+                            display: false
+                        },
+                        indexAxis: 'y',
+                        scales: {
+                            x: {
+                                max: 100,
+                                min: 0,
+                                beginAtZero: true,
+                                stacked: true,
+
+                            },
+                            y: {
+                                beginAtZero: true,
+                                grid: {
+                                    display: false,
+                                    offset: true
+                                },
+                                stacked: true,
+                            }
+                        },
+                        plugins: {
+                            legend: true,
+                        },
+                        barPercentage: 0.8,
+                        categoryPercentage: 0.9   
+                    }
+                };
+                const GiaBQVC = new Chart(chartGiaBQVC, configGiaBQVC);
+                ////////////////////////////////////////////////////////////////////////////////////////////
+                ////////////////////////////////////////////////////////////////////////////////////////////
+                ////////////////////////////////////////////////////////////////////////////////////////////
+                ////////////////////////////////////////////////////////////////////////////////////////////
+            });
+        </script>
+    </body>
+</html>

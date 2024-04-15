@@ -1,0 +1,150 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Chỉnh sửa thông tin bệnh nhân</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    
+    <link rel="stylesheet" href="css/color_theme.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/frm_04.css">
+    
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    
+</head>
+<body class="theme-primary new_style frm_04">
+    <!-- <div class="flex flex-wrap gapy-10"> -->
+    <div class="w100 flex flex-wrap gapy-10">
+        <div class="w30 grow-1 flex flex-wrap box-shadow-5 bdr-5">
+            <div class="w100 flex bg-third clr-white pdl-10 pdr-5 bdr-5">
+                <h2 class="frm__block--title"><i class="fa-solid fa-hospital-user fa-lg"></i> Thông tin giấy chứng sinh</h2>
+            </div>
+            <div class="w30 grow-1 flex flex-wrap pd-10 gapy-5">
+                <div class="w100 flex flex-align-center gapy-5">
+                    <label class="w90px txt-right" for="">Họ và tên <span class="clr-red">(*)</span></label>
+                    <select class="input w20" id="" required="">
+                        <option value="1" selected="">Mẹ</option>
+                        <option value="2">Người nuôi dưỡng</option>
+                        <option value="3">Khác</option>
+                    </select>
+                    <input class="input w100px grow-1" type="text" id="" value="">
+                    <select class="input w15" id="" required="">
+                        <option value="1" selected="">Nam</option>
+                        <option value="2">Nữ</option>
+                        <option value="3">Khác</option>
+                    </select>
+                </div>
+                <div class="w50 flex flex-align-center gapy-5">
+                    <label class="w90px txt-right" for="">Năm sinh</label>
+                    <input class="input w100px grow-1" type="date" id="" value="">
+                </div>
+                <div class="w50-gapy5 flex flex-align-center gapy-5">
+                    <label class="w60px txt-right" for="">Dân tộc</label>
+                    <select class="input w100px grow-1" id="" required="">
+                        <option value="1" selected="">Kinh</option>
+                        <option value="2">Đi cày</option>
+                        <option value="3">Khác</option>
+                    </select>
+                </div>
+                <div class="w100 flex flex-align-center gapy-5">
+                    <label class="w90px txt-right" for="">Địa chỉ</label>
+                    <input class="input w110px grow-1" type="text" id="" value="">
+                </div>
+                <div class="w100 flex flex-align-center gapy-5">
+                    <label class="w90px txt-right" for="">Mã bảo hiểm</label>
+                    <input class="input w100px grow-1" type="text" id="" value="">
+                </div>
+                <div class="w50 flex flex-align-center gapy-5">
+                    <label class="w90px txt-right" for="">CCCD</label>
+                    <input class="input w100px grow-1" type="text" id="" value="">
+                </div>
+                <div class="w50-gapy5 flex flex-align-center gapy-5">
+                    <label class="w60px txt-right" for="">Ngày cấp</label>
+                    <input class="input w100px grow-1" type="date" id="" value="">
+                </div>
+                <div class="w100 flex flex-align-center gapy-5">
+                    <label class="w90px txt-right" for="">Nơi cấp</label>
+                    <input class="input w110px grow-1" type="text" id="" value="">
+                </div>
+            </div>
+            <div class="w30 grow-1 flex flex-wrap pd-10 gapy-5">
+                <div class="w50 flex flex-align-center gapy-5">
+                    <label class="w100px txt-right" for="">Sinh vào</label>
+                    <input class="input w100px grow-1" type="datetime-local" id="" value="">
+                </div>
+                <div class="w50-gapy5 flex flex-align-center gapy-5">
+                    <label class="w60px txt-right" for="">Giới tính</label>
+                    <select class="input w100px grow-1" id="" required="">
+                        <option value="1" selected="">Nam</option>
+                        <option value="2">Nữ</option>
+                    </select>
+                </div>
+                <div class="w50 flex flex-align-center gapy-5">
+                    <label class="w100px txt-right" for="">Cân nặng (gram)</label>
+                    <input class="input w100px grow-1" type="text" id="" value="">
+                </div>
+                <div class="w50-gapy5 flex flex-align-center gapy-5">
+                    <label class="w140px txt-right" for="">Số con sinh trong lần này </label>
+                    <input class="input w30px grow-1" type="text" id="" value="">
+                </div>
+                <div class="w100 flex flex-align-center gapy-5">
+                    <label class="w100px txt-right" for="">Tại</label>
+                    <input class="input w110px grow-1" type="text" id="" value="">
+                </div>
+                <div class="w100 flex flex-align-center gapy-5">
+                    <label class="w100px txt-right" for="">Tên dự định đặt</label>
+                    <input class="input w110px grow-1" type="text" id="" value="">
+                </div>
+                <div class="w100 flex flex-align-start gapy-5">
+                    <label class="w100px txt-right" for="">Ghi chú</label>
+                    <textarea class="input grow-1" style="height: 61px;" name="medical-note" cols="30" rows="30"></textarea>
+                </div>
+            </div>
+            <div class="w30 grow-1 flex flex-wrap pd-10 gapy-5">
+                <div class="w50-gapy5 flex flex-align-center gapy-5">
+                    <label class="w100px txt-right" for="">Ngày lập phiếu</label>
+                    <input class="input w100px grow-1" type="datetime-local" id="" value="">
+                </div>
+                <div class="w100 flex flex-align-center gapy-5">
+                    <label class="w100px txt-right" for="">Họ tên cha</label>
+                    <input class="input w110px grow-1" type="text" id="" value="">
+                </div>
+                <div class="w100 flex flex-align-center gapy-5">
+                    <label class="w100px txt-right" for="">Người xác nhận</label>
+                    <select class="input w20" id="" required="">
+                        <option value="1" selected="">Mẹ</option>
+                        <option value="2">Người nuôi dưỡng</option>
+                        <option value="3">Cha</option>
+                    </select>
+                    <input class="input w100px grow-1" type="text" id="" value="">
+                </div>
+                <div class="w100 flex flex-align-center gapy-5">
+                    <label class="w100px txt-right" for="">Người đỡ đẻ</label>
+                    <input class="input w110px grow-1" type="text" id="" value="">
+                </div>
+                <div class="w100 flex flex-align-center gapy-5">
+                    <label class="w100px txt-right" for="">Người ghi phiếu</label>
+                    <select class="input w25" id="" required="">
+                        <option value="1" selected="">Trưởng khoa</option>
+                        <option value="2">Hộ lý</option>
+                        <option value="3">Y tá</option>
+                    </select>
+                    <input class="input w110px grow-1" type="text" id="" value="">
+                </div>
+                <div class="w100 flex flex-align-center gapy-5">
+                    <label class="w100px txt-right" for="">Thủ trưởng CSYT</label>
+                    <input class="input w110px grow-1" type="text" id="" value="">
+                </div>
+            </div>
+            <div class="w100 flex flex-wrap flex-justify-content pd-10 gapy-5">
+                <button type="button" class="btn btn-primary" id="" title="Kiểm tra thông tuyến"><i class="fa-solid fa-pen-to-square fa-lg"></i> Sửa </button>
+                <button type="button" class="btn btn-history" id="" title="Cập nhật thông tin thẻ bảo hiểm y tế"><i class="fa-solid fa-check fa-lg"></i> Lưu</button>
+                <button type="button" class="btn btn-exit" id="btnXoaHoiChan" title="Xóa thẻ bảo hiểm này"><i class="fa-solid fa-trash-can fa-lg"></i> Xóa</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
